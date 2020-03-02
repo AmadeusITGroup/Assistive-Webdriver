@@ -3,6 +3,19 @@
   "description": "Listens to tcp connections on a given port and forwards all the received data to a web client.",
   "version": "1.0.0",
   "license": "MIT",
+  "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/tcp-web-listener",
+  "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmadeusITGroup/Assistive-Webdriver.git",
+    "directory": "tcp-web-listener"
+  },
+  "keywords": [
+    "http",
+    "tcp",
+    "websocket"
+  ],
   "bin": "./tcp-web-listener",
   "scripts": {
     "start": "node tcp-web-listener",
