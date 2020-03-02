@@ -20,5 +20,5 @@ jobs:
             tcp-web-listener-yarn-
       - run: yarn --frozen-lockfile
         working-directory: ./tcp-web-listener
-      - run: yarn test --coverage
+      - run: yarn test
         working-directory: ./tcp-web-listener
