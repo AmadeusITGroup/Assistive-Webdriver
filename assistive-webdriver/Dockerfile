@@ -14,7 +14,6 @@ WORKDIR /opt/app
 ADD package.json yarn.lock /opt/app/
 RUN ["yarn", "--frozen-lockfile", "--ignore-scripts", "--production"]
 COPY --from=builder /opt/app/dist/ /opt/app/dist
-ADD . /opt/app/
 ENTRYPOINT []
 CMD ["yarn", "start"]
 EXPOSE 3000
