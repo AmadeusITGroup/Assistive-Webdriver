@@ -1,0 +1,34 @@
+name: assistive-webdriver
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: assistive-webdriver-yarn-${{ hashFiles('assistive-webdriver/yarn.lock') }}
+          restore-keys: |
+            assistive-webdriver-yarn-
+      - run: yarn --frozen-lockfile
+        working-directory: ./assistive-webdriver
+      - run: yarn lint
+        working-directory: ./assistive-webdriver
+      - run: yarn format:check
+        working-directory: ./assistive-webdriver
+      - run: yarn test --coverage
+        working-directory: ./assistive-webdriver
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo docker build -t assistive-webdriver .
+        working-directory: ./assistive-webdriver

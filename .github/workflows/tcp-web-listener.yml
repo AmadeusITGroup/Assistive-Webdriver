@@ -1,0 +1,24 @@
+name: tcp-web-listener
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: tcp-web-listener-yarn-${{ hashFiles('tcp-web-listener/yarn.lock') }}
+          restore-keys: |
+            tcp-web-listener-yarn-
+      - run: yarn --frozen-lockfile
+        working-directory: ./tcp-web-listener
+      - run: yarn test --coverage
+        working-directory: ./tcp-web-listener
