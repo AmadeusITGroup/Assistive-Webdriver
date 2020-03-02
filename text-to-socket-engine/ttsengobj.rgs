@@ -1,0 +1,25 @@
+HKCR
+{
+	TextToSocketEngine.TextToSocketEngine.1 = s 'TextToSocketEngine Class'
+	{
+		CLSID = s '{57A5A4F1-85EA-4A9A-ADFB-AFBA4F3AC649}'
+	}
+	TextToSocketEngine.TextToSocketEngine = s 'TextToSocketEngine Class'
+	{
+		CLSID = s '{57A5A4F1-85EA-4A9A-ADFB-AFBA4F3AC649}'
+		CurVer = s 'TextToSocketEngine.TextToSocketEngine.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {57A5A4F1-85EA-4A9A-ADFB-AFBA4F3AC649} = s 'TextToSocketEngine Class'
+		{
+			ProgID = s 'TextToSocketEngine.TextToSocketEngine.1'
+			VersionIndependentProgID = s 'TextToSocketEngine.TextToSocketEngine'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{23A904F5-AE2A-496A-9026-E10B23762817}'
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+  "name": "tcp-web-listener",
+  "description": "Listens to tcp connections on a given port and forwards all the received data to a web client.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "bin": "./tcp-web-listener",
+  "scripts": {
+    "start": "node tcp-web-listener",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "sockjs": "0.3.19",
+    "sockjs-client": "1.4.0",
+    "yargs": "15.1.0"
+  },
+  "devDependencies": {
+    "jest": "25.1.0",
+    "ws": "7.2.1"
+  }
+}

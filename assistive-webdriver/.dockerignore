@@ -1,0 +1,12 @@
+/coverage
+/dist
+/node_modules
+/samples
+/test
+/vm-guide
+/Dockerfile
+/jest.config.js
+/tsconfig.test.json
+.*
+*.md
+*.tgz

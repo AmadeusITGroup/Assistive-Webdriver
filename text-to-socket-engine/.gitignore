@@ -1,0 +1,9 @@
+*.obj
+*.c
+*.dll
+*.res
+*.tlb
+*.exp
+*.lib
+*.zip
+/TextToSocketEngine.h

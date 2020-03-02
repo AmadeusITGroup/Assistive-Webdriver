@@ -1,0 +1,32 @@
+//--- Import base idl
+import "oaidl.idl";
+import "ocidl.idl";
+import "sapiddk.idl";
+
+//=== Forward References ======================================================
+
+//=== Constants ===============================================================
+
+//=== Interface definitions ===================================================
+
+//=== CoClass definitions =====================================================
+[
+	uuid(23A904F5-AE2A-496A-9026-E10B23762817),
+	version(1.0),
+	helpstring("TextToSocket TTS Engine 1.0 Type Library")
+]
+library TEXTTOSOCKETTTSENGLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(57A5A4F1-85EA-4A9A-ADFB-AFBA4F3AC649),
+		helpstring("TextToSocketEngine Class")
+	]
+	coclass TextToSocketEngine
+	{
+		[default] interface ISpTTSEngine;
+        interface ISpObjectWithToken;
+	};
+};
