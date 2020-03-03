@@ -8,6 +8,12 @@ jobs:
         arch: [x86, amd64]
     steps:
       - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: node setVersion.js ${{ github.ref }}
+        working-directory: .\text-to-socket-engine
       - run: |
           @echo on
           call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=${{ matrix.arch }}
@@ -21,3 +27,42 @@ jobs:
         with:
           name: text-to-socket-engine-${{ matrix.arch }}.zip
           path: text-to-socket-engine/text-to-socket-engine.zip
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/text-to-socket-engine/')
+    steps:
+      - uses: actions/download-artifact@v1
+        with:
+          name: text-to-socket-engine-x86.zip
+      - uses: actions/download-artifact@v1
+        with:
+          name: text-to-socket-engine-amd64.zip
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: false
+          prerelease: false
+      - name: Upload text-to-socket-engine-x86.zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./text-to-socket-engine-x86.zip
+          asset_name: text-to-socket-engine-x86.zip
+          asset_content_type: application/zip
+      - name: Upload text-to-socket-engine-amd64.zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./text-to-socket-engine-amd64.zip
+          asset_name: text-to-socket-engine-amd64.zip
+          asset_content_type: application/zip
