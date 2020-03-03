@@ -1,6 +1,6 @@
 # Assistive-Webdriver
 
-Assistive-Webdriver is a tool allowing to automate tests with a screen reader.
+Assistive-Webdriver is a tool to automate end-to-end web application tests with a screen reader.
 
 Web sites and web applications are increasingly required to be accessible, and, especially, compatible with screen readers, so that visually impaired users can use them.
 

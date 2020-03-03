@@ -1,5 +1,8 @@
 # tcp-web-listener
 
+![tcp-web-listener](https://github.com/AmadeusITGroup/Assistive-Webdriver/workflows/tcp-web-listener/badge.svg?branch=master&event=push)
+[![npm](https://img.shields.io/npm/v/tcp-web-listener)](https://www.npmjs.com/package/tcp-web-listener)
+
 Small server that listens to TCP connections on a given port and forwards all the received data to a web client through [sock.js](https://github.com/sockjs/sockjs-client).
 
 ## How to use
