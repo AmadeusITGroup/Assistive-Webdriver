@@ -20,13 +20,13 @@ jobs:
           call build.cmd
         shell: cmd
         working-directory: .\text-to-socket-engine
-      - run: 7z a text-to-socket-engine.zip register.cmd unregister.cmd TextToSocketEngine.dll
+      - run: 7z a text-to-socket-engine-${{ matrix.arch }}.zip register.cmd unregister.cmd TextToSocketEngine.dll
         working-directory: .\text-to-socket-engine
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
           name: text-to-socket-engine-${{ matrix.arch }}.zip
-          path: text-to-socket-engine/text-to-socket-engine.zip
+          path: text-to-socket-engine/text-to-socket-engine-${{ matrix.arch }}.zip
   release:
     runs-on: ubuntu-latest
     needs: build
@@ -46,7 +46,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          draft: false
+          draft: true
           prerelease: false
       - name: Upload text-to-socket-engine-x86.zip
         uses: actions/upload-release-asset@v1
