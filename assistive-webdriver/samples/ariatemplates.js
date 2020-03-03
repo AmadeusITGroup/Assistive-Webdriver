@@ -1,7 +1,10 @@
 /* eslint @typescript-eslint/no-var-requires: 0 */
 const fs = require("fs");
 const { Builder, By, Key, Browser, until } = require("selenium-webdriver");
-const { forScreenReaderToSay, addScreenReaderTextListener } = require("..");
+const {
+  forScreenReaderToSay,
+  addScreenReaderTextListener
+} = require(".."); /* outside this repository, use: require("assistive-webdriver") */
 
 (async function() {
   const driver = await new Builder()
