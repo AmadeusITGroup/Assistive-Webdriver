@@ -42,7 +42,7 @@ BEGIN
             VALUE "FileDescription", "Text-To-Socket-Engine\0"
             VALUE "FileVersion", "0,0,0,0\0"
             VALUE "InternalName", "TextToSocketEngine\0"
-            VALUE "LegalCopyright", "\0"
+            VALUE "LegalCopyright", "Copyright 2019 Amadeus s.a.s. Released under MIT license, cf https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/text-to-socket-engine\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "TextToSocketEngine.dll\0"
             VALUE "PrivateBuild", "\0"
