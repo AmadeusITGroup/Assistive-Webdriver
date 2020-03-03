@@ -54,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./text-to-socket-engine-x86.zip
+          asset_path: ./text-to-socket-engine-x86.zip/text-to-socket-engine-x86.zip
           asset_name: text-to-socket-engine-x86.zip
           asset_content_type: application/zip
       - name: Upload text-to-socket-engine-amd64.zip
@@ -63,6 +63,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./text-to-socket-engine-amd64.zip
+          asset_path: ./text-to-socket-engine-amd64.zip/text-to-socket-engine-amd64.zip
           asset_name: text-to-socket-engine-amd64.zip
           asset_content_type: application/zip
