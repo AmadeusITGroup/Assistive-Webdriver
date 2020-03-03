@@ -16,7 +16,7 @@ When the session is destroyed the server stops and destroys the virtual machine.
 
 Here is a schema describing the architecture of Assistive-Webdriver:
 
-![Architecture of Assistive-Webdriver](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/assistive-webdriver/architecture.png)
+![Architecture of Assistive-Webdriver](https://raw.githubusercontent.com/AmadeusITGroup/Assistive-Webdriver/master/assistive-webdriver/architecture.png)
 
 ## Getting started
 
