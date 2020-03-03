@@ -46,9 +46,3 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           yarn publish
         working-directory: ./assistive-webdriver
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: sudo docker build -t assistive-webdriver .
-        working-directory: ./assistive-webdriver
