@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "GitHub variables"
+        run: echo "github.event_name = ${{ github.event_name }}, github.ref = ${{ github.ref }}"
       - uses: actions/checkout@v2
       - name: Set Node.js version
         uses: actions/setup-node@v1
@@ -29,7 +31,7 @@ jobs:
         with:
           name: tcp-web-listener.tgz
           path: tcp-web-listener/tcp-web-listener-v0.0.0.tgz
-      - if: github.event == 'push' && startsWith(github.ref, 'refs/tags/tcp-web-listener/')
+      - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/tcp-web-listener/')
         name: yarn publish
         run: |
           yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})

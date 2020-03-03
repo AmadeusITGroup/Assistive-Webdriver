@@ -4,6 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: "GitHub variables"
+        run: echo "github.event_name = ${{ github.event_name }}, github.ref = ${{ github.ref }}"
       - uses: actions/checkout@v2
       - name: Set Node.js version
         uses: actions/setup-node@v1
@@ -39,7 +41,7 @@ jobs:
         with:
           name: assistive-webdriver.tgz
           path: assistive-webdriver/assistive-webdriver-v0.0.0.tgz
-      - if: github.event == 'push' && startsWith(github.ref, 'refs/tags/assistive-webdriver/')
+      - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/assistive-webdriver/')
         name: yarn publish
         run: |
           yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})
