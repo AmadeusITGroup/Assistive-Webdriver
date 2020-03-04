@@ -6,7 +6,7 @@
 
 ## Presentation
 
-This package contains the implementation of a webdriver server that allows testing web applications with a screen reader (such as [JAWS](http://www.freedomscientific.com/products/software/jaws/)) and checking that the screen reader says what is expected.
+This package contains the implementation of a webdriver server that allows testing web applications with a screen reader (such as [NVDA](https://www.nvaccess.org/) or [JAWS](http://www.freedomscientific.com/products/software/jaws/)) and checking that the screen reader says what is expected.
 
 This requires two main features that are not natively supported by webdriver:
 - being able to send keystrokes at a low level so that the screen reader can receive them. This is achieved by using either Virtual Box or QEMU and sending low level events with their API.
@@ -32,7 +32,7 @@ Here is a schema describing the architecture of Assistive-Webdriver:
 - Make sure you have a VirtualBox or QEMU virtual machine properly configured. To configure the virtual machine, you can follow [this step-by-step guide](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/assistive-webdriver/vm-guide/README.md). The virtual machine should be configured with:
   - The [selenium standalone server](https://www.selenium.dev/downloads)
   running on port 4444
-  - The [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader
+  - The [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader
   - [text-to-socket-engine](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/text-to-socket-engine) and [tcp-web-listener](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/tcp-web-listener) that are configured to work together, with tcp-web-listener listening on http port 7779
   - A snapshot of the virtual machine should be saved in the running state with all these programs running.
 

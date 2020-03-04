@@ -1,12 +1,12 @@
 # Configuring a virtual machine
 
-This guide explains how to configure a VirtualBox virtual machine to use it with `Assistive-Webdriver` for automated testing of a web application with the [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader.
+This guide explains how to configure a VirtualBox virtual machine to use it with `Assistive-Webdriver` for automated testing of a web application with the [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader.
 
 This guide supposes [VirtualBox](https://www.virtualbox.org/) is installed on your machine.
 
 ## Download or install a Windows virtual machine
 
-You need to have a VirtualBox virtual machine containing Windows. You can either install it yourself, or you can download one from Microsoft [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
+You need to have a VirtualBox virtual machine configured with a sound card and containing Windows. You can either install it yourself, or you can download one from Microsoft [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
 If you choose to download it from the previous link from Microsoft, choose the `VirtualBox` platform. This will trigger the download of a `.zip` file that contains a `.ova` file that you can open with VirtualBox to import the virtual machine:
 
@@ -14,7 +14,11 @@ If you choose to download it from the previous link from Microsoft, choose the `
 
 Click on `Import`. Importing the appliance can take several minutes.
 
-Once the operation is finished, double-click on the machine (called `MSEdge - Win10` by default) in the list of machines to start it.
+Once the operation is finished, add a sound card to the virtual machine. To do this, right-click on the machine (called `MSEdge - Win10` by default) and click on `Settings`. Click on `Audio` in the list on the left and check `Enable Audio`. Then click on `OK`:
+
+![Enable audio](enable-audio.png)
+
+Then double-click on the machine in the list of machines to start it.
 
 When requested, login as the `IEUser` user with the `Passw0rd!` password.
 
@@ -35,27 +39,51 @@ Once the virtual machine is fully started, follow the following steps inside the
 
 - Download [Selenium Server](https://www.selenium.dev/downloads/) and store the `.jar` file somewhere in the virtual machine.
 
-- Download TextToSocketEngine and extract the full content of the zip file somewhere in the virtual machine. Then execute the `register.cmd` script as an administrator (right-click on the file, then click on `Run as administrator`).
+- Download the latest `x86` version of `text-to-socket-engine` from [the releases page on GitHub](https://github.com/AmadeusITGroup/Assistive-Webdriver/releases) and extract the full content of the zip file somewhere in the virtual machine. Then execute the `register.cmd` script as an administrator (right-click on the file, then click on `Run as administrator`) and confirm you want to execute the script. The following dialog should then be displayed to notify that the installation was successful:
 
 ![TextToSocketEngine dialog after successful installation](after-installing-texttosocketengine.png)
 
-- Download and install [JAWS](https://support.freedomscientific.com/Downloads/JAWS).
+- Download and install [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS).
 
-- Configure `JAWS` to use `TextToSocketEngine`:
+- Configure `NVDA` or `JAWS` to use `TextToSocketEngine`:
 
-  - In the `Options` menu, select `Voices` and click on `Voice Adjustment`:
 
-  ![JAWS Options menu](jaws-options-menu.png)
+  - For NVDA:
+    - Right-click on the NVDA icon in the task bar, select `Preferences` and click on `Settings...`:
 
-  - In the `Voice Adjustment` dialog, select `SAPI 5X - (factory)` in the `Profile Name` field. Then choose `textToSocketVoice` in the `Person` field of the `Voice` section. Then click on `OK`.
+    ![NVDA Options menu](nvda-preferences-menu.png)
 
-  ![JAWS Voice Adjustment dialog](jaws-voice-adjustment.png)
+    - In the `NVDA Settings` dialog, click on the `Speech` category in the list on the left:
 
-  - JAWS then asks whether you want to make `SAPI 5X` the default voice profile. Simply click on `Yes`.
+    ![NVDA Settings dialog](nvda-settings-dialog.png)
 
-  ![JAWS Make Default Voice Profile dialog](jaws-default-profile.png)
+    - Click on the `Change...` button next to the `Synthesizer` field to choose another synthesizer.
 
-  - JAWS is now correctly configured to use `TextToSocketEngine`.
+    - In the `Select Synthesizer` dialog, choose `Microsoft Speech API version 5` in the `Synthesizer` field, and click on OK:
+
+    ![NVDA Select Synthesizer dialog](nvda-select-synthesizer-dialog.png)
+
+    - In the `NVDA Settings` dialog, select `Text To Socket localhost:4449` in the `Voice` field, and click on `OK`:
+
+    ![NVDA Settings dialog](nvda-settings-dialog2.png)
+
+    - NVDA is now correctly configured to use `TextToSocketEngine`.
+
+  - For JAWS:
+    - In the `Options` menu, select `Voices` and click on `Voice Adjustment`:
+
+    ![JAWS Options menu](jaws-options-menu.png)
+
+    - In the `Voice Adjustment` dialog, select `SAPI 5X - (factory)` in the `Profile Name` field. Then choose `textToSocketVoice` in the `Person` field of the `Voice` section. Then click on `OK`.
+
+    ![JAWS Voice Adjustment dialog](jaws-voice-adjustment.png)
+
+    - JAWS then asks whether you want to make `SAPI 5X` the default voice profile. Simply click on `Yes`.
+
+    ![JAWS Make Default Voice Profile dialog](jaws-default-profile.png)
+
+    - JAWS is now correctly configured to use `TextToSocketEngine`.
+
 
 - Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener`.
 
