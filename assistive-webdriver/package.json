@@ -83,7 +83,7 @@
     "prepare": "yarn build",
     "prebuild": "rimraf dist",
     "build": "rollup -c",
-    "postbuild": "tsc",
+    "postbuild": "tsc -p tsconfig.d.json",
     "format": "prettier '*.{ts,js,json}' '{src,server,test,samples}/**/*.{ts,js,json}'",
     "format:check": "npm run format -- --check",
     "format:fix": "npm run format -- --write",

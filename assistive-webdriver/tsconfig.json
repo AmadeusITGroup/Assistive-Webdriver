@@ -2,12 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "esModuleInterop": true,
-    "declaration": true,
-    "outDir": "dist/client",
     "emitDeclarationOnly": true,
     "strict": true,
     "skipLibCheck": true,
     "noUnusedLocals": true
-  },
-  "include": ["src/client"]
+  }
 }
