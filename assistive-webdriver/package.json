@@ -50,7 +50,7 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "4.0.0",
     "@types/co-body": "0.0.3",
-    "@types/http-proxy": "1.17.3",
+    "@types/http-proxy": "1.17.4",
     "@types/jest": "25.1.4",
     "@types/koa": "2.11.2",
     "@types/koa-bodyparser": "4.3.0",
