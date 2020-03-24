@@ -38,7 +38,7 @@ export interface AsyncFnMock<T, Y extends any[]>
   waitForCallAndReplyWith(callback: (...args: Y) => Promise<T>): Promise<T>;
 }
 
-const waitForCallAndReplyWith = async function<T, Y extends any[]>(
+const waitForCallAndReplyWith = async function <T, Y extends any[]>(
   this: AsyncFnMock<T, Y>,
   callback: (...args: Y) => Promise<T>
 ): Promise<T> {

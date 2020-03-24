@@ -6,7 +6,7 @@ const {
   addScreenReaderTextListener
 } = require(".."); /* outside this repository, use: require("assistive-webdriver") */
 
-(async function() {
+(async function () {
   const driver = await new Builder()
     .withCapabilities({
       "awd:vm-config": "jaws"
@@ -40,10 +40,7 @@ const {
       until.elementsLocated(By.css("input[type=text]"))
     );
 
-    await driver
-      .actions()
-      .click(inputs[1])
-      .perform();
+    await driver.actions().click(inputs[1]).perform();
 
     await driver.wait(forScreenReaderToSay("Date of return"), 5000);
 
@@ -62,17 +59,11 @@ const {
       5000
     );
 
-    await driver
-      .actions()
-      .sendKeys("22/4/2019")
-      .perform();
+    await driver.actions().sendKeys("22/4/2019").perform();
 
     await driver.wait(forScreenReaderToSay("Monday 22 April 2019"), 5000);
 
-    await driver
-      .actions()
-      .sendKeys(Key.TAB)
-      .perform();
+    await driver.actions().sendKeys(Key.TAB).perform();
     await driver.wait(forScreenReaderToSay("Display calendar"), 5000);
 
     await driver
@@ -85,10 +76,7 @@ const {
 
     await driver.wait(forScreenReaderToSay("Display calendar"), 5000);
 
-    await driver
-      .actions()
-      .sendKeys(Key.SPACE)
-      .perform();
+    await driver.actions().sendKeys(Key.SPACE).perform();
 
     await driver.wait(
       forScreenReaderToSay(
@@ -97,17 +85,11 @@ const {
       5000
     );
 
-    await driver
-      .actions()
-      .sendKeys(Key.ARROW_DOWN)
-      .perform();
+    await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
 
     await driver.wait(forScreenReaderToSay("Monday 29 April 2019"), 5000);
 
-    await driver
-      .actions()
-      .sendKeys(Key.ENTER)
-      .perform();
+    await driver.actions().sendKeys(Key.ENTER).perform();
 
     await driver.wait(forScreenReaderToSay("Date of departure", false), 5000);
     await driver.wait(forScreenReaderToSay("29 slash 4 slash 19"), 5000);

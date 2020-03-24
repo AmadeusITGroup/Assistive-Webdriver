@@ -24,7 +24,7 @@ import { isShiftedKey } from "../../server/keyboard";
 import { wait } from "../../server/wait";
 
 export const checkFocus = async (testerSession: TesterSession) => {
-  const result = await testerSession.driver.executeScript(function() {
+  const result = await testerSession.driver.executeScript(function () {
     return (
       document.hasFocus() && (document.activeElement || {}).id === "testDiv"
     );
@@ -42,10 +42,7 @@ export const testKey = async (
   const props = keyProperties(keyName, keyChar);
   await checkFocus(testerSession);
   await testerSession.waitAndCheckEvent(keyName, "keydown", props, () =>
-    testerSession.driver
-      .actions()
-      .keyDown(keyChar)
-      .perform()
+    testerSession.driver.actions().keyDown(keyChar).perform()
   );
   await wait(50);
   const earlyKeyup = (await testerSession.assertQueueEmpty()).find(
@@ -59,18 +56,12 @@ export const testKey = async (
     );
     // just send the keyup, but it is useless to wait for the corresponding keyup event in this case
     // as there was one already
-    await testerSession.driver
-      .actions()
-      .keyUp(keyChar)
-      .perform();
+    await testerSession.driver.actions().keyUp(keyChar).perform();
     return;
   }
   await checkFocus(testerSession);
   await testerSession.waitAndCheckEvent(keyName, "keyup", props, () =>
-    testerSession.driver
-      .actions()
-      .keyUp(keyChar)
-      .perform()
+    testerSession.driver.actions().keyUp(keyChar).perform()
   );
 };
 

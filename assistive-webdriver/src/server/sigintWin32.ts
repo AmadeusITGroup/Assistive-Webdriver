@@ -22,7 +22,7 @@ export const sigintWin32 = () => {
       input: process.stdin,
       output: process.stdout
     });
-    readline.on("SIGINT", function() {
+    readline.on("SIGINT", function () {
       process.emit("SIGINT" as any);
     });
   }

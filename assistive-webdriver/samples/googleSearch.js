@@ -2,7 +2,7 @@
 const fs = require("fs");
 const { Builder, By, Key, Browser, until } = require("selenium-webdriver");
 
-(async function() {
+(async function () {
   const driver = await new Builder()
     .forBrowser(Browser.CHROME)
     .usingServer("http://localhost:3000/")

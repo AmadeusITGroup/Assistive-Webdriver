@@ -35,7 +35,7 @@ export function findRectangle(
   const width = image.width;
   const height = image.height;
 
-  const isRightColor = function(x: number, y: number) {
+  const isRightColor = function (x: number, y: number) {
     const baseIndex = 4 * (y * width + x);
     const distance =
       Math.abs(data[baseIndex] - color[0]) +
@@ -45,15 +45,15 @@ export function findRectangle(
     return distance < colorTolerance;
   };
 
-  const isCorrectX = function(x: number) {
+  const isCorrectX = function (x: number) {
     return x >= 0 && x < width;
   };
 
-  const isCorrectY = function(y: number) {
+  const isCorrectY = function (y: number) {
     return y >= 0 && y < height;
   };
 
-  const updateX = function(initValue: number, y: number, increment: number) {
+  const updateX = function (initValue: number, y: number, increment: number) {
     let value = initValue + increment;
     while (isCorrectX(value) && isRightColor(value, y)) {
       value += increment;
@@ -61,7 +61,7 @@ export function findRectangle(
     return value - increment;
   };
 
-  const updateY = function(x: number, initValue: number, increment: number) {
+  const updateY = function (x: number, initValue: number, increment: number) {
     let value = initValue + increment;
     while (isCorrectY(value) && isRightColor(x, value)) {
       value += increment;
@@ -69,7 +69,7 @@ export function findRectangle(
     return value - increment;
   };
 
-  const checkRectangle = function(rectangle: Rectangle) {
+  const checkRectangle = function (rectangle: Rectangle) {
     const maxX = rectangle.x + rectangle.width;
     const maxY = rectangle.y + rectangle.height;
     for (let x = rectangle.x; x < maxX; x++) {
@@ -83,7 +83,7 @@ export function findRectangle(
   };
 
   // this method supposes that the shape is really a rectangle
-  const findRectangleFromPosition = function(initX: number, initY: number) {
+  const findRectangleFromPosition = function (initX: number, initY: number) {
     if (!isRightColor(initX, initY)) {
       return null;
     }
@@ -102,7 +102,7 @@ export function findRectangle(
     return res;
   };
 
-  const internalFindRectangle = function() {
+  const internalFindRectangle = function () {
     for (let x = expectedWidth - 1; x < width; x += expectedWidth) {
       for (let y = expectedHeight - 1; y < height; y += expectedHeight) {
         const res = findRectangleFromPosition(x, y);

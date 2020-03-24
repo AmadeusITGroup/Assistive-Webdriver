@@ -20,7 +20,7 @@ import { WebElement, Condition } from "selenium-webdriver";
 
 export const untilElementHasFocus = (element: WebElement) =>
   new Condition("until element has focus", async webdriver => {
-    const result = await webdriver.executeScript(function() {
+    const result = await webdriver.executeScript(function () {
       // eslint-disable-next-line prefer-rest-params
       return document.hasFocus() && document.activeElement === arguments[0];
     }, element);

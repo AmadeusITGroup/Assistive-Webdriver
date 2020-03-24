@@ -50,16 +50,10 @@ export async function testMouseButton(
     pageY: y
   };
   await testerSession.waitAndCheckEvent(testName, "mousedown", props, () =>
-    testerSession.driver
-      .actions()
-      .press(button)
-      .perform()
+    testerSession.driver.actions().press(button).perform()
   );
   await testerSession.waitAndCheckEvent(testName, "mouseup", props, () =>
-    testerSession.driver
-      .actions()
-      .release(button)
-      .perform()
+    testerSession.driver.actions().release(button).perform()
   );
 }
 
@@ -68,7 +62,7 @@ export async function testMouseButtons(testerSession: TesterSession) {
   const viewportSize: {
     width: number;
     height: number;
-  } = await testerSession.driver.executeScript(function() {
+  } = await testerSession.driver.executeScript(function () {
     return {
       width: document.body.clientWidth,
       height: document.body.clientHeight

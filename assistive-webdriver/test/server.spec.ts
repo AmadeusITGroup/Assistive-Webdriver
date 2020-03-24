@@ -464,34 +464,22 @@ describe("server", () => {
       });
     });
     await mouseMove2;
-    const keyDown = webdriver
-      .actions()
-      .keyDown("a")
-      .perform();
+    const keyDown = webdriver.actions().keyDown("a").perform();
     await vm.sendKeyDownEvent.waitForCallAndReplyWith(async key => {
       expect(key).toBe("a");
     });
     await keyDown;
-    const keyUp = webdriver
-      .actions()
-      .keyUp("a")
-      .perform();
+    const keyUp = webdriver.actions().keyUp("a").perform();
     await vm.sendKeyUpEvent.waitForCallAndReplyWith(async key => {
       expect(key).toBe("a");
     });
     await keyUp;
-    const mouseDown = webdriver
-      .actions()
-      .press(Button.RIGHT)
-      .perform();
+    const mouseDown = webdriver.actions().press(Button.RIGHT).perform();
     await vm.sendMouseDownEvent.waitForCallAndReplyWith(async button => {
       expect(button).toEqual(Button.RIGHT);
     });
     await mouseDown;
-    const mouseUp = webdriver
-      .actions()
-      .release(Button.RIGHT)
-      .perform();
+    const mouseUp = webdriver.actions().release(Button.RIGHT).perform();
     await vm.sendMouseUpEvent.waitForCallAndReplyWith(async button => {
       expect(button).toEqual(Button.RIGHT);
     });

@@ -305,7 +305,7 @@ export function createWebdriverProxy<T>(
     )
   );
 
-  const deleteSessions = async function(
+  const deleteSessions = async function (
     filterFn?: (session: Session<T>) => boolean
   ) {
     const allPromises: Promise<void>[] = [];

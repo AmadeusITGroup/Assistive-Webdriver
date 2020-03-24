@@ -33,7 +33,7 @@ import {
 } from "../client";
 import { sigintWin32 } from "../server/sigintWin32";
 
-(async function() {
+(async function () {
   const defaultPublicIp = findPublicIP();
   const argv = yargs.options({
     server: {
@@ -150,10 +150,7 @@ import { sigintWin32 } from "../server/sigintWin32";
 
     const testInput = await driver.findElement(By.css("#testInput"));
 
-    await driver
-      .actions()
-      .click(testInput)
-      .perform();
+    await driver.actions().click(testInput).perform();
 
     await driver.wait(untilElementHasFocus(testInput), 10000);
 
@@ -161,11 +158,7 @@ import { sigintWin32 } from "../server/sigintWin32";
       await clearCachedScreenReaderText(testerSession.driver);
     }
 
-    await driver
-      .actions()
-      .keyDown(Key.TAB)
-      .keyUp(Key.TAB)
-      .perform();
+    await driver.actions().keyDown(Key.TAB).keyUp(Key.TAB).perform();
 
     if (testerSession.screenReader) {
       try {
