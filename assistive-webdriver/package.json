@@ -61,7 +61,7 @@
     "@types/selenium-webdriver": "4.0.9",
     "@types/stream-json": "1.0.1",
     "@types/uuid": "7.0.2",
-    "@types/ws": "7.2.3",
+    "@types/ws": "7.2.4",
     "@types/yargs": "15.0.4",
     "@typescript-eslint/eslint-plugin": "2.27.0",
     "@typescript-eslint/parser": "2.27.0",
