@@ -23,6 +23,8 @@ export const SCREEN_READER_TEXT_COMMAND = "screenReaderText";
 export const SCREEN_READER_TEXT_METHOD = "GET";
 export const SCREEN_READER_TEXT_PATH = "/session/:sessionId/screenReaderText";
 
+export type WebdriverLike = WebDriver | { driver: WebDriver };
+
 interface Listener {
   scope: any;
   fn: (message: string) => void;
@@ -35,7 +37,22 @@ interface ScreenReaderTextInfo {
 
 const screenReaderText = new WeakMap<WebDriver, ScreenReaderTextInfo>();
 
-function getScreenReaderTextInfo(webdriver: WebDriver) {
+// The "browser" object from Protractor (>= 6) has a "driver" property
+// that contains webdriver
+// For convenience, let's directly accept the "browser" object from protractor
+// instead of requiring to use: "browser.driver"
+function getWebdriver(webdriver: WebdriverLike) {
+  if (!(webdriver instanceof WebDriver)) {
+    webdriver = webdriver.driver;
+    if (!(webdriver instanceof WebDriver)) {
+      throw new Error("Expected an instance of WebDriver!");
+    }
+  }
+  return webdriver;
+}
+
+function getScreenReaderTextInfo(webdriver: WebdriverLike) {
+  webdriver = getWebdriver(webdriver);
   let info = screenReaderText.get(webdriver);
   if (!info) {
     const executor = webdriver.getExecutor();
@@ -54,7 +71,7 @@ function getScreenReaderTextInfo(webdriver: WebDriver) {
 }
 
 export function addScreenReaderTextListener(
-  webdriver: WebDriver,
+  webdriver: WebdriverLike,
   fn: (message: string) => void,
   scope?: any
 ) {
@@ -72,7 +89,8 @@ export function addScreenReaderTextListener(
   };
 }
 
-export async function refreshScreenReaderText(webdriver: WebDriver) {
+export async function refreshScreenReaderText(webdriver: WebdriverLike) {
+  webdriver = getWebdriver(webdriver);
   const info = getScreenReaderTextInfo(webdriver);
   const command = new Command(SCREEN_READER_TEXT_COMMAND);
   const newMessages = await webdriver.execute<string[]>(
@@ -91,7 +109,7 @@ export async function refreshScreenReaderText(webdriver: WebDriver) {
   return messages;
 }
 
-export async function clearCachedScreenReaderText(webdriver: WebDriver) {
+export async function clearCachedScreenReaderText(webdriver: WebdriverLike) {
   const info = getScreenReaderTextInfo(webdriver);
   await refreshScreenReaderText(webdriver);
   info.messages.splice(0, info.messages.length);
