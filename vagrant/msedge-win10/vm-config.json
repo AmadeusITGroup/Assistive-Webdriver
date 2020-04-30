@@ -1,0 +1,10 @@
+{
+  "nvda": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "msedge-win10",
+      "snapshot": "nvda"
+    },
+    "screenReader": true
+  }
+}

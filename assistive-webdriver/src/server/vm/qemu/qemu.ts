@@ -75,10 +75,13 @@ function getQEMUScanCode(key: string) {
 }
 
 class LineReader extends Transform {
+  _buffer: string;
+
   constructor() {
     super({ readableObjectMode: true });
+    this._buffer = "";
   }
-  _buffer = "";
+
   _transform(chunk: Buffer, encoding: string, callback: () => void) {
     const parts = chunk.toString("utf8").split(/\r\n|\n\r|\n|\r/);
     parts[0] = this._buffer + parts[0];

@@ -1,0 +1,95 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "MSEdge-Win10"
+  config.vm.box_url = "file://./software/MSEdge%20-%20Win10.box"
+  config.vm.guest = :windows
+  config.vm.communicator = "winrm"
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+  config.winrm.transport = :plaintext
+  config.winrm.basic_auth_only = true
+  config.winrm.timeout = 1800
+  config.winrm.retry_limit = 60
+  config.winrm.retry_delay = 1
+  config.vm.boot_timeout = 600
+  config.vm.graceful_halt_timeout = 600
+
+  config.vm.provider "virtualbox" do |v|
+    v.linked_clone = true
+    v.name = "msedge-win10"
+    v.customize ["modifyvm", :id, "--vram", "64"]
+    v.customize ["setextradata", :id, "GUI/MaxGuestResolution", "any"]
+    v.customize ["modifyvm", :id, "--audio", "null", "--audioout", "on", "--audiocontroller", "hda"]
+  end
+
+  config.vm.provision "settings",
+    type: "shell",
+    inline: <<-SHELL
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System' -Name EnableLUA -Type DWord -Value 0
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer' -Name NoTrayItemsDisplay -Type DWord -Value 1
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -Name DefaultUserName -Type String -Value IEUser
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -Name DefaultPassword -Type String -Value 'Passw0rd!'
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -Name AutoAdminLogon -Type String -Value 1
+      New-Item -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate' -Name AU -Force
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU' -Name NoAutoUpdate -Type DWord -Value 1
+      # disable ipv6:
+      Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip6\\Parameters' -Name DisabledComponents -Type DWord -Value 0xFF
+      # allows the mouse to move just after typing:
+      Set-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\PrecisionTouchPad' -Name AAPThreshold -Type DWord -Value 0
+  SHELL
+
+  config.vm.provision "nvda",
+    type: "shell",
+    inline: <<-SHELL
+      C:\\vagrant\\software\\nvda.exe --install-silent --minimal --log-level=20 --log-file=C:\\NVDA.log --enable-start-on-logon=False
+  SHELL
+
+  config.vm.provision "nvda-config", type: "file", source: "nvda.ini", destination: "C:\\Users\\IEUser\\AppData\\Roaming\\nvda\\nvda.ini"
+
+  config.vm.provision "java",
+    type: "shell",
+    inline: <<-SHELL
+      Expand-Archive -Path C:\\vagrant\\software\\openjdk.zip -DestinationPath C:\\
+  SHELL
+
+  config.vm.provision "chromium",
+    type: "shell",
+    inline: <<-SHELL
+      Expand-Archive -Path C:\\vagrant\\software\\chrome.zip -DestinationPath C:\\
+      Expand-Archive -Path C:\\vagrant\\software\\chromedriver.zip -DestinationPath C:\\
+  SHELL
+  config.vm.provision "selenium-server", type: "file", source: "software/selenium-server.jar", destination: "C:\\selenium-server.jar"
+
+  config.vm.provision "node",
+    type: "shell",
+    inline: <<-SHELL
+      Expand-Archive -Path C:\\vagrant\\software\\node.zip -DestinationPath C:\\
+  SHELL
+
+  config.vm.provision "text-to-socket-engine",
+  type: "shell",
+  inline: <<-SHELL
+    Expand-Archive -Path C:\\vagrant\\software\\text-to-socket-engine-x86.zip -DestinationPath C:\\text-to-socket-engine\\
+    c:\\windows\\system32\\regsvr32.exe /s C:\\text-to-socket-engine\\TextToSocketEngine.dll
+    c:\\windows\\system32\\rundll32.exe C:\\text-to-socket-engine\\TextToSocketEngine.dll,addVoice textToSocketVoice "Text To Socket 127.0.0.1:4449" 127.0.0.1 4449
+  SHELL
+
+  config.vm.provision "tcp-web-listener",
+  type: "shell",
+  inline: <<-SHELL
+      c:\\node-v12.16.3-win-x64\\npm.cmd install -g file:///c:/vagrant/software/tcp-web-listener.tgz
+  SHELL
+
+  config.vm.provision "start-cmd", type: "file", source: "start.cmd", destination: "C:\\start.cmd"
+
+  config.vm.provision "autostart",
+    type: "shell",
+    reboot: true,
+    inline: <<-SHELL
+      netsh advfirewall firewall add rule name="Allow selenium" localport=4444 protocol=tcp dir=in action=allow
+      netsh advfirewall firewall add rule name="Allow tcp-web-listener" localport=7779 protocol=tcp dir=in action=allow
+      \$curPath = Get-ItemPropertyValue -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH
+      Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Type ExpandString -Value "\$curPath;c:\\chromedriver_win32;c:\\chrome-win"
+      Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run' -Name StartCmd -Type String -Value 'c:\\start.cmd'
+  SHELL
+
+end

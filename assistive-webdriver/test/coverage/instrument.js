@@ -16,19 +16,25 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-module.exports = {
-  transform: {
-    "^.+\\.ts$": "./test/coverage/jestTransform"
-  },
-  coverageDirectory: "coverage",
-  collectCoverageFrom: [
-    "<rootDir>/src/server/**/*.ts",
-    "<rootDir>/src/client/**/*.ts"
-  ],
-  testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.test.json"
-    }
-  }
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { transform } = require("@babel/core");
+const { join } = require("path");
+
+const foldersToInstrument = [
+  join(__dirname, "../../src/client/"),
+  join(__dirname, "../../src/server/")
+];
+const isInFolderToInstrument = file =>
+  foldersToInstrument.some(folder => file.startsWith(folder));
+
+exports.shouldInstrument = filename =>
+  isInFolderToInstrument(filename) && /\.ts$/.test(filename);
+
+exports.process = (code, filename) => {
+  code = transform(code, {
+    filename,
+    plugins: ["@babel/plugin-syntax-typescript", "babel-plugin-istanbul"]
+  }).code;
+  code = code.replace(/function (cov_\w+)\(\)/, "var $1 = function()");
+  return code;
 };

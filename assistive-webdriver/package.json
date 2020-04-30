@@ -48,6 +48,8 @@
     "yargs": "15.3.1"
   },
   "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/plugin-syntax-typescript": "7.8.3",
     "@rollup/plugin-typescript": "4.1.2",
     "@types/co-body": "5.1.0",
     "@types/http-proxy": "1.17.4",
@@ -65,10 +67,12 @@
     "@types/yargs": "15.0.5",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
+    "babel-plugin-istanbul": "6.0.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
     "jest": "25.5.4",
     "lolex": "6.0.0",
+    "nyc": "15.0.1",
     "prettier": "2.0.5",
     "rimraf": "3.0.2",
     "rollup": "2.12.1",
@@ -90,6 +94,15 @@
     "lint": "eslint '{src,server,test,samples}/**/*.{ts,js,json}'",
     "start": "node dist/server/bin.js",
     "test": "jest",
-    "tester": "node dist/tester.js"
+    "tester": "node dist/tester.js",
+    "nyc-tester": "nyc node dist/tester.js",
+    "nyc-server": "nyc node dist/server/bin.js",
+    "nyc-report": "nyc report --reporter=lcov"
+  },
+  "nyc": {
+    "instrument": false,
+    "sourceMap": false,
+    "silent": true,
+    "clean": false
   }
 }

@@ -16,19 +16,14 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-module.exports = {
-  transform: {
-    "^.+\\.ts$": "./test/coverage/jestTransform"
-  },
-  coverageDirectory: "coverage",
-  collectCoverageFrom: [
-    "<rootDir>/src/server/**/*.ts",
-    "<rootDir>/src/client/**/*.ts"
-  ],
-  testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.test.json"
-    }
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { shouldInstrument, process: instrument } = require("./instrument");
+const { process: transpile } = require("ts-jest");
+
+exports.process = (content, filename) => {
+  if (shouldInstrument(filename)) {
+    content = instrument(content, filename);
   }
+  content = transpile(content, filename);
+  return content;
 };

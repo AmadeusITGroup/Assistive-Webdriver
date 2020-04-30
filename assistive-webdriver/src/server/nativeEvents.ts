@@ -156,7 +156,7 @@ export async function executeNativeEvents(
 ) {
   log = createSubLogFunction(log, { category: "nativeEvents" });
   const actions = body.actions;
-  const sources = [];
+  const sources: NullInputSource[] = [];
   let actionsLength = -1;
   for (const action of actions) {
     const inputSourceType = action.type;
@@ -183,7 +183,7 @@ export async function executeNativeEvents(
     }
   }
   for (let i = 0; i < actionsLength; i++) {
-    const currentTick = [];
+    const currentTick: Promise<void>[] = [];
     for (const source of sources) {
       currentTick.push(source.execute(i));
     }
