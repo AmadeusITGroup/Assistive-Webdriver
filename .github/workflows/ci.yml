@@ -1,0 +1,193 @@
+name: ci
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  build-assistive-webdriver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "GitHub variables"
+        run: echo "github.event_name = ${{ github.event_name }}, github.ref = ${{ github.ref }}"
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: assistive-webdriver-yarn-${{ hashFiles('assistive-webdriver/yarn.lock') }}
+          restore-keys: |
+            assistive-webdriver-yarn-
+      - run: yarn --frozen-lockfile
+        working-directory: ./assistive-webdriver
+      - run: yarn lint
+        working-directory: ./assistive-webdriver
+      - run: yarn format:check
+        working-directory: ./assistive-webdriver
+      - run: yarn test --coverage
+        working-directory: ./assistive-webdriver
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./assistive-webdriver/coverage/lcov.info
+          name: assistive-webdriver
+          flags: assistivewebdriver
+      - run: yarn pack && mv assistive-webdriver-v0.0.0.tgz assistive-webdriver.tgz
+        working-directory: ./assistive-webdriver
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: assistive-webdriver.tgz
+          path: assistive-webdriver/assistive-webdriver.tgz
+      - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/assistive-webdriver/')
+        name: yarn publish
+        run: |
+          yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          yarn publish
+        working-directory: ./assistive-webdriver
+  build-tcp-web-listener:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "GitHub variables"
+        run: echo "github.event_name = ${{ github.event_name }}, github.ref = ${{ github.ref }}"
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: tcp-web-listener-yarn-${{ hashFiles('tcp-web-listener/yarn.lock') }}
+          restore-keys: |
+            tcp-web-listener-yarn-
+      - run: yarn --frozen-lockfile
+        working-directory: ./tcp-web-listener
+      - run: yarn test
+        working-directory: ./tcp-web-listener
+      - run: yarn pack && mv tcp-web-listener-v0.0.0.tgz tcp-web-listener.tgz
+        working-directory: ./tcp-web-listener
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: tcp-web-listener.tgz
+          path: tcp-web-listener/tcp-web-listener.tgz
+      - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/tcp-web-listener/')
+        name: yarn publish
+        run: |
+          yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          yarn publish
+        working-directory: ./tcp-web-listener
+  build-text-to-socket-engine:
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        arch: [x86, amd64]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - run: node setVersion.js ${{ github.ref }}
+        working-directory: .\text-to-socket-engine
+      - run: |
+          @echo on
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\Common7\Tools\VsDevCmd.bat" -arch=${{ matrix.arch }}
+          call build.cmd
+        shell: cmd
+        working-directory: .\text-to-socket-engine
+      - run: 7z a text-to-socket-engine-${{ matrix.arch }}.zip register.cmd unregister.cmd TextToSocketEngine.dll
+        working-directory: .\text-to-socket-engine
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: text-to-socket-engine-${{ matrix.arch }}.zip
+          path: text-to-socket-engine/text-to-socket-engine-${{ matrix.arch }}.zip
+  release-text-to-socket-engine:
+    runs-on: ubuntu-latest
+    needs: build-text-to-socket-engine
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/text-to-socket-engine/')
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: text-to-socket-engine-x86.zip
+      - uses: actions/download-artifact@v2
+        with:
+          name: text-to-socket-engine-amd64.zip
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: true
+          prerelease: false
+      - name: Upload text-to-socket-engine-x86.zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./text-to-socket-engine-x86.zip
+          asset_name: text-to-socket-engine-x86.zip
+          asset_content_type: application/zip
+      - name: Upload text-to-socket-engine-amd64.zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./text-to-socket-engine-amd64.zip
+          asset_name: text-to-socket-engine-amd64.zip
+          asset_content_type: application/zip
+  test-e2e:
+    runs-on: macos-latest
+    needs:
+      - build-assistive-webdriver
+      - build-tcp-web-listener
+      - build-text-to-socket-engine
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - uses: actions/download-artifact@v2
+        with:
+          name: assistive-webdriver.tgz
+          path: ./vagrant/msedge-win10/software/
+      - uses: actions/download-artifact@v2
+        with:
+          name: tcp-web-listener.tgz
+          path: ./vagrant/msedge-win10/software/
+      - uses: actions/download-artifact@v2
+        with:
+          name: text-to-socket-engine-x86.zip
+          path: ./vagrant/msedge-win10/software/
+      - run: |
+          touch software/.assistive-webdriver.tgz
+          touch software/.tcp-web-listener.tgz
+          touch software/.text-to-socket-engine-x86.zip
+          ./download.sh
+          ./createVM.sh
+        name: "Prepare VM"
+        working-directory: ./vagrant/msedge-win10
+      - run: yarn add selenium-webdriver file:./vagrant/msedge-win10/software/assistive-webdriver.tgz
+      - run: vboxwebsrv -A null &
+      - run: ./node_modules/.bin/assistive-webdriver -c ./vagrant/msedge-win10/vm-config.json | tee assistive-webdriver.log &
+      - run: node ./node_modules/assistive-webdriver/dist/tester.js -m nvda -k Insert
+      - run: cat assistive-webdriver.log
+        if: ${{ always() }}

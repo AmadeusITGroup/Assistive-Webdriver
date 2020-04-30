@@ -44,7 +44,8 @@ export const testKey = async (
   await testerSession.waitAndCheckEvent(keyName, "keydown", props, () =>
     testerSession.driver.actions().keyDown(keyChar).perform()
   );
-  await wait(50);
+  await wait(5);
+  await checkFocus(testerSession);
   const earlyKeyup = (await testerSession.assertQueueEmpty()).find(
     item => item.type === "keyup" && item.key === props.key
   );
@@ -59,7 +60,6 @@ export const testKey = async (
     await testerSession.driver.actions().keyUp(keyChar).perform();
     return;
   }
-  await checkFocus(testerSession);
   await testerSession.waitAndCheckEvent(keyName, "keyup", props, () =>
     testerSession.driver.actions().keyUp(keyChar).perform()
   );
