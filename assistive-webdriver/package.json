@@ -73,7 +73,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.9.1",
     "selenium-webdriver": "4.0.0-alpha.7",
-    "ts-jest": "25.4.0",
+    "ts-jest": "25.5.1",
     "typescript": "3.8.3"
   },
   "peerDependencies": {
