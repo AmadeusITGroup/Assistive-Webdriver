@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { createLogger, format, transports, LogEntry } from "winston";
+import { createLogger, format, transports } from "winston";
 import colors from "colors/safe";
 import { MESSAGES } from "./messages";
 
@@ -66,7 +66,7 @@ export const defaultLogFunction: LogFunction = entry =>
 export const createSubLogFunction = (
   log = defaultLogFunction,
   meta: Record<string, any>
-): LogFunction => (entry: LogEntry) =>
+): LogFunction => (entry: any) =>
   log({
     level: "info",
     ...meta,
