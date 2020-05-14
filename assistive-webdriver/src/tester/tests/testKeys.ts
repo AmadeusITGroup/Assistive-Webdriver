@@ -39,6 +39,14 @@ export const testKey = async (
   keyName: string,
   keyChar: string
 ) => {
+  const extraKeyDowns: any[] = [];
+  const filterOutExtraKeydown = (event: any) => {
+    const isExtraKeyDown = event.type === "keydown" && event.key === props.key;
+    if (isExtraKeyDown) {
+      extraKeyDowns.push(event);
+    }
+    return !isExtraKeyDown;
+  };
   const props = keyProperties(keyName, keyChar);
   await checkFocus(testerSession);
   await testerSession.waitAndCheckEvent(keyName, "keydown", props, () =>
@@ -46,9 +54,9 @@ export const testKey = async (
   );
   await wait(5);
   await checkFocus(testerSession);
-  const earlyKeyup = (await testerSession.assertQueueEmpty()).find(
-    item => item.type === "keyup" && item.key === props.key
-  );
+  const earlyKeyup = (
+    await testerSession.assertQueueEmpty(filterOutExtraKeydown)
+  ).find(item => item.type === "keyup" && item.key === props.key);
   if (earlyKeyup) {
     warn(
       `keyup for ${keyName} received before key was released (${JSON.stringify(
@@ -60,9 +68,20 @@ export const testKey = async (
     await testerSession.driver.actions().keyUp(keyChar).perform();
     return;
   }
-  await testerSession.waitAndCheckEvent(keyName, "keyup", props, () =>
-    testerSession.driver.actions().keyUp(keyChar).perform()
+  await testerSession.waitAndCheckEvent(
+    keyName,
+    "keyup",
+    props,
+    () => testerSession.driver.actions().keyUp(keyChar).perform(),
+    filterOutExtraKeydown
   );
+  if (extraKeyDowns.length > 0) {
+    warn(
+      `received extra keydown event(s) for ${keyName} before the key was released (${JSON.stringify(
+        extraKeyDowns
+      )})`
+    );
+  }
 };
 
 export const testAllKeys = async (
