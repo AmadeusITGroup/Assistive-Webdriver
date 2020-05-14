@@ -62,9 +62,10 @@ export class TesterSession {
     testName: string,
     type: string,
     props: any,
-    action: () => Promise<void>
+    action: () => Promise<void>,
+    filterEvents: (event: any) => boolean = () => true
   ) {
-    await this.assertQueueEmpty();
+    await this.assertQueueEmpty(filterEvents);
     debug(`Testing ${type} event for ${testName}`);
     let actionResult;
     let event: any;
@@ -77,6 +78,9 @@ export class TesterSession {
         let maxEvents = 5;
         do {
           event = await this.eventsQueue.waitForValue();
+          if (!filterEvents(event)) {
+            continue;
+          }
           maxEvents--;
           const invalidKeys = [];
           for (const key of propsKeys) {
@@ -108,10 +112,10 @@ export class TesterSession {
     return event;
   }
 
-  async assertQueueEmpty() {
+  async assertQueueEmpty(filterEvents: (event: any) => boolean = () => true) {
     await wait(0);
     const unexpectedEvents = this.eventsQueue.getAllWaitingValues();
-    if (unexpectedEvents.length > 0) {
+    if (unexpectedEvents.filter(filterEvents).length > 0) {
       this.reportError(
         `Expected no event at this time, but received: ${JSON.stringify(
           unexpectedEvents

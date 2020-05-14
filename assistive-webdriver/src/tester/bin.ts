@@ -167,7 +167,7 @@ import { sigintWin32 } from "../server/sigintWin32";
           5000
         );
       } catch (e) {
-        error("Screen reader test failed!", e);
+        testerSession.reportError(`Screen reader test failed: ${e}`);
       }
     }
 
