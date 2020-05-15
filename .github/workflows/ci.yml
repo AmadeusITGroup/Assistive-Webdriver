@@ -165,10 +165,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - uses: actions/download-artifact@v2
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
         with:
-          name: assistive-webdriver.tgz
-          path: ./vagrant/msedge-win10/software/
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: assistive-webdriver-yarn-${{ hashFiles('assistive-webdriver/yarn.lock') }}
+          restore-keys: |
+            assistive-webdriver-yarn-
+      - run: yarn --frozen-lockfile
+        working-directory: ./assistive-webdriver
+        env:
+          ENABLE_COVERAGE: "1"
       - uses: actions/download-artifact@v2
         with:
           name: tcp-web-listener.tgz
@@ -178,7 +187,6 @@ jobs:
           name: text-to-socket-engine-x86.zip
           path: ./vagrant/msedge-win10/software/
       - run: |
-          touch software/.assistive-webdriver.tgz
           touch software/.tcp-web-listener.tgz
           touch software/.text-to-socket-engine-x86.zip
           ./download.sh
@@ -208,9 +216,23 @@ jobs:
           ./createVM.sh
         working-directory: ./vagrant/msedge-win10
         timeout-minutes: 45
-      - run: yarn add selenium-webdriver file:./vagrant/msedge-win10/software/assistive-webdriver.tgz
       - run: vboxwebsrv -A null &
-      - run: ./node_modules/.bin/assistive-webdriver -c ./vagrant/msedge-win10/vm-config.json | tee assistive-webdriver.log &
-      - run: node ./node_modules/assistive-webdriver/dist/tester.js -m nvda -k Insert
+      - run: |
+          yarn nyc-server -c ../vagrant/msedge-win10/vm-config.json | tee ../assistive-webdriver.log &
+          echo "::set-env name=ASSISTIVE_WEBDRIVER_PID::$!"
+          while ! nc -z 127.0.0.1 3000; do sleep 1; done
+        working-directory: ./assistive-webdriver
+      - run: yarn nyc-tester -m nvda -k Insert -l debug
+        working-directory: ./assistive-webdriver
+      - run: |
+          kill "$ASSISTIVE_WEBDRIVER_PID"
+          while kill -0 "$ASSISTIVE_WEBDRIVER_PID"; do sleep 1; done
       - run: cat assistive-webdriver.log
         if: ${{ always() }}
+      - run: yarn nyc-report
+        working-directory: ./assistive-webdriver
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./assistive-webdriver/coverage/lcov.info
+          name: e2e
+          flags: e2e

@@ -16,7 +16,13 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import typescript from "@rollup/plugin-typescript";
+const instrumentation = process.env.ENABLE_COVERAGE === "1";
+if (instrumentation) {
+  require("./coverage");
+  console.log("WARNING: building with code coverage instrumentation!");
+}
+const typescript = require("@rollup/plugin-typescript");
+const plugins = () => [typescript({ module: "esnext", target: "es2017" })];
 
 export default [
   {
@@ -32,7 +38,7 @@ export default [
     ],
     input: "./src/client/index.ts",
     external: id => id.startsWith("selenium-webdriver"),
-    plugins: [typescript({ module: "esnext", target: "es2017" })]
+    plugins: plugins()
   },
   {
     output: [
@@ -72,7 +78,7 @@ export default [
       "net",
       "url"
     ],
-    plugins: [typescript({ module: "esnext", target: "es2017" })]
+    plugins: plugins()
   },
   {
     output: [
@@ -83,7 +89,7 @@ export default [
     ],
     input: "./src/server/bin.ts",
     external: ["./index"],
-    plugins: [typescript({ module: "esnext", target: "es2017" })]
+    plugins: plugins()
   },
   {
     output: [
@@ -101,6 +107,6 @@ export default [
       "selenium-webdriver/lib/command",
       "http"
     ],
-    plugins: [typescript({ module: "esnext", target: "es2017" })]
+    plugins: plugins()
   }
 ];
