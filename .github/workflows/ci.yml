@@ -182,9 +182,32 @@ jobs:
           touch software/.tcp-web-listener.tgz
           touch software/.text-to-socket-engine-x86.zip
           ./download.sh
-          ./createVM.sh
-        name: "Prepare VM"
+        name: "Download software"
         working-directory: ./vagrant/msedge-win10
+      - name: "Create VM (1)"
+        run: ./createVM.sh
+        working-directory: ./vagrant/msedge-win10
+        timeout-minutes: 45
+        continue-on-error: true
+        id: createVM1
+      - name: "Create VM (2)"
+        if: steps.createVM1.outcome == 'failure'
+        run: |
+          killall vagrant ruby
+          vagrant destroy -f
+          ./createVM.sh
+        working-directory: ./vagrant/msedge-win10
+        timeout-minutes: 45
+        continue-on-error: true
+        id: createVM2
+      - name: "Create VM (3)"
+        if: steps.createVM2.outcome == 'failure'
+        run: |
+          killall vagrant ruby
+          vagrant destroy -f
+          ./createVM.sh
+        working-directory: ./vagrant/msedge-win10
+        timeout-minutes: 45
       - run: yarn add selenium-webdriver file:./vagrant/msedge-win10/software/assistive-webdriver.tgz
       - run: vboxwebsrv -A null &
       - run: ./node_modules/.bin/assistive-webdriver -c ./vagrant/msedge-win10/vm-config.json | tee assistive-webdriver.log &
