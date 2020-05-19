@@ -16,28 +16,45 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import request from "request-promise-native";
+import fetch, { RequestInit } from "node-fetch";
 import { LogFunction, createSubLogFunction } from "./logging";
+
+export class StatusCodeError {
+  constructor(public statusCode: number, public body: string) {}
+}
 
 export default async (
   uri: string,
-  options: request.RequestPromiseOptions,
+  options: { method?: "GET" | "POST" | "DELETE"; body?: any },
   log: LogFunction
-) => {
-  const actualOptions = {
-    json: true,
-    method: options.body ? "POST" : "GET",
-    ...options
-  };
+): Promise<any> => {
+  const method = options.method
+    ? options.method
+    : options.body
+    ? "POST"
+    : "GET";
   log = createSubLogFunction(log, {
     category: "request",
     level: "debug",
-    method: actualOptions.method,
+    method,
     uri
   });
   try {
     log({ message: "begin" });
-    const result = await request(uri, actualOptions);
+    const request: RequestInit = {
+      method
+    };
+    if (options.body) {
+      request.body = JSON.stringify(options.body);
+      request.headers = {
+        "Content-Type": "application/json"
+      };
+    }
+    const res = await fetch(uri, request);
+    if (!res.ok) {
+      throw new StatusCodeError(res.status, await res.text());
+    }
+    const result = await res.json();
     log({ message: "success" });
     return result;
   } catch (error) {
