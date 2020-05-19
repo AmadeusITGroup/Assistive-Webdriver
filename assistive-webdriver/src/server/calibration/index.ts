@@ -35,7 +35,7 @@ export async function webdriverCalibrate(
   try {
     const currentUrl = await request(
       `${sessionUrl}/url`,
-      { method: "GET", json: true },
+      { method: "GET" },
       log
     );
     if (currentUrl.value === "about:blank") {
@@ -48,8 +48,7 @@ export async function webdriverCalibrate(
           body: {
             // navigate to an empty <html><body></body></html> document
             url: "data:text/html,%3Chtml%3E%%3Cbody%3E%3C%2Fbody%3E3C%2Fhtml%3E"
-          },
-          json: true
+          }
         },
         log
       );

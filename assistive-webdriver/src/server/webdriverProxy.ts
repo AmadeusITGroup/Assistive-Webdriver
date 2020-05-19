@@ -22,7 +22,7 @@ import { json as jsonBody } from "co-body";
 import { all, post, del } from "koa-route";
 import httpProxy from "http-proxy";
 import request from "./request";
-import { StatusCodeError } from "request-promise-native/errors";
+import { StatusCodeError } from "./request";
 import { v4 as uuid } from "uuid";
 import {
   PublicError,
@@ -138,7 +138,7 @@ export function createWebdriverProxy<T>(
       } else if (error instanceof StatusCodeError) {
         // transfers error from upstream call
         ctx.status = error.statusCode;
-        ctx.body = error.response.body;
+        ctx.body = error.body;
       } else {
         ctx.status = 500;
         ctx.body = {
@@ -263,8 +263,7 @@ export function createWebdriverProxy<T>(
         ctx.body = await request(
           ctx[CTX_SERVER_SESSION_URL],
           {
-            method: "DELETE",
-            timeout: 3000
+            method: "DELETE"
           },
           session.log
         );
