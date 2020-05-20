@@ -60,7 +60,7 @@
     "@types/request-promise-native": "1.0.17",
     "@types/selenium-webdriver": "4.0.9",
     "@types/stream-json": "1.0.1",
-    "@types/uuid": "7.0.3",
+    "@types/uuid": "8.0.0",
     "@types/ws": "7.2.4",
     "@types/yargs": "15.0.5",
     "@typescript-eslint/eslint-plugin": "2.34.0",
