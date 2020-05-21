@@ -48,7 +48,7 @@
     "yargs": "15.3.1"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "4.1.1",
+    "@rollup/plugin-typescript": "4.1.2",
     "@types/co-body": "5.1.0",
     "@types/http-proxy": "1.17.4",
     "@types/jest": "25.2.3",
