@@ -71,7 +71,7 @@
     "lolex": "6.0.0",
     "prettier": "2.0.5",
     "rimraf": "3.0.2",
-    "rollup": "2.10.4",
+    "rollup": "2.10.7",
     "selenium-webdriver": "4.0.0-alpha.7",
     "ts-jest": "25.5.1",
     "typescript": "3.9.2"
