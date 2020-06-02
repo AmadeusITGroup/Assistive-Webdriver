@@ -16,40 +16,25 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const fs = require("fs");
-const { join } = require("path");
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { transform } = require("@babel/core");
+const { join } = require("path");
 
-const instrumentTsCode = (code, filename) => {
+const foldersToInstrument = [
+  join(__dirname, "../../src/client/"),
+  join(__dirname, "../../src/server/")
+];
+const isInFolderToInstrument = file =>
+  foldersToInstrument.some(folder => file.startsWith(folder));
+
+exports.shouldInstrument = filename =>
+  isInFolderToInstrument(filename) && /\.ts$/.test(filename);
+
+exports.process = (code, filename) => {
   code = transform(code, {
     filename,
     plugins: ["@babel/plugin-syntax-typescript", "babel-plugin-istanbul"]
   }).code;
   code = code.replace(/function (cov_\w+)\(\)/, "var $1 = function()");
-  return code;
-};
-
-const foldersToInstrument = [
-  join(__dirname, "src/client/"),
-  join(__dirname, "src/server/")
-];
-const isInFolderToInstrument = file =>
-  foldersToInstrument.some(folder => file.startsWith(folder));
-
-// override readFileSync to provide instrumented files:
-const trueReadFileSync = fs.readFileSync;
-fs.readFileSync = (...args) => {
-  let code = trueReadFileSync(...args);
-  const filename = args[0];
-  if (isInFolderToInstrument(filename) && /\.ts$/.test(filename)) {
-    const isBuffer = Buffer.isBuffer(code);
-    if (isBuffer) {
-      code = code.toString("utf8");
-    }
-    code = instrumentTsCode(code, filename);
-    if (isBuffer) {
-      code = Buffer.from(code, "utf8");
-    }
-  }
   return code;
 };

@@ -18,7 +18,7 @@
 
 const instrumentation = process.env.ENABLE_COVERAGE === "1";
 if (instrumentation) {
-  require("./coverage");
+  require("./test/coverage/overrideReadFileSync");
   console.log("WARNING: building with code coverage instrumentation!");
 }
 const typescript = require("@rollup/plugin-typescript");
