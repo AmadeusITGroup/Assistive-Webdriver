@@ -17,6 +17,7 @@
  */
 
 import yargs from "yargs";
+import { writeFileSync, unlinkSync } from "fs";
 import { resolve } from "path";
 import {
   createWebdriverVMProxy,
@@ -63,10 +64,23 @@ export const start = async (
       "vm-configs": {
         type: "string",
         alias: "c"
+      },
+      "pid-file": {
+        type: "string"
       }
     }).argv;
 
   setLogLevel(argv["log-level"]);
+
+  const pidFile = argv["pid-file"];
+  if (pidFile) {
+    writeFileSync(pidFile, `${process.pid}`, {
+      flag: "wx"
+    });
+    process.on("exit", () => {
+      unlinkSync(pidFile);
+    });
+  }
 
   const vmProxyConfig: WebdriverVMProxyConfig<any> = {
     log,

@@ -218,15 +218,20 @@ jobs:
         timeout-minutes: 45
       - run: vboxwebsrv -A null &
       - run: |
-          yarn nyc-server -c ../vagrant/msedge-win10/vm-config.json | tee ../assistive-webdriver.log &
-          echo "::set-env name=ASSISTIVE_WEBDRIVER_PID::$!"
+          yarn nyc-server -c ../vagrant/msedge-win10/vm-config.json --pid-file ../assistive-webdriver.pid &> ../assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
+        name: "Start assistive-webdriver server"
         working-directory: ./assistive-webdriver
       - run: yarn nyc-tester -m nvda -k Insert -l debug
         working-directory: ./assistive-webdriver
       - run: |
-          kill "$ASSISTIVE_WEBDRIVER_PID"
+          ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)
+          echo "Sending SIGINT to $ASSISTIVE_WEBDRIVER_PID"
+          kill -SIGINT "$ASSISTIVE_WEBDRIVER_PID"
+          echo "Waiting for the process to terminate..."
           while kill -0 "$ASSISTIVE_WEBDRIVER_PID"; do sleep 1; done
+          echo "Done!"
+        name: "Stop assistive-webdriver server"
       - run: cat assistive-webdriver.log
         if: ${{ always() }}
       - run: yarn nyc-report
