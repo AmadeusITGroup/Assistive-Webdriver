@@ -22,7 +22,7 @@ if (instrumentation) {
   console.log("WARNING: building with code coverage instrumentation!");
 }
 const typescript = require("@rollup/plugin-typescript");
-const plugins = () => [typescript({ module: "esnext", target: "es2017" })];
+const plugins = [typescript({ module: "esnext", target: "es2017" })];
 
 export default [
   {
@@ -38,7 +38,7 @@ export default [
     ],
     input: "./src/client/index.ts",
     external: id => id.startsWith("selenium-webdriver"),
-    plugins: plugins()
+    plugins
   },
   {
     output: [
@@ -77,7 +77,7 @@ export default [
       "net",
       "url"
     ],
-    plugins: plugins()
+    plugins
   },
   {
     output: [
@@ -88,7 +88,7 @@ export default [
     ],
     input: "./src/server/bin.ts",
     external: ["./index"],
-    plugins: plugins()
+    plugins
   },
   {
     output: [
@@ -106,6 +106,6 @@ export default [
       "selenium-webdriver/lib/command",
       "http"
     ],
-    plugins: plugins()
+    plugins
   }
 ];
