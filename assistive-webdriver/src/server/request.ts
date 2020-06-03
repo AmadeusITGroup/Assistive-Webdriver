@@ -16,14 +16,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { request } from "http";
+import fetch, { RequestInit } from "node-fetch";
 import { LogFunction, createSubLogFunction } from "./logging";
 
 export class StatusCodeError {
   constructor(public statusCode: number, public body: string) {}
 }
-
-const isStatusCodeSuccess = (code: number) => code >= 200 && code < 300;
 
 export default async (
   uri: string,
@@ -43,33 +41,20 @@ export default async (
   });
   try {
     log({ message: "begin" });
-    const result = await new Promise((resolve, reject) => {
-      const req = request(uri, { method }, res => {
-        let data = "";
-        res.setEncoding("utf8");
-        res.on("data", chunk => {
-          data += chunk;
-        });
-        res.on("error", reject);
-        res.on("end", () => {
-          if (!isStatusCodeSuccess(res.statusCode!)) {
-            reject(new StatusCodeError(res.statusCode!, data));
-            return;
-          }
-          try {
-            const parsedData = JSON.parse(data);
-            resolve(parsedData);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      });
-      req.on("error", reject);
-      if (options.body) {
-        req.write(JSON.stringify(options.body));
-      }
-      req.end();
-    });
+    const request: RequestInit = {
+      method
+    };
+    if (options.body) {
+      request.body = JSON.stringify(options.body);
+      request.headers = {
+        "Content-Type": "application/json"
+      };
+    }
+    const res = await fetch(uri, request);
+    if (!res.ok) {
+      throw new StatusCodeError(res.status, await res.text());
+    }
+    const result = await res.json();
     log({ message: "success" });
     return result;
   } catch (error) {
