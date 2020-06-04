@@ -222,7 +222,20 @@ jobs:
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
         working-directory: ./assistive-webdriver
-      - run: yarn nyc-tester -m nvda -k Insert -l debug
+      - name: "test (1)"
+        id: test1
+        run: yarn nyc-tester -m nvda -k Insert -l debug
+        working-directory: ./assistive-webdriver
+        continue-on-error: true
+      - name: "test (2)"
+        id: test2
+        if: steps.test1.outcome == 'failure'
+        run: yarn nyc-tester -m nvda -k Insert -l debug
+        working-directory: ./assistive-webdriver
+        continue-on-error: true
+      - name: "test (3)"
+        if: steps.test2.outcome == 'failure'
+        run: yarn nyc-tester -m nvda -k Insert -l debug
         working-directory: ./assistive-webdriver
       - run: |
           ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)
