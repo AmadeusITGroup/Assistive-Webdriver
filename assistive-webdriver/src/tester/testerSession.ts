@@ -69,14 +69,14 @@ export class TesterSession {
     debug(`Testing ${type} event for ${testName}`);
     let actionResult;
     let event: any;
-    props.type = type;
+    props = { ...props, type };
     const propsKeys = Object.keys(props);
     try {
       await this.measureTime(type, async () => {
         actionResult = action();
-        let waitMore;
         let maxEvents = 5;
-        do {
+        let foundCorrectEvent = false;
+        while (!foundCorrectEvent) {
           event = await this.eventsQueue.waitForValue();
           if (!filterEvents(event)) {
             continue;
@@ -88,8 +88,8 @@ export class TesterSession {
               invalidKeys.push(key);
             }
           }
-          waitMore = invalidKeys.length > 0;
-          if (waitMore) {
+          foundCorrectEvent = invalidKeys.length === 0;
+          if (!foundCorrectEvent) {
             this.reportError(
               `Unexpected value for ${invalidKeys.join(
                 ", "
@@ -101,7 +101,7 @@ export class TesterSession {
               throw new Error("Too many incorrect events!");
             }
           }
-        } while (waitMore);
+        }
       });
       await actionResult;
     } catch (error) {
