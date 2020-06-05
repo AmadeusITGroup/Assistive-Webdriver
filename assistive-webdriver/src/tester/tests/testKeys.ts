@@ -40,6 +40,7 @@ export const testKey = async (
   keyChar: string
 ) => {
   const extraKeyDowns: any[] = [];
+  const props = keyProperties(keyName, keyChar);
   const filterOutExtraKeydown = (event: any) => {
     const isExtraKeyDown = event.type === "keydown" && event.key === props.key;
     if (isExtraKeyDown) {
@@ -47,7 +48,6 @@ export const testKey = async (
     }
     return !isExtraKeyDown;
   };
-  const props = keyProperties(keyName, keyChar);
   await checkFocus(testerSession);
   await testerSession.waitAndCheckEvent(keyName, "keydown", props, () =>
     testerSession.driver.actions().keyDown(keyChar).perform()
