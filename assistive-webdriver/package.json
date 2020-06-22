@@ -34,7 +34,7 @@
     "co-body": "6.0.0",
     "colors": "1.4.0",
     "http-proxy": "1.18.1",
-    "koa": "2.12.1",
+    "koa": "2.13.0",
     "koa-route": "3.2.0",
     "node-fetch": "2.6.0",
     "p-queue": "6.4.0",
