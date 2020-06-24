@@ -40,7 +40,7 @@
     "p-queue": "6.4.0",
     "pngjs": "5.0.0",
     "stream-json": "1.5.0",
-    "uuid": "8.1.0",
+    "uuid": "8.2.0",
     "virtualbox-soap": "3.0.3",
     "winston": "3.3.2",
     "ws": "7.3.0",
