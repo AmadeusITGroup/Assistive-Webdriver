@@ -201,7 +201,7 @@ jobs:
       - name: "Create VM (2)"
         if: steps.createVM1.outcome == 'failure'
         run: |
-          killall vagrant ruby
+          killall vagrant ruby || true
           vagrant destroy -f
           ./createVM.sh
         working-directory: ./vagrant/msedge-win10
@@ -211,7 +211,7 @@ jobs:
       - name: "Create VM (3)"
         if: steps.createVM2.outcome == 'failure'
         run: |
-          killall vagrant ruby
+          killall vagrant ruby || true
           vagrant destroy -f
           ./createVM.sh
         working-directory: ./vagrant/msedge-win10
