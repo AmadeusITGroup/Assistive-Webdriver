@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.10.3",
-    "@babel/plugin-syntax-typescript": "7.10.1",
+    "@babel/plugin-syntax-typescript": "7.10.4",
     "@rollup/plugin-typescript": "5.0.1",
     "@types/co-body": "5.1.0",
     "@types/http-proxy": "1.17.4",
