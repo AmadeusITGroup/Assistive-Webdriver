@@ -190,7 +190,15 @@ jobs:
           touch software/.tcp-web-listener.tgz
           touch software/.text-to-socket-engine-x86.zip
           ./download.sh
-        name: "Download software"
+        continue-on-error: true
+        name: "Download software (1)"
+        working-directory: ./vagrant/msedge-win10
+      - run: ./download.sh
+        continue-on-error: true
+        name: "Download software (2)"
+        working-directory: ./vagrant/msedge-win10
+      - run: ./download.sh
+        name: "Download software (3)"
         working-directory: ./vagrant/msedge-win10
       - name: "Create VM (1)"
         run: ./createVM.sh
