@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NBERRORS=0
+
 cd software
 
 function checkFile() {
@@ -15,9 +17,9 @@ function checkFile() {
 }
 
 function downloadFile() {
-    FILE="$1"
-    URL="$2"
-    SHA="$3"
+    local FILE="$1"
+    local URL="$2"
+    local SHA="$3"
     if [ -f ".$FILE" -a -f "$FILE" ] || checkFile "$FILE" "$SHA" ; then
         echo "OK: $FILE"
     else
@@ -25,6 +27,8 @@ function downloadFile() {
         if checkFile "$FILE" "$SHA" ; then
             echo "OK: $FILE"
         else
+            NBERRORS=$((NBERRORS+1))
+            rm -f "$FILE"
             echo "KO: $FILE"
         fi
     fi
@@ -42,4 +46,9 @@ downloadFile tcp-web-listener.tgz https://registry.yarnpkg.com/tcp-web-listener/
 
 if ! [ -f "MSEdge - Win10.box" ] && [ -f ".MSEdge.Win10.Vagrant.zip" ]; then
     unzip "MSEdge.Win10.Vagrant.zip"
+fi
+
+if [ "$NBERRORS" != "0" ]; then
+    echo "There were $NBERRORS error(s) while downloading required files."
+    exit 1
 fi
