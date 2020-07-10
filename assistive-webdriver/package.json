@@ -39,7 +39,7 @@
     "node-fetch": "2.6.0",
     "p-queue": "6.5.0",
     "pngjs": "5.0.0",
-    "stream-json": "1.5.0",
+    "stream-json": "1.6.0",
     "uuid": "8.2.0",
     "virtualbox-soap": "3.0.3",
     "winston": "3.3.3",
