@@ -4632,10 +4632,10 @@ stream-chain@^2.2.1:
   resolved "https://registry.yarnpkg.com/stream-chain/-/stream-chain-2.2.1.tgz#e6efdee89eef81481d888181ca175f3abe03f396"
   integrity sha512-LW24AKjJHBrihU8xGLPs/o7OSCNPzBpJ/5JtjMyt8/1WLzcSIRKRRvugeBQjTCFJMn0nFzvN0rd6oCSWguKmxw==
 
-stream-json@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.5.0.tgz#917d63c06514f7383f95cf0fe6a2e7e4a9fa81b3"
-  integrity sha512-a2hm5eyDeoXA3oDqNbO/ylDzNEx4C1HyQ47/Ar0s3q3UZJr0L8ZsKBNSbkUyNfPsyG+Efs47nUYkIJqLme0yJg==
+stream-json@1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.6.0.tgz#9f59139c7650f1bf2c21beb46b431af94981703c"
+  integrity sha512-Cf22VaMxQIz2G9ZeGXZmOzjDHaPW/6SS0feAJtY1iAk/VjnnFzE4PimhfJu6sZYZyov9SYj5Pu7fLJnAXdGAIw==
   dependencies:
     stream-chain "^2.2.1"
 
