@@ -47,7 +47,7 @@
     "yargs": "15.4.1"
   },
   "devDependencies": {
-    "@babel/core": "7.10.4",
+    "@babel/core": "7.10.5",
     "@babel/plugin-syntax-typescript": "7.10.4",
     "@rollup/plugin-typescript": "5.0.1",
     "@types/co-body": "5.1.0",
