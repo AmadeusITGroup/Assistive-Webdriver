@@ -76,7 +76,7 @@
     "rollup": "2.21.0",
     "selenium-webdriver": "4.0.0-alpha.7",
     "ts-jest": "25.5.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "peerDependencies": {
     "selenium-webdriver": "*"
