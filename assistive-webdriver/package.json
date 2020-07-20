@@ -37,7 +37,7 @@
     "koa": "2.13.0",
     "koa-route": "3.2.0",
     "node-fetch": "2.6.0",
-    "p-queue": "6.5.0",
+    "p-queue": "6.6.0",
     "pngjs": "5.0.0",
     "stream-json": "1.7.0",
     "uuid": "8.2.0",
