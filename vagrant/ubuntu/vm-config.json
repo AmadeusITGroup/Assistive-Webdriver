@@ -1,0 +1,10 @@
+{
+  "nvda": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "ubuntu",
+      "snapshot": "orca"
+    },
+    "screenReader": true
+  }
+}
