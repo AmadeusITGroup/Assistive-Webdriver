@@ -172,7 +172,10 @@ export class QEMUVM implements VM {
 
   public qemuProcess?: ChildProcess;
   public qemuQMPOut?: Writable;
-  private _responseQueue: { resolve: Function; reject: Function }[] = [];
+  private _responseQueue: {
+    resolve: (v: any) => void;
+    reject: (v: any) => void;
+  }[] = [];
 
   private constructor(public log: LogFunction) {}
 

@@ -26,7 +26,7 @@ export const handleCalibration = async (
   seleniumAnswerRequest: (
     method: string,
     url: string,
-    responseBody: ((ctx: Koa.Context) => Promise<any>) | object
+    responseBody: ((ctx: Koa.Context) => Promise<any>) | Record<string, any>
   ) => Promise<void>,
   vmMock: VMMock,
   {

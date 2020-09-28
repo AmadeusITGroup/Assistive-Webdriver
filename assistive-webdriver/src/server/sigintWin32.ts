@@ -16,9 +16,11 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { createInterface } from "readline";
+
 export const sigintWin32 = () => {
   if (process.platform === "win32") {
-    const readline = require("readline").createInterface({
+    const readline = createInterface({
       input: process.stdin,
       output: process.stdout
     });
