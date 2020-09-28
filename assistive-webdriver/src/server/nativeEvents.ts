@@ -49,7 +49,6 @@ class NullInputSource {
     public log: LogFunction
   ) {}
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_pause(action: any) {
     if (action.duration > 0) {
       await wait(action.duration);
@@ -75,19 +74,16 @@ class NullInputSource {
 }
 
 class KeyboardInputSource extends NullInputSource {
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_keyDown(action: any) {
     await this.vm.sendKeyDownEvent(action.value);
   }
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_keyUp(action: any) {
     await this.vm.sendKeyUpEvent(action.value);
   }
 }
 
 class PointerInputSource extends NullInputSource {
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_pointerMove(action: any) {
     const originPosition = await this.getPosition(action.origin);
     const duration = action.duration || 0;
@@ -129,12 +125,10 @@ class PointerInputSource extends NullInputSource {
     await this.vm.sendMouseMoveEvent(to);
   }
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_pointerDown(action: any) {
     await this.vm.sendMouseDownEvent(action.button);
   }
 
-  // eslint-disable-next-line @typescript-eslint/camelcase
   async execute_pointerUp(action: any) {
     await this.vm.sendMouseUpEvent(action.button);
   }

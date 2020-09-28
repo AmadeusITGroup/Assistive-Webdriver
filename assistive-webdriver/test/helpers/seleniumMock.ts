@@ -81,7 +81,7 @@ export const useSeleniumMock = () => {
     async seleniumAnswerRequest(
       method: string,
       url: string,
-      responseBody: ((ctx: Koa.Context) => Promise<any>) | object
+      responseBody: ((ctx: Koa.Context) => Promise<any>) | Record<string, any>
     ) {
       const call = await routingFn.waitForCall();
       const ctx = call.args[0];
