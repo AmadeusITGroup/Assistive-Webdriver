@@ -99,9 +99,8 @@ class PointerInputSource extends NullInputSource {
       x: Math.round(originPosition.x + action.x),
       y: Math.round(originPosition.y + action.y)
     };
-    let currentTime = Date.now();
-    const endTime = currentTime + duration;
-    let remainingTime = endTime - currentTime;
+    const endTime = Date.now() + duration;
+    let remainingTime = duration;
     while (remainingTime > 0) {
       const howCloseToEnd = remainingTime / duration;
       mousePosition.x = Math.round(
@@ -114,15 +113,13 @@ class PointerInputSource extends NullInputSource {
         ...to,
         ...mousePosition
       });
-      currentTime = Date.now();
-      remainingTime = endTime - currentTime;
+      remainingTime = endTime - Date.now();
       if (remainingTime <= STEP_DELAY) {
         await wait(remainingTime);
         break;
       } else {
         await wait(STEP_DELAY);
-        currentTime = Date.now();
-        remainingTime = endTime - currentTime;
+        remainingTime = endTime - Date.now();
       }
     }
     mousePosition.x = to.x;
