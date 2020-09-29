@@ -83,6 +83,8 @@ class KeyboardInputSource extends NullInputSource {
   }
 }
 
+const STEP_DELAY = 50;
+
 class PointerInputSource extends NullInputSource {
   async execute_pointerMove(action: any) {
     const originPosition = await this.getPosition(action.origin);
@@ -114,8 +116,11 @@ class PointerInputSource extends NullInputSource {
       });
       currentTime = Date.now();
       remainingTime = endTime - currentTime;
-      if (remainingTime > 0) {
-        await wait(Math.min(remainingTime, 50));
+      if (remainingTime <= STEP_DELAY) {
+        await wait(remainingTime);
+        break;
+      } else {
+        await wait(STEP_DELAY);
         currentTime = Date.now();
         remainingTime = endTime - currentTime;
       }
