@@ -1,0 +1,66 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.boot_timeout = 600
+  config.vm.graceful_halt_timeout = 600
+
+  config.vm.provider "virtualbox" do |v|
+    v.linked_clone = true
+    v.name = "ubuntu"
+    v.customize ["modifyvm", :id, "--vram", "64"]
+    v.customize ["setextradata", :id, "GUI/MaxGuestResolution", "any"]
+    v.customize ["modifyvm", :id, "--audio", "null", "--audioout", "on", "--audiocontroller", "hda"]
+  end
+
+  config.vm.provision "shell", inline: <<-SHELL
+    set -e
+
+    apt-get update -y
+    apt-get dist-upgrade -y
+    apt-get install -y orca chromium-browser chromium-chromedriver gdm3 openjdk-11-jre
+    curl -sfL https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar -o /home/vagrant/selenium-server.jar
+    curl -sfL https://raw.githubusercontent.com/tj/n/master/bin/n -o /home/vagrant/n
+    bash /home/vagrant/n 12
+    if [ -e /vagrant/software/tcp-web-listener.tgz ] ; then
+      echo Installing tcp-web-listener from /vagrant/software/tcp-web-listener.tgz
+      npm install -g file:///vagrant/software/tcp-web-listener.tgz
+    else
+      echo Installing tcp-web-listener from npm registry
+      npm install -g tcp-web-listener
+    fi
+    sed -i 's/#\s*AutomaticLoginEnable = true/AutomaticLoginEnable = true/' /etc/gdm3/custom.conf
+    sed -i 's/#\s*AutomaticLogin = user1/AutomaticLogin = vagrant/' /etc/gdm3/custom.conf
+  SHELL
+
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    set -e
+
+    cp -a /etc/speech-dispatcher .config/
+    mkdir -p /home/vagrant/.config/speech-dispatcher
+    cat << EOF > /home/vagrant/.config/speech-dispatcher/speechd.conf
+LogLevel 3
+LogDir "default"
+DefaultRate 0
+DefaultPitch 0
+DefaultVolume 100
+DefaultLanguage en
+AudioOutputMethod pulse
+AddModule "generic" "sd_generic" "/home/vagrant/.config/speech-dispatcher/modules/tcp-web-listener.conf"
+DefaultModule generic
+EOF
+    mkdir -p /home/vagrant/.config/speech-dispatcher/modules
+    cp /vagrant/tcp-web-listener.conf /home/vagrant/.config/speech-dispatcher/modules/tcp-web-listener.conf
+    cp /vagrant/wait-started.sh /home/vagrant/wait-started.sh
+
+    eval $(dbus-launch); export DBUS_SESSION_BUS_ADDRESS DBUS_SESSION_BUS_PID
+    GSETTINGS_BACKEND=dconf gsettings set org.gnome.desktop.a11y.applications screen-reader-enabled true
+
+    GSETTINGS_BACKEND=dconf gsettings set org.gnome.settings-daemon.peripherals.keyboard numlock-state 'on'
+    GSETTINGS_BACKEND=dconf gsettings set org.gnome.desktop.screensaver lock-enabled false
+    GSETTINGS_BACKEND=dconf gsettings set org.gnome.desktop.session idle-delay 0
+
+    cat << EOF > /home/vagrant/.xprofile
+java -jar /home/vagrant/selenium-server.jar &
+tcp-web-listener --http-host 0.0.0.0 &
+EOF
+  SHELL
+end
