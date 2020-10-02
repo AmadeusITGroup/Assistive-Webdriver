@@ -20,24 +20,9 @@ import { wait } from "./wait";
 import { InvalidArgumentValueError } from "./publicError";
 import { VM, ScreenPosition, SimplePosition } from "./vm/vmInterface";
 import { LogFunction, createSubLogFunction } from "./logging";
+import { NativeEventsConfig } from "./config";
 
 export type PositionGetter = (origin: any) => Promise<ScreenPosition>;
-
-export interface NativeEventsConfig {
-  pointerDownTime: number;
-  pointerUpTime: number;
-  pointerMoveTime: number;
-  keyDownTime: number;
-  keyUpTime: number;
-}
-
-export const DEFAULT_NATIVE_EVENTS_CONFIG: NativeEventsConfig = {
-  pointerDownTime: 5,
-  pointerUpTime: 5,
-  pointerMoveTime: 5,
-  keyDownTime: 20,
-  keyUpTime: 100
-};
 
 class NullInputSource {
   constructor(

@@ -22,7 +22,7 @@ import { Server } from "http";
 import { AddressInfo } from "net";
 import { PortRedirection } from "../../src/server/vm/vmInterface";
 import { asyncFnMock, AsyncFnMock } from "./asyncFnMock";
-import { DEFAULT_VM_PORT_WEBDRIVER } from "../../src/server/webdriverVMProxy";
+import { DEFAULT_VM_PORT_WEBDRIVER } from "../../src/server/defaults";
 import { wait } from "../../src/server/wait";
 
 const waitFor = async (

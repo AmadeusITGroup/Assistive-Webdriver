@@ -31,7 +31,7 @@ import {
   clearCachedScreenReaderText,
   refreshScreenReaderText
 } from "../src/client";
-import { DEFAULT_VM_PORT_WEBDRIVER } from "../src/server/webdriverVMProxy";
+import { DEFAULT_VM_PORT_WEBDRIVER } from "../src/server/defaults";
 import { handleCalibration } from "./helpers/handleCalibration";
 import { wait } from "../src/server/wait";
 import { DEFAULT_SESSION_TIMEOUT } from "../src/server/webdriverProxy";
@@ -67,7 +67,7 @@ describe("server", () => {
   });
 
   it("should forward argument error raised while creating a vm", async () => {
-    getVMConfigs().default = { vmSettings: { type: "mock" } };
+    getVMConfigs().default = { vmSettings: { type: "mock" } as any };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
       .usingServer(getUrl())
@@ -82,7 +82,9 @@ describe("server", () => {
   it("should destroy the vm when the client aborts the session creation request (case 1)", async () => {
     const requestFn = jest.spyOn(http, "request");
     getVMConfigs().default = {
-      vmSettings: { type: "mock", nativeEvents: false, screenReader: false }
+      vmSettings: { type: "mock" } as any,
+      nativeEvents: false,
+      screenReader: false
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -107,7 +109,9 @@ describe("server", () => {
   it("should destroy the vm when the client aborts the session creation request (case 2)", async () => {
     const requestFn = jest.spyOn(http, "request");
     getVMConfigs().default = {
-      vmSettings: { type: "mock", nativeEvents: false, screenReader: false }
+      vmSettings: { type: "mock" } as any,
+      nativeEvents: false,
+      screenReader: false
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -140,7 +144,9 @@ describe("server", () => {
   it("should destroy the vm when the client aborts the session creation request (case 3)", async () => {
     const requestFn = jest.spyOn(http, "request");
     getVMConfigs().default = {
-      vmSettings: { type: "mock", nativeEvents: true, screenReader: false }
+      vmSettings: { type: "mock" } as any,
+      nativeEvents: true,
+      screenReader: false
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -183,7 +189,7 @@ describe("server", () => {
     const clock = lolex.install({ now: Date.now(), shouldAdvanceTime: true });
     getVMConfigs().default = {
       nativeEvents: false,
-      vmSettings: { type: "mock" }
+      vmSettings: { type: "mock" } as any
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -217,7 +223,7 @@ describe("server", () => {
       vmPortWebDriver,
       nativeEvents: false,
       screenReader: false,
-      vmSettings: { type: "mock", extraParam: "abcdef" }
+      vmSettings: { type: "mock", extraParam: "abcdef" } as any
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -277,7 +283,7 @@ describe("server", () => {
       vmPortScreenReader,
       vmHttpScreenReaderPath,
       screenReader: true,
-      vmSettings: { type: "mock" }
+      vmSettings: { type: "mock" } as any
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()
@@ -353,7 +359,7 @@ describe("server", () => {
     getVMConfigs().default = {
       nativeEvents: true,
       screenReader: false,
-      vmSettings: { type: "mock" }
+      vmSettings: { type: "mock" } as any
     };
     const mockVM = getVMFactoryMock();
     const webdriver = new Builder()

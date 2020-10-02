@@ -1,4 +1,5 @@
 {
+  "$schema": "../../assistive-webdriver/config-schema.json",
   "nvda": {
     "vmSettings": {
       "type": "virtualbox",

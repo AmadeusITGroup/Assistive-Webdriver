@@ -26,6 +26,7 @@ import {
 import { InvalidArgumentError } from "./publicError";
 import { defaultLogFunction, defaultLogger } from "./logging";
 import { DEFAULT_SESSION_TIMEOUT } from "./webdriverProxy";
+import { ConfigSchema } from "./config";
 
 const CONFIG_CAPABILITY_NAME = "awd:vm-config";
 
@@ -82,7 +83,7 @@ export const start = async (
     });
   }
 
-  const vmProxyConfig: WebdriverVMProxyConfig<any> = {
+  const vmProxyConfig: WebdriverVMProxyConfig = {
     log,
     sessionTimeout: argv["session-timeout"],
     defaultConfiguration: {
@@ -92,7 +93,7 @@ export const start = async (
 
   if (argv["vm-configs"]) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const vmConfigs = require(resolve(argv["vm-configs"]));
+    const vmConfigs: ConfigSchema = require(resolve(argv["vm-configs"]));
     vmProxyConfig.processCapabilities = async capabilities => {
       const configName = capabilities[CONFIG_CAPABILITY_NAME];
       delete capabilities[CONFIG_CAPABILITY_NAME];

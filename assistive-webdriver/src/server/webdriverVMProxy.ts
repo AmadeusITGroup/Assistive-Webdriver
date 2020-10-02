@@ -26,11 +26,15 @@ import {
   CTX_SESSION_ID
 } from "./webdriverProxy";
 import { ScreenReaderClient } from "./screenReaderClient";
+import { executeNativeEvents } from "./nativeEvents";
 import {
-  executeNativeEvents,
-  NativeEventsConfig,
-  DEFAULT_NATIVE_EVENTS_CONFIG
-} from "./nativeEvents";
+  DEFAULT_NATIVE_EVENTS_CONFIG,
+  DEFAULT_SCREENREADER_PATH,
+  DEFAULT_VM_PORT_SCREENREADER,
+  DEFAULT_VM_PORT_WEBDRIVER,
+  DEFAULT_WEBDRIVER_PATH
+} from "./defaults";
+import { VirtualMachineConfig, VMSettings } from "./config";
 import { webdriverCalibrate } from "./calibration/index";
 import { createPositionGetter } from "./positionGetter";
 import {
@@ -44,26 +48,14 @@ import { genericFactory } from "./vm/generic";
 import { createSubLogFunction, LogFunction } from "./logging";
 import { UnknownCommandError } from "./publicError";
 
-export interface Configuration<T> {
-  vmSettings: T;
-  vmPortWebDriver: number;
-  vmPortScreenReader: number;
-  vmHttpWebDriverPath: string;
-  vmHttpScreenReaderPath: string;
-  nativeEvents: boolean;
-  nativeEventsConfig: NativeEventsConfig;
-  screenReader: boolean;
-  failedCalibrationsFolder?: string;
-}
-
-interface SessionData<T> extends Configuration<T> {
+interface SessionData extends VirtualMachineConfig {
   mousePosition: SimplePosition;
   vm?: VM;
   calibration?: ScreenPosition;
   screenReaderClient?: ScreenReaderClient;
 }
 
-async function deleteSession<T>(id: string, data: SessionData<T>) {
+async function deleteSession(id: string, data: SessionData) {
   const screenReaderClient = data.screenReaderClient;
   if (screenReaderClient) {
     data.screenReaderClient = undefined;
@@ -76,19 +68,14 @@ async function deleteSession<T>(id: string, data: SessionData<T>) {
   }
 }
 
-export const DEFAULT_VM_PORT_WEBDRIVER = 4444;
-export const DEFAULT_WEBDRIVER_PATH = "/wd/hub";
-export const DEFAULT_VM_PORT_SCREENREADER = 7779;
-export const DEFAULT_SCREENREADER_PATH = "/live/websocket";
-
-export interface WebdriverVMProxyConfig<T> {
+export interface WebdriverVMProxyConfig {
   log?: LogFunction;
   sessionTimeout?: number;
-  defaultConfiguration?: Partial<Configuration<T>>;
+  defaultConfiguration?: Partial<VirtualMachineConfig>;
   processCapabilities?: (
     capabilities: any
-  ) => Promise<Partial<Configuration<T>>>;
-  vmFactory?: VMFactory<T>;
+  ) => Promise<Partial<VirtualMachineConfig>>;
+  vmFactory?: VMFactory<VMSettings>;
 }
 
 function findRedirection(redirections: PortRedirection[], vmPort: number) {
@@ -99,10 +86,10 @@ function findRedirection(redirections: PortRedirection[], vmPort: number) {
   return res;
 }
 
-const createSessionData = <T>(
-  defaultConfiguration: Partial<Configuration<T>>,
-  specificConfiguration: Partial<Configuration<T>>
-): SessionData<T> =>
+const createSessionData = (
+  defaultConfiguration: Partial<VirtualMachineConfig>,
+  specificConfiguration: Partial<VirtualMachineConfig>
+): SessionData =>
   Object.assign(
     {
       nativeEvents: true,
@@ -133,13 +120,13 @@ const createSessionData = <T>(
     }
   );
 
-export function createWebdriverVMProxy<T>({
+export function createWebdriverVMProxy({
   log,
   sessionTimeout,
   processCapabilities = async () => ({}),
   defaultConfiguration = {},
   vmFactory = genericFactory
-}: WebdriverVMProxyConfig<T>) {
+}: WebdriverVMProxyConfig) {
   log = createSubLogFunction(log, { category: "vmproxy" });
   return createWebdriverProxy({
     log,
@@ -152,9 +139,13 @@ export function createWebdriverVMProxy<T>({
         await processCapabilities(capabilities)
       );
       try {
-        const redirectTCPPorts: number[] = [data.vmPortWebDriver];
+        const redirectTCPPorts: number[] = [
+          data.vmPortWebDriver || DEFAULT_VM_PORT_WEBDRIVER
+        ];
         if (data.screenReader) {
-          redirectTCPPorts.push(data.vmPortScreenReader);
+          redirectTCPPorts.push(
+            data.vmPortScreenReader || DEFAULT_VM_PORT_SCREENREADER
+          );
         }
         const sessionLog = createSubLogFunction(log, { sessionId: id });
         data.vm = await vmFactory({
@@ -165,12 +156,12 @@ export function createWebdriverVMProxy<T>({
         });
         const webdriverRedirection = findRedirection(
           data.vm.tcpRedirections,
-          data.vmPortWebDriver
+          data.vmPortWebDriver || DEFAULT_VM_PORT_WEBDRIVER
         );
         if (data.screenReader) {
           const screenReaderRedirection = findRedirection(
             data.vm.tcpRedirections,
-            data.vmPortScreenReader
+            data.vmPortScreenReader || DEFAULT_VM_PORT_SCREENREADER
           );
           data.screenReaderClient = new ScreenReaderClient(
             screenReaderRedirection.hostAddress,
@@ -191,7 +182,7 @@ export function createWebdriverVMProxy<T>({
     },
     async sessionCreated(
       id: string,
-      data: SessionData<T>,
+      data: SessionData,
       serverSessionUrl: string
     ) {
       if (data.nativeEvents) {
@@ -209,14 +200,14 @@ export function createWebdriverVMProxy<T>({
     registerActions(app) {
       app.use(
         post("/session/:sessionid/actions", async (ctx, next) => {
-          const data: SessionData<T> = ctx[CTX_SESSION_DATA];
+          const data: SessionData = ctx[CTX_SESSION_DATA];
           if (data.nativeEvents) {
             const sessionLog = createSubLogFunction(log, {
               sessionId: ctx[CTX_SESSION_ID]
             });
             const executionResult = await executeNativeEvents(
               data.vm!,
-              data.nativeEventsConfig,
+              data.nativeEventsConfig || DEFAULT_NATIVE_EVENTS_CONFIG,
               data.mousePosition,
               createPositionGetter(
                 ctx[CTX_SERVER_SESSION_URL],
@@ -236,7 +227,7 @@ export function createWebdriverVMProxy<T>({
       );
       app.use(
         get("/session/:sessionid/screenReaderText", ctx => {
-          const data: SessionData<T> = ctx[CTX_SESSION_DATA];
+          const data: SessionData = ctx[CTX_SESSION_DATA];
           if (!data.screenReaderClient) {
             throw new UnknownCommandError(
               "This command is not available as the screenReader feature is not enabled."

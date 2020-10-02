@@ -19,10 +19,7 @@
 import { PortRedirection, VMFactory } from "../vmInterface";
 import { QEMUVM } from "./qemu";
 import { getPortPromise } from "../../portFinder";
-
-export interface QEMUSettings {
-  commandLine: string[];
-}
+import { QEMUSettings } from "../../config";
 
 async function buildRedirections(ports: number[]) {
   const hostAddress = "127.0.0.1";

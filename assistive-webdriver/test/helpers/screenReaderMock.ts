@@ -20,7 +20,7 @@ import WebSocket from "ws";
 import { Server, createServer } from "http";
 import { AddressInfo } from "net";
 import { PortRedirection } from "../../src/server/vm/vmInterface";
-import { DEFAULT_VM_PORT_SCREENREADER } from "../../src/server/webdriverVMProxy";
+import { DEFAULT_VM_PORT_SCREENREADER } from "../../src/server/defaults";
 
 export const useScreenReaderMock = () => {
   const host = "127.0.0.1";

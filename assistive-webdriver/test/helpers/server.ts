@@ -18,10 +18,10 @@
 
 import { getPortPromise } from "../../src/server/portFinder";
 import { start } from "../../src/server/index";
-import { Configuration } from "../../src/server/webdriverVMProxy";
+import { VirtualMachineConfig } from "../../src/server/config";
 
 export const useServer = (extraArgs: string[] = []) => {
-  let config: { [key: string]: Partial<Configuration<any>> };
+  let config: { [key: string]: Partial<VirtualMachineConfig> };
   const host = "127.0.0.1";
   let port: number;
   let closeServer: (() => Promise<void>) | null = null;

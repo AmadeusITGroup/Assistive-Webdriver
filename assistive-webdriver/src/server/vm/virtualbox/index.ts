@@ -18,16 +18,11 @@
 
 import { VirtualboxVM } from "./vm";
 import { VMFactory } from "../vmInterface";
+import { VirtualBoxSettings } from "../../config";
 
 export const DEFAULT_SERVER = `http://127.0.0.1:18083`;
 
-export interface VBoxSettings {
-  server?: string;
-  vm: string;
-  snapshot?: string;
-}
-
-export const vboxVMFactory: VMFactory<VBoxSettings> = async ({
+export const vboxVMFactory: VMFactory<VirtualBoxSettings> = async ({
   log,
   redirectTCPPorts,
   id,
