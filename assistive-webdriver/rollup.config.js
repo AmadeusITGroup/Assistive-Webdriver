@@ -75,7 +75,8 @@ export default [
       "stream-json/streamers/StreamValues",
       "os",
       "net",
-      "url"
+      "url",
+      "../../config-schema.json"
     ],
     plugins
   },
@@ -87,7 +88,7 @@ export default [
       }
     ],
     input: "./src/server/bin.ts",
-    external: ["./index"],
+    external: ["./index", "readline"],
     plugins
   },
   {
@@ -104,7 +105,8 @@ export default [
       "selenium-webdriver",
       "os",
       "selenium-webdriver/lib/command",
-      "http"
+      "http",
+      "readline"
     ],
     plugins
   }

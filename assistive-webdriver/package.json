@@ -27,7 +27,8 @@
   "files": [
     "assistive-webdriver",
     "dist",
-    "server"
+    "server",
+    "config-schema.json"
   ],
   "license": "MIT",
   "dependencies": {
@@ -53,10 +54,10 @@
     "@types/co-body": "5.1.0",
     "@types/http-proxy": "1.17.4",
     "@types/jest": "26.0.14",
-    "@types/node-fetch": "2.5.7",
     "@types/koa": "2.11.4",
     "@types/koa-bodyparser": "4.3.0",
     "@types/koa-route": "3.2.4",
+    "@types/node-fetch": "2.5.7",
     "@types/pngjs": "3.4.2",
     "@types/selenium-webdriver": "4.0.9",
     "@types/stream-json": "1.5.1",
@@ -69,6 +70,7 @@
     "eslint": "7.10.0",
     "eslint-config-prettier": "6.12.0",
     "jest": "25.5.4",
+    "json-schema-to-typescript": "9.1.1",
     "lolex": "6.0.0",
     "nyc": "15.1.0",
     "prettier": "2.1.2",
@@ -84,7 +86,9 @@
   "scripts": {
     "prepare": "yarn build",
     "prebuild": "rimraf dist",
-    "build": "rollup -c",
+    "build": "yarn build:schema && yarn build:rollup",
+    "build:schema": "json2ts -i config-schema.json -o src/server/config.d.ts",
+    "build:rollup": "rollup -c",
     "postbuild": "tsc -p tsconfig.d.json",
     "format": "prettier '*.{ts,js,json}' '{src,server,test,samples}/**/*.{ts,js,json}'",
     "format:check": "npm run format -- --check",

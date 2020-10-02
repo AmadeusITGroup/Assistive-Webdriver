@@ -36,7 +36,7 @@ Each key in the configuration file (such as `jaws` in the previous example) allo
 
 ## General settings
 
-- `nativeEvents`, defaults to `true`: whether to enable native events. When this is `true`, the tool does not forward events to the selenium server running in the virtual machine, and instead uses the API of the virtual machine to send the events so that appear as native in the virtual machine (coming from the virtual hardware).
+- `nativeEvents`, defaults to `true`: whether to enable native events. When this is `true`, the tool does not forward events to the selenium server running in the virtual machine, and instead uses the API of the virtual machine to send the events so that they appear as native in the virtual machine (coming from the virtual hardware).
 
 - `screenReader`, defaults to `false`: whether to connect to the `tcp-web-listener` server in the virtual machine that reports what the screen reader says. If this is `false`, the screen-reader-related API (such as `webdriver.wait(forScreenReaderToSay(...))`) will not be available.
 
