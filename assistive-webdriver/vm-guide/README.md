@@ -2,7 +2,7 @@
 
 This guide explains how to configure a VirtualBox virtual machine to use it with `Assistive-Webdriver` for automated testing of a web application with the [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader.
 
-Note that if you look for an automated script that builds this kind of virtual machine, you can have a look at the [msedge-win10](../../vagrant/msedge-win10) folder.
+Note that if you look for an already built virtual machine, you can find one on [Vagrant Cloud](https://app.vagrantup.com/assistive-webdriver/boxes/win10-chromium-nvda). If you look for an automated script that builds this kind of virtual machine, you can have a look at the [msedge-win10](../../vagrant/msedge-win10) folder.
 
 This guide supposes [VirtualBox](https://www.virtualbox.org/) is installed on your machine.
 

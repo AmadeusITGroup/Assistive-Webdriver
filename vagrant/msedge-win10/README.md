@@ -14,6 +14,8 @@ The result is a virtual machine that is ready to be used with [assistive-webdriv
 
 This virtual machine is automatically built and used during continuous integration end-to-end tests for assistive-webdriver.
 
+It is published on [Vagrant Cloud](https://app.vagrantup.com/assistive-webdriver/boxes/win10-chromium-nvda).
+
 ## How to build the VM
 
 As a prerequisite, you need to have [vagrant](https://vagrantup.com), [VirtualBox](https://www.virtualbox.org/), [node.js](https://nodejs.org) and basic unix command line tools (such as bash and curl) installed on your machine.
