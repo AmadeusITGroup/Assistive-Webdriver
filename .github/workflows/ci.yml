@@ -262,3 +262,17 @@ jobs:
           file: ./assistive-webdriver/coverage/lcov.info
           name: e2e
           flags: e2e
+      - name: "Upload VM"
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/vagrant-win10-chromium-nvda/')
+        run: |
+          ./packageVM.sh
+          vagrant cloud auth login --token "${{ secrets.VAGRANT_TOKEN }}"
+          vagrant cloud publish \
+            assistive-webdriver/win10-chromium-nvda "$(basename ${{ github.ref }})" \
+            virtualbox package.box \
+            --force \
+            --release \
+            --description "$(cat ./box-description.md)" \
+            --short-description "Contains NVDA and Chromium on Windows 10 for automatic tests of web applications with assistive-webdriver." \
+            --version-description "Automatically created from commit ${{ github.sha }}"
+        working-directory: ./vagrant/msedge-win10
