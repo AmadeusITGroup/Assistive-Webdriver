@@ -1,4 +1,4 @@
-# msedge-win10 vagrant virtual machine
+# win10-chromium-nvda vagrant virtual machine
 
 This directory contains a [vagrant](https://vagrantup.com) config file, and various other files that allow to automatically build a virtual machine containing:
 - [Microsoft Windows 10](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)
@@ -32,4 +32,4 @@ Then, run the following [script](./createVM.sh) to build the virtual machine:
 ./createVM.sh
 ```
 
-If everything goes well, when the build is finished, you should have a virtualbox virtual machine called "msedge-win10" with a snapshot called "nvda" that is ready to be used for testing with assistive-webdriver, with [this configuration file](./vm-config.json).
+If everything goes well, when the build is finished, you should have a virtualbox virtual machine called "win10-chromium-nvda" with a snapshot called "nvda" that is ready to be used for testing with assistive-webdriver, with [this configuration file](./vm-config.json).

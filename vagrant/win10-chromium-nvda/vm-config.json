@@ -2,7 +2,7 @@
   "nvda": {
     "vmSettings": {
       "type": "virtualbox",
-      "vm": "msedge-win10",
+      "vm": "win10-chromium-nvda",
       "snapshot": "nvda"
     },
     "screenReader": true

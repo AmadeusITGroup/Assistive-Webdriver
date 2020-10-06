@@ -181,28 +181,28 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: tcp-web-listener.tgz
-          path: ./vagrant/msedge-win10/software/
+          path: ./vagrant/win10-chromium-nvda/software/
       - uses: actions/download-artifact@v2
         with:
           name: text-to-socket-engine-x86.zip
-          path: ./vagrant/msedge-win10/software/
+          path: ./vagrant/win10-chromium-nvda/software/
       - run: |
           touch software/.tcp-web-listener.tgz
           touch software/.text-to-socket-engine-x86.zip
           ./download.sh
         continue-on-error: true
         name: "Download software (1)"
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
       - run: ./download.sh
         continue-on-error: true
         name: "Download software (2)"
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
       - run: ./download.sh
         name: "Download software (3)"
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
       - name: "Create VM (1)"
         run: ./createVM.sh
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
         timeout-minutes: 45
         continue-on-error: true
         id: createVM1
@@ -212,7 +212,7 @@ jobs:
           killall vagrant ruby || true
           vagrant destroy -f
           ./createVM.sh
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
         timeout-minutes: 45
         continue-on-error: true
         id: createVM2
@@ -222,11 +222,11 @@ jobs:
           killall vagrant ruby || true
           vagrant destroy -f
           ./createVM.sh
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
         timeout-minutes: 45
       - run: vboxwebsrv -A null &
       - run: |
-          yarn nyc-server -c ../vagrant/msedge-win10/vm-config.json --pid-file ../assistive-webdriver.pid &> ../assistive-webdriver.log &
+          yarn nyc-server -c ../vagrant/win10-chromium-nvda/vm-config.json --pid-file ../assistive-webdriver.pid &> ../assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
         working-directory: ./assistive-webdriver
@@ -275,4 +275,4 @@ jobs:
             --description "$(cat ./box-description.md)" \
             --short-description "Contains NVDA and Chromium on Windows 10 for automatic tests of web applications with assistive-webdriver." \
             --version-description "Automatically created from commit ${{ github.sha }}"
-        working-directory: ./vagrant/msedge-win10
+        working-directory: ./vagrant/win10-chromium-nvda
