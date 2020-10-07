@@ -224,7 +224,7 @@ jobs:
           ./createVM.sh
         working-directory: ./vagrant/win10-chromium-nvda
         timeout-minutes: 45
-      - run: vboxwebsrv -A null &
+      - run: vboxwebsrv -A null --logfile vboxwebsrv.log &
       - run: |
           yarn nyc-server -c ../vagrant/win10-chromium-nvda/vm-config.json --pid-file ../assistive-webdriver.pid &> ../assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
@@ -254,6 +254,8 @@ jobs:
           echo "Done!"
         name: "Stop assistive-webdriver server"
       - run: cat assistive-webdriver.log
+        if: ${{ always() }}
+      - run: cat vboxwebsrv.log
         if: ${{ always() }}
       - run: yarn nyc-report
         working-directory: ./assistive-webdriver
