@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "co-body": "6.0.0",
+    "co-body": "6.1.0",
     "colors": "1.4.0",
     "http-proxy": "1.18.1",
     "koa": "2.13.0",
