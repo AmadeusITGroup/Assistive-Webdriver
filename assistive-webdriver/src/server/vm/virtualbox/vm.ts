@@ -130,7 +130,7 @@ export class VirtualboxVM implements VM {
     const startProgress = await machine.launchVMProcess(
       vboxSession,
       "headless",
-      ""
+      []
     );
     await startProgress.waitForCompletion(-1);
     const vboxConsole = await vboxSession.getConsole();
@@ -212,12 +212,12 @@ export class VirtualboxVM implements VM {
 
   async takePNGScreenshot(): Promise<PNG> {
     const resolution = await this.vboxDisplay!.getScreenResolution(0);
-    const screenshot: string = (await this.vboxDisplay!.takeScreenShotToArray(
+    const screenshot = await this.vboxDisplay!.takeScreenShotToArray(
       0,
       resolution.width,
       resolution.height,
       BitmapFormat.PNG
-    )) as any;
+    );
     const imageBuffer = Buffer.from(screenshot, "base64");
     const image = new PNG();
     const parseImage = promisify(image.parse.bind(image));
