@@ -42,7 +42,7 @@
     "pngjs": "5.0.0",
     "stream-json": "1.7.1",
     "uuid": "8.3.1",
-    "virtualbox-soap": "3.0.3",
+    "virtualbox-soap": "4.0.0",
     "winston": "3.3.3",
     "ws": "7.3.1",
     "yargs": "16.0.3"
