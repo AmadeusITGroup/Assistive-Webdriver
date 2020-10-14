@@ -54,7 +54,7 @@
     "@types/co-body": "5.1.0",
     "@types/http-proxy": "1.17.4",
     "@types/jest": "26.0.14",
-    "@types/koa": "2.11.4",
+    "@types/koa": "2.11.5",
     "@types/koa-bodyparser": "4.3.0",
     "@types/koa-route": "3.2.4",
     "@types/node-fetch": "2.5.7",
