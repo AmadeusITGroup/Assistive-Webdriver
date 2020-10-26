@@ -39,7 +39,7 @@
     "koa-route": "3.2.0",
     "node-fetch": "2.6.1",
     "p-queue": "6.6.2",
-    "pngjs": "5.0.0",
+    "pngjs": "6.0.0",
     "stream-json": "1.7.1",
     "uuid": "8.3.1",
     "virtualbox-soap": "4.0.0",
