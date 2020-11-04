@@ -1,6 +1,7 @@
 # win10-chromium-nvda vagrant virtual machine
 
 This directory contains a [vagrant](https://vagrantup.com) config file, and various other files that allow to automatically build a virtual machine containing:
+
 - [Microsoft Windows 10](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)
 - [Chromium](https://www.chromium.org/)
 - [NVDA](https://www.nvaccess.org/)

@@ -47,8 +47,8 @@ Then register a function that will be called each time the small server receives
 
 ```js
 var removeListener = registerLiveListener(function (text) {
-    console.log(text);
-})
+  console.log(text);
+});
 
 // call removeListener() to remove the listener
 ```
