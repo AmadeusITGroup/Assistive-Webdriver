@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-window[LIVELISTENER_REGISTER_FUNCTION](function(message) {
+window[LIVELISTENER_REGISTER_FUNCTION](function (message) {
   var node = document.createTextNode(message + "\n");
   var container = document.getElementById("messages");
   container.appendChild(node);

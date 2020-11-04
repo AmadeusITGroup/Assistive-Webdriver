@@ -30,12 +30,12 @@ Once the virtual machine is fully started, follow the following steps inside the
 
 - Download and install the browsers you want to be able to use for testing, and their associated drivers. Note that drivers should be installed in a directory that is included in the PATH, so that the Selenium Server can find them.
 
-| Browser | Browser download link | Driver download link |
-|---------|-----------------------|----------------------|
-| Firefox | [Download Firefox](https://www.mozilla.org/en-US/firefox/new/) | [Download geckodriver](https://github.com/mozilla/geckodriver/releases) |
-| Chrome  | [Download Chrome](https://www.google.com/chrome/) | [Download ChromeDriver](https://chromedriver.chromium.org/) |
-| Edge              | [Download Edge](https://www.microsoft.com/en-us/edge) | [Download Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) |
-| Internet Explorer | [Download IE](https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads) | [Download IE Driver Server](https://www.selenium.dev/downloads/) |
+| Browser           | Browser download link                                                                     | Driver download link                                                                          |
+| ----------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Firefox           | [Download Firefox](https://www.mozilla.org/en-US/firefox/new/)                            | [Download geckodriver](https://github.com/mozilla/geckodriver/releases)                       |
+| Chrome            | [Download Chrome](https://www.google.com/chrome/)                                         | [Download ChromeDriver](https://chromedriver.chromium.org/)                                   |
+| Edge              | [Download Edge](https://www.microsoft.com/en-us/edge)                                     | [Download Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) |
+| Internet Explorer | [Download IE](https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads) | [Download IE Driver Server](https://www.selenium.dev/downloads/)                              |
 
 - Download and install [Java](https://www.java.com). Java is needed in order to run Selenium Server.
 
@@ -49,8 +49,8 @@ Once the virtual machine is fully started, follow the following steps inside the
 
 - Configure `NVDA` or `JAWS` to use `TextToSocketEngine`:
 
-
   - For NVDA:
+
     - Right-click on the NVDA icon in the task bar, select `Preferences` and click on `Settings...`:
 
     ![NVDA Options menu](nvda-preferences-menu.png)
@@ -72,6 +72,7 @@ Once the virtual machine is fully started, follow the following steps inside the
     - NVDA is now correctly configured to use `TextToSocketEngine`.
 
   - For JAWS:
+
     - In the `Options` menu, select `Voices` and click on `Voice Adjustment`:
 
     ![JAWS Options menu](jaws-options-menu.png)
@@ -85,7 +86,6 @@ Once the virtual machine is fully started, follow the following steps inside the
     ![JAWS Make Default Voice Profile dialog](jaws-default-profile.png)
 
     - JAWS is now correctly configured to use `TextToSocketEngine`.
-
 
 - Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener`.
 

@@ -32,13 +32,13 @@ const argv = require("yargs")
   .default("tcp-port", 4449)
   .default("register-function", "registerLiveListener").argv;
 
-const formatAddress = function(address) {
+const formatAddress = function (address) {
   const host = address.address;
   const wrappedHost = host.indexOf(":") > -1 ? `[${host}]` : host;
   return `${wrappedHost}:${address.port}`;
 };
 
-const readSocketAddress = function(socket) {
+const readSocketAddress = function (socket) {
   return {
     port: socket.remotePort,
     family: socket.remoteFamily,
@@ -125,7 +125,7 @@ sockServer.on("connection", socket => {
   });
 });
 
-const tcpServer = net.createServer(function(socket) {
+const tcpServer = net.createServer(function (socket) {
   const address = formatAddress(readSocketAddress(socket));
   console.log(`tcp client connected: ${address}`);
   let text = "";
@@ -148,9 +148,9 @@ const tcpServer = net.createServer(function(socket) {
   });
 });
 
-const startListening = function(serverName, serverObject) {
+const startListening = function (serverName, serverObject) {
   serverObject.listen(argv[`${serverName}-port`], argv[`${serverName}-host`]);
-  serverObject.on("listening", function() {
+  serverObject.on("listening", function () {
     console.log(
       `${serverName} server listening on ${formatAddress(
         serverObject.address()
