@@ -15,7 +15,7 @@ Concretely, it adds screen reader-related functions to webdriver.
 For example:
 
 ```js
-await driver.wait(forScreenReaderToSay("Date of departure"),5000);
+await driver.wait(forScreenReaderToSay("Date of departure"), 5000);
 ```
 
 It also allows keystrokes to be sent low-level enough to pass through the screen reader (unlike usual webdriver implementations that send keystrokes directly to the browser and bypass hooks in the operating system).
@@ -31,6 +31,7 @@ Assistive-webdriver uses a virtual machine to run tests. Here is a schema descri
 ![Architecture of Assistive-Webdriver](components/assistive-webdriver/architecture.png)
 
 The 3 yellow boxes in this schema are the three components of Assistive-Webdriver, in the following three directories:
+
 - [assistive-webdriver](components/assistive-webdriver)
 - [text-to-socket-engine](components/text-to-socket-engine)
 - [tcp-web-listener](components/tcp-web-listener)

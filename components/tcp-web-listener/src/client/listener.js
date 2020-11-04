@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-(function() {
+(function () {
   var listener = null;
   var console = window.console;
   var registerFunction = LIVELISTENER_REGISTER_FUNCTION;
@@ -24,38 +24,38 @@
 
   var log =
     console && console.log
-      ? function(message) {
+      ? function (message) {
           console.log("[window." + registerFunction + "]: " + message);
         }
-      : function() {};
+      : function () {};
 
-  var createSocket = function() {
+  var createSocket = function () {
     var sock = new SockJS(urlValue);
 
-    sock.onopen = function() {
+    sock.onopen = function () {
       log("Connected to " + urlValue);
     };
 
-    sock.onmessage = function(e) {
+    sock.onmessage = function (e) {
       if (listener) {
         listener.fn.call(listener.scope, e.data);
       }
     };
 
-    sock.onclose = function() {
+    sock.onclose = function () {
       sock = null;
       log("Connection to " + urlValue + " was lost. Reconnecting in 100ms...");
       setTimeout(createSocket, 100);
     };
   };
 
-  window[registerFunction] = function(fn, scope) {
+  window[registerFunction] = function (fn, scope) {
     var listenerObject = {
       fn: fn,
       scope: scope
     };
     listener = listenerObject;
-    return function() {
+    return function () {
       if (listener === listenerObject) {
         listener = null;
         listenerObject = null;

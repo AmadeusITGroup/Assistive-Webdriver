@@ -2,7 +2,7 @@
 
 ![text-to-socket-engine](https://github.com/AmadeusITGroup/Assistive-Webdriver/workflows/text-to-socket-engine/badge.svg?branch=master&event=push)
 
-This directory contains an implementation of the Windows <abbr title="Speech API">SAPI</abbr> <abbr title="Text-To-Speech">TTS</abbr> engine interface ([`ISpTTSEngine`](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms719558(v%3dvs.85))) that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).
+This directory contains an implementation of the Windows <abbr title="Speech API">SAPI</abbr> <abbr title="Text-To-Speech">TTS</abbr> engine interface ([`ISpTTSEngine`](<https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms719558(v%3dvs.85)>)) that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).
 
 It is based on [the TTS engine example provided by Microsoft](https://github.com/Microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/speech/engines/samplettsengine/samplettsengine).
 

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "devDependencies": {
+    "prettier": "2.1.2"
+  },
+  "scripts": {
+    "format": "prettier .",
+    "format:check": "pnpm format -- --check",
+    "format:fix": "pnpm format -- --write"
+  }
+}

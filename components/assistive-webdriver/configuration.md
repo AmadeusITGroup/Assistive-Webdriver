@@ -5,30 +5,32 @@ This tool expects a configuration file describing how to create virtual machines
 The configuration file can be in the `json` or the `js` format (any format that can be loaded by node.js through `require`). For example:
 
 - In the JSON format:
+
 ```json
 {
-    "jaws": {
-        "vmSettings": {
-            "type": "virtualbox",
-            "vm": "VMNameInVirtualBox",
-            "snapshot": "SeleniumJaws"
-        },
-        "screenReader": true
-    }
+  "jaws": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "VMNameInVirtualBox",
+      "snapshot": "SeleniumJaws"
+    },
+    "screenReader": true
+  }
 }
 ```
 
 - In the JS format:
+
 ```js
 module.exports = {
-    jaws: {
-        vmSettings: {
-            type: "virtualbox",
-            vm: "VMNameInVirtualBox",
-            snapshot: "SeleniumJaws"
-        },
-        screenReader: true
-    }
+  jaws: {
+    vmSettings: {
+      type: "virtualbox",
+      vm: "VMNameInVirtualBox",
+      snapshot: "SeleniumJaws"
+    },
+    screenReader: true
+  }
 };
 ```
 
@@ -46,9 +48,10 @@ Each key in the configuration file (such as `jaws` in the previous example) allo
 
 - `vmPortScreenReader`, defaults to `7779`: TCP port, inside the virtual machine, on which the `tcp-web-listener` server in the virtual machine is listening for connections.
 
-- `vmHttpScreenReaderPath`, defaults to `/live/websocket`: HTTP path to the websocket sending text from the screen reader on the `tcp-web-listener` server (running  in the virtual machine on the port configured by the `vmPortScreenReader` setting).
+- `vmHttpScreenReaderPath`, defaults to `/live/websocket`: HTTP path to the websocket sending text from the screen reader on the `tcp-web-listener` server (running in the virtual machine on the port configured by the `vmPortScreenReader` setting).
 
 - `nativeEventsConfig`: Object defining the minimum delay to wait when executing native events. By default, the following values are used:
+
 ```json
 {
   "pointerDownTime": 5,

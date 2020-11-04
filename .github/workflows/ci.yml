@@ -2,7 +2,7 @@ name: ci
 on:
   push:
     branches: [master]
-    tags: ['**']
+    tags: ["**"]
   pull_request:
     branches: [master]
 jobs:
@@ -30,7 +30,6 @@ jobs:
       - run: pnpm lint
         working-directory: ./components/assistive-webdriver
       - run: pnpm format:check
-        working-directory: ./components/assistive-webdriver
       - run: pnpm test -- --coverage
         working-directory: ./components/assistive-webdriver
       - uses: codecov/codecov-action@v1

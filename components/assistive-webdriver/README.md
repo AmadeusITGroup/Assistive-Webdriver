@@ -9,6 +9,7 @@
 This package contains the implementation of a webdriver server that allows testing web applications with a screen reader (such as [NVDA](https://www.nvaccess.org/) or [JAWS](http://www.freedomscientific.com/products/software/jaws/)) and checking that the screen reader says what is expected.
 
 This requires two main features that are not natively supported by webdriver:
+
 - being able to send keystrokes at a low level so that the screen reader can receive them. This is achieved by using either Virtual Box or QEMU and sending low level events with their API.
 - being able to capture the text read by the screen reader. This is achieved by using [text-to-socket-engine](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/text-to-socket-engine) and [tcp-web-listener](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/tcp-web-listener) inside the virtual machine.
 
@@ -25,12 +26,14 @@ Here is a schema describing the architecture of Assistive-Webdriver:
 ## Getting started
 
 - Make sure you have the following software installed on the host machine:
+
   - [nodejs](https://nodejs.org)
   - [VirtualBox](https://www.virtualbox.org/) or [QEMU](https://www.qemu.org/)
 
 - Make sure you have a VirtualBox or QEMU virtual machine properly configured. To configure the virtual machine, you can follow [this step-by-step guide](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/assistive-webdriver/vm-guide/README.md). The virtual machine should be configured with:
+
   - The [selenium standalone server](https://www.selenium.dev/downloads)
-  running on port 4444
+    running on port 4444
   - The [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader
   - [text-to-socket-engine](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/text-to-socket-engine) and [tcp-web-listener](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/tcp-web-listener) that are configured to work together, with tcp-web-listener listening on http port 7779
   - A snapshot of the virtual machine should be saved in the running state with all these programs running.
@@ -45,14 +48,14 @@ npm install -g assistive-webdriver
 
 ```json
 {
-    "jaws": {
-        "vmSettings": {
-            "type": "virtualbox",
-            "vm": "VMNameInVirtualBox",
-            "snapshot": "SeleniumJaws"
-        },
-        "screenReader": true
-    }
+  "jaws": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "VMNameInVirtualBox",
+      "snapshot": "SeleniumJaws"
+    },
+    "screenReader": true
+  }
 }
 ```
 
@@ -79,4 +82,3 @@ node ariatemplates.js
 ```
 
 The `ariatemplates.js` test checks that the Aria Templates datepicker works as expected with Jaws and Internet Explorer.
-
