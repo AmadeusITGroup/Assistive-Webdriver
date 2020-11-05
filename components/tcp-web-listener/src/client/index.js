@@ -16,6 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+// eslint-disable-next-line no-undef
 window[LIVELISTENER_REGISTER_FUNCTION](function (message) {
   var node = document.createTextNode(message + "\n");
   var container = document.getElementById("messages");

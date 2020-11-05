@@ -16,11 +16,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/* global SockJS */
 (function () {
   var listener = null;
   var console = window.console;
-  var registerFunction = LIVELISTENER_REGISTER_FUNCTION;
-  var urlValue = LIVELISTENER_URL_VALUE;
+  var registerFunction = LIVELISTENER_REGISTER_FUNCTION; // eslint-disable-line no-undef
+  var urlValue = LIVELISTENER_URL_VALUE; // eslint-disable-line no-undef
 
   var log =
     console && console.log
