@@ -24,6 +24,22 @@ module.exports = {
     "prettier/@typescript-eslint"
   ],
   env: { node: true },
+  overrides: [
+    {
+      files: ["**/*.js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": 0
+      }
+    },
+    {
+      files: ["**/*.spec.js"],
+      env: { jest: true }
+    },
+    {
+      files: ["components/tcp-web-listener/src/client/*.js"],
+      env: { browser: true }
+    }
+  ],
   rules: {
     "require-atomic-updates": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
