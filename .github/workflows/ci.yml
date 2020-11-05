@@ -28,7 +28,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
         working-directory: ./components/assistive-webdriver
       - run: pnpm lint
-        working-directory: ./components/assistive-webdriver
       - run: pnpm format:check
       - run: pnpm test -- --coverage
         working-directory: ./components/assistive-webdriver
