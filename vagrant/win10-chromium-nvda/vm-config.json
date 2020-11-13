@@ -6,6 +6,7 @@
       "vm": "win10-chromium-nvda",
       "snapshot": "nvda"
     },
-    "screenReader": true
+    "screenReader": true,
+    "vmHttpScreenReaderPath": "/screen-reader"
   }
 }

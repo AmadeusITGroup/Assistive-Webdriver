@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "bundledDependencies": [
-    "text-to-socket-engine",
-    "tcp-web-listener"
+    "assistive-playwright-server",
+    "text-to-socket-engine"
   ],
   "dependencies": {
-    "tcp-web-listener": "workspace:*",
+    "assistive-playwright-server": "workspace:*",
     "text-to-socket-engine": "workspace:*"
   },
   "files": []

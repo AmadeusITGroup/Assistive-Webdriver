@@ -4,6 +4,7 @@ build
 node_modules
 /coverage
 *.tgz
+/components/assistive-playwright-server/src/validation.js
 /components/assistive-webdriver/src/server/config.ts
 /components/assistive-webdriver/config-schema.json
 /components/vm-providers/src/config.ts

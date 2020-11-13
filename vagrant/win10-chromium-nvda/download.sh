@@ -59,6 +59,8 @@ downloadFile node.zip https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.zip
 # cf https://www.chromium.org/getting-involved/download-chromium
 downloadFile chrome.zip 'https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchrome-win.zip?generation=1593136034368251&alt=media' 39c1965233b995828235cfbcb0d1b4df757a6c94cf0df43cb58de8dc75006a5752f107ebe4ad4d2a7ac16f7bc000e8e4dcf2cb7c645e9697d6838f512814ddda
 downloadFile chromedriver.zip 'https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchromedriver_win32.zip?generation=1593136040882187&alt=media' a23c1e33ea5c9e02cb9c813d44a2e05e441eb7c88a8c8db0ec7b1c5fb4029ddd37d80683bc53c1de61f0559d30594dcba3dffd0dcebe0ee817314f7854d0c319
+# VC_redist is needed for Firefox (vcruntime140_1.dll dependency)
+downloadFile VC_redist.x64.exe https://aka.ms/vs/16/release/VC_redist.x64.exe c640d4f58fca15c4fd7253b77e7707ff5efc3cca24c41c4bafdd4c1a8d44f260207528fcb981dd671403801192ebad28c9e37cb8c1451f72e39daa5c458353e8
 
 if ! [ -f "MSEdge - Win10.box" ] && [ -f ".MSEdge.Win10.Vagrant.zip" ]; then
     unzip "MSEdge.Win10.Vagrant.zip"

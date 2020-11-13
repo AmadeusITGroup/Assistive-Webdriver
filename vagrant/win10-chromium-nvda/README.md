@@ -9,9 +9,9 @@ This directory contains a [vagrant](https://vagrantup.com) config file, and vari
 - [Selenium Server](https://www.selenium.dev/downloads/)
 - [Node.js](https://nodejs.org)
 - [text-to-socket-engine](../../components/text-to-socket-engine)
-- [tcp-web-listener](../../components/tcp-web-listener)
+- [assistive-playwright-server](../../components/assistive-playwright-server)
 
-The result is a virtual machine that is ready to be used with [assistive-webdriver](../../components/assistive-webdriver). Following [this manual step-by-step guide](../../doc/vm-guide/README.md) is another way to get a similar result.
+The result is a virtual machine that is ready to be used with both [assistive-webdriver](../../components/assistive-webdriver) and [assistive-playwright](../../components/assistive-playwright-client). Following [this manual step-by-step guide](../../doc/vm-guide/README.md) is another way to get a similar result.
 
 This virtual machine is automatically built and used during continuous integration end-to-end tests for assistive-webdriver.
 

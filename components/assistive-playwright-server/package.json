@@ -1,0 +1,54 @@
+{
+  "name": "assistive-playwright-server",
+  "version": "0.0.0",
+  "description": "assistive-playwright-server is the server part of the assistive-playwright tool that allows end-to-end testing of web applications with a screen reader. It is designed to run inside the virtual machine started by the assistive-playwright-client package and to give it access to the playwright API and screen-reader messages, over the network between the host and the guest virtual machine.",
+  "bin": "assistive-playwright-server",
+  "main": "dist/index.js",
+  "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-playwright-server",
+  "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmadeusITGroup/Assistive-Webdriver.git",
+    "directory": "components/assistive-playwright-server"
+  },
+  "files": [
+    "assistive-playwright-server",
+    "dist"
+  ],
+  "dependencies": {
+    "co-body": "6.1.0",
+    "http-proxy": "1.18.1",
+    "playwright": "1.8.0",
+    "ws": "7.4.2",
+    "yargs": "16.2.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "17.0.0",
+    "@rollup/plugin-replace": "2.3.4",
+    "@rollup/plugin-typescript": "8.1.0",
+    "@types/co-body": "5.1.0",
+    "@types/http-proxy": "1.17.5",
+    "@types/node-fetch": "2.5.8",
+    "@types/ws": "7.4.0",
+    "@types/yargs": "15.0.12",
+    "ajv": "7.0.3",
+    "jest": "26.6.3",
+    "node-fetch": "2.6.1",
+    "rimraf": "3.0.2",
+    "rollup": "2.37.1",
+    "tslib": "2.1.0",
+    "typescript": "4.1.3",
+    "typescript-json-schema": "0.47.0",
+    "wait-port": "0.2.9"
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "prebuild": "rimraf dist",
+    "build:validation": "node ./generateValidation",
+    "build:rollup": "rollup --failAfterWarnings -c",
+    "build": "pnpm build:validation && pnpm build:rollup",
+    "test": "nyc --cwd ../.. jest"
+  },
+  "license": "MIT"
+}

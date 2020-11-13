@@ -106,21 +106,39 @@ jobs:
         working-directory: ./vagrant/win10-chromium-nvda
         timeout-minutes: 45
       - run: vboxwebsrv -v -A null --logfile vboxwebsrv.log &
+      - name: "test assistive-playwright (1)"
+        id: testapw1
+        continue-on-error: true
+        run: |
+          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
+          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
+      - name: "test assistive-playwright (2)"
+        id: testapw2
+        if: steps.testapw1.outcome == 'failure'
+        continue-on-error: true
+        run: |
+          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
+          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
+      - name: "test assistive-playwright (3)"
+        if: steps.testapw2.outcome == 'failure'
+        run: |
+          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
+          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
       - run: |
           pnpm nyc-awd-server -- -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
-      - name: "test (1)"
-        id: test1
+      - name: "test assistive-webdriver (1)"
+        id: testawd1
         run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
         continue-on-error: true
-      - name: "test (2)"
-        id: test2
-        if: steps.test1.outcome == 'failure'
+      - name: "test assistive-webdriver (2)"
+        id: testawd2
+        if: steps.testawd1.outcome == 'failure'
         run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
         continue-on-error: true
-      - name: "test (3)"
-        if: steps.test2.outcome == 'failure'
+      - name: "test assistive-webdriver (3)"
+        if: steps.testawd2.outcome == 'failure'
         run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
       - run: |
           ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)

@@ -24,6 +24,8 @@ exports.coverageEnabled = coverageEnabled;
 
 const foldersToInstrument = coverageEnabled
   ? [
+      join(__dirname, "../../components/assistive-playwright-client/src/"),
+      join(__dirname, "../../components/assistive-playwright-server/src/"),
       join(__dirname, "../../components/assistive-webdriver/src/client/"),
       join(__dirname, "../../components/assistive-webdriver/src/server/"),
       join(__dirname, "../../components/vm-providers/src/")

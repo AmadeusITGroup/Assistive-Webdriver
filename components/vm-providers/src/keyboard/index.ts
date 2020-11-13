@@ -19,10 +19,20 @@
 import { keysMap, shiftedKeys, Key } from "./keys";
 import { keyDown, keyUp } from "./scanCodes";
 
+const keyAliases = new Map([
+  ["Shift", Key.ShiftLeft],
+  ["Control", Key.ControlLeft],
+  ["Alt", Key.AltLeft],
+  ["OS", Key.OSLeft],
+  ["Meta", Key.OSLeft],
+  ["MetaLeft", Key.OSLeft],
+  ["MetaRight", Key.OSRight]
+]);
+
 const getScanCode = (scanCodesMap: Map<Key, number[]>) => (
   value: string | Key
 ) => {
-  const code = keysMap.get(value) ?? (value as Key);
+  const code = keysMap.get(value) ?? keyAliases.get(value) ?? (value as Key);
   const scanCode = scanCodesMap.get(code);
   if (!scanCode) {
     throw new Error(`Unknown keyboard key ${value}`);

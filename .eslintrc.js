@@ -42,7 +42,8 @@ module.exports = {
     {
       files: [
         "components/*/test/**",
-        "components/assistive-webdriver/src/tester/**"
+        "components/assistive-webdriver/src/tester/**",
+        "components/assistive-playwright-tester/src/**"
       ],
       rules: {
         "@typescript-eslint/explicit-module-boundary-types": 0
