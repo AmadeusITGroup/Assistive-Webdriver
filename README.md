@@ -43,3 +43,28 @@ The 3 yellow boxes in this schema are the three components of Assistive-Webdrive
 Inside of the assistive-webdriver component, all calls to create, control, and destroy the virtual machine are made through the following component that can be used independently:
 
 - [vm-providers](components/vm-providers)
+
+## Assistive-Playwright
+
+Assistive-Playwright is similar to Assistive-Webdriver but is based on [playwright](https://playwright.dev/) rather than webdriver.
+
+It adds screen reader-related functions to playwright:
+
+```js
+await screenReader.waitForMessage("Date of departure");
+```
+
+In order to be able to send low-level mouse and keyboard events, Assistive-Playwright uses a virtual machine to run tests.
+Here is a schema describing how it works:
+
+![Architecture of Assistive-Playwright](components/assistive-playwright-client/architecture.png)
+
+The 3 yellow boxes in this schema are the three components of Assistive-Playwright, in the following three directories:
+
+- [assistive-playwright-client](components/assistive-playwright-client)
+- [assistive-playwright-server](components/assistive-playwright-server)
+- [text-to-socket-engine](components/text-to-socket-engine)
+
+Inside of the assistive-playwright-client component, all calls to create, control, and destroy the virtual machine are made through the following component that can be used independently:
+
+- [vm-providers](components/vm-providers)

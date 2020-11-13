@@ -1,6 +1,6 @@
 # Configuring a virtual machine
 
-This guide explains how to configure a VirtualBox virtual machine to use it with `Assistive-Webdriver` for automated testing of a web application with the [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader.
+This guide explains how to configure a VirtualBox virtual machine to use it with `Assistive-Webdriver` or `Assistive-Playwright` for automated testing of a web application with the [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS) screen reader.
 
 Note that if you look for an already built virtual machine, you can find one on [Vagrant Cloud](https://app.vagrantup.com/assistive-webdriver/boxes/win10-chromium-nvda). If you look for an automated script that builds this kind of virtual machine, you can have a look at the [win10-chromium-nvda](../../vagrant/win10-chromium-nvda) folder.
 
@@ -28,7 +28,7 @@ When requested, login as the `IEUser` user with the `Passw0rd!` password.
 
 Once the virtual machine is fully started, follow the following steps inside the virtual machine:
 
-- Download and install the browsers you want to be able to use for testing, and their associated drivers. Note that drivers should be installed in a directory that is included in the PATH, so that the Selenium Server can find them.
+- If you plan to use `Assistive-Webdriver`, download and install the browsers you want to be able to use for testing, and their associated drivers. Note that drivers should be installed in a directory that is included in the PATH, so that the Selenium Server can find them. If you only plan to use `Assistive-Playwright`, the three compatible browsers (`chromium`, `firefox` and `webkit`) are downloaded automatically when installing `assistive-playwright-server`, so you can skip this step.
 
 | Browser           | Browser download link                                                                     | Driver download link                                                                          |
 | ----------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -37,11 +37,11 @@ Once the virtual machine is fully started, follow the following steps inside the
 | Edge              | [Download Edge](https://www.microsoft.com/en-us/edge)                                     | [Download Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) |
 | Internet Explorer | [Download IE](https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads) | [Download IE Driver Server](https://www.selenium.dev/downloads/)                              |
 
-- Download and install [Java](https://www.java.com). Java is needed in order to run Selenium Server.
+- If you plan to use `Assistive-Webdriver`, download and install [Java](https://www.java.com). Java is needed in order to run Selenium Server. It is not needed if you only plan to use `Assistive-Playwright`.
 
-- Download [Selenium Server](https://www.selenium.dev/downloads/) and store the `.jar` file somewhere in the virtual machine.
+- If you plan to use `Assistive-Webdriver`, download [Selenium Server](https://www.selenium.dev/downloads/) and store the `.jar` file somewhere in the virtual machine. It is not needed if you only plan to use `Assistive-Playwright`.
 
-- Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener`, and it includes `npm` that can be used to install both `tcp-web-listener` and `text-to-socket-engine`.
+- Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener` and `assistive-playwright-server`, and it includes `npm` that can be used to install `text-to-socket-engine`.
 
 - From the command line with administrator privileges, execute the following commands to install `text-to-socket-engine` and to register it:
 
@@ -92,14 +92,21 @@ text-to-socket-engine-register
 
     - JAWS is now correctly configured to use `TextToSocketEngine`.
 
-- From the command line, execute the following commands to install `tcp-web-listener` and start it:
+- If you want to use `Assistive-Playwright`, from the command line, execute the following commands to install `assistive-playwright-server`:
+
+```
+npm install -g assistive-playwright-server
+assistive-playwright-server
+```
+
+- If you only want to use `Assistive-Webdriver`, from the command line, execute the following commands to install `tcp-web-listener` and start it. Note that this step is not needed if you installed `assistive-playwright-server` at the previous step, because it includes the feature provided by `tcp-web-listener`.
 
 ```
 npm install -g tcp-web-listener
 tcp-web-listener --http-host 0.0.0.0
 ```
 
-- Start Selenium server:
+- If you want to use `Assistive-Webdriver`, start Selenium server:
 
 ```
 java -jar selenium-server-standalone-3.141.59.jar
@@ -107,7 +114,7 @@ java -jar selenium-server-standalone-3.141.59.jar
 
 - Make sure `JAWS` is running.
 
-- Take a snapshot of the running virtual machine (with the `Take snapshot` command from the `Machine` menu). The name of the snapshot, along with the name of the virtual machine should be included in the `Assistive-Webdriver` [configuration file](../../components/assistive-webdriver/configuration.md).
+- Take a snapshot of the running virtual machine (with the `Take snapshot` command from the `Machine` menu). The name of the snapshot, along with the name of the virtual machine should be included in the `Assistive-Webdriver` [configuration file](../../components/assistive-webdriver/configuration.md) or in the parameters passed to `createVM` in `Assistive-Playwright`.
 
 ![Virtual Machine snapshot](vm-snapshot.png)
 

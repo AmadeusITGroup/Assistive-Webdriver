@@ -1,0 +1,44 @@
+{
+  "name": "assistive-playwright-tester",
+  "version": "0.0.0",
+  "description": "Tester for assistive-playwright.",
+  "private": true,
+  "bin": "assistive-playwright-tester",
+  "main": "dist/index.js",
+  "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-playwright-tester",
+  "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmadeusITGroup/Assistive-Webdriver.git",
+    "directory": "components/assistive-playwright-tester"
+  },
+  "files": [
+    "assistive-playwright-tester",
+    "dist"
+  ],
+  "dependencies": {
+    "assistive-playwright-client": "workspace:*",
+    "node-fetch": "2.6.1",
+    "uuid": "8.3.2",
+    "vm-providers": "workspace:*",
+    "winston": "3.3.3",
+    "yargs": "16.2.0"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "2.5.8",
+    "@types/yargs": "15.0.12",
+    "playwright-core": "1.8.0",
+    "rimraf": "3.0.2",
+    "rollup": "2.37.1",
+    "tslib": "2.1.0",
+    "typescript": "4.1.3",
+    "wait-port": "0.2.9"
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "prebuild": "rimraf dist",
+    "build": "rollup --failAfterWarnings -c"
+  },
+  "license": "MIT"
+}

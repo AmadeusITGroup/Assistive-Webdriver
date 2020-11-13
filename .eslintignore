@@ -4,3 +4,4 @@ build
 node_modules
 coverage
 /doc
+/components/assistive-playwright-server/src/validation.js

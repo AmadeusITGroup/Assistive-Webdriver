@@ -14,6 +14,8 @@ createReadStream(file)
     if (actualChecksum === expectedChecksum) {
       process.exit(0);
     } else {
+      console.log(`Received checksum: ${actualChecksum}`);
+      console.log(`Expected checksum: ${expectedChecksum}`);
       process.exit(1);
     }
   })

@@ -22,7 +22,8 @@
     "apidoc": "api-documenter markdown -i doc/apidoc-input -o doc/apidoc-output",
     "nyc-report": "nyc report --reporter=lcov",
     "nyc-awd-server": "nyc node components/assistive-webdriver/dist/server/bin.js",
-    "nyc-awd-tester": "nyc node components/assistive-webdriver/dist/tester.js"
+    "nyc-awd-tester": "nyc node components/assistive-webdriver/dist/tester.js",
+    "nyc-apw-tester": "nyc node components/assistive-playwright-tester/dist/index.js"
   },
   "nyc": {
     "instrument": false,

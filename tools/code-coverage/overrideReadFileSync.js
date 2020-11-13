@@ -18,6 +18,7 @@
 
 const { process, shouldInstrument, coverageEnabled } = require("./instrument");
 
+exports.coverageEnabled = coverageEnabled;
 if (coverageEnabled) {
   console.log("WARNING: code coverage instrumentation is enabled!!");
 
