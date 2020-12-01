@@ -104,7 +104,7 @@ export class VirtualboxVM implements VM {
     public log: LogFunction
   ) {}
 
-  async vboxStop() {
+  async vboxStop(): Promise<void> {
     this.vboxIp = undefined;
     this.vboxNatEngine = undefined;
     this.vboxNetwork = undefined;
@@ -121,7 +121,7 @@ export class VirtualboxVM implements VM {
     this.vboxSession = undefined;
   }
 
-  async vboxStart() {
+  async vboxStart(): Promise<void> {
     const machine = this.vboxMachine;
     const vboxSession = await this.vboxConnection.createSession();
     this.vboxSession = vboxSession;
@@ -153,7 +153,7 @@ export class VirtualboxVM implements VM {
     this.vboxIp = newIP.value;
   }
 
-  async vboxRedirectTCPPort(vmPort: number) {
+  async vboxRedirectTCPPort(vmPort: number): Promise<number> {
     // TODO: fix this method for a remote virtual box host
     const hostAddress = "127.0.0.1";
     const hostPort = await getFreePort({ host: hostAddress });
@@ -177,17 +177,17 @@ export class VirtualboxVM implements VM {
 
   public tcpRedirections: PortRedirection[] = [];
 
-  async sendKeyDownEvent(key: string) {
+  async sendKeyDownEvent(key: string): Promise<void> {
     const scanCodes = getKeyDownScanCode(key);
     await this.vboxKeyboard!.putScancodes(scanCodes);
   }
 
-  async sendKeyUpEvent(key: string) {
+  async sendKeyUpEvent(key: string): Promise<void> {
     const scanCodes = getKeyUpScanCode(key);
     await this.vboxKeyboard!.putScancodes(scanCodes);
   }
 
-  async sendMouseMoveEvent({ x, y }: ScreenPosition) {
+  async sendMouseMoveEvent({ x, y }: ScreenPosition): Promise<void> {
     await this.vboxMouse!.putMouseEventAbsolute(
       x + 1,
       y + 1,
@@ -197,7 +197,7 @@ export class VirtualboxVM implements VM {
     );
   }
 
-  async sendMouseDownEvent(button: MouseButton) {
+  async sendMouseDownEvent(button: MouseButton): Promise<void> {
     const buttonMask = getButtonMask(button);
     this.vboxMouseButtonState |= buttonMask;
     await this.vboxMouse!.putMouseEvent(0, 0, 0, 0, this.vboxMouseButtonState);

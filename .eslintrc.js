@@ -38,10 +38,25 @@ module.exports = {
     {
       files: ["components/tcp-web-listener/src/client/*.js"],
       env: { browser: true }
+    },
+    {
+      files: [
+        "components/*/test/**",
+        "components/assistive-webdriver/src/tester/**"
+      ],
+      rules: {
+        "@typescript-eslint/explicit-module-boundary-types": 0
+      }
     }
   ],
   rules: {
     "require-atomic-updates": 0,
+    "@typescript-eslint/explicit-module-boundary-types": [
+      "warn",
+      {
+        allowArgumentsExplicitlyTypedAsAny: true
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
     "@typescript-eslint/no-empty-function": 0,

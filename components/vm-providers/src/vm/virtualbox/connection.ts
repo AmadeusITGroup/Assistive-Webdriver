@@ -16,7 +16,12 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { IWebsessionManager, IVirtualBox, connect } from "virtualbox-soap";
+import {
+  IWebsessionManager,
+  IVirtualBox,
+  connect,
+  ISession
+} from "virtualbox-soap";
 import { URL, format } from "url";
 import { LogFunction } from "../../logging";
 
@@ -29,7 +34,7 @@ export class VirtualBoxConnection {
 
   constructor(public log: LogFunction) {}
 
-  keepAlive = async () => {
+  keepAlive = async (): Promise<void> => {
     if (this.virtualbox) {
       const version = await this.virtualbox.getAPIVersion();
       this.log({
@@ -41,7 +46,7 @@ export class VirtualBoxConnection {
     }
   };
 
-  async connect(url: string) {
+  async connect(url: string): Promise<void> {
     const parsedURL = new URL(url);
     const urlWithoutAuth = format(parsedURL, {
       auth: false
@@ -54,7 +59,7 @@ export class VirtualBoxConnection {
     this.keepAlive();
   }
 
-  async disconnect() {
+  async disconnect(): Promise<void> {
     if (!this.websessionManager) {
       return;
     }
@@ -69,7 +74,7 @@ export class VirtualBoxConnection {
     }
   }
 
-  async createSession() {
+  async createSession(): Promise<ISession> {
     return await this.websessionManager!.getSessionObject(this.virtualbox!);
   }
 }

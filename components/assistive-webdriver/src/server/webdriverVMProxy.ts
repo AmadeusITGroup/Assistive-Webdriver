@@ -23,7 +23,8 @@ import {
   createWebdriverProxy,
   CTX_SESSION_DATA,
   CTX_SERVER_SESSION_URL,
-  CTX_SESSION_ID
+  CTX_SESSION_ID,
+  ProxyApplication
 } from "./webdriverProxy";
 import { ScreenReaderClient } from "./screenReaderClient";
 import { executeNativeEvents } from "./nativeEvents";
@@ -127,7 +128,7 @@ export function createWebdriverVMProxy({
   processCapabilities = async () => ({}),
   defaultConfiguration = {},
   vmFactory = createVM
-}: WebdriverVMProxyConfig) {
+}: WebdriverVMProxyConfig): ProxyApplication {
   log = createSubLogFunction(log, { category: "vmproxy" });
   return createWebdriverProxy({
     log,

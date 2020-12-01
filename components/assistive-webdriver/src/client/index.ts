@@ -74,7 +74,7 @@ export function addScreenReaderTextListener(
   webdriver: WebdriverLike,
   fn: (message: string) => void,
   scope?: any
-) {
+): () => void {
   const listener: Listener = {
     fn,
     scope
@@ -89,7 +89,9 @@ export function addScreenReaderTextListener(
   };
 }
 
-export async function refreshScreenReaderText(webdriver: WebdriverLike) {
+export async function refreshScreenReaderText(
+  webdriver: WebdriverLike
+): Promise<string[]> {
   webdriver = getWebdriver(webdriver);
   const info = getScreenReaderTextInfo(webdriver);
   const command = new Command(SCREEN_READER_TEXT_COMMAND);
@@ -109,13 +111,15 @@ export async function refreshScreenReaderText(webdriver: WebdriverLike) {
   return messages;
 }
 
-export async function clearCachedScreenReaderText(webdriver: WebdriverLike) {
+export async function clearCachedScreenReaderText(
+  webdriver: WebdriverLike
+): Promise<void> {
   const info = getScreenReaderTextInfo(webdriver);
   await refreshScreenReaderText(webdriver);
   info.messages.splice(0, info.messages.length);
 }
 
-export function isMatch(screenReaderText: string, expectedText: any) {
+export function isMatch(screenReaderText: string, expectedText: any): boolean {
   if (Array.isArray(expectedText)) {
     for (let i = 0, l = expectedText.length; i < l; i++) {
       if (isMatch(screenReaderText, expectedText[i])) {
@@ -134,7 +138,10 @@ export function isMatch(screenReaderText: string, expectedText: any) {
   }
 }
 
-export function forScreenReaderToSay(expectedText: any, clean = true) {
+export function forScreenReaderToSay(
+  expectedText: any,
+  clean = true
+): Condition<Promise<string[] | false>> {
   return new Condition(
     `for screen reader to say ${JSON.stringify(expectedText)}`,
     async webdriver => {

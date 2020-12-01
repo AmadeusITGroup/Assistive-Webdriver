@@ -34,7 +34,7 @@ export class ScreenReaderClient {
     this.log = createSubLogFunction(log, { category: "screenReader" });
   }
 
-  connect() {
+  connect(): void {
     const websocket = new Websocket(
       `ws://${this.host}:${this.port}${this.path}`
     );
@@ -72,7 +72,7 @@ export class ScreenReaderClient {
     };
   }
 
-  disconnect() {
+  disconnect(): void {
     const socket = this.socket;
     if (socket) {
       this.socket = undefined;

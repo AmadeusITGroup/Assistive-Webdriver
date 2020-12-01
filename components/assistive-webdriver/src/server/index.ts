@@ -36,7 +36,7 @@ export const start = async (
   args: string[],
   env: string | boolean = false,
   { log = defaultLogFunction, setLogLevel = defaultSetLogLevel } = {}
-) => {
+): Promise<() => Promise<void>> => {
   const argv = yargs(args)
     .env(env as any)
     .options({
