@@ -23,7 +23,7 @@ export class PublicError {
     public message: string
   ) {}
 
-  toString() {
+  toString(): string {
     return `${this.message} (${this.errorId}, status ${this.statusCode})`;
   }
 }

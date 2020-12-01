@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { createLogger, format, transports } from "winston";
+import { createLogger, format, Logger, transports } from "winston";
 import colors from "colors/safe";
 import { MESSAGES } from "./messages";
 import { LogFunction } from "vm-providers";
@@ -46,7 +46,7 @@ export const defaultFormatter = format.printf(
   }
 );
 
-export function createDefaultLogger() {
+export function createDefaultLogger(): Logger {
   return createLogger({
     format: format.combine(
       format.timestamp(),

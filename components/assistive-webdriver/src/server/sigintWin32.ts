@@ -18,7 +18,7 @@
 
 import { createInterface } from "readline";
 
-export const sigintWin32 = () => {
+export const sigintWin32 = (): void => {
   if (process.platform === "win32") {
     const readline = createInterface({
       input: process.stdin,

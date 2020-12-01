@@ -227,7 +227,7 @@ export class QEMUVM implements VM {
 
   tcpRedirections: PortRedirection[] = [];
 
-  async qemuSendKey(down: boolean, key: string) {
+  async qemuSendKey(down: boolean, key: string): Promise<void> {
     const data = getQEMUScanCode(key);
     await this._sendCommand({
       execute: "input-send-event",
@@ -245,11 +245,11 @@ export class QEMUVM implements VM {
     });
   }
 
-  async sendKeyDownEvent(key: string) {
+  async sendKeyDownEvent(key: string): Promise<void> {
     await this.qemuSendKey(true, key);
   }
 
-  async sendKeyUpEvent(key: string) {
+  async sendKeyUpEvent(key: string): Promise<void> {
     await this.qemuSendKey(false, key);
   }
 
@@ -258,7 +258,7 @@ export class QEMUVM implements VM {
     y,
     screenWidth,
     screenHeight
-  }: ScreenPosition) {
+  }: ScreenPosition): Promise<void> {
     await this._sendCommand({
       execute: "input-send-event",
       arguments: {
@@ -282,7 +282,7 @@ export class QEMUVM implements VM {
     });
   }
 
-  async sendMouseDownEvent(button: MouseButton) {
+  async sendMouseDownEvent(button: MouseButton): Promise<void> {
     await this._sendCommand({
       execute: "input-send-event",
       arguments: {
@@ -293,7 +293,7 @@ export class QEMUVM implements VM {
     });
   }
 
-  async sendMouseUpEvent(button: MouseButton) {
+  async sendMouseUpEvent(button: MouseButton): Promise<void> {
     await this._sendCommand({
       execute: "input-send-event",
       arguments: {
@@ -321,7 +321,7 @@ export class QEMUVM implements VM {
     return parsePPM(imageContent);
   }
 
-  async destroy() {
+  async destroy(): Promise<void> {
     if (this.qemuQMPOut) {
       try {
         await this._sendCommand({ execute: "quit" });

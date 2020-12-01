@@ -32,7 +32,7 @@ export async function cloneMachine(
   name: string,
   originalName: string,
   originalSnapshot?: string
-) {
+): Promise<IMachine> {
   let originalMachine = await virtualbox.findMachine(originalName);
   if (originalSnapshot) {
     const snapshotObject = await originalMachine.findSnapshot(originalSnapshot);
@@ -54,7 +54,7 @@ export async function cloneMachine(
   }
 }
 
-export async function deleteMachine(machine: IMachine) {
+export async function deleteMachine(machine: IMachine): Promise<void> {
   let media: IMedium[];
   let error;
   for (let retries = 10; retries > 0; retries--) {
