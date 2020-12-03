@@ -29,6 +29,7 @@
     "virtualbox-soap": "4.0.0"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "7.12.1",
     "@rollup/plugin-typescript": "8.0.0",
     "@types/pngjs": "3.4.2",
     "@types/stream-json": "1.5.1",
@@ -42,11 +43,12 @@
   },
   "scripts": {
     "prepare": "pnpm build",
-    "prebuild": "rimraf dist",
-    "build": "pnpm build:schema && pnpm build:rollup",
+    "prebuild": "rimraf dist build",
+    "build": "pnpm build:schema && pnpm build:rollup && pnpm build:dts && pnpm build:api",
     "build:schema": "json2ts -i config-schema.json -o src/config.ts",
     "build:rollup": "rollup -c",
-    "postbuild": "tsc -p tsconfig.d.json",
+    "build:dts": "tsc -p tsconfig.d.json",
+    "build:api": "api-extractor run --config ./api-extractor.json --verbose",
     "test": "jest"
   }
 }

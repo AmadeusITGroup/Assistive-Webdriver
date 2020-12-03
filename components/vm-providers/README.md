@@ -8,3 +8,5 @@ Currently the following providers are supported:
 
 - virtualbox
 - qemu
+
+The API documentation is available [here](https://amadeusitgroup.github.io/Assistive-Webdriver/vm-providers)

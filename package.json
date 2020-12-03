@@ -3,6 +3,7 @@
   "devDependencies": {
     "@babel/core": "7.12.10",
     "@babel/plugin-syntax-typescript": "7.12.1",
+    "@microsoft/api-documenter": "7.12.0",
     "@typescript-eslint/eslint-plugin": "4.9.1",
     "@typescript-eslint/parser": "4.9.1",
     "babel-plugin-istanbul": "6.0.0",
@@ -17,6 +18,7 @@
     "format:check": "pnpm format -- --check",
     "format:fix": "pnpm format -- --write",
     "lint": "eslint .",
+    "apidoc": "api-documenter markdown -i doc/apidoc-input -o doc/apidoc-output",
     "nyc-report": "nyc report --reporter=lcov",
     "nyc-awd-server": "nyc node components/assistive-webdriver/dist/server/bin.js",
     "nyc-awd-tester": "nyc node components/assistive-webdriver/dist/tester.js"

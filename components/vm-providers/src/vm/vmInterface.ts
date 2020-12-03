@@ -17,6 +17,7 @@
  */
 
 import type { Key } from "../keyboard";
+import type { PNG } from "pngjs";
 import { LogFunction } from "../logging";
 
 /**
@@ -144,7 +145,7 @@ export interface VM {
   /**
    * Takes a screenshot of the virtual machine and returns the corresponding PNG image.
    */
-  takePNGScreenshot(): Promise<import("pngjs").PNG>;
+  takePNGScreenshot(): Promise<PNG>;
 
   /**
    * Stops and destroys the virtual machine.

@@ -1,4 +1,6 @@
 .nyc_output
 dist
+build
 node_modules
 coverage
+/doc

@@ -80,3 +80,5 @@ node ariatemplates.js
 ```
 
 The `ariatemplates.js` test checks that the Aria Templates datepicker works as expected with Jaws and Internet Explorer.
+
+The API documentation is available [here](https://amadeusitgroup.github.io/Assistive-Webdriver/assistive-webdriver)
