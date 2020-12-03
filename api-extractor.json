@@ -1,0 +1,14 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "messages": {
+    "tsdocMessageReporting": {
+      "default": { "logLevel": "error" }
+    },
+    "compilerMessageReporting": {
+      "default": { "logLevel": "error" }
+    },
+    "extractorMessageReporting": {
+      "default": { "logLevel": "error" }
+    }
+  }
+}

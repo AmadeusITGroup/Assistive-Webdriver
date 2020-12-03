@@ -1,6 +1,9 @@
 .nyc_output
 dist
+build
 node_modules
 coverage
 /pnpm-lock.yaml
 /components/assistive-webdriver/config-schema.json
+/doc/apidoc-input
+/doc/apidoc-output

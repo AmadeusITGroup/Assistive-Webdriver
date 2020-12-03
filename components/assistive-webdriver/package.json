@@ -46,6 +46,7 @@
     "yargs": "16.2.0"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "7.12.1",
     "@rollup/plugin-typescript": "8.0.0",
     "@sinonjs/fake-timers": "6.0.1",
     "@types/co-body": "5.1.0",
@@ -74,11 +75,12 @@
   },
   "scripts": {
     "prepare": "pnpm build",
-    "prebuild": "rimraf dist",
-    "build": "pnpm build:schema && pnpm build:rollup",
+    "prebuild": "rimraf dist build",
+    "build": "pnpm build:schema && pnpm build:rollup && pnpm build:dts && pnpm build:api",
     "build:schema": "node build-config-schema.js && json2ts -i config-schema.json -o src/server/config.ts",
     "build:rollup": "rollup -c",
-    "postbuild": "tsc -p tsconfig.d.json",
+    "build:dts": "tsc -p tsconfig.d.json",
+    "build:api": "api-extractor run --config ./api-extractor.json --verbose",
     "start": "node dist/server/bin.js",
     "test": "jest",
     "tester": "node dist/tester.js"
