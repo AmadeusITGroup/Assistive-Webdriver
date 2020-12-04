@@ -24,7 +24,7 @@ export function findPublicIP() {
   const ips: os.NetworkInterfaceInfo[] = [];
   interfaceNames.forEach(interfaceName => {
     ips.push(
-      ...interfaces[interfaceName].filter(
+      ...interfaces[interfaceName]!.filter(
         address => !address.internal && address.family === "IPv4"
       )
     );
