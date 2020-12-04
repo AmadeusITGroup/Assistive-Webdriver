@@ -1,0 +1,17 @@
+{
+  "name": "text-to-socket-engine",
+  "version": "0.0.2",
+  "files": [
+    "TextToSocketEngine*.dll",
+    "register.cmd",
+    "unregister.cmd",
+    "addVoice.cmd",
+    "removeVoice.cmd"
+  ],
+  "bin": {
+    "text-to-socket-engine-register": "register.cmd",
+    "text-to-socket-engine-unregister": "unregister.cmd",
+    "text-to-socket-engine-add-voice": "addVoice.cmd",
+    "text-to-socket-engine-remove-voice": "removeVoice.cmd"
+  }
+}

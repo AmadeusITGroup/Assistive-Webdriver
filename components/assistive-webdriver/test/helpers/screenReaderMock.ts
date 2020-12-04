@@ -19,7 +19,7 @@
 import WebSocket from "ws";
 import { Server, createServer } from "http";
 import { AddressInfo } from "net";
-import { PortRedirection } from "../../src/server/vm/vmInterface";
+import { PortRedirection } from "vm-providers";
 import { DEFAULT_VM_PORT_SCREENREADER } from "../../src/server/defaults";
 
 export const useScreenReaderMock = () => {

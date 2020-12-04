@@ -17,7 +17,7 @@
  */
 
 import fetch, { RequestInit } from "node-fetch";
-import { LogFunction, createSubLogFunction } from "./logging";
+import { LogFunction, createSubLogFunction } from "vm-providers";
 
 export class StatusCodeError {
   constructor(public statusCode: number, public body: string) {}

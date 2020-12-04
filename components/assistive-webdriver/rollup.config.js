@@ -16,11 +16,26 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const instrumentation = process.env.ENABLE_COVERAGE === "1";
-if (instrumentation) {
-  require("./test/coverage/overrideReadFileSync");
-  console.log("WARNING: building with code coverage instrumentation!");
-}
+require("../../tools/code-coverage/overrideReadFileSync");
+const pkg = require("./package.json");
+const dependencies = Object.keys(pkg.dependencies);
+const externalDependencies = dependencies.concat([
+  "path",
+  "colors/safe",
+  "fs",
+  "stream",
+  "util",
+  "child_process",
+  "stream-json/streamers/StreamValues",
+  "selenium-webdriver",
+  "selenium-webdriver/lib/command",
+  "http",
+  "readline",
+  "os",
+  "net",
+  "url",
+  "../../config-schema.json"
+]);
 const typescript = require("@rollup/plugin-typescript");
 const plugins = [typescript({ module: "esnext", target: "es2017" })];
 
@@ -37,7 +52,7 @@ export default [
       }
     ],
     input: "./src/client/index.ts",
-    external: id => id.startsWith("selenium-webdriver"),
+    external: externalDependencies,
     plugins
   },
   {
@@ -52,32 +67,7 @@ export default [
       }
     ],
     input: "./src/server/index.ts",
-    external: [
-      "virtualbox-soap",
-      "yargs",
-      "path",
-      "co-body",
-      "koa-route",
-      "winston",
-      "colors/safe",
-      "koa",
-      "p-queue",
-      "http-proxy",
-      "node-fetch",
-      "uuid",
-      "ws",
-      "fs",
-      "stream",
-      "pngjs",
-      "util",
-      "child_process",
-      "stream-json",
-      "stream-json/streamers/StreamValues",
-      "os",
-      "net",
-      "url",
-      "../../config-schema.json"
-    ],
+    external: externalDependencies,
     plugins
   },
   {
@@ -99,15 +89,7 @@ export default [
       }
     ],
     input: "./src/tester/bin.ts",
-    external: [
-      "yargs",
-      "winston",
-      "selenium-webdriver",
-      "os",
-      "selenium-webdriver/lib/command",
-      "http",
-      "readline"
-    ],
+    external: externalDependencies,
     plugins
   }
 ];

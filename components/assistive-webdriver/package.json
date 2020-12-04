@@ -1,6 +1,6 @@
 {
   "name": "assistive-webdriver",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "description": "Assistive-Webdriver is a tool to automate end-to-end web application tests with a screen reader.",
   "bin": "assistive-webdriver",
   "main": "dist/client/index.js",
@@ -39,17 +39,13 @@
     "koa-route": "3.2.0",
     "node-fetch": "2.6.1",
     "p-queue": "6.6.2",
-    "pngjs": "6.0.0",
-    "stream-json": "1.7.1",
     "uuid": "8.3.2",
-    "virtualbox-soap": "4.0.0",
+    "vm-providers": "workspace:*",
     "winston": "3.3.3",
     "ws": "7.4.1",
     "yargs": "16.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/plugin-syntax-typescript": "7.12.1",
     "@rollup/plugin-typescript": "8.0.0",
     "@sinonjs/fake-timers": "6.0.1",
     "@types/co-body": "5.1.0",
@@ -61,18 +57,15 @@
     "@types/node-fetch": "2.5.7",
     "@types/pngjs": "3.4.2",
     "@types/selenium-webdriver": "4.0.10",
-    "@types/stream-json": "1.5.1",
     "@types/uuid": "8.3.0",
     "@types/ws": "7.4.0",
     "@types/yargs": "15.0.11",
-    "babel-plugin-istanbul": "6.0.0",
     "jest": "26.6.3",
     "json-schema-to-typescript": "10.0.0",
-    "nyc": "15.1.0",
+    "pngjs": "6.0.0",
     "rimraf": "3.0.2",
     "rollup": "2.35.0",
     "selenium-webdriver": "4.0.0-alpha.8",
-    "ts-jest": "25.5.1",
     "tslib": "2.0.3",
     "typescript": "4.1.3"
   },
@@ -83,20 +76,11 @@
     "prepare": "pnpm build",
     "prebuild": "rimraf dist",
     "build": "pnpm build:schema && pnpm build:rollup",
-    "build:schema": "json2ts -i config-schema.json -o src/server/config.d.ts",
+    "build:schema": "node build-config-schema.js && json2ts -i config-schema.json -o src/server/config.ts",
     "build:rollup": "rollup -c",
     "postbuild": "tsc -p tsconfig.d.json",
     "start": "node dist/server/bin.js",
     "test": "jest",
-    "tester": "node dist/tester.js",
-    "nyc-tester": "nyc node dist/tester.js",
-    "nyc-server": "nyc node dist/server/bin.js",
-    "nyc-report": "nyc report --reporter=lcov"
-  },
-  "nyc": {
-    "instrument": false,
-    "sourceMap": false,
-    "silent": true,
-    "clean": false
+    "tester": "node dist/tester.js"
   }
 }

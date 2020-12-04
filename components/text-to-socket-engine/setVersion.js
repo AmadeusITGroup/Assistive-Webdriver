@@ -1,13 +1,6 @@
 const { readFileSync, writeFileSync } = require("fs");
 const { join } = require("path");
-const tag = process.argv[2];
-const match = /^refs\/tags\/text-to-socket-engine\/(\d+)\.(\d+)\.(\d+)$/.exec(
-  tag
-);
-if (!match) {
-  console.log("Skipping setVersion, as this is not a version tag!");
-  process.exit(0);
-}
+const match = /^(\d+)\.(\d+)\.(\d+)$/.exec(require("./package.json").version);
 const version = `${match[1]},${match[2]},${match[3]},0`;
 const resourceFilePath = join(__dirname, "resource.rc");
 const originalFileContent = readFileSync(resourceFilePath, "utf8");

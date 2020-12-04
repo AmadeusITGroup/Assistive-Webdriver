@@ -20,10 +20,9 @@ import Koa from "koa";
 import { promisify } from "util";
 import { Server } from "http";
 import { AddressInfo } from "net";
-import { PortRedirection } from "../../src/server/vm/vmInterface";
+import { PortRedirection, wait } from "vm-providers";
 import { asyncFnMock, AsyncFnMock } from "./asyncFnMock";
 import { DEFAULT_VM_PORT_WEBDRIVER } from "../../src/server/defaults";
-import { wait } from "../../src/server/wait";
 
 const waitFor = async (
   fn: () => Promise<boolean>,

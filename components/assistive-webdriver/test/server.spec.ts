@@ -33,7 +33,7 @@ import {
 } from "../src/client";
 import { DEFAULT_VM_PORT_WEBDRIVER } from "../src/server/defaults";
 import { handleCalibration } from "./helpers/handleCalibration";
-import { wait } from "../src/server/wait";
+import { wait } from "vm-providers";
 import { DEFAULT_SESSION_TIMEOUT } from "../src/server/webdriverProxy";
 
 describe("server", () => {

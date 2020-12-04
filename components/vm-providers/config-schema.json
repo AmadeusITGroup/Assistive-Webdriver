@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "VMSettings",
+  "oneOf": [
+    {
+      "type": "object",
+      "title": "VirtualBoxSettings",
+      "additionalProperties": false,
+      "required": ["type", "vm"],
+      "properties": {
+        "type": { "enum": ["virtualbox"] },
+        "vm": {
+          "type": "string",
+          "description": "Name or id of the virtual machine to clone."
+        },
+        "snapshot": {
+          "type": "string",
+          "description": "Name or id of the snapshot to use."
+        },
+        "server": {
+          "type": "string",
+          "default": "http://127.0.0.1:18083",
+          "description": "Specifies the address at which the vboxwebsrv command is exposing the virtualbox API. Note that connecting to a different machine is not currently supported (because of port redirections that are expected to be available on the local machine), so this option is mostly useful to change the port that vboxwebsrv is listening to."
+        }
+      }
+    },
+    {
+      "type": "object",
+      "title": "QEMUSettings",
+      "additionalProperties": false,
+      "required": ["type", "commandLine"],
+      "properties": {
+        "type": { "enum": ["qemu"] },
+        "commandLine": {
+          "type": "array",
+          "description": "Array of strings specifying the path to the executable and the arguments to use when running qemu. It is usually a good idea to include the -snapshot option. Note that this tool automatically adds the -qmp stdio option to communicate with qemu. It also automatically adds the hostfwd options, corresponding the the needed port redirections, to the first -netdev or -nic option (or automatically adds a -nic user option if none are found).",
+          "examples": [
+            [
+              "qemu-system-x86_64",
+              "--enable-kvm",
+              "-machine",
+              "q35",
+              "-device",
+              "intel-iommu",
+              "-soundhw",
+              "hda",
+              "-m",
+              "1024",
+              "-device",
+              "piix3-usb-uhci",
+              "-device",
+              "usb-tablet",
+              "-nic",
+              "user,model=e1000",
+              "-only-migratable",
+              "-display",
+              "none",
+              "/vm/disk.qcow2",
+              "-incoming",
+              "exec: gzip -c -d /vm/savedState.gz",
+              "-snapshot"
+            ]
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ]
+}

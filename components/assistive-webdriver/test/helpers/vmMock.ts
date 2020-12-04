@@ -21,10 +21,10 @@ import {
   VMConfig,
   PortRedirection,
   ScreenPosition,
-  MouseButton
-} from "../../src/server/vm/vmInterface";
+  MouseButton,
+  vmFactories
+} from "vm-providers";
 import { asyncFnMock, AsyncFnMock } from "./asyncFnMock";
-import { vmFactories } from "../../src/server/vm/generic";
 
 export const useVMMock = () => {
   let mock: AsyncFnMock<VM, [VMConfig<any>]>;

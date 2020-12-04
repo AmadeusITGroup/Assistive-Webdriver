@@ -19,9 +19,7 @@
 import { warn, info } from "winston";
 import { keyProperties, skipKeys } from "../keyProperties";
 import { TesterSession } from "../testerSession";
-import { keysMap } from "../../server/keyboard/keys";
-import { isShiftedKey } from "../../server/keyboard";
-import { wait } from "../../server/wait";
+import { keysMap, isShiftedKey, wait } from "vm-providers";
 
 export const checkFocus = async (testerSession: TesterSession) => {
   const result = await testerSession.driver.executeScript(function () {

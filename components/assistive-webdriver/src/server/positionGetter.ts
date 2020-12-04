@@ -17,8 +17,7 @@
  */
 
 import request from "./request";
-import { ScreenPosition, SimplePosition } from "./vm/vmInterface";
-import { LogFunction } from "./logging";
+import { ScreenPosition, SimplePosition, LogFunction } from "vm-providers";
 
 export const createPositionGetter = (
   serverSessionUrl: string,

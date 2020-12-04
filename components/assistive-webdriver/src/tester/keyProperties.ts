@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Key } from "../server/keyboard/keys";
+import { Key } from "vm-providers";
 
 export const skipKeys = new Set<string>();
 skipKeys.add(Key.Help); // not supported

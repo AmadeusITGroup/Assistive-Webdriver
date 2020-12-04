@@ -29,7 +29,7 @@ import {
   InvalidSessionError,
   AbortedConnectionError
 } from "./publicError";
-import { createSubLogFunction, LogFunction } from "./logging";
+import { createSubLogFunction, LogFunction } from "vm-providers";
 
 export interface ProxyApplication extends Koa {
   deleteSessions(): Promise<void>;
@@ -144,7 +144,7 @@ export function createWebdriverProxy<T>(
         ctx.body = {
           value: {
             error: "unknown error",
-            message: "An unknown error occurred!"
+            message: `${error.message}`
           }
         };
       }

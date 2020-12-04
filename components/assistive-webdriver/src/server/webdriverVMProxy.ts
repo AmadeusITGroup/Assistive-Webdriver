@@ -35,17 +35,18 @@ import {
   DEFAULT_WEBDRIVER_PATH
 } from "./defaults";
 import { VirtualMachineConfig, VMSettings } from "./config";
-import { webdriverCalibrate } from "./calibration/index";
+import { webdriverCalibrate } from "./calibration";
 import { createPositionGetter } from "./positionGetter";
 import {
   VM,
   PortRedirection,
   VMFactory,
   ScreenPosition,
-  SimplePosition
-} from "./vm/vmInterface";
-import { genericFactory } from "./vm/generic";
-import { createSubLogFunction, LogFunction } from "./logging";
+  SimplePosition,
+  createSubLogFunction,
+  LogFunction,
+  createVM
+} from "vm-providers";
 import { UnknownCommandError } from "./publicError";
 
 interface SessionData extends VirtualMachineConfig {
@@ -125,7 +126,7 @@ export function createWebdriverVMProxy({
   sessionTimeout,
   processCapabilities = async () => ({}),
   defaultConfiguration = {},
-  vmFactory = genericFactory
+  vmFactory = createVM
 }: WebdriverVMProxyConfig) {
   log = createSubLogFunction(log, { category: "vmproxy" });
   return createWebdriverProxy({
