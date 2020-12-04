@@ -1,8 +1,8 @@
+[![npm](https://img.shields.io/npm/v/vm-providers)](https://www.npmjs.com/package/vm-providers)
+
 # TextToSocketEngine
 
-![text-to-socket-engine](https://github.com/AmadeusITGroup/Assistive-Webdriver/workflows/text-to-socket-engine/badge.svg?branch=master&event=push)
-
-This directory contains an implementation of the Windows <abbr title="Speech API">SAPI</abbr> <abbr title="Text-To-Speech">TTS</abbr> engine interface ([`ISpTTSEngine`](<https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms719558(v%3dvs.85)>)) that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).
+TextToSocketEngine is an implementation of the Windows <abbr title="Speech API">SAPI</abbr> <abbr title="Text-To-Speech">TTS</abbr> engine interface ([`ISpTTSEngine`](<https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms719558(v%3dvs.85)>)) that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).
 
 It is based on [the TTS engine example provided by Microsoft](https://github.com/Microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/speech/engines/samplettsengine/samplettsengine).
 
@@ -10,19 +10,50 @@ It is especially useful to test software that can read text through the Windows 
 
 Especially, it was done with the purpose of being used with [assistive-webdriver](../assistive-webdriver) to automate end-to-end tests with a screen reader.
 
-## How to build
+## Installation from npm
+
+text-to-socket-engine can be installed from npm:
+
+```
+npm install -g text-to-socket-engine
+```
+
+Once installed it has to be registered with the following command (from a command prompt with administrator privileges):
+
+```
+text-to-socket-engine-register
+```
+
+This first registers the engine and then creates a default voice that uses it.
+The default voice has the `textToSocketVoice` id, is displayed in configuration dialogs as `Text To Socket 127.0.0.1:4449` and is configured to redirect all text to `127.0.0.1` on TCP port `4449`.
+
+It is possible to create (and remove) different voices with different settings (different hosts and TCP ports) that all use the same "text to socket" engine, as shown in the following sample commands:
+
+```
+text-to-socket-engine-add-voice voiceToPort4450 "My new voice" 127.0.0.1 4450
+
+text-to-socket-engine-remove-voice voiceToPort4450
+```
+
+To remove the default voice and unregister the engine, use the following command:
+
+```
+text-to-socket-engine-unregister
+```
+
+## How to build from the source repository
 
 The build requires Microsoft Visual C++ command line compiler and tools (`cl`, `midl`, `rc` and `cvtres`).
 
 Execute the [`build.cmd`](./build.cmd) script from a command prompt with the correct build variables configured. The `TextToSocketEngine.dll` file will be created.
 
-## How to install
+## How to install from the source repository
 
 Execute the [`register.cmd`](./register.cmd) script from a command prompt with administrator privileges. This first registers the engine and then creates a voice that uses it.
-The voice has the `textToSocketVoice` id, is displayed in configuration dialogs as `Text To Socket localhost:4449` and is configured to redirect all text to `localhost` on TCP port `4449`.
+The voice has the `textToSocketVoice` id, is displayed in configuration dialogs as `Text To Socket 127.0.0.1:4449` and is configured to redirect all text to `127.0.0.1` on TCP port `4449`.
 To change the settings, just edit the script before running it.
 It is possible to register different voices with different settings (different hosts and TCP ports) that all use the same "text to socket" engine.
 
-## How to uninstall
+## How to uninstall from the source repository
 
 Execute the [`unregister.cmd`](./unregister.cmd) script from a command prompt with administrator privileges. It first removes the voice with the `textToSocketVoice` id then unregisters the engine.

@@ -33,4 +33,12 @@ const getScanCode = (scanCodesMap: Map<Key, number[]>) => (
 export { Key, keysMap };
 export const getKeyDownScanCode = getScanCode(keyDown);
 export const getKeyUpScanCode = getScanCode(keyUp);
-export const isShiftedKey = (key: string): boolean => shiftedKeys.has(key);
+
+/**
+ * Returns whether it is necessary to have the `Shift` key pressed
+ * to type the given character (with the US keyboard layout).
+ * @param char - character produced by typing a key on the keyboard
+ * @returns true if it is needed to press the `Shift` key to type the character
+ * @public
+ */
+export const isShiftedKey = (char: string): boolean => shiftedKeys.has(char);

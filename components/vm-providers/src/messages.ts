@@ -16,6 +16,14 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * Map of all messages that can be logged from this package.
+ * The key in the map is in the format: `category`.`message`,
+ * with `category` and `message` the properties from the log entry object
+ * passed to the {@link LogFunction}.
+ * The value in the map is the log message in English.
+ * @public
+ */
 export const logMessages: { [key: string]: string } = {
   "qemu.connected": "Connected to QEMU!",
   "qemu.execute": "Starting QEMU",

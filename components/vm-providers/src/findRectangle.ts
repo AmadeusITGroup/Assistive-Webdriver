@@ -19,11 +19,29 @@
 import { PNG } from "pngjs";
 import { SimplePosition } from "./vm/vmInterface";
 
+/**
+ * Contains the position and size of a rectangle on the screen.
+ * @public
+ */
 export interface Rectangle extends SimplePosition {
+  /** Width (in pixels) of the rectangle. */
   width: number;
+  /** Height (in pixels) of the rectangle. */
   height: number;
 }
 
+/**
+ * Looks for a rectangle of the specified size, fully filled with the specified color, with the given color tolerance, in the given image.
+ * @param image - image where to look for the rectangle
+ * @param color - color of the rectangle to look for, expressed as an array of four numbers between 0 and 255,
+ * representing the red, green, blue and alpha parts
+ * @param expectedWidth - expected width of the rectangle, in pixels
+ * @param expectedHeight - expected height of the rectangle, in pixels
+ * @param colorTolerance - allowed difference in the color, 0 meaning no difference.
+ * The difference is computed as the sum of the absolute value of the difference for each red, green, blue and alpha parts.
+ * @returns The rectangle if it is found, or null otherwise.
+ * @public
+ */
 export function findRectangle(
   image: PNG,
   color: [number, number, number, number],
