@@ -19,8 +19,7 @@
 import { createLogger, format, transports } from "winston";
 import colors from "colors/safe";
 import { MESSAGES } from "./messages";
-
-export type LogFunction = (entry: any) => void;
+import { LogFunction } from "vm-providers";
 
 export const messageId = format(info => {
   const message = MESSAGES[`${info.category}.${info.message}`];
@@ -60,15 +59,5 @@ export function createDefaultLogger() {
 }
 
 export const defaultLogger = createDefaultLogger();
-export const defaultLogFunction: LogFunction = entry =>
+export const defaultLogFunction: LogFunction = (entry: any) =>
   defaultLogger.log(entry);
-
-export const createSubLogFunction = (
-  log = defaultLogFunction,
-  meta: Record<string, any>
-): LogFunction => (entry: any) =>
-  log({
-    level: "info",
-    ...meta,
-    ...entry
-  });

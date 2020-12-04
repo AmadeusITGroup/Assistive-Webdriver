@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { getPortPromise } from "../../src/server/portFinder";
+import { getFreePort } from "vm-providers";
 import { start } from "../../src/server/index";
 import { VirtualMachineConfig } from "../../src/server/config";
 
@@ -30,7 +30,7 @@ export const useServer = (extraArgs: string[] = []) => {
     config = {};
     jest.resetModules();
     jest.mock("./config", () => config);
-    port = await getPortPromise({ host });
+    port = await getFreePort({ host });
     closeServer = await start([
       "--host",
       host,

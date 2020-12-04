@@ -16,10 +16,15 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { wait } from "./wait";
 import { InvalidArgumentValueError } from "./publicError";
-import { VM, ScreenPosition, SimplePosition } from "./vm/vmInterface";
-import { LogFunction, createSubLogFunction } from "./logging";
+import {
+  VM,
+  ScreenPosition,
+  SimplePosition,
+  wait,
+  LogFunction,
+  createSubLogFunction
+} from "vm-providers";
 import { NativeEventsConfig } from "./config";
 
 export type PositionGetter = (origin: any) => Promise<ScreenPosition>;
@@ -134,7 +139,7 @@ export async function executeNativeEvents(
   positionGetter: PositionGetter,
   body: any,
   log: LogFunction
-) {
+): Promise<void> {
   log = createSubLogFunction(log, { category: "nativeEvents" });
   const actions = body.actions;
   const sources: NullInputSource[] = [];

@@ -17,7 +17,7 @@
  */
 
 import Websocket from "ws";
-import { createSubLogFunction, LogFunction } from "./logging";
+import { createSubLogFunction, LogFunction } from "vm-providers";
 
 export class ScreenReaderClient {
   socket?: Websocket;

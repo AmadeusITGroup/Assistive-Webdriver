@@ -1,4 +1,4 @@
 @echo off
 
-rundll32 %~dp0\TextToSocketEngine.dll,removeVoice textToSocketVoice
-regsvr32 /u %~dp0\TextToSocketEngine.dll
+FOR %%I IN (%~dp0\TextToSocketEngine*.dll) DO rundll32 %%I,removeVoice textToSocketVoice
+FOR %%I IN (%~dp0\TextToSocketEngine*.dll) DO regsvr32 /s /u %%I

@@ -3,3 +3,4 @@ dist
 node_modules
 coverage
 /pnpm-lock.yaml
+/components/assistive-webdriver/config-schema.json

@@ -1,16 +1,30 @@
 {
   "private": true,
   "devDependencies": {
+    "@babel/core": "7.12.10",
+    "@babel/plugin-syntax-typescript": "7.12.1",
     "@typescript-eslint/eslint-plugin": "4.9.1",
     "@typescript-eslint/parser": "4.9.1",
+    "babel-plugin-istanbul": "6.0.0",
     "eslint": "7.15.0",
     "eslint-config-prettier": "7.0.0",
-    "prettier": "2.2.1"
+    "nyc": "15.1.0",
+    "prettier": "2.2.1",
+    "ts-jest": "25.5.1"
   },
   "scripts": {
-    "lint": "eslint .",
     "format": "prettier .",
     "format:check": "pnpm format -- --check",
-    "format:fix": "pnpm format -- --write"
+    "format:fix": "pnpm format -- --write",
+    "lint": "eslint .",
+    "nyc-report": "nyc report --reporter=lcov",
+    "nyc-awd-server": "nyc node components/assistive-webdriver/dist/server/bin.js",
+    "nyc-awd-tester": "nyc node components/assistive-webdriver/dist/tester.js"
+  },
+  "nyc": {
+    "instrument": false,
+    "sourceMap": false,
+    "silent": true,
+    "clean": false
   }
 }

@@ -22,7 +22,7 @@ import { Stats } from "./stats";
 import { debug, info, error } from "winston";
 import { crossBrowserKeys } from "./keyProperties";
 import { createEventsServer } from "./eventsServer";
-import { wait } from "../server/wait";
+import { wait } from "vm-providers";
 
 export class TesterSession {
   screenReader = false;

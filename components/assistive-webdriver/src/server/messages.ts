@@ -16,7 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import { logMessages as vmProvidersLogMessages } from "vm-providers";
+
 export const MESSAGES: { [key: string]: string } = {
+  ...vmProvidersLogMessages,
   "calibration.displayed": "Displaying the calibration rectangle",
   "calibration.success": "The calibration succeeded",
   "main.listen": "The http server is listening",
@@ -34,17 +37,9 @@ export const MESSAGES: { [key: string]: string } = {
   "proxy.timeout.nextcheck": "Planning next sessions timeout check",
   "proxy.upstream.begin": "Transmitting the request upstream",
   "proxy.upstream.end": "The upstream request finished",
-  "qemu.connected": "Connected to QEMU!",
-  "qemu.execute": "Starting QEMU",
-  "qemu.exit": "QEMU exited",
-  "qemu.receive": "Received from QEMU",
-  "qemu.running": "The QEMU virtual machine is now running",
-  "qemu.send": "Sending command to QEMU",
-  "qemu.stderr": "Error output from QEMU",
   "request.begin": "Sending request",
   "request.error": "Error in the request",
   "request.success": "The request finished",
   "screenReader.error": "Error in the connection to the screen reader",
-  "screenReader.receive": "Received message from screen reader",
-  "vbox.keepalive": "Sending keep-alive request"
+  "screenReader.receive": "Received message from screen reader"
 };
