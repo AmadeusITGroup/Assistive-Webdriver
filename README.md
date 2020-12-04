@@ -28,9 +28,9 @@ await driver.actions().sendKeys(Key.DOWN).perform();
 
 Assistive-webdriver uses a virtual machine to run tests. Here is a schema describing how it works:
 
-![Architecture of Assistive-Webdriver](./assistive-webdriver/architecture.png)
+![Architecture of Assistive-Webdriver](components/assistive-webdriver/architecture.png)
 
 The 3 yellow boxes in this schema are the three components of Assistive-Webdriver, in the following three directories:
-- [assistive-webdriver](assistive-webdriver)
-- [text-to-socket-engine](text-to-socket-engine)
-- [tcp-web-listener](tcp-web-listener)
+- [assistive-webdriver](components/assistive-webdriver)
+- [text-to-socket-engine](components/text-to-socket-engine)
+- [tcp-web-listener](components/tcp-web-listener)
