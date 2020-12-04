@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import lolex from "lolex";
+import lolex from "@sinonjs/fake-timers";
 import { useServer } from "./helpers/server";
 import { json as jsonBody } from "co-body";
 import { Builder, Browser, Origin, Button } from "selenium-webdriver";
