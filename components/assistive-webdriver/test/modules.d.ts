@@ -16,4 +16,4 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-declare module "lolex";
+declare module "@sinonjs/fake-timers";
