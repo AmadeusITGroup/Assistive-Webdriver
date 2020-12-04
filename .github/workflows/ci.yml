@@ -16,29 +16,29 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: assistive-webdriver-yarn-${{ hashFiles('assistive-webdriver/yarn.lock') }}
+          path: "~/.pnpm-store"
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
-            assistive-webdriver-yarn-
-      - run: yarn --frozen-lockfile
+            pnpm-
+      - run: |
+          curl -L https://unpkg.com/@pnpm/self-installer | node
+          pnpm config set store-dir ~/.pnpm-store
+      - run: pnpm install --frozen-lockfile
         working-directory: ./components/assistive-webdriver
-      - run: yarn lint
+      - run: pnpm lint
         working-directory: ./components/assistive-webdriver
-      - run: yarn format:check
+      - run: pnpm format:check
         working-directory: ./components/assistive-webdriver
-      - run: yarn test --coverage
+      - run: pnpm test -- --coverage
         working-directory: ./components/assistive-webdriver
       - uses: codecov/codecov-action@v1
         with:
           file: ./components/assistive-webdriver/coverage/lcov.info
           name: assistive-webdriver
           flags: assistivewebdriver
-      - run: yarn pack && mv assistive-webdriver-v0.0.0.tgz assistive-webdriver.tgz
+      - run: pnpm pack && mv assistive-webdriver-0.0.0.tgz assistive-webdriver.tgz
         working-directory: ./components/assistive-webdriver
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -46,11 +46,11 @@ jobs:
           name: assistive-webdriver.tgz
           path: ./components/assistive-webdriver/assistive-webdriver.tgz
       - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/assistive-webdriver/')
-        name: yarn publish
+        name: pnpm publish
         run: |
-          yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})
+          pnpm version --no-git-tag-version --new-version $(basename ${{ github.ref }})
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          yarn publish
+          pnpm publish
         working-directory: ./components/assistive-webdriver
   build-tcp-web-listener:
     runs-on: ubuntu-latest
@@ -62,20 +62,19 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: tcp-web-listener-yarn-${{ hashFiles('tcp-web-listener/yarn.lock') }}
+          path: "~/.pnpm-store"
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
-            tcp-web-listener-yarn-
-      - run: yarn --frozen-lockfile
+            pnpm-
+      - run: |
+          curl -L https://unpkg.com/@pnpm/self-installer | node
+          pnpm config set store-dir ~/.pnpm-store
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
         working-directory: ./components/tcp-web-listener
-      - run: yarn test
-        working-directory: ./components/tcp-web-listener
-      - run: yarn pack && mv tcp-web-listener-v0.0.0.tgz tcp-web-listener.tgz
+      - run: pnpm pack && mv tcp-web-listener-0.0.0.tgz tcp-web-listener.tgz
         working-directory: ./components/tcp-web-listener
       - name: Upload artifact
         uses: actions/upload-artifact@v2
@@ -83,11 +82,11 @@ jobs:
           name: tcp-web-listener.tgz
           path: components/tcp-web-listener/tcp-web-listener.tgz
       - if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/tcp-web-listener/')
-        name: yarn publish
+        name: pnpm publish
         run: |
-          yarn version --no-git-tag-version --new-version $(basename ${{ github.ref }})
+          pnpm version --no-git-tag-version --new-version $(basename ${{ github.ref }})
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-          yarn publish
+          pnpm publish
         working-directory: ./components/tcp-web-listener
   build-text-to-socket-engine:
     runs-on: windows-2019
@@ -166,17 +165,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: assistive-webdriver-yarn-${{ hashFiles('assistive-webdriver/yarn.lock') }}
+          path: "~/.pnpm-store"
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
-            assistive-webdriver-yarn-
-      - run: yarn --frozen-lockfile
-        working-directory: ./components/assistive-webdriver
+            pnpm-
+      - run: |
+          curl -L https://unpkg.com/@pnpm/self-installer | node
+          pnpm config set store-dir ~/.pnpm-store
+      - run: pnpm install --frozen-lockfile
         env:
           ENABLE_COVERAGE: "1"
       - uses: actions/download-artifact@v2
@@ -227,24 +225,24 @@ jobs:
         timeout-minutes: 45
       - run: vboxwebsrv -v -A null --logfile vboxwebsrv.log &
       - run: |
-          yarn nyc-server -l debug -c ../../vagrant/win10-chromium-nvda/vm-config.json --pid-file ../../assistive-webdriver.pid &> ../../assistive-webdriver.log &
+          pnpm nyc-server -- -l debug -c ../../vagrant/win10-chromium-nvda/vm-config.json --pid-file ../../assistive-webdriver.pid &> ../../assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
         working-directory: ./components/assistive-webdriver
       - name: "test (1)"
         id: test1
-        run: yarn nyc-tester -m nvda -k Insert -l debug
+        run: pnpm nyc-tester -- -m nvda -k Insert -l debug
         working-directory: ./components/assistive-webdriver
         continue-on-error: true
       - name: "test (2)"
         id: test2
         if: steps.test1.outcome == 'failure'
-        run: yarn nyc-tester -m nvda -k Insert -l debug
+        run: pnpm nyc-tester -- -m nvda -k Insert -l debug
         working-directory: ./components/assistive-webdriver
         continue-on-error: true
       - name: "test (3)"
         if: steps.test2.outcome == 'failure'
-        run: yarn nyc-tester -m nvda -k Insert -l debug
+        run: pnpm nyc-tester -- -m nvda -k Insert -l debug
         working-directory: ./components/assistive-webdriver
       - run: |
           ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)
@@ -258,7 +256,7 @@ jobs:
         if: ${{ always() }}
       - run: cat vboxwebsrv.log
         if: ${{ always() }}
-      - run: yarn nyc-report
+      - run: pnpm nyc-report
         working-directory: ./components/assistive-webdriver
       - uses: codecov/codecov-action@v1
         with:

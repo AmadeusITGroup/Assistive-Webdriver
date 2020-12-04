@@ -26,7 +26,6 @@ Here is a schema describing the architecture of Assistive-Webdriver:
 
 - Make sure you have the following software installed on the host machine:
   - [nodejs](https://nodejs.org)
-  - [yarn](https://yarnpkg.com/)
   - [VirtualBox](https://www.virtualbox.org/) or [QEMU](https://www.qemu.org/)
 
 - Make sure you have a VirtualBox or QEMU virtual machine properly configured. To configure the virtual machine, you can follow [this step-by-step guide](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/assistive-webdriver/vm-guide/README.md). The virtual machine should be configured with:
@@ -39,8 +38,6 @@ Here is a schema describing the architecture of Assistive-Webdriver:
 - Install Assistive-Webdriver globally:
 
 ```sh
-# Either with yarn:
-yarn global add assistive-webdriver
 # Or with npm:
 npm install -g assistive-webdriver
 ```
