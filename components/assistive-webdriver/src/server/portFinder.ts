@@ -20,7 +20,7 @@ import { createServer, AddressInfo } from "net";
 
 export async function getPortPromise({ host }: { host: string }) {
   const server = createServer();
-  await new Promise((resolve, reject) =>
+  await new Promise<void>((resolve, reject) =>
     server.listen(0, host, resolve).on("error", reject)
   );
   const address = server.address() as AddressInfo;
