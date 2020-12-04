@@ -97,7 +97,7 @@ return {
         color
       )} (tolerance ${colorTolerance})`;
       if (failedCalibrationFileName) {
-        await new Promise((resolve, reject) =>
+        await new Promise<void>((resolve, reject) =>
           pipeline(
             image.pack(),
             createWriteStream(failedCalibrationFileName),
