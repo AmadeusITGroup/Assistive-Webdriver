@@ -41,9 +41,14 @@ Once the virtual machine is fully started, follow the following steps inside the
 
 - Download [Selenium Server](https://www.selenium.dev/downloads/) and store the `.jar` file somewhere in the virtual machine.
 
-- Download the latest `x86` version of `text-to-socket-engine` from [the releases page on GitHub](https://github.com/AmadeusITGroup/Assistive-Webdriver/releases) and extract the full content of the zip file somewhere in the virtual machine. Then execute the `register.cmd` script as an administrator (right-click on the file, then click on `Run as administrator`) and confirm you want to execute the script. The following dialog should then be displayed to notify that the installation was successful:
+- Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener`, and it includes `npm` that can be used to install both `tcp-web-listener` and `text-to-socket-engine`.
 
-![TextToSocketEngine dialog after successful installation](after-installing-texttosocketengine.png)
+- From the command line with administrator privileges, execute the following commands to install `text-to-socket-engine` and to register it:
+
+```
+npm install -g text-to-socket-engine
+text-to-socket-engine-register
+```
 
 - Download and install [NVDA](https://www.nvaccess.org/download/) or [JAWS](https://support.freedomscientific.com/Downloads/JAWS).
 
@@ -86,8 +91,6 @@ Once the virtual machine is fully started, follow the following steps inside the
     ![JAWS Make Default Voice Profile dialog](jaws-default-profile.png)
 
     - JAWS is now correctly configured to use `TextToSocketEngine`.
-
-- Download and install [Node.js](https://nodejs.org). Node.js is needed in order to run `tcp-web-listener`.
 
 - From the command line, execute the following commands to install `tcp-web-listener` and start it:
 

@@ -16,6 +16,20 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * This package contains functions to clone and start a virtual machine with
+ * one of the available providers (virtualbox or qemu), to send it keyboard
+ * and mouse events and finally to destroy it. It also contains some utilities
+ * commonly used with applications that need to control a virtual machine.
+ *
+ * @remarks
+ * The main entry point to clone and start a virtual machine is the
+ * {@link createVM | createVM function}
+ *
+ * @packageDocumentation
+ *
+ */
+
 export {
   VM,
   VMFactory,

@@ -1,14 +1,18 @@
-# Assistive-Webdriver
+[![codecov](https://codecov.io/gh/AmadeusITGroup/Assistive-Webdriver/branch/master/graph/badge.svg)](https://codecov.io/gh/AmadeusITGroup/Assistive-Webdriver)
 
-Assistive-Webdriver is a tool to automate end-to-end web application tests with a screen reader.
+# Presentation
+
+This repository contains a set of components to automate end-to-end web application tests with a screen reader.
 
 Web sites and web applications are increasingly required to be accessible, and, especially, compatible with screen readers, so that visually impaired users can use them.
 
 To be sure that an application is compatible with a screen reader, it is important to test it in real conditions, which means using the application with the keyboard and listening to what the screen reader says. That is how a visually impaired user would interact with the application.
 
-Most of the time those tests are currently done manually. Assistive-Webdriver allows to automate them.
+Most of the time those tests are currently done manually. The tools available in this repository allow to automate them.
 
-It is a new implementation of a Webdriver server that allows testing a scenario in a web application with a screen reader and checking that the screen reader says what is expected.
+## Assistive-Webdriver
+
+Assistive-webdriver is an implementation of a Webdriver server that allows testing a scenario in a web application with a screen reader and checking that the screen reader says what is expected.
 
 Concretely, it adds screen reader-related functions to webdriver.
 
@@ -35,3 +39,7 @@ The 3 yellow boxes in this schema are the three components of Assistive-Webdrive
 - [assistive-webdriver](components/assistive-webdriver)
 - [text-to-socket-engine](components/text-to-socket-engine)
 - [tcp-web-listener](components/tcp-web-listener)
+
+Inside of the assistive-webdriver component, all calls to create, control, and destroy the virtual machine are made through the following component that can be used independently:
+
+- [vm-providers](components/vm-providers)

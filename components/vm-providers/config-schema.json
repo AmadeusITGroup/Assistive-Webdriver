@@ -1,14 +1,19 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
   "title": "VMSettings",
+  "description": "Settings specifying how to create a virtual machine. Depending on the chosen provider (determined by the type property), the required settings are different. @public",
   "oneOf": [
     {
       "type": "object",
       "title": "VirtualBoxSettings",
+      "description": "Settings specifying how to create a virtual machine with the VirtualBox provider. @public",
       "additionalProperties": false,
       "required": ["type", "vm"],
       "properties": {
-        "type": { "enum": ["virtualbox"] },
+        "type": {
+          "enum": ["virtualbox"],
+          "description": "Specifies that the VirtualBox provider is used."
+        },
         "vm": {
           "type": "string",
           "description": "Name or id of the virtual machine to clone."
@@ -27,10 +32,14 @@
     {
       "type": "object",
       "title": "QEMUSettings",
+      "description": "Settings specifying how to create a virtual machine with the QEMU provider. @public",
       "additionalProperties": false,
       "required": ["type", "commandLine"],
       "properties": {
-        "type": { "enum": ["qemu"] },
+        "type": {
+          "enum": ["qemu"],
+          "description": "Specifies that the QEMU provider is used."
+        },
         "commandLine": {
           "type": "array",
           "description": "Array of strings specifying the path to the executable and the arguments to use when running qemu. It is usually a good idea to include the -snapshot option. Note that this tool automatically adds the -qmp stdio option to communicate with qemu. It also automatically adds the hostfwd options, corresponding the the needed port redirections, to the first -netdev or -nic option (or automatically adds a -nic user option if none are found).",

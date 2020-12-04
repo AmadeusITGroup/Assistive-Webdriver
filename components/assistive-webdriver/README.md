@@ -1,7 +1,5 @@
 # Assistive-Webdriver
 
-![assistive-webdriver](https://github.com/AmadeusITGroup/Assistive-Webdriver/workflows/assistive-webdriver/badge.svg?branch=master&event=push)
-[![codecov](https://codecov.io/gh/AmadeusITGroup/Assistive-Webdriver/branch/master/graph/badge.svg)](https://codecov.io/gh/AmadeusITGroup/Assistive-Webdriver)
 [![npm](https://img.shields.io/npm/v/assistive-webdriver)](https://www.npmjs.com/package/assistive-webdriver)
 
 ## Presentation

@@ -21,12 +21,23 @@ import { QEMUVMFactory } from "./qemu";
 import { VMFactory } from "./vmInterface";
 import { VMSettings } from "../config";
 
+/**
+ * Map of available virtual machine providers.
+ * The key in the map corresponds to the `type` property in {@link VMSettings}.
+ * The value is the {@link VMFactory} implemented by the provider.
+ * @public
+ */
 export const vmFactories: { [key: string]: VMFactory<any> } = Object.create(
   null
 );
 vmFactories.virtualbox = vboxVMFactory;
 vmFactories.qemu = QEMUVMFactory;
 
+/**
+ * Clone and start a virtual machine, using the provider specified in the
+ * `type` property of {@link VMSettings}.
+ * @public
+ */
 export const createVM: VMFactory<VMSettings> = async ({
   vmSettings: { type, ...vmSettings },
   ...config

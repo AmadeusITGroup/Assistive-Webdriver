@@ -16,6 +16,11 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * Waits for the specified delay.
+ * @param delay - delay in milliseconds
+ * @public
+ */
 export function wait(delay: number): Promise<void> {
   return new Promise(function (resolve) {
     setTimeout(resolve, delay);

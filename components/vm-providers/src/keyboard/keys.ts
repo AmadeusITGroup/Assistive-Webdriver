@@ -18,6 +18,11 @@
 
 // cf https://www.w3.org/TR/webdriver/#keyboard-actions
 
+/**
+ * Keyboard keys that can be sent to a virtual machine through
+ * {@link VM.sendKeyDownEvent} and {@link VM.sendKeyUpEvent}.
+ * @public
+ */
 export const enum Key {
   Backquote = "Backquote",
   Backslash = "Backslash",
@@ -128,7 +133,15 @@ export const enum Key {
   Menu = "Menu"
 }
 
+/**
+ * Map of keyboard keys.
+ * The key in the map is a character produced by the key
+ * (either with or without pressing `Shift`).
+ * The value in the map is the key from the {@link Key} enum.
+ * @public
+ */
 export const keysMap = new Map<string, Key>();
+
 export const shiftedKeys = new Set<string>();
 
 const checkNoChar = (char: string) => {

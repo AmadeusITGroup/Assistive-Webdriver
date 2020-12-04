@@ -18,6 +18,20 @@
 
 import { createServer, AddressInfo } from "net";
 
+/**
+ * Returns a free TCP port on the local IP address specified by the host parameter.
+ *
+ * @param host - Specifies the local host name or IP address to use when looking for a free TCP port.
+ * @returns An unused port number chosen by the operating system.
+ *
+ * @remarks
+ *
+ * This function internally creates a TCP server with port 0 so that,
+ * as mentioned in the {@link https://nodejs.org/dist/latest-v15.x/docs/api/net.html#net_server_listen_port_host_backlog_callback | node.js documentation},
+ * the operating system can assign an arbitrary unused port.
+ * The function then closes the server and returns the port number.
+ * @public
+ */
 export async function getFreePort({ host }: { host: string }): Promise<number> {
   const server = createServer();
   await new Promise<void>((resolve, reject) =>

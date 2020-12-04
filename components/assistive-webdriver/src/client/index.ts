@@ -16,13 +16,44 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ *
+ * This package contains functions to be used with selenium-webdriver in
+ * order to test a web application with a screen reader.
+ *
+ * @packageDocumentation
+ */
+
 import { WebDriver, Condition } from "selenium-webdriver";
 import { Command } from "selenium-webdriver/lib/command";
 
+/**
+ * Name of the command registered in selenium-webdriver to get
+ * the text from the screen reader.
+ * @public
+ */
 export const SCREEN_READER_TEXT_COMMAND = "screenReaderText";
+
+/**
+ * HTTP method used on the assistive-webdriver server to get
+ * the text from the screen reader.
+ * @public
+ */
 export const SCREEN_READER_TEXT_METHOD = "GET";
+
+/**
+ * HTTP path used on the assistive-webdriver server to get
+ * the text from the screen reader.
+ * @public
+ */
 export const SCREEN_READER_TEXT_PATH = "/session/:sessionId/screenReaderText";
 
+/**
+ * Direct reference to a selenium-webdriver
+ * {@link https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html | WebDriver}
+ * instance, or to an object containing a WebDriver instance as its `driver` property.
+ * @public
+ */
 export type WebdriverLike = WebDriver | { driver: WebDriver };
 
 interface Listener {
@@ -70,6 +101,24 @@ function getScreenReaderTextInfo(webdriver: WebdriverLike) {
   return info;
 }
 
+/**
+ * Registers a listener function to be called each time a new message is
+ * coming from the screen reader.
+ *
+ * @remarks
+ *
+ * The function may not be called immediately after the screen reader reads
+ * a message. Messages are retrieved from the assistive-webdriver server
+ * only when {@link refreshScreenReaderText} is called, and that is when
+ * the listeners are called if new messages are retrieved.
+ *
+ * @param webdriver - reference to the selenium-webdriver instance
+ * @param fn - function to register as a listener. The message read by
+ * the screen reader is passed as the first (and only) parameter.
+ * @param scope - scope to use when calling the listener
+ * @returns a function to unregister the listener
+ * @public
+ */
 export function addScreenReaderTextListener(
   webdriver: WebdriverLike,
   fn: (message: string) => void,
@@ -89,6 +138,13 @@ export function addScreenReaderTextListener(
   };
 }
 
+/**
+ * Calls the assistive-webdriver server to get any new text coming from
+ * the screen reader, and, if there is any, synchronously calls listeners
+ * registered with {@link addScreenReaderTextListener}.
+ * @param webdriver - reference to the selenium-webdriver instance
+ * @public
+ */
 export async function refreshScreenReaderText(
   webdriver: WebdriverLike
 ): Promise<string[]> {
@@ -111,6 +167,12 @@ export async function refreshScreenReaderText(
   return messages;
 }
 
+/**
+ * Clears any locally cached screen reader text for the given instance
+ * of selenium-webdriver.
+ * @param webdriver - reference to the selenium-webdriver instance
+ * @public
+ */
 export async function clearCachedScreenReaderText(
   webdriver: WebdriverLike
 ): Promise<void> {
@@ -119,6 +181,31 @@ export async function clearCachedScreenReaderText(
   info.messages.splice(0, info.messages.length);
 }
 
+/**
+ * Returns whether the text coming from the screen reader passed as the
+ * first parameter matches the expected text specified as the second parameter.
+ *
+ * @remarks
+ * `expectedText` can be:
+ *
+ * - a string: the text matches if `screenReaderText` contains the text in `expectedText`
+ *
+ * - a regular expression: the text matches if `screenReaderText` matches the regular expression
+ *
+ * - a function: the function is called, and should return a boolean describing whether it matches
+ * or not.
+ *
+ * - an array: the text matches if there is a match with one of the items of the array
+ * (which can be a string, a regular expression, a function or a nested array), according
+ * to the rules previously mentioned
+ *
+ * @param screenReaderText - text coming from the screen reader
+ * @param expectedText - expected text. See the remarks for more details about
+ * accepted types.
+ * @returns true if the text coming from the screen reader matches
+ * the expected text, false otherwise.
+ * @public
+ */
 export function isMatch(screenReaderText: string, expectedText: any): boolean {
   if (Array.isArray(expectedText)) {
     for (let i = 0, l = expectedText.length; i < l; i++) {
@@ -138,6 +225,25 @@ export function isMatch(screenReaderText: string, expectedText: any): boolean {
   }
 }
 
+/**
+ * Returns a selenium-webdriver
+ * {@link https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Condition.html | Condition object}
+ * usable with {@link https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html#wait | the wait method}
+ * of selenium-webdriver.
+ *
+ * @example
+ * ```ts
+ * await driver.wait(forScreenReaderToSay("Date of departure"), 5000);
+ * ```
+ *
+ * @param expectedText - specifies the expected text, in one of the ways documented
+ * for the `expectedText` parameter of {@link isMatch}.
+ * @param clean - whether to clear from the cache all the screen reader messages until (and including)
+ * the message matched by `expectedText`. If this is false, the messages are kept in the cache,
+ * allowing them to be matched again.
+ *
+ * @public
+ */
 export function forScreenReaderToSay(
   expectedText: any,
   clean = true
