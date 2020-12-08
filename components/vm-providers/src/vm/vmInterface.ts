@@ -50,7 +50,7 @@ export const enum MouseButton {
 }
 
 export interface VM {
-  tcpRedirections: PortRedirection[];
+  readonly tcpRedirections: readonly PortRedirection[];
   sendKeyDownEvent(key: string): Promise<void>;
   sendKeyUpEvent(key: string): Promise<void>;
   sendMouseMoveEvent(position: ScreenPosition): Promise<void>;
