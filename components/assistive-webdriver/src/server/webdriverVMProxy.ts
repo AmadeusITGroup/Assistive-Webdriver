@@ -80,7 +80,10 @@ export interface WebdriverVMProxyConfig {
   vmFactory?: VMFactory<VMSettings>;
 }
 
-function findRedirection(redirections: PortRedirection[], vmPort: number) {
+function findRedirection(
+  redirections: readonly PortRedirection[],
+  vmPort: number
+) {
   const res = redirections.find(redirection => redirection.vmPort === vmPort);
   if (!res) {
     throw new Error(`Missing redirection for port ${vmPort}!`);
