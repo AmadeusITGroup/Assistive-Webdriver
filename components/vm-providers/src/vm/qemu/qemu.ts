@@ -38,7 +38,7 @@ import { tmpdir } from "os";
 import { join } from "path";
 import { PNG } from "pngjs";
 import { parsePPM } from "./ppmParser";
-import { getKeyDownScanCode } from "../../keyboard";
+import { getKeyDownScanCode, Key } from "../../keyboard";
 import { createSubLogFunction, LogFunction } from "../../logging";
 
 const mkdtemp = promisify(mkdtempCb);
@@ -63,7 +63,7 @@ function getButtonName(button: MouseButton) {
   return buttonName;
 }
 
-function getQEMUScanCode(key: string) {
+function getQEMUScanCode(key: Key | string) {
   const [first, second] = getKeyDownScanCode(key);
   if (first === 0xe0) {
     // special QEMU encoding of extended keys
@@ -227,7 +227,7 @@ export class QEMUVM implements VM {
 
   tcpRedirections: PortRedirection[] = [];
 
-  async qemuSendKey(down: boolean, key: string): Promise<void> {
+  async qemuSendKey(down: boolean, key: Key | string): Promise<void> {
     const data = getQEMUScanCode(key);
     await this._sendCommand({
       execute: "input-send-event",
@@ -245,11 +245,11 @@ export class QEMUVM implements VM {
     });
   }
 
-  async sendKeyDownEvent(key: string): Promise<void> {
+  async sendKeyDownEvent(key: Key | string): Promise<void> {
     await this.qemuSendKey(true, key);
   }
 
-  async sendKeyUpEvent(key: string): Promise<void> {
+  async sendKeyUpEvent(key: Key | string): Promise<void> {
     await this.qemuSendKey(false, key);
   }
 
