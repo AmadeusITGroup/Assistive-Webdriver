@@ -19,9 +19,11 @@
 import { keysMap, shiftedKeys, Key } from "./keys";
 import { keyDown, keyUp } from "./scanCodes";
 
-const getScanCode = (scanCodesMap: Map<Key, number[]>) => (value: string) => {
-  const code = keysMap.get(value);
-  const scanCode = code ? scanCodesMap.get(code) : undefined;
+const getScanCode = (scanCodesMap: Map<Key, number[]>) => (
+  value: string | Key
+) => {
+  const code = keysMap.get(value) ?? (value as Key);
+  const scanCode = scanCodesMap.get(code);
   if (!scanCode) {
     throw new Error(`Unknown keyboard key ${value}`);
   }

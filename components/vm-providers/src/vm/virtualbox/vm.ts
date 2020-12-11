@@ -19,7 +19,7 @@
 import { getFreePort } from "../../portFinder";
 import { PNG } from "pngjs";
 import { promisify } from "util";
-import { getKeyDownScanCode, getKeyUpScanCode } from "../../keyboard";
+import { getKeyDownScanCode, getKeyUpScanCode, Key } from "../../keyboard";
 import { VirtualBoxConnection } from "./connection";
 import {
   VM,
@@ -177,12 +177,12 @@ export class VirtualboxVM implements VM {
 
   public tcpRedirections: PortRedirection[] = [];
 
-  async sendKeyDownEvent(key: string): Promise<void> {
+  async sendKeyDownEvent(key: Key | string): Promise<void> {
     const scanCodes = getKeyDownScanCode(key);
     await this.vboxKeyboard!.putScancodes(scanCodes);
   }
 
-  async sendKeyUpEvent(key: string): Promise<void> {
+  async sendKeyUpEvent(key: Key | string): Promise<void> {
     const scanCodes = getKeyUpScanCode(key);
     await this.vboxKeyboard!.putScancodes(scanCodes);
   }

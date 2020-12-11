@@ -16,6 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+import type { Key } from "../keyboard";
 import { LogFunction } from "../logging";
 
 export interface SimplePosition {
@@ -51,8 +52,8 @@ export const enum MouseButton {
 
 export interface VM {
   readonly tcpRedirections: readonly PortRedirection[];
-  sendKeyDownEvent(key: string): Promise<void>;
-  sendKeyUpEvent(key: string): Promise<void>;
+  sendKeyDownEvent(key: Key | string): Promise<void>;
+  sendKeyUpEvent(key: Key | string): Promise<void>;
   sendMouseMoveEvent(position: ScreenPosition): Promise<void>;
   sendMouseDownEvent(button: MouseButton): Promise<void>;
   sendMouseUpEvent(button: MouseButton): Promise<void>;
