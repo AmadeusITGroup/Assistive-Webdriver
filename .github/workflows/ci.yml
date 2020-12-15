@@ -178,13 +178,11 @@ jobs:
         if: matrix.ENABLE_COVERAGE == '0' && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release/')
         run: |
           ./packageVM.sh
+          export BOX_NAME="assistive-webdriver/win10-chromium-nvda"
+          export BOX_VERSION="$(basename ${{ github.ref }})"
           vagrant cloud auth login --token "${{ secrets.VAGRANT_TOKEN }}"
-          vagrant cloud publish \
-            assistive-webdriver/win10-chromium-nvda "$(basename ${{ github.ref }})" \
-            virtualbox package.box \
-            --force \
-            --release \
-            --description "$(cat ./box-description.md)" \
-            --short-description "Contains NVDA and Chromium on Windows 10 for automatic tests of web applications with assistive-webdriver." \
-            --version-description "Automatically created from commit ${{ github.sha }}"
+          vagrant cloud version create "$BOX_NAME" "$BOX_VERSION" --description "Contains NVDA and Chromium on Windows 10 for automatic tests of web applications with assistive-webdriver. Automatically created from https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/${{ github.sha }}/vagrant/win10-chromium-nvda"
+          vagrant cloud provider create "$BOX_NAME" virtualbox "$BOX_VERSION"
+          vagrant cloud provider upload "$BOX_NAME" virtualbox "$BOX_VERSION" package.box
+          vagrant cloud version release "$BOX_NAME" "$BOX_VERSION" --force
         working-directory: ./vagrant/win10-chromium-nvda
