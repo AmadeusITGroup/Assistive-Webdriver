@@ -183,6 +183,6 @@ jobs:
           vagrant cloud auth login --token "${{ secrets.VAGRANT_TOKEN }}"
           vagrant cloud version create "$BOX_NAME" "$BOX_VERSION" --description "Contains NVDA and Chromium on Windows 10 for automatic tests of web applications with assistive-webdriver. Automatically created from https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/${{ github.sha }}/vagrant/win10-chromium-nvda"
           vagrant cloud provider create "$BOX_NAME" virtualbox "$BOX_VERSION"
-          ./vagrantCloudUpload.sh "${{ secrets.VAGRANT_TOKEN }}" "$BOX_NAME" virtualbox "$BOX_VERSION" package.box
+          vagrant cloud provider upload "$BOX_NAME" virtualbox "$BOX_VERSION" package.box --no-direct --debug
           vagrant cloud version release "$BOX_NAME" "$BOX_VERSION" --force
         working-directory: ./vagrant/win10-chromium-nvda
