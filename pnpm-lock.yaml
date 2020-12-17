@@ -9,6 +9,7 @@ importers:
       babel-plugin-istanbul: 6.0.0
       eslint: 7.15.0
       eslint-config-prettier: 7.0.0_eslint@7.15.0
+      jest-environment-node: 26.6.2
       nyc: 15.1.0
       prettier: 2.2.1
       ts-jest: 25.5.1
@@ -21,6 +22,7 @@ importers:
       babel-plugin-istanbul: 6.0.0
       eslint: 7.15.0
       eslint-config-prettier: 7.0.0
+      jest-environment-node: 26.6.2
       nyc: 15.1.0
       prettier: 2.2.1
       ts-jest: 25.5.1
@@ -680,7 +682,7 @@ packages:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.0
       '@types/node': 14.14.12
-      '@types/yargs': 15.0.11
+      '@types/yargs': 15.0.12
       chalk: 4.1.0
     dev: true
     engines:

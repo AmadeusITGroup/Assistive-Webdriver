@@ -1,8 +1,8 @@
-.nyc_output
+/.nyc_output
 dist
 build
 node_modules
-coverage
+/coverage
 *.tgz
 /components/assistive-webdriver/src/server/config.ts
 /components/assistive-webdriver/config-schema.json

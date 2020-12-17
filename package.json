@@ -9,6 +9,7 @@
     "babel-plugin-istanbul": "6.0.0",
     "eslint": "7.15.0",
     "eslint-config-prettier": "7.0.0",
+    "jest-environment-node": "26.6.2",
     "nyc": "15.1.0",
     "prettier": "2.2.1",
     "ts-jest": "25.5.1"

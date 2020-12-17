@@ -135,24 +135,10 @@ jobs:
       - run: cat vboxwebsrv.log
         if: ${{ always() }}
       - run: pnpm nyc-report
-        if: matrix.ENABLE_COVERAGE == '1'
-      - uses: codecov/codecov-action@v1
-        with:
-          file: ./components/assistive-webdriver/coverage/lcov.info
-          name: assistive-webdriver
-          flags: assistivewebdriver
-        if: matrix.ENABLE_COVERAGE == '1' && always()
-      - uses: codecov/codecov-action@v1
-        with:
-          file: ./components/vm-providers/coverage/lcov.info
-          name: vm-providers
-          flags: vmproviders
         if: matrix.ENABLE_COVERAGE == '1' && always()
       - uses: codecov/codecov-action@v1
         with:
           file: ./coverage/lcov.info
-          name: e2e
-          flags: e2e
         if: matrix.ENABLE_COVERAGE == '1' && always()
       - if: matrix.ENABLE_COVERAGE == '0' && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release/')
         name: pnpm publish

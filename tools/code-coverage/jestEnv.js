@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Amadeus s.a.s.
+ * Copyright 2020 Amadeus s.a.s.
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -16,15 +16,18 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-module.exports = {
-  transform: {
-    "^.+\\.ts$": "../../tools/code-coverage/jestTransform"
-  },
-  testEnvironment: "../../tools/code-coverage/jestEnv",
-  testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  globals: {
-    "ts-jest": {
-      tsConfig: "tsconfig.test.json"
+const NodeJestEnvironment = require("jest-environment-node");
+
+class NycNodeJestEnv extends NodeJestEnvironment {
+  async setup() {
+    await super.setup();
+    let coverage = global.__coverage__;
+    if (!coverage) {
+      coverage = {};
+      global.__coverage__ = coverage;
     }
+    this.global.__coverage__ = coverage;
   }
-};
+}
+
+module.exports = NycNodeJestEnv;

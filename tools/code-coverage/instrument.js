@@ -29,7 +29,6 @@ const foldersToInstrument = coverageEnabled
       join(__dirname, "../../components/vm-providers/src/")
     ]
   : [];
-exports.foldersToInstrument = foldersToInstrument;
 
 const isInFolderToInstrument = file =>
   foldersToInstrument.some(folder => file.startsWith(folder));
