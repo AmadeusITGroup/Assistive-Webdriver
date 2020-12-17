@@ -49,6 +49,6 @@
     "build:rollup": "rollup -c",
     "build:dts": "tsc -p tsconfig.d.json",
     "build:api": "api-extractor run --config ./api-extractor.json --verbose",
-    "test": "jest"
+    "test": "nyc --cwd ../.. jest"
   }
 }

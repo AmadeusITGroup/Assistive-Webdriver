@@ -16,18 +16,11 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const {
-  foldersToInstrument,
-  coverageEnabled
-} = require("../../tools/code-coverage/instrument");
-
 module.exports = {
   transform: {
     "^.+\\.ts$": "../../tools/code-coverage/jestTransform"
   },
-  coverageDirectory: "coverage",
-  collectCoverage: coverageEnabled,
-  collectCoverageFrom: foldersToInstrument.map(folder => `${folder}/**`),
+  testEnvironment: "../../tools/code-coverage/jestEnv",
   testMatch: ["<rootDir>/test/**/*.spec.ts"],
   globals: {
     "ts-jest": {
