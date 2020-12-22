@@ -1,6 +1,6 @@
-[![npm](https://img.shields.io/npm/v/vm-providers)](https://www.npmjs.com/package/vm-providers)
-
 # TextToSocketEngine
+
+[![npm](https://img.shields.io/npm/v/vm-providers)](https://www.npmjs.com/package/vm-providers)
 
 TextToSocketEngine is an implementation of the Windows <abbr title="Speech API">SAPI</abbr> <abbr title="Text-To-Speech">TTS</abbr> engine interface ([`ISpTTSEngine`](<https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms719558(v%3dvs.85)>)) that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).
 
