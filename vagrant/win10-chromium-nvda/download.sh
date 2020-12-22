@@ -42,7 +42,7 @@ function downloadFile() {
 }
 
 downloadFile MSEdge.Win10.Vagrant.zip https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip 10620d68a5a14129da0bc7f856e0e3cabbfcec9cb8e6464553c03d2f638978f9b98866cf405baf737073ebb72eee904e8cb15d835ff5f12c99b0b49d668b531a
-downloadFile nvda.exe https://www.nvaccess.org/files/nvda/releases/2020.2/nvda_2020.2.exe c759b054e4600e5de6a27a576fe0b3039f37bd4839ee4d2d63787950eda0f8d5b0f18f9ede20f94e498f5f0c2fb92e0304a25189445a085d4b65e48de3b72169
+downloadFile nvda.exe https://www.nvaccess.org/files/nvda/releases/2020.3/nvda_2020.3.exe 8719507492269db398ef70f44e95f0132144223e76faf2e9b2123743ab68fcaf3793717a60ba2f522ae604a4ec820c95cedf396a645c0240fcde7f35cc40f729
 downloadFile openjdk.zip https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_windows-x64_bin.zip 7546b40977670f24ec68ad82b5d9f52f4fc105410e7bbfec6da0718795f4a82ac26665f1f9f05562ae20710aefe85c8dac05c5345d4e48385e99323a916d2157
 downloadFile selenium-server.jar https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar 29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
 downloadFile node.zip https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.zip 3cee3f6d691a08e5e665b9ff92e7fa242d237abb138bfd88975641f9e1931a58895a8130e615e1cb54ddc8d819a783e2e937766ce7fa3ab9bf36890aa787f415
