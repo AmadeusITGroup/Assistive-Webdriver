@@ -7,7 +7,7 @@
   "module": "dist/client/index.mjs",
   "typings": "dist/client/index.d.ts",
   "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
-  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-webdriver",
   "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
   "repository": {
     "type": "git",
