@@ -4,7 +4,7 @@
   "version": "0.0.2",
   "license": "MIT",
   "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
-  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/tcp-web-listener",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/tcp-web-listener",
   "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
   "repository": {
     "type": "git",
