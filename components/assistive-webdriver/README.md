@@ -28,7 +28,7 @@ Here is a schema describing the architecture of Assistive-Webdriver:
   - [nodejs](https://nodejs.org)
   - [VirtualBox](https://www.virtualbox.org/) or [QEMU](https://www.qemu.org/)
 
-- Make sure you have a VirtualBox or QEMU virtual machine properly configured. To configure the virtual machine, you can follow [this step-by-step guide](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-webdriver/vm-guide/README.md). The virtual machine should be configured with:
+- Make sure you have a VirtualBox or QEMU virtual machine properly configured. To configure the virtual machine, you can follow [this step-by-step guide](https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/doc/vm-guide/README.md). The virtual machine should be configured with:
 
   - The [selenium standalone server](https://www.selenium.dev/downloads)
     running on port 4444

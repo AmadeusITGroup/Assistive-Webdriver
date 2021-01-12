@@ -107,7 +107,7 @@ java -jar selenium-server-standalone-3.141.59.jar
 
 - Make sure `JAWS` is running.
 
-- Take a snapshot of the running virtual machine (with the `Take snapshot` command from the `Machine` menu). The name of the snapshot, along with the name of the virtual machine should be included in the `Assistive-Webdriver` [configuration file](../configuration.md).
+- Take a snapshot of the running virtual machine (with the `Take snapshot` command from the `Machine` menu). The name of the snapshot, along with the name of the virtual machine should be included in the `Assistive-Webdriver` [configuration file](../../components/assistive-webdriver/configuration.md).
 
 ![Virtual Machine snapshot](vm-snapshot.png)
 
