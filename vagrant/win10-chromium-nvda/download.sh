@@ -2,7 +2,18 @@
 
 NBERRORS=0
 
-if ! [ -f win10-chromium-nvda-vm-0.0.0.tgz ] && ! pnpm pack ; then
+function buildTgz() {
+  local DLL=0
+  for i in node_modules/text-to-socket-engine/TextToSocketEngine*.dll ; do if [ -f "$i" ]; then DLL=$((DLL+1)); fi; done
+  if [ "$DLL" == "0" ] ; then
+    echo 'Missing TextToSocketEngine*.dll in node_modules/text-to-socket-engine'
+    echo 'Please make sure you have built text-to-socket-engine and have run "pnpm install"'
+    return 1
+  fi
+  pnpm pack
+}
+
+if ! [ -f win10-chromium-nvda-vm-0.0.0.tgz ] && ! buildTgz ; then
   NBERRORS=$((NBERRORS+1))
   echo "KO: win10-chromium-nvda-vm-0.0.0.tgz"
 else
