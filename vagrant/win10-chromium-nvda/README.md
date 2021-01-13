@@ -19,7 +19,15 @@ It is published on [Vagrant Cloud](https://app.vagrantup.com/assistive-webdriver
 
 ## How to build the VM
 
-As a prerequisite, you need to have [vagrant](https://vagrantup.com), [VirtualBox](https://www.virtualbox.org/), [node.js](https://nodejs.org) and basic unix command line tools (such as bash and curl) installed on your machine.
+As a prerequisite, you need to have [vagrant](https://vagrantup.com), [VirtualBox](https://www.virtualbox.org/), [node.js](https://nodejs.org), [pnpm](https://pnpm.js.org) and basic unix command line tools (such as bash and curl) installed on your machine.
+
+Build [text-to-socket-engine](../../components/text-to-socket-engine), or, alternatively, you can also download the already built [TextToSocketEngine-x86.dll](https://unpkg.com/text-to-socket-engine/TextToSocketEngine-x86.dll) and/or [TextToSocketEngine-amd64.dll](https://unpkg.com/text-to-socket-engine/TextToSocketEngine-amd64.dll) files and put them in the `components/text-to-socket-engine` folder.
+
+Install node.js dependencies and build typescript code with the following command:
+
+```sh
+pnpm install
+```
 
 Then, you can run the following bash [script](./download.sh) to download the required software:
 
