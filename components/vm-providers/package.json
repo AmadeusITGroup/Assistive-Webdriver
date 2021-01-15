@@ -46,7 +46,7 @@
     "prebuild": "rimraf dist build",
     "build": "pnpm build:schema && pnpm build:rollup && pnpm build:dts && pnpm build:api",
     "build:schema": "json2ts -i config-schema.json -o src/config.ts",
-    "build:rollup": "rollup -c",
+    "build:rollup": "rollup --failAfterWarnings -c",
     "build:dts": "tsc -p tsconfig.d.json",
     "build:api": "api-extractor run --config ./api-extractor.json --verbose",
     "test": "nyc --cwd ../.. jest"

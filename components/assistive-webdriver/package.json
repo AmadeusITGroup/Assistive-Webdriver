@@ -78,7 +78,7 @@
     "prebuild": "rimraf dist build",
     "build": "pnpm build:schema && pnpm build:rollup && pnpm build:dts && pnpm build:api",
     "build:schema": "node build-config-schema.js && json2ts -i config-schema.json -o src/server/config.ts",
-    "build:rollup": "rollup -c",
+    "build:rollup": "rollup --failAfterWarnings -c",
     "build:dts": "tsc -p tsconfig.d.json",
     "build:api": "api-extractor run --config ./api-extractor.json --verbose",
     "start": "node dist/server/bin.js",
