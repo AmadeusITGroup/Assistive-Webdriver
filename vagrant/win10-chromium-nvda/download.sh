@@ -46,7 +46,6 @@ function downloadFile() {
             echo "OK: $FILE"
         else
             NBERRORS=$((NBERRORS+1))
-            rm -f "$FILE"
             echo "KO: $FILE"
         fi
     fi
