@@ -9,7 +9,7 @@ It is designed to run inside the virtual machine started by the [assistive-playw
 
 Here is a schema describing the architecture of Assistive-Playwright:
 
-![Architecture of Assistive-Playwright](https://raw.githubusercontent.com/AmadeusITGroup/Assistive-Webdriver/master/assistive-playwright-client/architecture.png)
+![Architecture of Assistive-Playwright](https://raw.githubusercontent.com/AmadeusITGroup/Assistive-Webdriver/master/components/assistive-playwright-client/architecture.png)
 
 ## Getting started
 

@@ -19,7 +19,7 @@ So, assistive-playwright-client allows to easily clone and start a virtual machi
 
 Here is a schema describing the architecture of Assistive-Playwright:
 
-![Architecture of Assistive-Playwright](https://raw.githubusercontent.com/AmadeusITGroup/Assistive-Webdriver/master/assistive-playwright-client/architecture.png)
+![Architecture of Assistive-Playwright](https://raw.githubusercontent.com/AmadeusITGroup/Assistive-Webdriver/master/components/assistive-playwright-client/architecture.png)
 
 ## Getting started
 
