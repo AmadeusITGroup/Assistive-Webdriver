@@ -1,6 +1,6 @@
 {
   "name": "assistive-playwright-client",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "assistive-playwright-client is a library that extends playwright to allow end-to-end testing of web applications with a screen reader. It is designed to connect to the assistive-playwright-server component that runs inside a virtual machine that is cloned and started by assistive-playwright-client.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

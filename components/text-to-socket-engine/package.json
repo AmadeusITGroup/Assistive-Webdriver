@@ -1,6 +1,6 @@
 {
   "name": "text-to-socket-engine",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "TextToSocketEngine is an implementation of the Windows Speech API Text-To-Speech engine interface that simply redirects all the text it receives to a configured TCP socket, instead of converting the text to speech (as regular TTS engines do).",
   "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
   "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/text-to-socket-engine",
