@@ -24,7 +24,7 @@ module.exports = {
   testMatch: ["<rootDir>/test/**/*.spec.ts"],
   globals: {
     "ts-jest": {
-      tsConfig: "tsconfig.test.json"
+      tsconfig: "tsconfig.test.json"
     }
   }
 };

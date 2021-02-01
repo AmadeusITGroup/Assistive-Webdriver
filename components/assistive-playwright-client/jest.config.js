@@ -25,7 +25,7 @@ module.exports = {
   testPathIgnorePatterns: ["<rootDir>/test/e2e/"],
   globals: {
     "ts-jest": {
-      tsConfig: "tsconfig.test.json"
+      tsconfig: "tsconfig.test.json"
     }
   }
 };

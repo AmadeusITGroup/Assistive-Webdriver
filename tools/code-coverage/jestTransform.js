@@ -18,12 +18,23 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { shouldInstrument, process: instrument } = require("./instrument");
-const { process: transpile } = require("ts-jest");
+const { createTransformer } = require("ts-jest");
 
-exports.process = (content, filename) => {
-  if (shouldInstrument(filename)) {
-    content = instrument(content, filename);
-  }
-  content = transpile(content, filename);
-  return content;
+exports.createTransformer = () => {
+  const tsJestTransformer = createTransformer();
+
+  return {
+    process(content, filename, jestConfig, transformOptions) {
+      if (shouldInstrument(filename)) {
+        content = instrument(content, filename);
+      }
+      content = tsJestTransformer.process(
+        content,
+        filename,
+        jestConfig,
+        transformOptions
+      );
+      return content;
+    }
+  };
 };
