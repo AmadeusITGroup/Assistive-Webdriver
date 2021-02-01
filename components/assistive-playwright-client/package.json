@@ -49,8 +49,7 @@
     "build:rollup": "rollup --failAfterWarnings -c",
     "build:dts": "tsc -p tsconfig.d.json",
     "build:api": "api-extractor run --config ./api-extractor.json --verbose",
-    "test": "nyc --cwd ../.. jest",
-    "e2e": "nyc --cwd ../.. jest -c jest-e2e.config.js"
+    "test": "nyc --cwd ../.. jest"
   },
   "license": "MIT"
 }
