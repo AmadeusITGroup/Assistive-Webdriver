@@ -42,6 +42,10 @@ function downloadFile() {
         echo "OK: $FILE"
     else
         curl -L -C - -o "$FILE" "$URL"
+        if [ "$?" == "33" ] ; then
+            # curl: (33) HTTP server doesn't seem to support byte ranges. Cannot resume.
+            curl -L -o "$FILE" "$URL"
+        fi
         if checkFile "$FILE" "$SHA" ; then
             echo "OK: $FILE"
         else
