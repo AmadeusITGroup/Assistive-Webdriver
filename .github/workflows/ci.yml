@@ -63,7 +63,7 @@ jobs:
           restore-keys: |
             pnpm-
       - run: |
-          curl -L https://unpkg.com/@pnpm/self-installer | node
+          npm i -g pnpm
           pnpm config set store-dir ~/.pnpm-store
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
