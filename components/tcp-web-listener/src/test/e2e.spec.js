@@ -19,6 +19,7 @@
 const { resolve } = require("path");
 const { fork } = require("child_process");
 const { createConnection } = require("net");
+const waitPort = require("wait-port");
 const Websocket = require("ws");
 
 describe("e2e", () => {
@@ -31,7 +32,7 @@ describe("e2e", () => {
       "--tcp-port",
       "8882"
     ]);
-    await new Promise(done => setTimeout(done, 500));
+    await waitPort({ port: 8881, timeout: 10000 });
   });
   afterAll(async () => {
     subProcess.kill();
