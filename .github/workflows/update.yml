@@ -1,0 +1,20 @@
+name: Update dependencies
+
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: pnpm update -r --latest -E
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3.8.0
+        with:
+          commit-message: Update all dependencies
+          branch: dependencies
+          title: Update all dependencies
+          body: Update all dependencies
