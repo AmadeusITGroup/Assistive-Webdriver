@@ -35,23 +35,23 @@ importers:
       ws: 7.4.3
     devDependencies:
       '@microsoft/api-extractor': 7.13.0
-      '@types/pngjs': 3.4.2
+      '@types/pngjs': 6.0.0
       assistive-playwright-server: link:../assistive-playwright-server
       jest: 26.6.3
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       wait-port: 0.2.9
     specifiers:
       '@microsoft/api-extractor': 7.13.0
-      '@types/pngjs': 3.4.2
+      '@types/pngjs': 6.0.0
       assistive-playwright-server: workspace:*
       jest: 26.6.3
       node-fetch: 2.6.1
       playwright-core: 1.8.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       uuid: 8.3.2
@@ -66,9 +66,9 @@ importers:
       ws: 7.4.3
       yargs: 16.2.0
     devDependencies:
-      '@rollup/plugin-commonjs': 17.1.0_rollup@2.38.4
-      '@rollup/plugin-replace': 2.3.4_rollup@2.38.4
-      '@rollup/plugin-typescript': 8.1.1_d56c154bb9699a64f5c6c2e4dccbd95b
+      '@rollup/plugin-commonjs': 17.1.0_rollup@2.38.5
+      '@rollup/plugin-replace': 2.3.4_rollup@2.38.5
+      '@rollup/plugin-typescript': 8.1.1_1af113bc6caf2a8dd0b2fb47e45ab2f0
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
       '@types/node-fetch': 2.5.8
@@ -78,7 +78,7 @@ importers:
       jest: 26.6.3
       node-fetch: 2.6.1
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       typescript-json-schema: 0.48.0
@@ -99,7 +99,7 @@ importers:
       node-fetch: 2.6.1
       playwright: 1.8.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       typescript-json-schema: 0.48.0
@@ -119,7 +119,7 @@ importers:
       '@types/yargs': 16.0.0
       playwright-core: 1.8.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       wait-port: 0.2.9
@@ -130,7 +130,7 @@ importers:
       node-fetch: 2.6.1
       playwright-core: 1.8.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
       uuid: 8.3.2
@@ -154,7 +154,7 @@ importers:
       yargs: 16.2.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.0
-      '@rollup/plugin-typescript': 8.1.1_d56c154bb9699a64f5c6c2e4dccbd95b
+      '@rollup/plugin-typescript': 8.1.1_1af113bc6caf2a8dd0b2fb47e45ab2f0
       '@sinonjs/fake-timers': 7.0.2
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
@@ -163,7 +163,7 @@ importers:
       '@types/koa-bodyparser': 4.3.0
       '@types/koa-route': 3.2.4
       '@types/node-fetch': 2.5.8
-      '@types/pngjs': 3.4.2
+      '@types/pngjs': 6.0.0
       '@types/selenium-webdriver': 4.0.11
       '@types/uuid': 8.3.0
       '@types/ws': 7.4.0
@@ -172,7 +172,7 @@ importers:
       json-schema-to-typescript: 10.1.3
       pngjs: 6.0.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       selenium-webdriver: 4.0.0-alpha.8
       tslib: 2.1.0
       typescript: 4.1.3
@@ -187,7 +187,7 @@ importers:
       '@types/koa-bodyparser': 4.3.0
       '@types/koa-route': 3.2.4
       '@types/node-fetch': 2.5.8
-      '@types/pngjs': 3.4.2
+      '@types/pngjs': 6.0.0
       '@types/selenium-webdriver': 4.0.11
       '@types/uuid': 8.3.0
       '@types/ws': 7.4.0
@@ -203,7 +203,7 @@ importers:
       p-queue: 6.6.2
       pngjs: 6.0.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       selenium-webdriver: 4.0.0-alpha.8
       tslib: 2.1.0
       typescript: 4.1.3
@@ -240,27 +240,27 @@ importers:
       virtualbox-soap: 4.0.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.0
-      '@rollup/plugin-typescript': 8.1.1_d56c154bb9699a64f5c6c2e4dccbd95b
-      '@types/pngjs': 3.4.2
+      '@rollup/plugin-typescript': 8.1.1_1af113bc6caf2a8dd0b2fb47e45ab2f0
+      '@types/pngjs': 6.0.0
       '@types/stream-json': 1.5.1
       '@types/uuid': 8.3.0
       jest: 26.6.3
       json-schema-to-typescript: 10.1.3
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
     specifiers:
       '@microsoft/api-extractor': 7.13.0
       '@rollup/plugin-typescript': 8.1.1
-      '@types/pngjs': 3.4.2
+      '@types/pngjs': 6.0.0
       '@types/stream-json': 1.5.1
       '@types/uuid': 8.3.0
       jest: 26.6.3
       json-schema-to-typescript: 10.1.3
       pngjs: 6.0.0
       rimraf: 3.0.2
-      rollup: 2.38.4
+      rollup: 2.38.5
       stream-json: 1.7.1
       tslib: 2.1.0
       typescript: 4.1.3
@@ -292,10 +292,10 @@ packages:
   /@babel/core/7.12.13:
     dependencies:
       '@babel/code-frame': 7.12.13
-      '@babel/generator': 7.12.13
+      '@babel/generator': 7.12.15
       '@babel/helper-module-transforms': 7.12.13
       '@babel/helpers': 7.12.13
-      '@babel/parser': 7.12.14
+      '@babel/parser': 7.12.15
       '@babel/template': 7.12.13
       '@babel/traverse': 7.12.13
       '@babel/types': 7.12.13
@@ -311,14 +311,14 @@ packages:
       node: '>=6.9.0'
     resolution:
       integrity: sha512-BQKE9kXkPlXHPeqissfxo0lySWJcYdEP0hdtJOH/iJfDdhOCcgtNCjftCJg3qqauB4h+lz2N6ixM++b9DN1Tcw==
-  /@babel/generator/7.12.13:
+  /@babel/generator/7.12.15:
     dependencies:
       '@babel/types': 7.12.13
       jsesc: 2.5.2
       source-map: 0.5.7
     dev: true
     resolution:
-      integrity: sha512-9qQ8Fgo8HaSvHEt6A5+BATP7XktD/AdAnObUeTRz5/e2y3kbrxZgz32qUJJsdmwUvBJzF4AeV21nGTNwv05Mpw==
+      integrity: sha512-6F2xHxBiFXWNSGb7vyCUTBF8RCLY66rS0zEPcP8t/nQyXjha5EuK4z7H5o7fWG8B4M7y6mqVWq1J+1PuwRhecQ==
   /@babel/helper-function-name/7.12.13:
     dependencies:
       '@babel/helper-get-function-arity': 7.12.13
@@ -410,13 +410,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-kocDQvIbgMKlWxXe9fof3TQ+gkIPOUSEYhJjqUjvKMez3krV7vbzYCDq39Oj11UAVK7JqPVGQPlgE85dPNlQww==
-  /@babel/parser/7.12.14:
+  /@babel/parser/7.12.15:
     dev: true
     engines:
       node: '>=6.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-xcfxDq3OrBnDsA/Z8eK5/2iPcLD8qbOaSSfOw4RA6jp4i7e6dEQ7+wTwxItEwzcXPQcsry5nZk96gmVPKletjQ==
+      integrity: sha512-AQBOU2Z9kWwSZMd6lNjCX0GUgFonL1wAM1db8L8PMk9UDaGsRCArBkU4Sc+UCM3AE4hjbXx+h58Lb3QT4oRmrA==
   /@babel/plugin-syntax-async-generators/7.8.4_@babel+core@7.12.13:
     dependencies:
       '@babel/core': 7.12.13
@@ -537,7 +537,7 @@ packages:
   /@babel/template/7.12.13:
     dependencies:
       '@babel/code-frame': 7.12.13
-      '@babel/parser': 7.12.14
+      '@babel/parser': 7.12.15
       '@babel/types': 7.12.13
     dev: true
     resolution:
@@ -545,10 +545,10 @@ packages:
   /@babel/traverse/7.12.13:
     dependencies:
       '@babel/code-frame': 7.12.13
-      '@babel/generator': 7.12.13
+      '@babel/generator': 7.12.15
       '@babel/helper-function-name': 7.12.13
       '@babel/helper-split-export-declaration': 7.12.13
-      '@babel/parser': 7.12.14
+      '@babel/parser': 7.12.15
       '@babel/types': 7.12.13
       debug: 4.3.1
       globals: 11.12.0
@@ -872,16 +872,16 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-8Broas6vTtW4GIXTAHDoE32hnN2M5ykgCpWGbuXHQ15vEMqr23pB76e/GZcYsZCHALv50ktd24qhEyKr6wBtow==
-  /@rollup/plugin-commonjs/17.1.0_rollup@2.38.4:
+  /@rollup/plugin-commonjs/17.1.0_rollup@2.38.5:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.38.4
+      '@rollup/pluginutils': 3.1.0_rollup@2.38.5
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 7.1.6
       is-reference: 1.2.1
       magic-string: 0.25.7
       resolve: 1.19.0
-      rollup: 2.38.4
+      rollup: 2.38.5
     dev: true
     engines:
       node: '>= 8.0.0'
@@ -889,21 +889,21 @@ packages:
       rollup: ^2.30.0
     resolution:
       integrity: sha512-PoMdXCw0ZyvjpCMT5aV4nkL0QywxP29sODQsSGeDpr/oI49Qq9tRtAsb/LbYbDzFlOydVEqHmmZWFtXJEAX9ew==
-  /@rollup/plugin-replace/2.3.4_rollup@2.38.4:
+  /@rollup/plugin-replace/2.3.4_rollup@2.38.5:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.38.4
+      '@rollup/pluginutils': 3.1.0_rollup@2.38.5
       magic-string: 0.25.7
-      rollup: 2.38.4
+      rollup: 2.38.5
     dev: true
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-waBhMzyAtjCL1GwZes2jaE9MjuQ/DQF2BatH3fRivUF3z0JBFrU0U6iBNC/4WR+2rLKhaAhPWDNPYp4mI6RqdQ==
-  /@rollup/plugin-typescript/8.1.1_d56c154bb9699a64f5c6c2e4dccbd95b:
+  /@rollup/plugin-typescript/8.1.1_1af113bc6caf2a8dd0b2fb47e45ab2f0:
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.38.4
+      '@rollup/pluginutils': 3.1.0_rollup@2.38.5
       resolve: 1.19.0
-      rollup: 2.38.4
+      rollup: 2.38.5
       tslib: 2.1.0
       typescript: 4.1.3
     dev: true
@@ -915,12 +915,12 @@ packages:
       typescript: '>=3.4.0'
     resolution:
       integrity: sha512-DPFy0SV8/GgHFL31yPFVo0G1T3yzwdw6R9KisBfO2zCYbDHUqDChSWr1KmtpGz/TmutpoGJjIvu80p9HzCEF0A==
-  /@rollup/pluginutils/3.1.0_rollup@2.38.4:
+  /@rollup/pluginutils/3.1.0_rollup@2.38.5:
     dependencies:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.2.2
-      rollup: 2.38.4
+      rollup: 2.38.5
     dev: true
     engines:
       node: '>= 8.0.0'
@@ -989,7 +989,7 @@ packages:
       integrity: sha512-ebDJ9b0e702Yr7pWgB0jzm+CX4Srzz8RcXtLJDJB+BSccqMa36uyH/zUsSYao5+BD1ytv3k3rPYCq4mAE1hsXA==
   /@types/babel__core/7.1.12:
     dependencies:
-      '@babel/parser': 7.12.14
+      '@babel/parser': 7.12.15
       '@babel/types': 7.12.13
       '@types/babel__generator': 7.6.2
       '@types/babel__template': 7.4.0
@@ -1005,7 +1005,7 @@ packages:
       integrity: sha512-MdSJnBjl+bdwkLskZ3NGFp9YcXGx5ggLpQQPqtgakVhsWK0hTtNYhjpZLlWQTviGTvF8at+Bvli3jV7faPdgeQ==
   /@types/babel__template/7.4.0:
     dependencies:
-      '@babel/parser': 7.12.14
+      '@babel/parser': 7.12.15
       '@babel/types': 7.12.13
     dev: true
     resolution:
@@ -1194,12 +1194,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==
-  /@types/pngjs/3.4.2:
+  /@types/pngjs/6.0.0:
     dependencies:
       '@types/node': 14.14.25
     dev: true
     resolution:
-      integrity: sha512-LJVPDraJ5YFEnMHnzxTN4psdWz1M61MtaAAWPn3qnDk5fvs7BAmmQ9pd3KPlrdrvozMyne4ktanD4pg0L7x1Pw==
+      integrity: sha512-PyZJHtd/mGA9a+cb3RQvd2pj56OIoo522sEhGZvq9THfBv5skyPRo50o3Hvy+n6U0u8RWteMHhlvLfN4FOZTaA==
   /@types/prettier/2.1.6:
     dev: true
     resolution:
@@ -5496,7 +5496,7 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
-  /rollup/2.38.4:
+  /rollup/2.38.5:
     dev: true
     engines:
       node: '>=10.0.0'
@@ -5504,7 +5504,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.1
     resolution:
-      integrity: sha512-B0LcJhjiwKkTl79aGVF/u5KdzsH8IylVfV56Ut6c9ouWLJcUK17T83aZBetNYSnZtXf2OHD4+2PbmRW+Fp5ulg==
+      integrity: sha512-VoWt8DysFGDVRGWuHTqZzT02J0ASgjVq/hPs9QcBOGMd7B+jfTr/iqMVEyOi901rE3xq+Deq66GzIT1yt7sGwQ==
   /rsvp/4.8.5:
     dev: true
     engines:
