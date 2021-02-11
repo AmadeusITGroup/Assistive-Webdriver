@@ -29,7 +29,7 @@ importers:
   components/assistive-playwright-client:
     dependencies:
       node-fetch: 2.6.1
-      playwright-core: 1.8.0
+      playwright-core: 1.8.1
       uuid: 8.3.2
       vm-providers: link:../vm-providers
       ws: 7.4.3
@@ -41,7 +41,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       wait-port: 0.2.9
     specifiers:
       '@microsoft/api-extractor': 7.13.1
@@ -49,11 +49,11 @@ importers:
       assistive-playwright-server: workspace:*
       jest: 26.6.3
       node-fetch: 2.6.1
-      playwright-core: 1.8.0
+      playwright-core: 1.8.1
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       uuid: 8.3.2
       vm-providers: workspace:*
       wait-port: 0.2.9
@@ -62,25 +62,25 @@ importers:
     dependencies:
       co-body: 6.1.0
       http-proxy: 1.18.1
-      playwright: 1.8.0
+      playwright: 1.8.1
       ws: 7.4.3
       yargs: 16.2.0
     devDependencies:
       '@rollup/plugin-commonjs': 17.1.0_rollup@2.38.5
       '@rollup/plugin-replace': 2.3.4_rollup@2.38.5
-      '@rollup/plugin-typescript': 8.1.1_94bb04c7b5a6fc05d641fbeb1b9637bd
+      '@rollup/plugin-typescript': 8.1.1_69661cb77160534c3cfdd94871629611
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
       '@types/node-fetch': 2.5.8
       '@types/ws': 7.4.0
       '@types/yargs': 16.0.0
-      ajv: 7.0.4
+      ajv: 7.1.0
       jest: 26.6.3
       node-fetch: 2.6.1
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       typescript-json-schema: 0.48.0
       wait-port: 0.2.9
     specifiers:
@@ -92,16 +92,16 @@ importers:
       '@types/node-fetch': 2.5.8
       '@types/ws': 7.4.0
       '@types/yargs': 16.0.0
-      ajv: 7.0.4
+      ajv: 7.1.0
       co-body: 6.1.0
       http-proxy: 1.18.1
       jest: 26.6.3
       node-fetch: 2.6.1
-      playwright: 1.8.0
+      playwright: 1.8.1
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       typescript-json-schema: 0.48.0
       wait-port: 0.2.9
       ws: 7.4.3
@@ -117,22 +117,22 @@ importers:
     devDependencies:
       '@types/node-fetch': 2.5.8
       '@types/yargs': 16.0.0
-      playwright-core: 1.8.0
+      playwright-core: 1.8.1
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       wait-port: 0.2.9
     specifiers:
       '@types/node-fetch': 2.5.8
       '@types/yargs': 16.0.0
       assistive-playwright-client: workspace:*
       node-fetch: 2.6.1
-      playwright-core: 1.8.0
+      playwright-core: 1.8.1
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       uuid: 8.3.2
       vm-providers: workspace:*
       wait-port: 0.2.9
@@ -154,7 +154,7 @@ importers:
       yargs: 16.2.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.1
-      '@rollup/plugin-typescript': 8.1.1_94bb04c7b5a6fc05d641fbeb1b9637bd
+      '@rollup/plugin-typescript': 8.1.1_69661cb77160534c3cfdd94871629611
       '@sinonjs/fake-timers': 7.0.2
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
@@ -175,7 +175,7 @@ importers:
       rollup: 2.38.5
       selenium-webdriver: 4.0.0-alpha.8
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
     specifiers:
       '@microsoft/api-extractor': 7.13.1
       '@rollup/plugin-typescript': 8.1.1
@@ -206,7 +206,7 @@ importers:
       rollup: 2.38.5
       selenium-webdriver: 4.0.0-alpha.8
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       uuid: 8.3.2
       vm-providers: workspace:*
       winston: 3.3.3
@@ -240,7 +240,7 @@ importers:
       virtualbox-soap: 4.0.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.1
-      '@rollup/plugin-typescript': 8.1.1_94bb04c7b5a6fc05d641fbeb1b9637bd
+      '@rollup/plugin-typescript': 8.1.1_69661cb77160534c3cfdd94871629611
       '@types/pngjs': 6.0.0
       '@types/stream-json': 1.5.1
       '@types/uuid': 8.3.0
@@ -249,7 +249,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
     specifiers:
       '@microsoft/api-extractor': 7.13.1
       '@rollup/plugin-typescript': 8.1.1
@@ -263,7 +263,7 @@ importers:
       rollup: 2.38.5
       stream-json: 1.7.1
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
       uuid: 8.3.2
       virtualbox-soap: 4.0.0
   vagrant/win10-chromium-nvda:
@@ -839,7 +839,7 @@ packages:
       resolve: 1.17.0
       semver: 7.3.4
       source-map: 0.6.1
-      typescript: 4.1.4
+      typescript: 4.1.5
     dev: true
     hasBin: true
     resolution:
@@ -899,13 +899,13 @@ packages:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-waBhMzyAtjCL1GwZes2jaE9MjuQ/DQF2BatH3fRivUF3z0JBFrU0U6iBNC/4WR+2rLKhaAhPWDNPYp4mI6RqdQ==
-  /@rollup/plugin-typescript/8.1.1_94bb04c7b5a6fc05d641fbeb1b9637bd:
+  /@rollup/plugin-typescript/8.1.1_69661cb77160534c3cfdd94871629611:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.38.5
       resolve: 1.19.0
       rollup: 2.38.5
       tslib: 2.1.0
-      typescript: 4.1.4
+      typescript: 4.1.5
     dev: true
     engines:
       node: '>=8.0.0'
@@ -1438,7 +1438,7 @@ packages:
       uri-js: 4.4.1
     resolution:
       integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
-  /ajv/7.0.4:
+  /ajv/7.1.0:
     dependencies:
       fast-deep-equal: 3.1.3
       json-schema-traverse: 1.0.0
@@ -1446,7 +1446,7 @@ packages:
       uri-js: 4.4.1
     dev: true
     resolution:
-      integrity: sha512-xzzzaqgEQfmuhbhAoqjJ8T/1okb6gAzXn/eQRNpAN1AEUoHJTNF9xCDRTtf/s3SKldtZfa+RJeTs+BQq+eZ/sw==
+      integrity: sha512-svS9uILze/cXbH0z2myCK2Brqprx/+JJYK5pHicT/GQiBfzzhUVAIT6MwqJg8y4xV/zoGsUeuPuwtoiKSGE15g==
   /ansi-colors/4.1.1:
     dev: true
     engines:
@@ -5076,7 +5076,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
-  /playwright-core/1.8.0:
+  /playwright-core/1.8.1:
     dependencies:
       commander: 6.2.1
       debug: 4.3.1
@@ -5095,8 +5095,8 @@ packages:
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-3FDiIMabIkamEOPqdjHrPA1puIElx3iYIaln1k5G8ZyGRubmPE9AijHyTXYqkavgteUp+Kb8QOeE13nlnQ++Fg==
-  /playwright/1.8.0:
+      integrity: sha512-OysNL+mNSpjqvs1dlymBTxv0GZhGwTbuv+KBnPfhzXQZCpzhzin01y/JNtfopT4P8T8awrglEP9hynOZ/H7OeQ==
+  /playwright/1.8.1:
     dependencies:
       commander: 6.2.1
       debug: 4.3.1
@@ -5116,7 +5116,7 @@ packages:
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-urMJDLX92KawbkWKrt3chVVBPQsuuNwlS5St7I5YQENXAEItoyUqX7FjiYaoPgXifKqe1+BKC+7pBAq1QUkgSw==
+      integrity: sha512-nmuiDEDwB/SdAxiZQS5pLqPS3XXN8OJ1LKvTSiAbJvu+AUf7f0RD7nuq9xB0C08Emd6stx9yBMhANvD12k/+GQ==
   /pngjs/5.0.0:
     engines:
       node: '>=10.13.0'
@@ -6042,7 +6042,7 @@ packages:
       integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
   /table/6.0.7:
     dependencies:
-      ajv: 7.0.4
+      ajv: 7.1.0
       lodash: 4.17.20
       slice-ansi: 4.0.0
       string-width: 4.2.0
@@ -6219,14 +6219,14 @@ packages:
       typescript: '>=3.8 <5.0'
     resolution:
       integrity: sha512-G7Rmo3OJMvlqE79amJX8VJKDiRcd7/r61wh9fnvvG8cAjhA9edklGw/dCxRSQmfZ/z8NDums5srSVgwZos1qfg==
-  /ts-node/9.1.1_typescript@4.1.4:
+  /ts-node/9.1.1_typescript@4.1.5:
     dependencies:
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.19
-      typescript: 4.1.4
+      typescript: 4.1.5
       yn: 3.1.1
     dev: true
     engines:
@@ -6340,20 +6340,20 @@ packages:
       '@types/json-schema': 7.0.7
       glob: 7.1.6
       json-stable-stringify: 1.0.1
-      ts-node: 9.1.1_typescript@4.1.4
-      typescript: 4.1.4
+      ts-node: 9.1.1_typescript@4.1.5
+      typescript: 4.1.5
       yargs: 16.2.0
     dev: true
     hasBin: true
     resolution:
       integrity: sha512-RDs66ANmjiqcSQ7dAeFIarF0ON6b+dxb5Fl1x53PK0p/QcqEoSN3kHsJTB0lgw+zWz6wdObCzk3jIwik3maK1Q==
-  /typescript/4.1.4:
+  /typescript/4.1.5:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-+Uru0t8qIRgjuCpiSPpfGuhHecMllk5Zsazj5LZvVsEStEjmIRRBZe+jHjGQvsgS7M1wONy2PQXd67EMyV6acg==
+      integrity: sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
   /underscore/1.7.0:
     dev: false
     resolution:
