@@ -30,7 +30,7 @@
     "@types/yargs": "16.0.0",
     "playwright-core": "1.8.1",
     "rimraf": "3.0.2",
-    "rollup": "2.39.0",
+    "rollup": "2.39.1",
     "tslib": "2.1.0",
     "typescript": "4.1.5",
     "wait-port": "0.2.9"
