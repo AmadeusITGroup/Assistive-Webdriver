@@ -43,7 +43,10 @@ export default {
   ]),
   plugins: [
     replace({
-      "process.env.ENABLE_COVERAGE": coverageEnabled ? '"1"' : '"0"'
+      values: {
+        "process.env.ENABLE_COVERAGE": coverageEnabled ? '"1"' : '"0"'
+      },
+      preventAssignment: true
     }),
     commonjs(),
     typescript()
