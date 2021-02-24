@@ -70,76 +70,37 @@ jobs:
       - run: pnpm format:check
       - run: pnpm apidoc
       - run: pnpm test -r
-      - run: ./download.sh
-        continue-on-error: true
-        name: "Download software (1)"
-        working-directory: ./vagrant/win10-chromium-nvda
-      - run: ./download.sh
-        continue-on-error: true
-        name: "Download software (2)"
-        working-directory: ./vagrant/win10-chromium-nvda
-      - run: ./download.sh
-        name: "Download software (3)"
-        working-directory: ./vagrant/win10-chromium-nvda
-      - name: "Create VM (1)"
-        run: ./createVM.sh
-        working-directory: ./vagrant/win10-chromium-nvda
-        timeout-minutes: 45
-        continue-on-error: true
-        id: createVM1
-      - name: "Create VM (2)"
-        if: steps.createVM1.outcome == 'failure'
-        run: |
-          killall vagrant ruby || true
-          vagrant destroy -f
-          ./createVM.sh
-        working-directory: ./vagrant/win10-chromium-nvda
-        timeout-minutes: 45
-        continue-on-error: true
-        id: createVM2
-      - name: "Create VM (3)"
-        if: steps.createVM2.outcome == 'failure'
-        run: |
-          killall vagrant ruby || true
-          vagrant destroy -f
-          ./createVM.sh
-        working-directory: ./vagrant/win10-chromium-nvda
-        timeout-minutes: 45
+      - uses: nick-invision/retry@v2
+        name: "Download software"
+        with:
+          timeout_minutes: 60
+          max_attempts: 3
+          command: cd ./vagrant/win10-chromium-nvda && ./download.sh
+      - uses: nick-invision/retry@v2
+        name: "Create VM"
+        with:
+          timeout_minutes: 45
+          max_attempts: 3
+          command: cd ./vagrant/win10-chromium-nvda && ./createVM.sh --destroy-existing
       - run: vboxwebsrv -v -A null --logfile vboxwebsrv.log &
-      - name: "test assistive-playwright (1)"
-        id: testapw1
-        continue-on-error: true
-        run: |
-          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
-          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
-      - name: "test assistive-playwright (2)"
-        id: testapw2
-        if: steps.testapw1.outcome == 'failure'
-        continue-on-error: true
-        run: |
-          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
-          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
-      - name: "test assistive-playwright (3)"
-        if: steps.testapw2.outcome == 'failure'
-        run: |
-          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')"
-          pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
+      - uses: nick-invision/retry@v2
+        name: "test assistive-playwright"
+        with:
+          timeout_minutes: 30
+          max_attempts: 3
+          command: |
+            export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
+            pnpm nyc-apw-tester -- -l debug -k Insert --vm-settings '$VM_SETTINGS'
       - run: |
           pnpm nyc-awd-server -- -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
-      - name: "test assistive-webdriver (1)"
-        id: testawd1
-        run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
-        continue-on-error: true
-      - name: "test assistive-webdriver (2)"
-        id: testawd2
-        if: steps.testawd1.outcome == 'failure'
-        run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
-        continue-on-error: true
-      - name: "test assistive-webdriver (3)"
-        if: steps.testawd2.outcome == 'failure'
-        run: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
+      - uses: nick-invision/retry@v2
+        name: "test assistive-webdriver"
+        with:
+          timeout_minutes: 30
+          max_attempts: 3
+          command: pnpm nyc-awd-tester -- -m nvda -k Insert -l debug
       - run: |
           ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)
           echo "Sending SIGINT to $ASSISTIVE_WEBDRIVER_PID"
