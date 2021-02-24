@@ -22,11 +22,16 @@ const tjs = require("typescript-json-schema");
 const Ajv = require("ajv").default;
 const standaloneCode = require("ajv/dist/standalone").default;
 
-const schema = tjs.generateSchema(
-  tjs.getProgramFromFiles([require.resolve("./src/validation.d.ts")], {}, {}),
-  "CreateBrowserConfig",
-  { noExtraProps: true, required: true }
+const tsProgram = tjs.getProgramFromFiles(
+  [require.resolve("./src/validation.d.ts")],
+  require("./tsconfig.json").compilerOptions,
+  {}
 );
+
+const schema = tjs.generateSchema(tsProgram, "CreateBrowserConfig", {
+  noExtraProps: true,
+  required: true
+});
 
 const ajv = new Ajv({ code: { source: true }, allowUnionTypes: true });
 const validate = ajv.compile(schema);

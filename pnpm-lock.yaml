@@ -29,7 +29,7 @@ importers:
   components/assistive-playwright-client:
     dependencies:
       node-fetch: 2.6.1
-      playwright-core: 1.8.1
+      playwright-core: 1.9.0
       uuid: 8.3.2
       vm-providers: link:../vm-providers
       ws: 7.4.3
@@ -49,7 +49,7 @@ importers:
       assistive-playwright-server: workspace:*
       jest: 26.6.3
       node-fetch: 2.6.1
-      playwright-core: 1.8.1
+      playwright-core: 1.9.0
       rimraf: 3.0.2
       rollup: 2.39.1
       tslib: 2.1.0
@@ -62,7 +62,7 @@ importers:
     dependencies:
       co-body: 6.1.0
       http-proxy: 1.18.1
-      playwright: 1.8.1
+      playwright: 1.9.0
       ws: 7.4.3
       yargs: 16.2.0
     devDependencies:
@@ -97,7 +97,7 @@ importers:
       http-proxy: 1.18.1
       jest: 26.6.3
       node-fetch: 2.6.1
-      playwright: 1.8.1
+      playwright: 1.9.0
       rimraf: 3.0.2
       rollup: 2.39.1
       tslib: 2.1.0
@@ -117,7 +117,7 @@ importers:
     devDependencies:
       '@types/node-fetch': 2.5.8
       '@types/yargs': 16.0.0
-      playwright-core: 1.8.1
+      playwright-core: 1.9.0
       rimraf: 3.0.2
       rollup: 2.39.1
       tslib: 2.1.0
@@ -128,7 +128,7 @@ importers:
       '@types/yargs': 16.0.0
       assistive-playwright-client: workspace:*
       node-fetch: 2.6.1
-      playwright-core: 1.8.1
+      playwright-core: 1.9.0
       rimraf: 3.0.2
       rollup: 2.39.1
       tslib: 2.1.0
@@ -2473,7 +2473,6 @@ packages:
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
   /escape-string-regexp/2.0.0:
-    dev: true
     engines:
       node: '>=8'
     resolution:
@@ -5132,7 +5131,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-HRDzbaKjC+AOWVXxAU/x54COGeIv9eb+6CkDSQoNTt4XyWoIJvuPsXizxu/Fr23EiekbtZwmh1IcIG/l/a10GQ==
-  /playwright-core/1.8.1:
+  /playwright-core/1.9.0:
     dependencies:
       commander: 6.2.1
       debug: 4.3.1
@@ -5145,14 +5144,15 @@ packages:
       proper-lockfile: 4.1.2
       proxy-from-env: 1.1.0
       rimraf: 3.0.2
+      stack-utils: 2.0.3
       ws: 7.4.3
     engines:
       node: '>=10.17.0'
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-OysNL+mNSpjqvs1dlymBTxv0GZhGwTbuv+KBnPfhzXQZCpzhzin01y/JNtfopT4P8T8awrglEP9hynOZ/H7OeQ==
-  /playwright/1.8.1:
+      integrity: sha512-PckBIeQnTf4otsE8L6ahy2/SnkKDELosoWFAaottcTM6+En7vSVLFiNkyEqKwQ5z9KGZJZiUPhqvp44tbf1gcQ==
+  /playwright/1.9.0:
     dependencies:
       commander: 6.2.1
       debug: 4.3.1
@@ -5165,6 +5165,7 @@ packages:
       proper-lockfile: 4.1.2
       proxy-from-env: 1.1.0
       rimraf: 3.0.2
+      stack-utils: 2.0.3
       ws: 7.4.3
     dev: false
     engines:
@@ -5172,7 +5173,7 @@ packages:
     hasBin: true
     requiresBuild: true
     resolution:
-      integrity: sha512-nmuiDEDwB/SdAxiZQS5pLqPS3XXN8OJ1LKvTSiAbJvu+AUf7f0RD7nuq9xB0C08Emd6stx9yBMhANvD12k/+GQ==
+      integrity: sha512-vCVPCj6toZweLW2wz9g92FpsmKoLljz6ql1MeqBcVDgOh5yVR/rFdFQ6T+Ed1sqkssaissfSeZMNmTodQCsK3Q==
   /pngjs/5.0.0:
     engines:
       node: '>=10.13.0'
@@ -5960,7 +5961,6 @@ packages:
   /stack-utils/2.0.3:
     dependencies:
       escape-string-regexp: 2.0.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
