@@ -29,6 +29,7 @@ import {
   firefox,
   FirefoxBrowser,
   LaunchOptions,
+  Logger,
   webkit,
   WebKitBrowser
 } from "playwright-core";
@@ -74,6 +75,15 @@ class RemotePlaywrightBrowserServer implements BrowserServer {
 
 class RemotePlaywrightBrowserType<T extends Browser> implements BrowserType<T> {
   constructor(private _url: URL, private _baseBrowserType: BrowserType<T>) {}
+
+  connectOverCDP(params: {
+    wsEndpoint: string;
+    slowMo?: number | undefined;
+    logger?: Logger | undefined;
+    timeout?: number | undefined;
+  }): Promise<T> {
+    throw new Error(`connectOverCDP() is not implemented`);
+  }
 
   connect(options: ConnectOptions) {
     return this._baseBrowserType.connect(options);
