@@ -45,5 +45,5 @@ export default {
     "net",
     "url"
   ]),
-  plugins: [typescript({ module: "esnext", target: "es2017" })]
+  plugins: [typescript()]
 };
