@@ -37,7 +37,7 @@ const externalDependencies = dependencies.concat([
   "../../config-schema.json"
 ]);
 const typescript = require("@rollup/plugin-typescript");
-const plugins = [typescript({ module: "esnext", target: "es2017" })];
+const plugins = [typescript()];
 
 export default [
   {
