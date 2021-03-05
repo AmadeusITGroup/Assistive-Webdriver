@@ -41,7 +41,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       wait-port: 0.2.9
     specifiers:
       '@microsoft/api-extractor': 7.13.2
@@ -53,7 +53,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       uuid: 8.3.2
       vm-providers: workspace:*
       wait-port: 0.2.9
@@ -68,7 +68,7 @@ importers:
     devDependencies:
       '@rollup/plugin-commonjs': 17.1.0_rollup@2.40.0
       '@rollup/plugin-replace': 2.4.1_rollup@2.40.0
-      '@rollup/plugin-typescript': 8.2.0_7a1810ee2bfbf0ba9dcee5f403db67bd
+      '@rollup/plugin-typescript': 8.2.0_2914f388182fa220278416b3b5c7c400
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
       '@types/node-fetch': 2.5.8
@@ -80,7 +80,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       typescript-json-schema: 0.49.0
       wait-port: 0.2.9
     specifiers:
@@ -101,7 +101,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       typescript-json-schema: 0.49.0
       wait-port: 0.2.9
       ws: 7.4.3
@@ -121,7 +121,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       wait-port: 0.2.9
     specifiers:
       '@types/node-fetch': 2.5.8
@@ -132,7 +132,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       uuid: 8.3.2
       vm-providers: workspace:*
       wait-port: 0.2.9
@@ -154,7 +154,7 @@ importers:
       yargs: 16.2.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.2
-      '@rollup/plugin-typescript': 8.2.0_7a1810ee2bfbf0ba9dcee5f403db67bd
+      '@rollup/plugin-typescript': 8.2.0_2914f388182fa220278416b3b5c7c400
       '@sinonjs/fake-timers': 7.0.2
       '@types/co-body': 5.1.0
       '@types/http-proxy': 1.17.5
@@ -175,7 +175,7 @@ importers:
       rollup: 2.40.0
       selenium-webdriver: 4.0.0-beta.1
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
     specifiers:
       '@microsoft/api-extractor': 7.13.2
       '@rollup/plugin-typescript': 8.2.0
@@ -206,7 +206,7 @@ importers:
       rollup: 2.40.0
       selenium-webdriver: 4.0.0-beta.1
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       uuid: 8.3.2
       vm-providers: workspace:*
       winston: 3.3.3
@@ -240,7 +240,7 @@ importers:
       virtualbox-soap: 4.0.0
     devDependencies:
       '@microsoft/api-extractor': 7.13.2
-      '@rollup/plugin-typescript': 8.2.0_7a1810ee2bfbf0ba9dcee5f403db67bd
+      '@rollup/plugin-typescript': 8.2.0_2914f388182fa220278416b3b5c7c400
       '@types/pngjs': 6.0.0
       '@types/stream-json': 1.5.1
       '@types/uuid': 8.3.0
@@ -249,7 +249,7 @@ importers:
       rimraf: 3.0.2
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
     specifiers:
       '@microsoft/api-extractor': 7.13.2
       '@rollup/plugin-typescript': 8.2.0
@@ -263,7 +263,7 @@ importers:
       rollup: 2.40.0
       stream-json: 1.7.1
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
       uuid: 8.3.2
       virtualbox-soap: 4.0.0
   vagrant/win10-chromium-nvda:
@@ -925,13 +925,13 @@ packages:
       rollup: ^1.20.0 || ^2.0.0
     resolution:
       integrity: sha512-XwC1oK5rrtRJ0tn1ioLHS6OV5JTluJF7QE1J/q1hN3bquwjnVxjtMyY9iCnoyH9DQbf92CxajB3o98wZbP3oAQ==
-  /@rollup/plugin-typescript/8.2.0_7a1810ee2bfbf0ba9dcee5f403db67bd:
+  /@rollup/plugin-typescript/8.2.0_2914f388182fa220278416b3b5c7c400:
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.40.0
       resolve: 1.20.0
       rollup: 2.40.0
       tslib: 2.1.0
-      typescript: 4.1.5
+      typescript: 4.2.3
     dev: true
     engines:
       node: '>=8.0.0'
@@ -1784,7 +1784,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001196
       colorette: 1.2.2
-      electron-to-chromium: 1.3.680
+      electron-to-chromium: 1.3.681
       escalade: 3.1.1
       node-releases: 1.1.71
     dev: true
@@ -2377,10 +2377,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
-  /electron-to-chromium/1.3.680:
+  /electron-to-chromium/1.3.681:
     dev: true
     resolution:
-      integrity: sha512-XBACJT9RdpdWtoMXQPR8Be3ZtmizWWbxfw8cY2b5feUwiDO3FUl8qo4W2jXoq/WnnA3xBRqafu1XbpczqyUvlA==
+      integrity: sha512-W6uYvSUTHuyX2DZklIESAqx57jfmGjUkd7Z3RWqLdj9Mmt39ylhBuvFXlskQnvBHj0MYXIeQI+mjiwVddZLSvA==
   /emittery/0.7.2:
     dev: true
     engines:
@@ -6272,14 +6272,14 @@ packages:
       typescript: '>=3.8 <5.0'
     resolution:
       integrity: sha512-nBiiFGNvtujdLryU7MiMQh1iPmnZ/QvOskBbD2kURiI1MwqvxlxNnaAB/z9TbslMqCsSbu5BXvSSQPc5tvHGeA==
-  /ts-node/9.1.1_typescript@4.2.2:
+  /ts-node/9.1.1_typescript@4.2.3:
     dependencies:
       arg: 4.1.3
       create-require: 1.1.1
       diff: 4.0.2
       make-error: 1.3.6
       source-map-support: 0.5.19
-      typescript: 4.2.2
+      typescript: 4.2.3
       yn: 3.1.1
     dev: true
     engines:
@@ -6393,8 +6393,8 @@ packages:
       '@types/json-schema': 7.0.7
       glob: 7.1.6
       json-stable-stringify: 1.0.1
-      ts-node: 9.1.1_typescript@4.2.2
-      typescript: 4.2.2
+      ts-node: 9.1.1_typescript@4.2.3
+      typescript: 4.2.3
       yargs: 16.2.0
     dev: true
     hasBin: true
@@ -6407,13 +6407,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-6OSu9PTIzmn9TCDiovULTnET6BgXtDYL4Gg4szY+cGsc3JP1dQL8qvE8kShTRx1NIw4Q9IBHlwODjkjWEtMUyA==
-  /typescript/4.2.2:
+  /typescript/4.2.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     resolution:
-      integrity: sha512-tbb+NVrLfnsJy3M59lsDgrzWIflR4d4TIUjz+heUnHZwdF7YsrMTKoRERiIvI2lvBG95dfpLxB21WZhys1bgaQ==
+      integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
   /underscore/1.7.0:
     dev: false
     resolution:
