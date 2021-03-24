@@ -596,7 +596,7 @@ packages:
       integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
   /@cnakazawa/watch/1.0.4:
     dependencies:
-      exec-sh: 0.3.5
+      exec-sh: 0.3.6
       minimist: 1.2.5
     dev: true
     engines:
@@ -1790,7 +1790,7 @@ packages:
     dependencies:
       caniuse-lite: 1.0.30001204
       colorette: 1.2.2
-      electron-to-chromium: 1.3.695
+      electron-to-chromium: 1.3.698
       escalade: 3.1.1
       node-releases: 1.1.71
     dev: true
@@ -2390,10 +2390,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
-  /electron-to-chromium/1.3.695:
+  /electron-to-chromium/1.3.698:
     dev: true
     resolution:
-      integrity: sha512-lz66RliUqLHU1Ojxx1A4QUxKydjiQ79Y4dZyPobs2Dmxj5aVL2TM3KoQ2Gs7HS703Bfny+ukI3KOxwAB0xceHQ==
+      integrity: sha512-VEXDzYblnlT+g8Q3gedwzgKOso1evkeJzV8lih7lV8mL8eAnGVnKyC3KsFT6S+R5PQO4ffdr1PI16/ElibY/kQ==
   /emittery/0.7.2:
     dev: true
     engines:
@@ -2669,10 +2669,10 @@ packages:
       node: '>=0.12.0'
     resolution:
       integrity: sha512-VSJjT5oCNrFvCS6igjzPAt5hBzQ2qPBFIbJ03zLI9SE0mxwZpMw6BfJrbFHm1a141AavMEB8JHmBhWAd66PfCg==
-  /exec-sh/0.3.5:
+  /exec-sh/0.3.6:
     dev: true
     resolution:
-      integrity: sha512-0hzpaUazv4mEccxdn3TXC+HWNeVXNKMCJRK6E7Xyg+LwGAYI3yFag6jTkd4injV+kChYDQS1ftqDhnDVWNhU8A==
+      integrity: sha512-nQn+hI3yp+oD0huYhKwvYI32+JFeq+XkNcD1GAo3Y/MjxsfVGmrrzrnzjWiNY6f+pUCP440fThsFh5gZrRAU/w==
   /execa/1.0.0:
     dependencies:
       cross-spawn: 6.0.5
@@ -5628,7 +5628,7 @@ packages:
       '@cnakazawa/watch': 1.0.4
       anymatch: 2.0.0
       capture-exit: 2.0.0
-      exec-sh: 0.3.5
+      exec-sh: 0.3.6
       execa: 1.0.0
       fb-watchman: 2.0.1
       micromatch: 3.1.10
