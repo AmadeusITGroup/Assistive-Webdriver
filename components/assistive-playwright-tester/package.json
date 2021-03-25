@@ -28,9 +28,9 @@
   "devDependencies": {
     "@types/node-fetch": "2.5.8",
     "@types/yargs": "16.0.0",
-    "playwright-core": "1.9.2",
+    "playwright-core": "1.10.0",
     "rimraf": "3.0.2",
-    "rollup": "2.42.3",
+    "rollup": "2.42.4",
     "tslib": "2.1.0",
     "typescript": "4.2.3",
     "wait-port": "0.2.9"
