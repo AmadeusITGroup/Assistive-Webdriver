@@ -1,6 +1,6 @@
 {
   "name": "vm-providers",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Functions to create, control (by sending keyboard and mouse events) and destroy a virtual machine from different providers (virtualbox and qemu).",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
