@@ -156,18 +156,18 @@ describe("e2e without VM", () => {
   };
 
   it("should validate POST requests to create a browser instances", async () => {
-    await checkInvalid({}, "should have required property 'browser'");
+    await checkInvalid({}, "must have required property 'browser'");
     await checkInvalid(
       { browser: "unknown", options: {} },
-      "should be equal to one of the allowed values"
+      "must be equal to one of the allowed values"
     );
     await checkInvalid(
       { browser: "firefox", options: {}, extraOption: {} },
-      "should NOT have additional properties"
+      "must NOT have additional properties"
     );
     await checkInvalid(
       { browser: "firefox", options: { invalidExtraProperty: "ok" } },
-      "should NOT have additional properties"
+      "must NOT have additional properties"
     );
   });
 });

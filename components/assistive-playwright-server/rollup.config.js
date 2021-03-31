@@ -39,7 +39,8 @@ export default {
     "http",
     "readline",
     "net",
-    "crypto"
+    "crypto",
+    "ajv/dist/runtime/equal"
   ]),
   plugins: [
     replace({
