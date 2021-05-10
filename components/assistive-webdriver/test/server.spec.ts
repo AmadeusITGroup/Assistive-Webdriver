@@ -39,10 +39,8 @@ import { DEFAULT_SESSION_TIMEOUT } from "../src/server/webdriverProxy";
 describe("server", () => {
   const { getUrl, getVMConfigs } = useServer();
   const { getVMFactoryMock } = useVMMock();
-  const {
-    getSeleniumTCPRedirection,
-    seleniumAnswerRequest
-  } = useSeleniumMock();
+  const { getSeleniumTCPRedirection, seleniumAnswerRequest } =
+    useSeleniumMock();
   const {
     getScreenReaderTCPRedirection,
     sendScreenReaderMessage,

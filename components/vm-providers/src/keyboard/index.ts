@@ -29,16 +29,15 @@ const keyAliases = new Map([
   ["MetaRight", Key.OSRight]
 ]);
 
-const getScanCode = (scanCodesMap: Map<Key, number[]>) => (
-  value: string | Key
-) => {
-  const code = keysMap.get(value) ?? keyAliases.get(value) ?? (value as Key);
-  const scanCode = scanCodesMap.get(code);
-  if (!scanCode) {
-    throw new Error(`Unknown keyboard key ${value}`);
-  }
-  return scanCode;
-};
+const getScanCode =
+  (scanCodesMap: Map<Key, number[]>) => (value: string | Key) => {
+    const code = keysMap.get(value) ?? keyAliases.get(value) ?? (value as Key);
+    const scanCode = scanCodesMap.get(code);
+    if (!scanCode) {
+      throw new Error(`Unknown keyboard key ${value}`);
+    }
+    return scanCode;
+  };
 
 export { Key, keysMap };
 export const getKeyDownScanCode = getScanCode(keyDown);

@@ -27,9 +27,8 @@ import { VMSettings } from "../config";
  * The value is the {@link VMFactory} implemented by the provider.
  * @public
  */
-export const vmFactories: { [key: string]: VMFactory<any> } = Object.create(
-  null
-);
+export const vmFactories: { [key: string]: VMFactory<any> } =
+  Object.create(null);
 vmFactories.virtualbox = vboxVMFactory;
 vmFactories.qemu = QEMUVMFactory;
 

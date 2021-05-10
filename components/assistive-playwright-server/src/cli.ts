@@ -49,10 +49,8 @@ const formatAddress = function (address: any) {
       });
     };
 
-    const {
-      httpServer,
-      screenReaderTcpServer
-    } = await createPlaywrightServer();
+    const { httpServer, screenReaderTcpServer } =
+      await createPlaywrightServer();
     let closing = false;
     process.on("SIGINT", async () => {
       if (!closing) {

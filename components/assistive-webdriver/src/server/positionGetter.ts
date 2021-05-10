@@ -19,27 +19,29 @@
 import request from "./request";
 import { ScreenPosition, SimplePosition, LogFunction } from "vm-providers";
 
-export const createPositionGetter = (
-  serverSessionUrl: string,
-  calibration: ScreenPosition,
-  mousePosition: SimplePosition,
-  log: LogFunction
-) => async (origin: any): Promise<ScreenPosition> => {
-  if (origin === "pointer") {
-    return {
-      x: mousePosition.x,
-      y: mousePosition.y,
-      screenWidth: calibration.screenWidth,
-      screenHeight: calibration.screenHeight
-    };
-  }
-  origin = origin || "viewport";
-  const result = await request(
-    `${serverSessionUrl}/execute/sync`,
-    {
-      body: {
-        args: [origin, calibration],
-        script: `
+export const createPositionGetter =
+  (
+    serverSessionUrl: string,
+    calibration: ScreenPosition,
+    mousePosition: SimplePosition,
+    log: LogFunction
+  ) =>
+  async (origin: any): Promise<ScreenPosition> => {
+    if (origin === "pointer") {
+      return {
+        x: mousePosition.x,
+        y: mousePosition.y,
+        screenWidth: calibration.screenWidth,
+        screenHeight: calibration.screenHeight
+      };
+    }
+    origin = origin || "viewport";
+    const result = await request(
+      `${serverSessionUrl}/execute/sync`,
+      {
+        body: {
+          args: [origin, calibration],
+          script: `
 var origin = arguments[0];
 var calibration = arguments[1];
 var x = window.screenX + calibration.x;
@@ -51,9 +53,9 @@ if (origin !== "viewport") {
 }
 return {x: x, y: y, screenWidth: calibration.screenWidth, screenHeight: calibration.screenHeight};
       `
-      }
-    },
-    log
-  );
-  return result.value;
-};
+        }
+      },
+      log
+    );
+    return result.value;
+  };

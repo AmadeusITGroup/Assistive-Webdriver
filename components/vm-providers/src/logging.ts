@@ -46,12 +46,11 @@ export type LogFunction = (entry: Record<string, any>) => void;
  * @returns A log function whose parameters are predefined.
  * @public
  */
-export const createSubLogFunction = (
-  log: LogFunction = () => {},
-  meta: Record<string, any>
-): LogFunction => (entry: any) =>
-  log({
-    level: "info",
-    ...meta,
-    ...entry
-  });
+export const createSubLogFunction =
+  (log: LogFunction = () => {}, meta: Record<string, any>): LogFunction =>
+  (entry: any) =>
+    log({
+      level: "info",
+      ...meta,
+      ...entry
+    });
