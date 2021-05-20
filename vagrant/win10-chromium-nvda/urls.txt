@@ -1,0 +1,26 @@
+https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip
+  out=MSEdge.Win10.Vagrant.zip
+  checksum=sha-512=10620d68a5a14129da0bc7f856e0e3cabbfcec9cb8e6464553c03d2f638978f9b98866cf405baf737073ebb72eee904e8cb15d835ff5f12c99b0b49d668b531a
+https://www.nvaccess.org/files/nvda/releases/2020.3/nvda_2020.3.exe
+  out=nvda.exe
+  checksum=sha-512=8719507492269db398ef70f44e95f0132144223e76faf2e9b2123743ab68fcaf3793717a60ba2f522ae604a4ec820c95cedf396a645c0240fcde7f35cc40f729
+https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_windows-x64_bin.zip
+  out=openjdk.zip
+  checksum=sha-512=7546b40977670f24ec68ad82b5d9f52f4fc105410e7bbfec6da0718795f4a82ac26665f1f9f05562ae20710aefe85c8dac05c5345d4e48385e99323a916d2157
+https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+  out=selenium-server.jar
+  checksum=sha-512=29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
+https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.zip
+  out=node.zip
+  checksum=sha-512=3cee3f6d691a08e5e665b9ff92e7fa242d237abb138bfd88975641f9e1931a58895a8130e615e1cb54ddc8d819a783e2e937766ce7fa3ab9bf36890aa787f415
+# cf https://www.chromium.org/getting-involved/download-chromium
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchrome-win.zip?generation=1593136034368251&alt=media
+  out=chrome.zip
+  checksum=sha-512=39c1965233b995828235cfbcb0d1b4df757a6c94cf0df43cb58de8dc75006a5752f107ebe4ad4d2a7ac16f7bc000e8e4dcf2cb7c645e9697d6838f512814ddda
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchromedriver_win32.zip?generation=1593136040882187&alt=media
+  out=chromedriver.zip
+  checksum=sha-512=a23c1e33ea5c9e02cb9c813d44a2e05e441eb7c88a8c8db0ec7b1c5fb4029ddd37d80683bc53c1de61f0559d30594dcba3dffd0dcebe0ee817314f7854d0c319
+# VC_redist is needed for Firefox (vcruntime140_1.dll dependency)
+https://aka.ms/vs/16/release/VC_redist.x64.exe
+  out=VC_redist.x64.exe
+  checksum=sha-512=7089cf9137d384ab501204aa84fed2d9e7d6c52549702a51b840acc7990c5bf42272321561f6efefb46a907a7d77790855d2e52e6b02109bc5e655bdc4d7dfa3

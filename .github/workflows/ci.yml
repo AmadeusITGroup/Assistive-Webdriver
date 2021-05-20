@@ -70,12 +70,8 @@ jobs:
       - run: pnpm format:check
       - run: pnpm apidoc
       - run: pnpm test -r
-      - uses: nick-invision/retry@v2
-        name: "Download software"
-        with:
-          timeout_minutes: 60
-          max_attempts: 3
-          command: cd ./vagrant/win10-chromium-nvda && ./download.sh
+      - name: "Download software"
+        run: cd ./vagrant/win10-chromium-nvda && ./download.sh
       - uses: nick-invision/retry@v2
         name: "Create VM"
         with:
