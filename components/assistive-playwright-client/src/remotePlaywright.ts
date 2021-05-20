@@ -26,10 +26,10 @@ import {
   chromium,
   ChromiumBrowser,
   ConnectOptions,
+  ConnectOverCDPOptions,
   firefox,
   FirefoxBrowser,
   LaunchOptions,
-  Logger,
   webkit,
   WebKitBrowser
 } from "playwright-core";
@@ -73,19 +73,16 @@ class RemotePlaywrightBrowserServer implements BrowserServer {
   }
 }
 
-class RemotePlaywrightBrowserType<T extends Browser> implements BrowserType<T> {
-  constructor(private _url: URL, private _baseBrowserType: BrowserType<T>) {}
+class RemotePlaywrightBrowserType implements BrowserType {
+  constructor(private _url: URL, private _baseBrowserType: BrowserType) {}
 
-  connectOverCDP(params: {
-    wsEndpoint: string;
-    slowMo?: number | undefined;
-    logger?: Logger | undefined;
-    timeout?: number | undefined;
-  }): Promise<T> {
-    throw new Error(`connectOverCDP() is not implemented`);
+  connectOverCDP(options: ConnectOverCDPOptions): Promise<Browser>;
+  connectOverCDP(options: ConnectOptions): Promise<Browser>;
+  connectOverCDP(options: any): Promise<Browser> {
+    return this._baseBrowserType.connectOverCDP(options);
   }
 
-  connect(options: ConnectOptions) {
+  connect(options: ConnectOptions): Promise<Browser> {
     return this._baseBrowserType.connect(options);
   }
 
@@ -123,7 +120,7 @@ class RemotePlaywrightBrowserType<T extends Browser> implements BrowserType<T> {
     }
   }
 
-  async launch(options: LaunchOptions): Promise<T> {
+  async launch(options: LaunchOptions): Promise<Browser> {
     const server = await this.launchServer(options);
     const browser = await this.connect({
       wsEndpoint: server.wsEndpoint()
