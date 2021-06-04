@@ -9,7 +9,7 @@ Returns a selenium-webdriver [Condition object](https://www.selenium.dev/seleniu
 <b>Signature:</b>
 
 ```typescript
-export declare function forScreenReaderToSay(expectedText: any, clean?: boolean): Condition<Promise<string[] | false>>;
+export declare function forScreenReaderToSay(expectedText: any, clean?: boolean): Condition<string[] | false>;
 ```
 
 ## Parameters
@@ -21,7 +21,7 @@ export declare function forScreenReaderToSay(expectedText: any, clean?: boolean)
 
 <b>Returns:</b>
 
-Condition&lt;Promise&lt;string\[\] \| false&gt;&gt;
+Condition&lt;string\[\] \| false&gt;
 
 ## Example
 
