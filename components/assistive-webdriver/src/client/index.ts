@@ -247,7 +247,7 @@ export function isMatch(screenReaderText: string, expectedText: any): boolean {
 export function forScreenReaderToSay(
   expectedText: any,
   clean = true
-): Condition<Promise<string[] | false>> {
+): Condition<string[] | false> {
   return new Condition(
     `for screen reader to say ${JSON.stringify(expectedText)}`,
     async webdriver => {

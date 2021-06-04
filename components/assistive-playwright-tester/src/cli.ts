@@ -39,7 +39,7 @@ const hasFocus: (element: any) => boolean = element =>
 
 (async function () {
   const defaultPublicIp = findPublicIP();
-  const argv = yargs.options({
+  const argv = await yargs.options({
     browser: {
       array: true,
       type: "string",

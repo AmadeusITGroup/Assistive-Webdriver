@@ -29,7 +29,7 @@ const formatAddress = function (address: any) {
 
 (async () => {
   try {
-    const argv = yargs
+    const argv = await yargs
       .default("http-host", "0.0.0.0")
       .default("http-port", 7779)
       .default("tcp-host", "127.0.0.1")
