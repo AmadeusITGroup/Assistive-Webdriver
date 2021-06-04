@@ -16,6 +16,8 @@ jobs:
           node-version: "12.x"
       - run: npm i -g pnpm
       - run: pnpm update -r --latest -E
+      - run: pnpm install p-queue@6.6.2
+        working-directory: ./components/assistive-webdriver
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3.8.0
         with:
