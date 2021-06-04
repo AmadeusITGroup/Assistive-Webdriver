@@ -23,4 +23,3 @@ https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Wi
 # VC_redist is needed for Firefox (vcruntime140_1.dll dependency)
 https://aka.ms/vs/16/release/VC_redist.x64.exe
   out=VC_redist.x64.exe
-  checksum=sha-512=7089cf9137d384ab501204aa84fed2d9e7d6c52549702a51b840acc7990c5bf42272321561f6efefb46a907a7d77790855d2e52e6b02109bc5e655bdc4d7dfa3
