@@ -36,7 +36,7 @@ describe("with server and no vm", () => {
       "8886"
     ]);
     await waitPort({ port: 8885, timeout: 10000 });
-  });
+  }, 30000);
 
   afterAll(async () => {
     subProcess.kill("SIGINT");

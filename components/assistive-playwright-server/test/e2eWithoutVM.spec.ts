@@ -34,7 +34,7 @@ describe("e2e without VM", () => {
       "8884"
     ]);
     await waitPort({ port: 8883, timeout: 10000 });
-  });
+  }, 30000);
   afterAll(async () => {
     subProcess.kill("SIGINT");
     await new Promise(done => subProcess.once("exit", done));
