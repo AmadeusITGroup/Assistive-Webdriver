@@ -18,7 +18,7 @@
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { shouldInstrument, process: instrument } = require("./instrument");
-const { createTransformer } = require("ts-jest");
+const { createTransformer } = require("ts-jest").default;
 
 exports.createTransformer = () => {
   const tsJestTransformer = createTransformer();

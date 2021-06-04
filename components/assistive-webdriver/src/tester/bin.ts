@@ -35,7 +35,7 @@ import { sigintWin32 } from "../server/sigintWin32";
 
 (async function () {
   const defaultPublicIp = findPublicIP();
-  const argv = yargs.options({
+  const argv = await yargs.options({
     server: {
       type: "string",
       alias: "s",

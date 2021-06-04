@@ -37,7 +37,7 @@ export const start = async (
   env: string | boolean = false,
   { log = defaultLogFunction, setLogLevel = defaultSetLogLevel } = {}
 ): Promise<() => Promise<void>> => {
-  const argv = yargs(args)
+  const argv = await yargs(args)
     .env(env as any)
     .options({
       port: {
