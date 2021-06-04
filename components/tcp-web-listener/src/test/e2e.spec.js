@@ -33,7 +33,7 @@ describe("e2e", () => {
       "8882"
     ]);
     await waitPort({ port: 8881, timeout: 10000 });
-  });
+  }, 30000);
   afterAll(async () => {
     subProcess.kill();
     await new Promise(done => subProcess.once("exit", done));
