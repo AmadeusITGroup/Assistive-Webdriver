@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@babel/core': 7.14.6
       '@babel/plugin-syntax-typescript': 7.14.5
-      '@microsoft/api-documenter': 7.13.19
+      '@microsoft/api-documenter': 7.13.20
       '@typescript-eslint/eslint-plugin': 4.27.0
       '@typescript-eslint/parser': 4.27.0
       babel-plugin-istanbul: 6.0.0
@@ -19,7 +19,7 @@ importers:
     devDependencies:
       '@babel/core': 7.14.6
       '@babel/plugin-syntax-typescript': 7.14.5_@babel+core@7.14.6
-      '@microsoft/api-documenter': 7.13.19
+      '@microsoft/api-documenter': 7.13.20
       '@typescript-eslint/eslint-plugin': 4.27.0_b68dfa9489396dca939622e90706ff8d
       '@typescript-eslint/parser': 4.27.0_eslint@7.28.0
       babel-plugin-istanbul: 6.0.0
@@ -890,8 +890,8 @@ packages:
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
     dev: true
 
-  /@microsoft/api-documenter/7.13.19:
-    resolution: {integrity: sha512-56garI7g01Deu7fLmNeR/VA+9cLpVssC31WValUivrcvy5EmN8j0QEvmZ8OWN7D3aF6sPsgFq3+IXr1BcARelw==}
+  /@microsoft/api-documenter/7.13.20:
+    resolution: {integrity: sha512-pR7zVf2Voep/p8y5QeWONMg4E2i6SVBpTDacq/iqOQkDJjra/WwGLN/THz6i7FtnV6o6W/ZipEPvpHwRN3N6Aw==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.13.3
