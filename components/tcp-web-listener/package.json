@@ -35,6 +35,6 @@
   "devDependencies": {
     "jest": "27.0.6",
     "wait-port": "0.2.9",
-    "ws": "7.5.2"
+    "ws": "7.5.3"
   }
 }
