@@ -55,7 +55,7 @@
     "@types/koa": "2.13.4",
     "@types/koa-bodyparser": "4.3.2",
     "@types/koa-route": "3.2.4",
-    "@types/node-fetch": "2.5.11",
+    "@types/node-fetch": "2.5.12",
     "@types/pngjs": "6.0.1",
     "@types/selenium-webdriver": "4.0.15",
     "@types/uuid": "8.3.1",
