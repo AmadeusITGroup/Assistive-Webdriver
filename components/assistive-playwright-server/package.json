@@ -30,7 +30,7 @@
     "@rollup/plugin-typescript": "8.2.3",
     "@types/co-body": "5.1.1",
     "@types/http-proxy": "1.17.7",
-    "@types/node-fetch": "2.5.11",
+    "@types/node-fetch": "2.5.12",
     "@types/ws": "7.4.7",
     "@types/yargs": "17.0.2",
     "jest": "27.0.6",
