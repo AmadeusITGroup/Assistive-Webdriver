@@ -67,7 +67,7 @@ describe("with server and no vm", () => {
 
   it("should receive messages from the screen reader", async () => {
     const screenReader = await ScreenReaderClient.create(
-      "http://localhost:8885/screen-reader"
+      "ws://localhost:8885/screen-reader"
     );
     expect(screenReader.connected).toBe(true);
     const socketTCP = createConnection(8886, "127.0.0.1");
