@@ -25,9 +25,9 @@
     "yargs": "17.0.1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "19.0.2",
+    "@rollup/plugin-commonjs": "20.0.0",
     "@rollup/plugin-replace": "3.0.0",
-    "@rollup/plugin-typescript": "8.2.4",
+    "@rollup/plugin-typescript": "8.2.5",
     "@types/co-body": "6.1.0",
     "@types/http-proxy": "1.17.7",
     "@types/node-fetch": "2.5.12",
