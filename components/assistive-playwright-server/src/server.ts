@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import type { Server as TcpServer } from "net";
+import type { Server as TcpServer, Socket } from "net";
 import { randomBytes } from "crypto";
 import type { IncomingMessage } from "http";
 import { createServer as createHttpServer, Server as HttpServer } from "http";
@@ -142,7 +142,7 @@ export const createPlaywrightServer = async (): Promise<{
       );
     }
   });
-  httpServer.on("upgrade", (req, socket, head) => {
+  httpServer.on("upgrade", (req, socket: Socket, head) => {
     let disconnected = false;
     const remoteAddress = socket.remoteAddress;
     try {
@@ -151,7 +151,7 @@ export const createPlaywrightServer = async (): Promise<{
         socket.destroy();
         return;
       }
-      const pathname = new URL(req.url, "http://localhost/").pathname ?? "";
+      const pathname = new URL(req.url!, "http://localhost/").pathname ?? "";
       const matchingBrowser = getMatchingBrowser(pathname);
       if (matchingBrowser) {
         const target = matchingBrowser.browserServer.wsEndpoint();
