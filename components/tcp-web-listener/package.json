@@ -30,11 +30,11 @@
     "express": "4.17.1",
     "sockjs": "0.3.21",
     "sockjs-client": "1.5.1",
-    "yargs": "17.0.1"
+    "yargs": "17.1.1"
   },
   "devDependencies": {
     "jest": "27.0.6",
     "wait-port": "0.2.9",
-    "ws": "8.0.0"
+    "ws": "8.1.0"
   }
 }

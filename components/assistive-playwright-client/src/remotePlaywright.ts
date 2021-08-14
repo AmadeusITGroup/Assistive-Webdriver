@@ -76,14 +76,23 @@ class RemotePlaywrightBrowserServer implements BrowserServer {
 class RemotePlaywrightBrowserType implements BrowserType {
   constructor(private _url: URL, private _baseBrowserType: BrowserType) {}
 
-  connectOverCDP(options: ConnectOverCDPOptions): Promise<Browser>;
-  connectOverCDP(options: ConnectOptions): Promise<Browser>;
-  connectOverCDP(options: any): Promise<Browser> {
-    return this._baseBrowserType.connectOverCDP(options);
+  connectOverCDP(
+    endpointURL: string,
+    options?: ConnectOverCDPOptions
+  ): Promise<Browser>;
+  connectOverCDP(
+    options: ConnectOverCDPOptions & { wsEndpoint?: string | undefined }
+  ): Promise<Browser>;
+  connectOverCDP(endpointURL: any, options?: any): Promise<Browser> {
+    return this._baseBrowserType.connectOverCDP(endpointURL, options);
   }
 
-  connect(options: ConnectOptions): Promise<Browser> {
-    return this._baseBrowserType.connect(options);
+  connect(wsEndpoint: string, options?: ConnectOptions): Promise<Browser>;
+  connect(
+    options: ConnectOptions & { wsEndpoint?: string | undefined }
+  ): Promise<Browser>;
+  connect(wsEndpoint: any, options?: any): Promise<Browser> {
+    return this._baseBrowserType.connect(wsEndpoint, options);
   }
 
   async launchServer({
@@ -122,9 +131,7 @@ class RemotePlaywrightBrowserType implements BrowserType {
 
   async launch(options: LaunchOptions): Promise<Browser> {
     const server = await this.launchServer(options);
-    const browser = await this.connect({
-      wsEndpoint: server.wsEndpoint()
-    });
+    const browser = await this.connect(server.wsEndpoint());
     browser.close = async () => {
       await server.close();
     };
