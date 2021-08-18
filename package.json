@@ -12,7 +12,7 @@
     "jest-environment-node": "27.0.6",
     "nyc": "15.1.0",
     "prettier": "2.3.2",
-    "ts-jest": "27.0.4"
+    "ts-jest": "27.0.5"
   },
   "scripts": {
     "format": "prettier .",
