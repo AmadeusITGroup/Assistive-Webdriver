@@ -20,7 +20,7 @@
     "ajv": "8.6.2",
     "co-body": "6.1.0",
     "http-proxy": "1.18.1",
-    "playwright": "1.14.0",
+    "playwright": "1.14.1",
     "ws": "8.2.0",
     "yargs": "17.1.1"
   },
