@@ -20,7 +20,7 @@ import { logMessages as vmProvidersLogMessages } from "vm-providers";
 
 export const MESSAGES: { [key: string]: string } = {
   ...vmProvidersLogMessages,
-  "calibration.displayed": "Displaying the calibration rectangle",
+  "calibration.displayed": "Displaying the calibration QR codes",
   "calibration.success": "The calibration succeeded",
   "main.listen": "The http server is listening",
   "main.stop.begin": "Stopping the server and deleting any session...",

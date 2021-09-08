@@ -41,9 +41,16 @@ export {
 } from "./vm/vmInterface";
 export { VMSettings, QEMUSettings, VirtualBoxSettings } from "./config";
 export { Key, keysMap, isShiftedKey } from "./keyboard";
-export { Rectangle, findRectangle } from "./findRectangle";
 export { getFreePort } from "./portFinder";
 export { wait } from "./wait";
 export { createVM, vmFactories } from "./vm/generic";
 export { LogFunction, createSubLogFunction } from "./logging";
 export { logMessages } from "./messages";
+export {
+  CalibrationQRCodesConfig,
+  calibrationQRCodesGenerate,
+  calibrationQRCodesScan,
+  CalibrationQRCodesScanResult,
+  Rectangle
+} from "./qrcodes";
+export { bufferToDataURI, pngToBuffer, pngToDataURI } from "./dataURI";

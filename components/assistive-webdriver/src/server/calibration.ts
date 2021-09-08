@@ -23,9 +23,12 @@ import {
   VM,
   ScreenPosition,
   wait,
-  findRectangle,
+  calibrationQRCodesGenerate,
+  calibrationQRCodesScan,
+  pngToDataURI,
   createSubLogFunction,
-  LogFunction
+  LogFunction,
+  MouseButton
 } from "vm-providers";
 import { PublicError } from "./publicError";
 
@@ -57,20 +60,16 @@ export async function webdriverCalibrate(
         log
       );
     }
-    const color: [number, number, number, number] = [255, 0, 0, 255];
-    const rgbColor = `rgb(${color[0]},${color[1]},${color[2]});`;
-    const border = 30;
-    const colorTolerance = 50;
-    const displayRectangleResult = await request(
+    const sizeInfo = await request(
       `${sessionUrl}/execute/sync`,
       {
         body: {
           script: `var div = document.createElement("div"); div.setAttribute("id", "calibrationDIV");
-div.style.cssText = "display:block;position:absolute;background-color:${rgbColor};border:${border}px solid rgb(100, 100, 100);left:0px;top:0px;right:0px;bottom:0px;cursor:none;z-index:999999;";
+div.style.cssText = "display:block;position:absolute;left:0px;top:0px;right:0px;bottom:0px;cursor:none;z-index:999999;";
 document.body.appendChild(div);
 return {
-  width: div.offsetWidth - ${2 * border},
-  height: div.offsetHeight - ${2 * border},
+  width: div.offsetWidth,
+  height: div.offsetHeight,
   screenX: window.screenX,
   screenY: window.screenY
 };`,
@@ -79,27 +78,32 @@ return {
       },
       log
     );
+    const viewportImage = calibrationQRCodesGenerate(
+      sizeInfo.value.width,
+      sizeInfo.value.height
+    );
+    await request(
+      `${sessionUrl}/execute/sync`,
+      {
+        body: {
+          script: `var calibrationDIV = document.getElementById("calibrationDIV"); calibrationDIV.style.backgroundImage = ${JSON.stringify(
+            `url("${await pngToDataURI(viewportImage)}")`
+          )};`,
+          args: []
+        }
+      },
+      log
+    );
     log({
       message: "displayed",
-      rectangle: displayRectangleResult.value
+      result: sizeInfo.value
     });
     await wait(1000);
     const image = await vm.takePNGScreenshot();
-    const calibrationResult = findRectangle(
-      image,
-      color,
-      displayRectangleResult.value.width,
-      displayRectangleResult.value.height,
-      colorTolerance
-    );
-    if (!calibrationResult) {
-      const errorMessage = `could not find the ${
-        displayRectangleResult.value.width
-      }x${
-        displayRectangleResult.value.height
-      } rectangle filled with color ${JSON.stringify(
-        color
-      )} (tolerance ${colorTolerance})`;
+    let calibrationResult;
+    try {
+      calibrationResult = calibrationQRCodesScan(image);
+    } catch (error) {
       if (failedCalibrationFileName) {
         await new Promise<void>((resolve, reject) =>
           pipeline(
@@ -109,16 +113,40 @@ return {
           )
         );
         throw new Error(
-          `${errorMessage}, screenshot recorded as ${failedCalibrationFileName}`
+          `${error}\nScreenshot recorded as ${failedCalibrationFileName}`
         );
       } else {
-        throw new Error(`${errorMessage}, screenshot was not saved.`);
+        throw new Error(`${error}\nScreenshot was not saved.`);
       }
     }
     log({
       message: "success",
-      rectangle: calibrationResult
+      result: calibrationResult
     });
+    // click on the detected QR code:
+    await vm.sendMouseMoveEvent({
+      x: Math.floor(
+        calibrationResult.qrCode.x + calibrationResult.qrCode.width / 2
+      ),
+      y: Math.floor(
+        calibrationResult.qrCode.y + calibrationResult.qrCode.height / 2
+      ),
+      screenWidth: image.width,
+      screenHeight: image.height
+    });
+    await wait(100);
+    await vm.sendMouseDownEvent(MouseButton.LEFT);
+    await wait(50);
+    await vm.sendMouseUpEvent(MouseButton.LEFT);
+    await wait(100);
+    // moves again the mouse out of the way
+    await vm.sendMouseMoveEvent({
+      x: sizeInfo.value.screenX,
+      y: sizeInfo.value.screenY,
+      screenWidth: image.width,
+      screenHeight: image.height
+    });
+    await wait(100);
     await request(
       `${sessionUrl}/execute/sync`,
       {
@@ -130,8 +158,8 @@ return {
       log
     );
     return {
-      x: calibrationResult.x - border - displayRectangleResult.value.screenX,
-      y: calibrationResult.y - border - displayRectangleResult.value.screenY,
+      x: calibrationResult.viewport.x - sizeInfo.value.screenX,
+      y: calibrationResult.viewport.y - sizeInfo.value.screenY,
       screenWidth: image.width,
       screenHeight: image.height
     };

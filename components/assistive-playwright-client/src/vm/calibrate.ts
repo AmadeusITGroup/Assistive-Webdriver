@@ -22,7 +22,11 @@ import {
   VM,
   ScreenPosition,
   SimplePosition,
-  findRectangle
+  calibrationQRCodesGenerate,
+  calibrationQRCodesScan,
+  pngToDataURI,
+  CalibrationQRCodesConfig,
+  MouseButton
 } from "vm-providers";
 import { ElementHandle, Frame, Page } from "playwright-core";
 import { createWriteStream } from "fs";
@@ -44,44 +48,13 @@ export class CalibrationError {
    * to give details allowing to understand why the calibration failed.
    *
    * @param screenshot - Cf {@link CalibrationError.screenshot | screenshot}
-   * @param color - Cf {@link CalibrationError.color | color}
-   * @param expectedWidth - Cf {@link CalibrationError.expectedWidth | expectedWidth}
-   * @param expectedHeight - Cf {@link CalibrationError.expectedHeight | expectedHeight}
-   * @param colorTolerance - Cf {@link CalibrationError.colorTolerance | colorTolerance}
    */
   constructor(
     /**
      * Screenshot of the virtual machine, in which the browser viewport could not be found.
      */
-    public screenshot: PNG,
-    /**
-     * Color of the rectangle displayed in the viewport.
-     */
-    public color: Color,
-    /**
-     * Expected width (in pixels) of the rectangle that was looked for in the screenshot.
-     */
-    public expectedWidth: number,
-    /**
-     * Expected height (in pixels) of the rectangle that was looked for in the screenshot.
-     */
-    public expectedHeight: number,
-    /**
-     * Tolerance on the color that was used (as configured in {@link CalibrationOptions.colorTolerance}).
-     */
-    public colorTolerance: number
+    public screenshot: PNG
   ) {}
-
-  /**
-   * Error message.
-   */
-  get message(): string {
-    return `Could not find the ${this.expectedWidth}x${
-      this.expectedHeight
-    } rectangle filled with color ${JSON.stringify(this.color)} (tolerance ${
-      this.colorTolerance
-    })`;
-  }
 
   /**
    * Saves the {@link CalibrationError.screenshot | screenshot} as a file.
@@ -182,55 +155,14 @@ export class CalibrationResult implements ScreenPosition {
 }
 
 /**
- * Color, expressed as an array of three numbers between 0 and 255,
- * representing the red, green and blue parts
- * @public
- */
-export type Color = [number, number, number];
-const rgb = (color: Color) => `rgb(${color[0]},${color[1]},${color[2]})`;
-
-/**
  * Options for the calibration, passed to {@link playwrightCalibrate}.
  * @public
  */
-export interface CalibrationOptions {
+export interface CalibrationOptions extends CalibrationQRCodesConfig {
   /**
-   * Color of the rectangle to display in the viewport.
-   * Defaults to `[255, 0, 0]` (red)
-   * @defaultValue [255, 0, 0]
+   * Whether to skip the click done during calibration.
    */
-  calibrationColor?: Color;
-  /**
-   * Color of the border of the rectangle to be displayed in the viewport.
-   * Defaults to `[100, 100, 100]`
-   * @defaultValue [100, 100, 100]
-   */
-  borderColor?: Color;
-  /**
-   * Width (in pixels) of the border of the rectangle to be displayed in the viewport.
-   * Defaults to `30`.
-   * @defaultValue 30
-   */
-  borderWidth?: number;
-  /**
-   * Allowed difference between the color in the screenshot and {@link CalibrationOptions.calibrationColor | calibrationColor}, 0 meaning no difference.
-   * The difference is computed as the sum of the absolute value of the difference for each red, green and blue parts.
-   * Defaults to `[255, 0, 0]`.
-   * @defaultValue [255, 0, 0]
-   */
-  colorTolerance?: number;
-  /**
-   * Extra horizontal space to add at the right of the colored rectangle.
-   * Defaults to `0`.
-   * @defaultValue 0
-   */
-  estimatedXMargin?: number;
-  /**
-   * Extra vertical space to add at the bottom of the colored rectangle.
-   * Defaults to `0`.
-   * @defaultValue 0
-   */
-  estimatedYMargin?: number;
+  skipClick?: boolean;
 }
 
 /**
@@ -248,16 +180,7 @@ export async function playwrightCalibrate(
   frame: Page | Frame,
   options: CalibrationOptions = {}
 ): Promise<CalibrationResult> {
-  const {
-    calibrationColor = [255, 0, 0],
-    borderColor = [100, 100, 100],
-    borderWidth = 30,
-    colorTolerance = 50,
-    estimatedXMargin = 0,
-    estimatedYMargin = 0
-  } = options;
-  const rgbCalibrationColor = rgb(calibrationColor);
-  const rgbBorderColor = rgb(borderColor);
+  const { skipClick, ...qrCodeOptions } = options;
   const elementId = JSON.stringify(createUUIDv4());
   const displayRectangleResult: {
     width: number;
@@ -269,9 +192,7 @@ export async function playwrightCalibrate(
   } = await frame.evaluate(`(() => {
 const div = document.createElement("div");
 div.setAttribute("id", ${elementId});
-div.style.cssText = "display:block;position:fixed;background-color:${rgbCalibrationColor};border:${borderWidth}px solid ${rgbBorderColor};left:0px;top:0px;right:0px;bottom:0px;cursor:none;z-index:999999;";
-div.style.maxWidth = (screen.availWidth - window.screenX - ${estimatedXMargin}) + "px";
-div.style.maxHeight = (screen.availHeight - window.screenY - ${estimatedYMargin}) + "px";
+div.style.cssText = "display:block;position:fixed;left:0px;top:0px;right:0px;bottom:0px;cursor:none;z-index:999999;";
 document.body.appendChild(div);
 return {
   width: div.clientWidth,
@@ -282,7 +203,17 @@ return {
   screenHeight: window.screen.height
 };})()`);
   try {
-    // moves the mouse out of the colored zone
+    const viewportImage = calibrationQRCodesGenerate(
+      displayRectangleResult.width,
+      displayRectangleResult.height,
+      qrCodeOptions
+    );
+    await frame.evaluate(
+      `(() => {const calibrationDIV = document.getElementById(${elementId}); calibrationDIV.style.backgroundImage = ${JSON.stringify(
+        `url("${await pngToDataURI(viewportImage)}")`
+      )};})()`
+    );
+    // moves the mouse out of the way
     await vm.sendMouseMoveEvent({
       x: displayRectangleResult.screenX,
       y: displayRectangleResult.screenY,
@@ -291,30 +222,41 @@ return {
     });
     await wait(1000);
     const image = await vm.takePNGScreenshot();
-    const calibrationResult = findRectangle(
-      image,
-      [...calibrationColor, 255],
-      displayRectangleResult.width,
-      displayRectangleResult.height,
-      colorTolerance
-    );
-    if (!calibrationResult) {
-      throw new CalibrationError(
-        image,
-        calibrationColor,
-        displayRectangleResult.width,
-        displayRectangleResult.height,
-        colorTolerance
+    try {
+      const result = calibrationQRCodesScan(image, qrCodeOptions);
+      if (!skipClick) {
+        // click on the detected QR code:
+        await vm.sendMouseMoveEvent({
+          x: Math.floor(result.qrCode.x + result.qrCode.width / 2),
+          y: Math.floor(result.qrCode.y + result.qrCode.height / 2),
+          screenWidth: image.width,
+          screenHeight: image.height
+        });
+        await wait(100);
+        await vm.sendMouseDownEvent(MouseButton.LEFT);
+        await wait(50);
+        await vm.sendMouseUpEvent(MouseButton.LEFT);
+        await wait(100);
+        // moves again the mouse out of the way
+        await vm.sendMouseMoveEvent({
+          x: displayRectangleResult.screenX,
+          y: displayRectangleResult.screenY,
+          screenWidth: image.width,
+          screenHeight: image.height
+        });
+        await wait(100);
+      }
+      return new CalibrationResult(
+        result.viewport.x - displayRectangleResult.screenX,
+        result.viewport.y - displayRectangleResult.screenY,
+        image.width,
+        image.height,
+        vm,
+        frame
       );
+    } catch (error) {
+      throw new CalibrationError(image);
     }
-    return new CalibrationResult(
-      calibrationResult.x - borderWidth - displayRectangleResult.screenX,
-      calibrationResult.y - borderWidth - displayRectangleResult.screenY,
-      image.width,
-      image.height,
-      vm,
-      frame
-    );
   } finally {
     await frame.evaluate(
       `(() => {const calibrationDIV = document.getElementById(${elementId}); calibrationDIV.parentNode.removeChild(calibrationDIV);})()`
