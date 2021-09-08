@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Amadeus s.a.s.
+ * Copyright 2021 Amadeus s.a.s.
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -16,31 +16,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- *
- * This package contains functions to be used with playwright in
- * order to test a web application with a screen reader.
- *
- * @packageDocumentation
- */
-
-export { connectRemotePlaywright, RemotePlaywright } from "./remotePlaywright";
+export { CalibrationQRCodesConfig } from "./config";
+export { calibrationQRCodesGenerate } from "./generate";
 export {
-  ScreenReaderClient,
-  ExpectedText,
-  isMatch
-} from "./screenReaderClient";
-export { VMKeyboard } from "./vm/keyboard";
-export {
-  CalibrateMouseFunction,
-  calibrateMouseFunctionFactory,
-  VMMouse
-} from "./vm/mouse";
-export { createVM, VMConfiguration, VMWithPlaywright } from "./vm/create";
-export {
-  CalibrationError,
-  CalibrationResult,
-  CalibrationOptions,
-  playwrightCalibrate
-} from "./vm/calibrate";
-export { MouseButton, Key } from "vm-providers";
+  calibrationQRCodesScan,
+  CalibrationQRCodesScanResult,
+  Rectangle
+} from "./scan";

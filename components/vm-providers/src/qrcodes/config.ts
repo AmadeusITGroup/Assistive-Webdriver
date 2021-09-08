@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Amadeus s.a.s.
+ * Copyright 2021 Amadeus s.a.s.
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -17,30 +17,34 @@
  */
 
 /**
- *
- * This package contains functions to be used with playwright in
- * order to test a web application with a screen reader.
- *
- * @packageDocumentation
+ * Configuration used when {@link calibrationQRCodesGenerate|generating} or
+ * {@link calibrationQRCodesGenerate|scanning} a calibration image.
+ * @public
  */
+export interface CalibrationQRCodesConfig {
+  /**
+   * Horizontal (and vertical) margin in pixels between the left (or the top) of
+   * the image and the left (or the top) of the first QR code.
+   * Defaults to 10.
+   */
+  outerMargin?: number;
 
-export { connectRemotePlaywright, RemotePlaywright } from "./remotePlaywright";
-export {
-  ScreenReaderClient,
-  ExpectedText,
-  isMatch
-} from "./screenReaderClient";
-export { VMKeyboard } from "./vm/keyboard";
-export {
-  CalibrateMouseFunction,
-  calibrateMouseFunctionFactory,
-  VMMouse
-} from "./vm/mouse";
-export { createVM, VMConfiguration, VMWithPlaywright } from "./vm/create";
-export {
-  CalibrationError,
-  CalibrationResult,
-  CalibrationOptions,
-  playwrightCalibrate
-} from "./vm/calibrate";
-export { MouseButton, Key } from "vm-providers";
+  /**
+   * Margin in pixels between two QR codes, both horizontally and vertically.
+   * Defaults to 50 times the scale.
+   */
+  innerMargin?: number;
+
+  /**
+   * Scale of the QR codes, must be an integer. Defaults to 1.
+   */
+  scale?: number;
+
+  /**
+   * Prefix of the text to encode in the QR codes, before the position.
+   * Defaults to `viewport://`. Changing its value can be useful to
+   * distinguish multiple calibration images that are displayed
+   * in the same full image.
+   */
+  contentPrefix?: string;
+}

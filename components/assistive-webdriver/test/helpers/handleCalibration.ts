@@ -17,6 +17,7 @@
  */
 
 import Koa from "koa";
+import { json as jsonBody } from "co-body";
 import { PNG } from "pngjs";
 import { VMMock } from "./vmMock";
 import { drawRectangle } from "./drawRectangle";
@@ -46,27 +47,50 @@ export const handleCalibration = async (
   await seleniumAnswerRequest("POST", `${sessionUrl}/url`, {
     value: null
   });
-  const border = 30;
   await seleniumAnswerRequest("POST", `${sessionUrl}/execute/sync`, {
     value: {
-      width: viewportWidth - 2 * border,
-      height: viewportHeight - 2 * border,
+      width: viewportWidth,
+      height: viewportHeight,
       screenX,
       screenY
     }
   });
+  const qrCodes = new PNG();
+  await seleniumAnswerRequest(
+    "POST",
+    `${sessionUrl}/execute/sync`,
+    async ctx => {
+      const requestBody = await jsonBody(ctx.req);
+      const base64Match = /\\"data:image\/png;base64,(.*)\\"/.exec(
+        requestBody.script
+      );
+      if (!base64Match) {
+        throw new Error("Missing base64 QR code image.");
+      }
+      const buffer = Buffer.from(base64Match[1], "base64");
+      await new Promise<void>((resolve, reject) =>
+        qrCodes.parse(buffer, error => (error ? reject(error) : resolve()))
+      );
+      return { value: null };
+    }
+  );
   const takeScreenshotCall = await vmMock.takePNGScreenshot.waitForCall();
   const png = new PNG({ width: screenWidth, height: screenHeight });
   drawRectangle(png, 0, 0, screenWidth, screenHeight, [255, 255, 255, 255]); // all white, no opacity
-  drawRectangle(
+  qrCodes.bitblt(
     png,
-    screenX + calibrationX + border,
-    screenY + calibrationY + border,
-    viewportWidth - 2 * border,
-    viewportHeight - 2 * border,
-    [255, 0, 0, 255]
-  ); // red rectangle
+    0,
+    0,
+    qrCodes.width,
+    qrCodes.height,
+    screenX + calibrationX,
+    screenY + calibrationY
+  );
   takeScreenshotCall.result.value.mockResolve(png);
+  await vmMock.sendMouseMoveEvent.waitForCallAndReplyWith(async () => {});
+  await vmMock.sendMouseDownEvent.waitForCallAndReplyWith(async () => {});
+  await vmMock.sendMouseUpEvent.waitForCallAndReplyWith(async () => {});
+  await vmMock.sendMouseMoveEvent.waitForCallAndReplyWith(async () => {});
   await seleniumAnswerRequest("POST", `${sessionUrl}/execute/sync`, {
     value: null
   });
