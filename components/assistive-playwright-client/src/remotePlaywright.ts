@@ -35,7 +35,7 @@ import {
 } from "playwright-core";
 
 class RemotePlaywrightBrowserServer implements BrowserServer {
-  constructor(private _url: URL) {}
+  constructor(private _url: string) {}
   on(event: "close", listener: () => void): this {
     return this;
   }
@@ -67,7 +67,7 @@ class RemotePlaywrightBrowserServer implements BrowserServer {
   }
 
   wsEndpoint(): string {
-    const wsEndpoint = new URL(this._url.toString());
+    const wsEndpoint = new URL(this._url);
     wsEndpoint.protocol = "ws";
     return wsEndpoint.toString();
   }
@@ -113,14 +113,14 @@ class RemotePlaywrightBrowserType implements BrowserType {
       })
     });
     if (response.ok) {
-      const json = await response.json();
+      const json = (await response.json()) as any;
       return new RemotePlaywrightBrowserServer(
-        new URL(`./browser/${encodeURIComponent(json.id)}`, this._url)
+        new URL(`./browser/${encodeURIComponent(json.id)}`, this._url).href
       );
     } else {
       let errorDetails = `Status: ${response.status} ${response.statusText}`;
       try {
-        const errorJson = await response.json();
+        const errorJson = (await response.json()) as any;
         errorDetails = `Message: ${errorJson.message}\n${errorDetails}`;
       } catch (e) {
         // ignore errors when getting error details

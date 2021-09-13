@@ -190,7 +190,7 @@ export const createPlaywrightServer = async (): Promise<{
           promises.push(browser.close());
         });
         await Promise.all(promises);
-      } catch (newError) {
+      } catch (newError: any) {
         error = newError;
       }
       callback(error);

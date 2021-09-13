@@ -126,7 +126,7 @@ export function createWebdriverProxy<T>(
     });
     try {
       await next();
-    } catch (error) {
+    } catch (error: any) {
       if (error instanceof PublicError) {
         ctx.status = error.statusCode;
         ctx.body = {

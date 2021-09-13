@@ -64,7 +64,7 @@ export async function deleteMachine(machine: IMachine): Promise<void> {
       );
       error = null;
       break;
-    } catch (e) {
+    } catch (e: any) {
       error = e;
       // retry to unregister the machine only if the failure is due to the machine being locked
       if (e.code !== VBOX_E_INVALID_OBJECT_STATE) {
