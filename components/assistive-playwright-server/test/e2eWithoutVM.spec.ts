@@ -132,7 +132,7 @@ describe("e2e without VM", () => {
       body: JSON.stringify({ options: {}, browser: "chromium" })
     });
     expect(postRequest.ok).toBeTruthy();
-    const { id } = await postRequest.json();
+    const { id } = (await postRequest.json()) as any;
     expect(id).toMatch(/^[0-9a-f]{64}$/i);
     const deleteRequest = await fetch(`http://127.0.0.1:8883/browser/${id}`, {
       method: "DELETE"

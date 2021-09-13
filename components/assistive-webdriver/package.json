@@ -82,7 +82,7 @@
     "build:dts": "tsc -p tsconfig.d.json",
     "build:api": "api-extractor run --config ./api-extractor.json --verbose",
     "start": "node dist/server/bin.js",
-    "test": "nyc --cwd ../.. jest",
+    "test": "nyc --cwd ../.. jest --force-exit",
     "tester": "node dist/tester.js"
   }
 }

@@ -204,7 +204,7 @@ const hasFocus: (element: any) => boolean = element =>
 
         await testAllKeys(testerSession, argv["skip-keys"] as any);
         await testMouseButtons(testerSession);
-      } catch (error) {
+      } catch (error: any) {
         testerSession.reportError(`${error.stack || error.message || error}`);
         continue;
       } finally {
