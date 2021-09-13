@@ -25,14 +25,14 @@
     "dist"
   ],
   "devDependencies": {
-    "@microsoft/api-extractor": "7.18.6",
+    "@microsoft/api-extractor": "7.18.7",
     "@types/pngjs": "6.0.1",
     "assistive-playwright-server": "workspace:*",
-    "jest": "27.0.6",
+    "jest": "27.1.1",
     "rimraf": "3.0.2",
     "rollup": "2.56.3",
     "tslib": "2.3.1",
-    "typescript": "4.3.5",
+    "typescript": "4.4.3",
     "wait-port": "0.2.9"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "playwright-core": "1.14.1",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
-    "ws": "8.2.0"
+    "ws": "8.2.2"
   },
   "scripts": {
     "prepare": "pnpm build",
