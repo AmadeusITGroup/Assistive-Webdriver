@@ -106,19 +106,19 @@ namespace Win32Api
 
       echo "Installing node.js..."
       Expand-Archive -Path C:\\vagrant\\software\\node.zip -DestinationPath C:\\
-      netsh advfirewall firewall add rule name="Allow nodejs" dir=in action=allow program="c:\\node-v12.16.3-win-x64\\node.exe" enable=yes
+      netsh advfirewall firewall add rule name="Allow nodejs" dir=in action=allow program="c:\\node-v14.17.6-win-x64\\node.exe" enable=yes
 
       echo "Installing assistive-playwright-server and text-to-socket-engine..."
-      \$p = Start-Process -FilePath c:\\node-v12.16.3-win-x64\\npm.cmd -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\win10-chromium-nvda-vm-0.0.0.tgz" -Wait -NoNewWindow -PassThru
+      \$p = Start-Process -FilePath c:\\node-v14.17.6-win-x64\\npm.cmd -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\win10-chromium-nvda-vm-0.0.0.tgz" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
-      \$p = Start-Process -FilePath c:\\node-v12.16.3-win-x64\\node_modules\\win10-chromium-nvda-vm\\node_modules\\.bin\\text-to-socket-engine-register.cmd -Wait -NoNewWindow -PassThru
+      \$p = Start-Process -FilePath c:\\node-v14.17.6-win-x64\\node_modules\\win10-chromium-nvda-vm\\node_modules\\.bin\\text-to-socket-engine-register.cmd -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
 
       echo "Configuring startup and environment..."
       Copy-Item "C:\\vagrant\\start.cmd" -Destination C:\\
       Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run' -Name StartCmd -Type String -Value 'c:\\start.cmd'
       \$curPath = Get-ItemPropertyValue -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH
-      Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Type ExpandString -Value "\$curPath;c:\\node-v12.16.3-win-x64;c:\\chromedriver_win32;c:\\chrome-win"
+      Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Type ExpandString -Value "\$curPath;c:\\node-v14.17.6-win-x64;c:\\chromedriver_win32;c:\\chrome-win"
 
       echo "Setup finished successfully!"
   SHELL
