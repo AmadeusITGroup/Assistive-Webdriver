@@ -10,9 +10,9 @@ https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/G
 https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
   out=selenium-server.jar
   checksum=sha-512=29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
-https://nodejs.org/dist/v12.16.3/node-v12.16.3-win-x64.zip
+https://nodejs.org/dist/v14.17.6/node-v14.17.6-win-x64.zip
   out=node.zip
-  checksum=sha-512=3cee3f6d691a08e5e665b9ff92e7fa242d237abb138bfd88975641f9e1931a58895a8130e615e1cb54ddc8d819a783e2e937766ce7fa3ab9bf36890aa787f415
+  checksum=sha-512=3c4e08a3cebc96ec25d0316f0eb958fb899f44b071efaa83c572e1c5d63d70783759732be5021f624342321163d1652862c5fcc23a5890ec7777b1fd5b7c38fc
 # cf https://www.chromium.org/getting-involved/download-chromium
 https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchrome-win.zip?generation=1593136034368251&alt=media
   out=chrome.zip
