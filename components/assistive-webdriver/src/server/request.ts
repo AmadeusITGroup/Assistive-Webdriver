@@ -47,7 +47,7 @@ export default async (
     if (options.body) {
       request.body = JSON.stringify(options.body);
       request.headers = {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json; charset=utf-8"
       };
     }
     const res = await fetch(uri, request);

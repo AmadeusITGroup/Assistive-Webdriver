@@ -4,12 +4,15 @@ This directory contains a [vagrant](https://vagrantup.com) config file, and vari
 
 - [Microsoft Windows 10](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/)
 - [Chromium](https://www.chromium.org/)
+- IE 11 and its driver
 - [NVDA](https://www.nvaccess.org/)
+- [Jaws](https://www.freedomscientific.com/products/software/jaws/)
 - [Java](https://www.java.com)
 - [Selenium Server](https://www.selenium.dev/downloads/)
 - [Node.js](https://nodejs.org)
 - [text-to-socket-engine](../../components/text-to-socket-engine)
 - [assistive-playwright-server](../../components/assistive-playwright-server)
+- [tcp-web-listener](../../components/tcp-web-listener)
 
 The result is a virtual machine that is ready to be used with both [assistive-webdriver](../../components/assistive-webdriver) and [assistive-playwright](../../components/assistive-playwright-client). Following [this manual step-by-step guide](../../doc/vm-guide/README.md) is another way to get a similar result.
 
@@ -41,4 +44,4 @@ Then, run the following [script](./createVM.sh) to build the virtual machine:
 ./createVM.sh
 ```
 
-If everything goes well, when the build is finished, you should have a virtualbox virtual machine called "win10-chromium-nvda" with a snapshot called "nvda" that is ready to be used for testing with assistive-webdriver, with [this configuration file](./vm-config.json).
+If everything goes well, when the build is finished, you should have a virtualbox virtual machine called "win10-chromium-nvda" with three snapshots called "noscreenreader", "nvda" and "jaws" that are ready to be used for testing with assistive-webdriver, with [this configuration file](./vm-config.json).

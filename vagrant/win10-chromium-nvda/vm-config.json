@@ -8,5 +8,22 @@
     },
     "screenReader": true,
     "vmHttpScreenReaderPath": "/screen-reader"
+  },
+  "jaws": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "win10-chromium-nvda",
+      "snapshot": "jaws"
+    },
+    "screenReader": true,
+    "vmHttpScreenReaderPath": "/screen-reader"
+  },
+  "noscreenreader": {
+    "vmSettings": {
+      "type": "virtualbox",
+      "vm": "win10-chromium-nvda",
+      "snapshot": "noscreenreader"
+    },
+    "screenReader": false
   }
 }

@@ -1,0 +1,6 @@
+[Options]
+MigrationWizardDisplayed=1
+SkipILM=1
+AutomaticNotificationOfUpdates=0
+[Voice Profiles]
+ActiveVoiceProfileName=SAPI 5X

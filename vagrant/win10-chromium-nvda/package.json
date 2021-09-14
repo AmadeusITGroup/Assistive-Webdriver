@@ -4,10 +4,12 @@
   "private": true,
   "bundledDependencies": [
     "assistive-playwright-server",
+    "tcp-web-listener",
     "text-to-socket-engine"
   ],
   "dependencies": {
     "assistive-playwright-server": "workspace:*",
+    "tcp-web-listener": "workspace:*",
     "text-to-socket-engine": "workspace:*"
   },
   "files": []
