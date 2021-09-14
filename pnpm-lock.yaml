@@ -288,9 +288,11 @@ importers:
   vagrant/win10-chromium-nvda:
     specifiers:
       assistive-playwright-server: workspace:*
+      tcp-web-listener: workspace:*
       text-to-socket-engine: workspace:*
     dependencies:
       assistive-playwright-server: link:../../components/assistive-playwright-server
+      tcp-web-listener: link:../../components/tcp-web-listener
       text-to-socket-engine: link:../../components/text-to-socket-engine
 
 packages:

@@ -4,15 +4,18 @@ https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.
 https://www.nvaccess.org/files/nvda/releases/2020.3/nvda_2020.3.exe
   out=nvda.exe
   checksum=sha-512=8719507492269db398ef70f44e95f0132144223e76faf2e9b2123743ab68fcaf3793717a60ba2f522ae604a4ec820c95cedf396a645c0240fcde7f35cc40f729
-https://download.java.net/java/GA/jdk14.0.1/664493ef4a6946b186ff29eb326336a2/7/GPL/openjdk-14.0.1_windows-x64_bin.zip
+https://jaws2021.vfo.digital/2021.2107.12.400/CCCC3B93-1C9A-4AD9-B616-923E91ED7651/J2021.2107.12.400-any.exe
+  out=jaws.exe
+  checksum=sha-512=592aafeb612c87645842f9e9c505df23b2dce0664b063a368d0bdb34aa51dc5328a0a6086b1674aa57f00e41037189cea4a9cddb14c0d29c29d08934a47da584
+https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_windows-x64_bin.zip
   out=openjdk.zip
-  checksum=sha-512=7546b40977670f24ec68ad82b5d9f52f4fc105410e7bbfec6da0718795f4a82ac26665f1f9f05562ae20710aefe85c8dac05c5345d4e48385e99323a916d2157
+  checksum=sha-512=e16fea3e77e1d07be54d7fa2f44f28f352ba21a97f7c105e5bd357b12a2819b91e88169c15f334444358ce643d427323c0d7f0ebb7c53d72617a88c08f5f5714
 https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
   out=selenium-server.jar
   checksum=sha-512=29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
-https://nodejs.org/dist/v14.17.6/node-v14.17.6-win-x64.zip
-  out=node.zip
-  checksum=sha-512=3c4e08a3cebc96ec25d0316f0eb958fb899f44b071efaa83c572e1c5d63d70783759732be5021f624342321163d1652862c5fcc23a5890ec7777b1fd5b7c38fc
+https://nodejs.org/dist/v14.17.6/node-v14.17.6-x64.msi
+  out=node.msi
+  checksum=sha-512=1d4dee8dd22add4575a7544ea26294556278f326873a5f07456a3cb9cbca20d999265a69a8e8c8bc345419f6ceb4e6bc80e63cd9db488acb9a9bf351627e9abe
 # cf https://www.chromium.org/getting-involved/download-chromium
 https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchrome-win.zip?generation=1593136034368251&alt=media
   out=chrome.zip
@@ -23,3 +26,6 @@ https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Wi
 # VC_redist is needed for Firefox (vcruntime140_1.dll dependency)
 https://aka.ms/vs/16/release/VC_redist.x64.exe
   out=VC_redist.x64.exe
+https://github.com/SeleniumHQ/selenium/releases/download/selenium-3.150.0/IEDriverServer_Win32_3.150.2.zip
+  out=iedriver.zip
+  checksum=sha-512=b10a5eab032dd8e9be7cb4b36b81d8e20d8f01b6ee28f9b147fe254f9813b3dec2d1095a843db97098169a92ebcef82261e34acb3c8ff92be46955f31d0984b9
