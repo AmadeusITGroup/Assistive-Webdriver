@@ -57,6 +57,10 @@ export class VMMouse implements Mouse {
     public calibration: CalibrationResult
   ) {}
 
+  wheel(deltaX: number, deltaY: number): Promise<void> {
+    throw new Error("Method not implemented yet.");
+  }
+
   /**
    * Moves the mouse to the specified position, expressed either as
    * coordinates in the viewport (relative to the top-left corner),
