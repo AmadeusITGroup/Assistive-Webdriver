@@ -282,6 +282,11 @@ export class QEMUVM implements VM {
     });
   }
 
+  async sendMouseWheelEvent(deltaX: number, deltaY: number): Promise<void> {
+    // TODO: implement this
+    throw new Error("Method not implemented.");
+  }
+
   async sendMouseDownEvent(button: MouseButton): Promise<void> {
     await this._sendCommand({
       execute: "input-send-event",

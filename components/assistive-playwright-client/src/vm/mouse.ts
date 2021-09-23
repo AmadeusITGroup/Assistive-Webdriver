@@ -57,8 +57,8 @@ export class VMMouse implements Mouse {
     public calibration: CalibrationResult
   ) {}
 
-  wheel(deltaX: number, deltaY: number): Promise<void> {
-    throw new Error("Method not implemented yet.");
+  async wheel(deltaX: number, deltaY: number): Promise<void> {
+    await this.vm.sendMouseWheelEvent(deltaX, deltaY);
   }
 
   /**

@@ -143,6 +143,13 @@ export interface VM {
   sendMouseUpEvent(button: MouseButton): Promise<void>;
 
   /**
+   * Sends a mouse wheel event to the virtual machine.
+   * @param deltaX - amount to scroll horizontally
+   * @param deltaY - amount to scroll vertically
+   */
+  sendMouseWheelEvent(deltaX: number, deltaY: number): Promise<void>;
+
+  /**
    * Takes a screenshot of the virtual machine and returns the corresponding PNG image.
    */
   takePNGScreenshot(): Promise<PNG>;

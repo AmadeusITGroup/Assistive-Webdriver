@@ -50,6 +50,7 @@ export interface VMMock extends VM {
   sendMouseMoveEvent: AsyncFnMock<void, [ScreenPosition]>;
   sendMouseDownEvent: AsyncFnMock<void, [MouseButton]>;
   sendMouseUpEvent: AsyncFnMock<void, [MouseButton]>;
+  sendMouseWheelEvent: AsyncFnMock<void, [number, number]>;
   takePNGScreenshot: AsyncFnMock<import("pngjs").PNG, []>;
 }
 
@@ -64,5 +65,6 @@ export const createVMMock = (
   sendMouseDownEvent: asyncFnMock(`${vmName}.sendMouseDownEvent`),
   sendMouseMoveEvent: asyncFnMock(`${vmName}.sendMouseMoveEvent`),
   sendMouseUpEvent: asyncFnMock(`${vmName}.sendMouseUpEvent`),
+  sendMouseWheelEvent: asyncFnMock(`${vmName}.sendMouseWheelEvent`),
   takePNGScreenshot: asyncFnMock(`${vmName}.takePNGScreenshot`)
 });
