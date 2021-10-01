@@ -37,7 +37,7 @@
     "@types/qrcode": "1.4.1",
     "@types/stream-json": "1.7.1",
     "@types/uuid": "8.3.1",
-    "jest": "27.2.3",
+    "jest": "27.2.4",
     "json-schema-to-typescript": "10.1.5",
     "rimraf": "3.0.2",
     "rollup": "2.57.0",
