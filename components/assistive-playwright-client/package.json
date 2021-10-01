@@ -29,7 +29,7 @@
     "@types/node-fetch": "2.5.12",
     "@types/pngjs": "6.0.1",
     "assistive-playwright-server": "workspace:*",
-    "jest": "27.2.3",
+    "jest": "27.2.4",
     "rimraf": "3.0.2",
     "rollup": "2.57.0",
     "tslib": "2.3.1",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "node-fetch": "2.6.1",
-    "playwright-core": "1.15.0",
+    "playwright-core": "1.15.1",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
     "ws": "8.2.2"
