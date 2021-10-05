@@ -46,7 +46,7 @@
     "yargs": "17.2.1"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.18.11",
+    "@microsoft/api-extractor": "7.18.12",
     "@rollup/plugin-typescript": "8.2.5",
     "@sinonjs/fake-timers": "8.0.1",
     "@types/co-body": "6.1.0",

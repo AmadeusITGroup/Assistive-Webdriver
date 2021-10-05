@@ -31,7 +31,7 @@
     "virtualbox-soap": "4.0.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.18.11",
+    "@microsoft/api-extractor": "7.18.12",
     "@rollup/plugin-typescript": "8.2.5",
     "@types/pngjs": "6.0.1",
     "@types/qrcode": "1.4.1",
