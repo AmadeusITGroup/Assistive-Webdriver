@@ -17,7 +17,6 @@ jobs:
       - run: npm i -g pnpm
       - run: pnpm update -r --latest -E
       - run: |
-          ( pnpm install -w -D eslint@7.32.0 )
           ( cd ./components/assistive-webdriver && pnpm install p-queue@6.6.2 )
           ( cd ./components/assistive-webdriver && pnpm install node-fetch@2.6.1 )
           ( cd ./components/assistive-webdriver && pnpm install -D @types/node-fetch@2.5.12 )
