@@ -60,7 +60,7 @@
     "@types/selenium-webdriver": "4.0.15",
     "@types/uuid": "8.3.1",
     "@types/ws": "8.2.0",
-    "@types/yargs": "17.0.3",
+    "@types/yargs": "17.0.4",
     "jest": "27.2.5",
     "json-schema-to-typescript": "10.1.5",
     "pngjs": "6.0.0",
