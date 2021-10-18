@@ -6,13 +6,13 @@
     "@microsoft/api-documenter": "7.13.63",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "5.0.0",
-    "babel-plugin-istanbul": "6.0.0",
+    "babel-plugin-istanbul": "6.1.1",
     "eslint": "8.0.1",
     "eslint-config-prettier": "8.3.0",
-    "jest-environment-node": "27.2.5",
+    "jest-environment-node": "27.3.0",
     "nyc": "15.1.0",
     "prettier": "2.4.1",
-    "ts-jest": "27.0.6"
+    "ts-jest": "27.0.7"
   },
   "scripts": {
     "format": "prettier .",
