@@ -20,7 +20,7 @@
     "ajv": "8.6.3",
     "co-body": "6.1.0",
     "http-proxy": "1.18.1",
-    "playwright": "1.16.0",
+    "playwright": "1.16.2",
     "ws": "8.2.3",
     "yargs": "17.2.1"
   },
@@ -36,7 +36,7 @@
     "jest": "27.3.1",
     "node-fetch": "2.6.1",
     "rimraf": "3.0.2",
-    "rollup": "2.58.0",
+    "rollup": "2.58.3",
     "tslib": "2.3.1",
     "typescript": "4.4.4",
     "typescript-json-schema": "0.51.0",
