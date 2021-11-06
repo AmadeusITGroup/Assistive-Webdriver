@@ -3,11 +3,11 @@
   "devDependencies": {
     "@babel/core": "7.16.0",
     "@babel/plugin-syntax-typescript": "7.16.0",
-    "@microsoft/api-documenter": "7.13.65",
+    "@microsoft/api-documenter": "7.13.67",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
     "babel-plugin-istanbul": "6.1.1",
-    "eslint": "8.1.0",
+    "eslint": "8.2.0",
     "eslint-config-prettier": "8.3.0",
     "jest-environment-node": "27.3.1",
     "nyc": "15.1.0",
