@@ -7,7 +7,7 @@
     "@typescript-eslint/eslint-plugin": "5.4.0",
     "@typescript-eslint/parser": "5.4.0",
     "babel-plugin-istanbul": "6.1.1",
-    "eslint": "8.2.0",
+    "eslint": "8.3.0",
     "eslint-config-prettier": "8.3.0",
     "jest-environment-node": "27.3.1",
     "nyc": "15.1.0",
