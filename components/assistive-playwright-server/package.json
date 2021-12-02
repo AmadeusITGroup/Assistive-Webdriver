@@ -33,7 +33,7 @@
     "@types/node-fetch": "2.5.12",
     "@types/ws": "8.2.1",
     "@types/yargs": "17.0.7",
-    "jest": "27.4.2",
+    "jest": "27.4.3",
     "node-fetch": "2.6.1",
     "rimraf": "3.0.2",
     "rollup": "2.60.2",
