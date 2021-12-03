@@ -25,7 +25,7 @@
     "dist"
   ],
   "devDependencies": {
-    "@microsoft/api-extractor": "7.18.19",
+    "@microsoft/api-extractor": "7.18.20",
     "@types/node-fetch": "2.5.12",
     "@types/pngjs": "6.0.1",
     "assistive-playwright-server": "workspace:*",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "node-fetch": "2.6.1",
-    "playwright-core": "1.17.0",
+    "playwright-core": "1.17.1",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
     "ws": "8.3.0"

@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@babel/core': 7.16.0
       '@babel/plugin-syntax-typescript': 7.16.0
-      '@microsoft/api-documenter': 7.13.70
+      '@microsoft/api-documenter': 7.13.71
       '@typescript-eslint/eslint-plugin': 5.5.0
       '@typescript-eslint/parser': 5.5.0
       babel-plugin-istanbul: 6.1.1
@@ -19,7 +19,7 @@ importers:
     devDependencies:
       '@babel/core': 7.16.0
       '@babel/plugin-syntax-typescript': 7.16.0_@babel+core@7.16.0
-      '@microsoft/api-documenter': 7.13.70
+      '@microsoft/api-documenter': 7.13.71
       '@typescript-eslint/eslint-plugin': 5.5.0_43d6410db0148b56249a5963c6bb1a5b
       '@typescript-eslint/parser': 5.5.0_eslint@8.3.0
       babel-plugin-istanbul: 6.1.1
@@ -32,13 +32,13 @@ importers:
 
   components/assistive-playwright-client:
     specifiers:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
       assistive-playwright-server: workspace:*
       jest: 27.4.3
       node-fetch: 2.6.1
-      playwright-core: 1.17.0
+      playwright-core: 1.17.1
       rimraf: 3.0.2
       rollup: 2.60.2
       tslib: 2.3.1
@@ -49,12 +49,12 @@ importers:
       ws: 8.3.0
     dependencies:
       node-fetch: 2.6.1
-      playwright-core: 1.17.0
+      playwright-core: 1.17.1
       uuid: 8.3.2
       vm-providers: link:../vm-providers
       ws: 8.3.0
     devDependencies:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
       assistive-playwright-server: link:../assistive-playwright-server
@@ -80,7 +80,7 @@ importers:
       http-proxy: 1.18.1
       jest: 27.4.3
       node-fetch: 2.6.1
-      playwright: 1.17.0
+      playwright: 1.17.1
       rimraf: 3.0.2
       rollup: 2.60.2
       tslib: 2.3.1
@@ -93,7 +93,7 @@ importers:
       ajv: 8.8.2
       co-body: 6.1.0
       http-proxy: 1.18.1
-      playwright: 1.17.0
+      playwright: 1.17.1
       ws: 8.3.0
       yargs: 17.3.0
     devDependencies:
@@ -120,7 +120,7 @@ importers:
       '@types/yargs': 17.0.7
       assistive-playwright-client: workspace:*
       node-fetch: 2.6.1
-      playwright-core: 1.17.0
+      playwright-core: 1.17.1
       rimraf: 3.0.2
       rollup: 2.60.2
       tslib: 2.3.1
@@ -140,7 +140,7 @@ importers:
     devDependencies:
       '@types/node-fetch': 2.5.12
       '@types/yargs': 17.0.7
-      playwright-core: 1.17.0
+      playwright-core: 1.17.1
       rimraf: 3.0.2
       rollup: 2.60.2
       tslib: 2.3.1
@@ -149,7 +149,7 @@ importers:
 
   components/assistive-webdriver:
     specifiers:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@rollup/plugin-typescript': 8.3.0
       '@sinonjs/fake-timers': 8.1.0
       '@types/co-body': 6.1.0
@@ -198,7 +198,7 @@ importers:
       ws: 8.3.0
       yargs: 17.3.0
     devDependencies:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@rollup/plugin-typescript': 8.3.0_cf49768e670184c7e0e13e8a66db2d3a
       '@sinonjs/fake-timers': 8.1.0
       '@types/co-body': 6.1.0
@@ -226,14 +226,14 @@ importers:
     specifiers:
       express: 4.17.1
       jest: 27.4.3
-      sockjs: 0.3.21
+      sockjs: 0.3.24
       sockjs-client: 1.5.2
       wait-port: 0.2.9
       ws: 8.3.0
       yargs: 17.3.0
     dependencies:
       express: 4.17.1
-      sockjs: 0.3.21
+      sockjs: 0.3.24
       sockjs-client: 1.5.2
       yargs: 17.3.0
     devDependencies:
@@ -246,7 +246,7 @@ importers:
 
   components/vm-providers:
     specifiers:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@rollup/plugin-typescript': 8.3.0
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.1
@@ -272,7 +272,7 @@ importers:
       uuid: 8.3.2
       virtualbox-soap: 4.0.0
     devDependencies:
-      '@microsoft/api-extractor': 7.18.19
+      '@microsoft/api-extractor': 7.18.20
       '@rollup/plugin-typescript': 8.3.0_cf49768e670184c7e0e13e8a66db2d3a
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.1
@@ -910,35 +910,35 @@ packages:
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
     dev: true
 
-  /@microsoft/api-documenter/7.13.70:
-    resolution: {integrity: sha512-bQFF1riylANQOkKi8dU7yJOe0k/hcQ9En8uvr3Wr1rwVxCIqmzEzigWmQkPG/z8wFEqI8cPipWymXSBPv2dIpw==}
+  /@microsoft/api-documenter/7.13.71:
+    resolution: {integrity: sha512-576yj+xjDGvcAzf4MXKuu/fhkc/2zRxAtX0T8B9yy4SvKkn2GoHbbwyCr9HY2ExNv4r28Jv4oMg0Dy9blUf47A==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.13.16
+      '@microsoft/api-extractor-model': 7.13.17
       '@microsoft/tsdoc': 0.13.2
-      '@rushstack/node-core-library': 3.43.2
+      '@rushstack/node-core-library': 3.44.0
       '@rushstack/ts-command-line': 4.10.4
       colors: 1.2.5
       js-yaml: 3.13.1
       resolve: 1.17.0
     dev: true
 
-  /@microsoft/api-extractor-model/7.13.16:
-    resolution: {integrity: sha512-ttdxVXsTWL5dd26W1YNLe3LgDsE0EE273aZlcLe58W0opymBybCYU1Mn+OHQM8BuErrdvdN8LdpWAAbkiOEN/Q==}
+  /@microsoft/api-extractor-model/7.13.17:
+    resolution: {integrity: sha512-XKP2NsUm2asriB6DshODfSRxYXwSBnA2VA51dVgxJnUE0OnBSZTc2rwzN6mDUJT72JGN081QG99eWA2SutOjIg==}
     dependencies:
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
-      '@rushstack/node-core-library': 3.43.2
+      '@rushstack/node-core-library': 3.44.0
     dev: true
 
-  /@microsoft/api-extractor/7.18.19:
-    resolution: {integrity: sha512-aY+/XR7PtQXtnqNPFRs3/+iVRlQJpo6uLTjO2g7PqmnMywl3GBU3bCgAlV/khZtAQbIs6Le57XxmSE6rOqbcfg==}
+  /@microsoft/api-extractor/7.18.20:
+    resolution: {integrity: sha512-JBstlWs5/MC1IiXSMAwOUnX1hV/IcCl75xF6OUhR2LB7ckZWcsKIbhLecjHC+TZRQsRqVGA3u+DJgB7BIWWYcA==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.13.16
+      '@microsoft/api-extractor-model': 7.13.17
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
-      '@rushstack/node-core-library': 3.43.2
+      '@rushstack/node-core-library': 3.44.0
       '@rushstack/rig-package': 0.3.5
       '@rushstack/ts-command-line': 4.10.4
       colors: 1.2.5
@@ -1036,8 +1036,8 @@ packages:
       rollup: 2.60.2
     dev: true
 
-  /@rushstack/node-core-library/3.43.2:
-    resolution: {integrity: sha512-b7AEhSf6CvZgvuDcWMFDeKx2mQSn9AVnMQVyxNxFeHCtLz3gJicqCOlw2GOXM8HKh6PInLdil/NVCDcstwSrIw==}
+  /@rushstack/node-core-library/3.44.0:
+    resolution: {integrity: sha512-J+w5efSJjitZoxgtBfU4al0FUx2VIcxpPFUxjIvk7Os2hlGV0VxXLUQWIWdiSL6OGxMSksDlHC9/SHcvBARuvg==}
     dependencies:
       '@types/node': 12.20.24
       colors: 1.2.5
@@ -1833,7 +1833,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001283
-      electron-to-chromium: 1.4.8
+      electron-to-chromium: 1.4.9
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -2302,8 +2302,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: false
 
-  /electron-to-chromium/1.4.8:
-    resolution: {integrity: sha512-Cu5+dbg55+1E3ohlsa8HT0s4b8D0gBewXEGG8s5wBl8ynWv60VuvYW25GpsOeTVXpulhyU/U8JYZH+yxASSJBQ==}
+  /electron-to-chromium/1.4.9:
+    resolution: {integrity: sha512-7AyB4SiLtGJbLACXezs8BDjDbZizuoiyHTQxbcvzfi5LYWRXVSFdmPvuDjtlWQmsVSONRicZfSBj3xgft0Wvrg==}
     dev: true
 
   /emittery/0.8.1:
@@ -4590,8 +4590,8 @@ packages:
       find-up: 4.1.0
     dev: true
 
-  /playwright-core/1.17.0:
-    resolution: {integrity: sha512-9ZzKZwmK6G7O9+jtvIurL8efIbJQu3oW0kI4uuNreY3O2jQDWH6xNnD27HCaJN1/tHnw/OmdUC2AmMDZv3vNhQ==}
+  /playwright-core/1.17.1:
+    resolution: {integrity: sha512-C3c8RpPiC3qr15fRDN6dx6WnUkPLFmST37gms2aoHPDRvp7EaGDPMMZPpqIm/QWB5J40xDrQCD4YYHz2nBTojQ==}
     engines: {node: '>=12'}
     hasBin: true
     dependencies:
@@ -4616,13 +4616,13 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /playwright/1.17.0:
-    resolution: {integrity: sha512-rBBrdj5+iYFBSsMa7glK3MBaxkcXxHN7uW6pY7PzTB7xtGFTfdK0h0BPB7/vWiVIGOvz4Hy9g2UJNaZDHkAmgA==}
+  /playwright/1.17.1:
+    resolution: {integrity: sha512-DisCkW9MblDJNS3rG61p8LiLA2WA7IY/4A4W7DX4BphWe/HuWjKmGQptuk4NVIh5UuSwXpW/jaH2+ZgjHs3GMA==}
     engines: {node: '>=12'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.17.0
+      playwright-core: 1.17.1
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -5099,11 +5099,11 @@ packages:
       url-parse: 1.5.3
     dev: false
 
-  /sockjs/0.3.21:
-    resolution: {integrity: sha512-DhbPFGpxjc6Z3I+uX07Id5ZO2XwYsWOrYjaSeieES78cq+JaJvVe5q/m1uvjIQhXinhIeCFRH6JgXe+mvVMyXw==}
+  /sockjs/0.3.24:
+    resolution: {integrity: sha512-GJgLTZ7vYb/JtPSSZ10hsOYIvEYsjbNU+zPdIHcUaWVNUEPivzxku31865sSSud0Da0W4lEeOPlmw93zLQchuQ==}
     dependencies:
       faye-websocket: 0.11.4
-      uuid: 3.4.0
+      uuid: 8.3.2
       websocket-driver: 0.7.4
     dev: false
 
