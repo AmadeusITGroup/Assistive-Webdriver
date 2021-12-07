@@ -32,7 +32,7 @@ jobs:
           name: text-to-socket-engine-${{ matrix.arch }}
           path: components/text-to-socket-engine/TextToSocketEngine-${{ matrix.arch }}.dll
   build-js:
-    runs-on: macos-latest
+    runs-on: macos-10.15
     needs:
       - build-text-to-socket-engine
     strategy:
