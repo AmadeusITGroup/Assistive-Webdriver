@@ -46,7 +46,7 @@
     "yargs": "17.3.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.18.20",
+    "@microsoft/api-extractor": "7.18.21",
     "@rollup/plugin-typescript": "8.3.0",
     "@sinonjs/fake-timers": "8.1.0",
     "@types/co-body": "6.1.0",
@@ -59,7 +59,7 @@
     "@types/pngjs": "6.0.1",
     "@types/selenium-webdriver": "4.0.16",
     "@types/uuid": "8.3.3",
-    "@types/ws": "8.2.1",
+    "@types/ws": "8.2.2",
     "@types/yargs": "17.0.7",
     "jest": "27.4.3",
     "json-schema-to-typescript": "10.1.5",
