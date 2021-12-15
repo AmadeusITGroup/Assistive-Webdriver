@@ -33,7 +33,7 @@
     "yargs": "17.3.0"
   },
   "devDependencies": {
-    "jest": "27.4.3",
+    "jest": "27.4.5",
     "wait-port": "0.2.9",
     "ws": "8.3.0"
   }
