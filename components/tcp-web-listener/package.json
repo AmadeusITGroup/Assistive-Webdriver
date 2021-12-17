@@ -27,7 +27,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "express": "4.17.1",
+    "express": "4.17.2",
     "sockjs": "0.3.24",
     "sockjs-client": "1.5.2",
     "yargs": "17.3.0"
