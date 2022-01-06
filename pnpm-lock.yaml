@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@babel/core': 7.16.7
       '@babel/plugin-syntax-typescript': 7.16.7
-      '@microsoft/api-documenter': 7.14.0
+      '@microsoft/api-documenter': 7.14.1
       '@typescript-eslint/eslint-plugin': 5.9.0
       '@typescript-eslint/parser': 5.9.0
       babel-plugin-istanbul: 6.1.1
@@ -19,7 +19,7 @@ importers:
     devDependencies:
       '@babel/core': 7.16.7
       '@babel/plugin-syntax-typescript': 7.16.7_@babel+core@7.16.7
-      '@microsoft/api-documenter': 7.14.0
+      '@microsoft/api-documenter': 7.14.1
       '@typescript-eslint/eslint-plugin': 5.9.0_2d7f50db318ef6c9c858ff5d22dbe469
       '@typescript-eslint/parser': 5.9.0_eslint@8.6.0
       babel-plugin-istanbul: 6.1.1
@@ -32,11 +32,11 @@ importers:
 
   components/assistive-playwright-client:
     specifiers:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
       assistive-playwright-server: workspace:*
-      jest: 27.4.6
+      jest: 27.4.7
       node-fetch: 2.6.1
       playwright-core: 1.17.1
       rimraf: 3.0.2
@@ -54,11 +54,11 @@ importers:
       vm-providers: link:../vm-providers
       ws: 8.4.0
     devDependencies:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
       assistive-playwright-server: link:../assistive-playwright-server
-      jest: 27.4.6_@babel+core@7.16.7
+      jest: 27.4.7
       rimraf: 3.0.2
       rollup: 2.63.0
       tslib: 2.3.1
@@ -78,7 +78,7 @@ importers:
       ajv: 8.8.2
       co-body: 6.1.0
       http-proxy: 1.18.1
-      jest: 27.4.6
+      jest: 27.4.7
       node-fetch: 2.6.1
       playwright: 1.17.1
       rimraf: 3.0.2
@@ -105,7 +105,7 @@ importers:
       '@types/node-fetch': 2.5.12
       '@types/ws': 8.2.2
       '@types/yargs': 17.0.8
-      jest: 27.4.6_@babel+core@7.16.7
+      jest: 27.4.7
       node-fetch: 2.6.1
       rimraf: 3.0.2
       rollup: 2.63.0
@@ -149,7 +149,7 @@ importers:
 
   components/assistive-webdriver:
     specifiers:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@rollup/plugin-typescript': 8.3.0
       '@sinonjs/fake-timers': 8.1.0
       '@types/co-body': 6.1.0
@@ -167,7 +167,7 @@ importers:
       co-body: 6.1.0
       colors: 1.4.0
       http-proxy: 1.18.1
-      jest: 27.4.6
+      jest: 27.4.7
       json-schema-to-typescript: 10.1.5
       koa: 2.13.4
       koa-route: 3.2.0
@@ -198,7 +198,7 @@ importers:
       ws: 8.4.0
       yargs: 17.3.1
     devDependencies:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@rollup/plugin-typescript': 8.3.0_cb044fd0a247ab74c5d8bfaf0e00abae
       '@sinonjs/fake-timers': 8.1.0
       '@types/co-body': 6.1.0
@@ -213,7 +213,7 @@ importers:
       '@types/uuid': 8.3.3
       '@types/ws': 8.2.2
       '@types/yargs': 17.0.8
-      jest: 27.4.6_@babel+core@7.16.7
+      jest: 27.4.7
       json-schema-to-typescript: 10.1.5
       pngjs: 6.0.0
       rimraf: 3.0.2
@@ -225,7 +225,7 @@ importers:
   components/tcp-web-listener:
     specifiers:
       express: 4.17.2
-      jest: 27.4.6
+      jest: 27.4.7
       sockjs: 0.3.24
       sockjs-client: 1.5.2
       wait-port: 0.2.9
@@ -237,7 +237,7 @@ importers:
       sockjs-client: 1.5.2
       yargs: 17.3.1
     devDependencies:
-      jest: 27.4.6_@babel+core@7.16.7
+      jest: 27.4.7
       wait-port: 0.2.9
       ws: 8.4.0
 
@@ -246,14 +246,14 @@ importers:
 
   components/vm-providers:
     specifiers:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@rollup/plugin-typescript': 8.3.0
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.2
       '@types/stream-json': 1.7.2
       '@types/uuid': 8.3.3
       '@zxing/library': 0.18.6
-      jest: 27.4.6
+      jest: 27.4.7
       json-schema-to-typescript: 10.1.5
       pngjs: 6.0.0
       qrcode: 1.5.0
@@ -272,13 +272,13 @@ importers:
       uuid: 8.3.2
       virtualbox-soap: 4.0.0
     devDependencies:
-      '@microsoft/api-extractor': 7.19.3
+      '@microsoft/api-extractor': 7.19.4
       '@rollup/plugin-typescript': 8.3.0_cb044fd0a247ab74c5d8bfaf0e00abae
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.2
       '@types/stream-json': 1.7.2
       '@types/uuid': 8.3.3
-      jest: 27.4.6_@babel+core@7.16.7
+      jest: 27.4.7
       json-schema-to-typescript: 10.1.5
       rimraf: 3.0.2
       rollup: 2.63.0
@@ -709,8 +709,8 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /@jest/core/27.4.6_@babel+core@7.16.7:
-    resolution: {integrity: sha512-2XvkAguDxaSAg6+Rznq7VZeIs3eV4owk3dud0zL4FH0d8mX7whkAUnO9rb0keMGStazfekR1ec9Yf9BFt4m02Q==}
+  /@jest/core/27.4.7:
+    resolution: {integrity: sha512-n181PurSJkVMS+kClIFSX/LLvw9ExSb+4IMtD6YnfxZVerw9ANYtW0bPrm0MJu2pfe9SY9FJ9FtQ+MdZkrZwjg==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     peerDependencies:
       node-notifier: ^8.0.1 || ^9.0.0 || ^10.0.0
@@ -730,7 +730,7 @@ packages:
       exit: 0.1.2
       graceful-fs: 4.2.9
       jest-changed-files: 27.4.2
-      jest-config: 27.4.6_@babel+core@7.16.7
+      jest-config: 27.4.7
       jest-haste-map: 27.4.6
       jest-message-util: 27.4.6
       jest-regex-util: 27.4.0
@@ -747,7 +747,6 @@ packages:
       slash: 3.0.0
       strip-ansi: 6.0.1
     transitivePeerDependencies:
-      - '@babel/core'
       - bufferutil
       - canvas
       - supports-color
@@ -893,35 +892,35 @@ packages:
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
     dev: true
 
-  /@microsoft/api-documenter/7.14.0:
-    resolution: {integrity: sha512-ujhERX/ehqcy8swkesW9Xswyb+dJWXgS/xogsFmKszNl1b1HHBEzg1xfdY/m17IEs7oBCJyUS1n7V1OulcKozw==}
+  /@microsoft/api-documenter/7.14.1:
+    resolution: {integrity: sha512-IFwS3TzVxFh9LSGJuYOWiZ5V+AdYfnLE+WC/VKpeHnSsiW1goLEO+qkoqonvirJr/jQTNuC7NScIjXS2pXODMQ==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.15.2
+      '@microsoft/api-extractor-model': 7.15.3
       '@microsoft/tsdoc': 0.13.2
-      '@rushstack/node-core-library': 3.44.3
+      '@rushstack/node-core-library': 3.45.0
       '@rushstack/ts-command-line': 4.10.6
       colors: 1.2.5
       js-yaml: 3.13.1
       resolve: 1.17.0
     dev: true
 
-  /@microsoft/api-extractor-model/7.15.2:
-    resolution: {integrity: sha512-qgxKX/s6vo3nCVLhP0Ds7555QrErhcYHEok5/KyEZ7iR8J5M5oldD1eJJQmtEdVF5IzmnPPbxx1nRvfgA674LQ==}
+  /@microsoft/api-extractor-model/7.15.3:
+    resolution: {integrity: sha512-NkSjolmSI7NGvbdz0Y7kjQfdpD+j9E5CwXTxEyjDqxd10MI7GXV8DnAsQ57GFJcgHKgTjf2aUnYfMJ9w3aMicw==}
     dependencies:
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
-      '@rushstack/node-core-library': 3.44.3
+      '@rushstack/node-core-library': 3.45.0
     dev: true
 
-  /@microsoft/api-extractor/7.19.3:
-    resolution: {integrity: sha512-GZe+R3K4kh2X425iOHkPbByysB7FN0592mPPA6vNj5IhyhlPHgdZS6m6AmOZOIxMS4euM+SBKzEJEp3oC+WsOQ==}
+  /@microsoft/api-extractor/7.19.4:
+    resolution: {integrity: sha512-iehC6YA3DGJvxTUaK7HUtQmP6hAQU07+Q/OR8TG4dVR6KpqCi9UPEVk8AgCvQkiK+6FbVEFQTx0qLuYk4EeuHg==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.15.2
+      '@microsoft/api-extractor-model': 7.15.3
       '@microsoft/tsdoc': 0.13.2
       '@microsoft/tsdoc-config': 0.15.2
-      '@rushstack/node-core-library': 3.44.3
+      '@rushstack/node-core-library': 3.45.0
       '@rushstack/rig-package': 0.3.7
       '@rushstack/ts-command-line': 4.10.6
       colors: 1.2.5
@@ -1019,8 +1018,8 @@ packages:
       rollup: 2.63.0
     dev: true
 
-  /@rushstack/node-core-library/3.44.3:
-    resolution: {integrity: sha512-Bt+R5LAnVr2BImTJqPpton5rvhJ2Wq8x4BaTqaCHQMmfxqtz5lb4nLYT9kneMJTCDuRMBvvLpSuz4MBj50PV3w==}
+  /@rushstack/node-core-library/3.45.0:
+    resolution: {integrity: sha512-YMuIJl19vQT1+g/OU9mLY6T5ZBT9uDlmeXExDQACpGuxTJW+LHNbk/lRX+eCApQI2eLBlaL4U68r3kZlqwbdmw==}
     dependencies:
       '@types/node': 12.20.24
       colors: 1.2.5
@@ -1839,7 +1838,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001296
-      electron-to-chromium: 1.4.35
+      electron-to-chromium: 1.4.36
       escalade: 3.1.1
       node-releases: 2.0.1
       picocolors: 1.0.0
@@ -2304,8 +2303,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: false
 
-  /electron-to-chromium/1.4.35:
-    resolution: {integrity: sha512-wzTOMh6HGFWeALMI3bif0mzgRrVGyP1BdFRx7IvWukFrSC5QVQELENuy+Fm2dCrAdQH9T3nuqr07n94nPDFBWA==}
+  /electron-to-chromium/1.4.36:
+    resolution: {integrity: sha512-MbLlbF39vKrXWlFEFpCgDHwdlz4O3LmHM5W4tiLRHjSmEUXjJjz8sZkMgWgvYxlZw3N1iDTmCEtOkkESb5TMCg==}
     dev: true
 
   /emittery/0.8.1:
@@ -3187,8 +3186,8 @@ packages:
     resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
     dev: false
 
-  /is-core-module/2.8.0:
-    resolution: {integrity: sha512-vd15qHsaqrRL7dtH6QNuy0ndJmRDrS9HAM1CAiSifNUFv4x1a0CCVsj18hJ1mShxIG6T2i1sO78MkP56r0nYRw==}
+  /is-core-module/2.8.1:
+    resolution: {integrity: sha512-SdNCUs284hr40hFTFP6l0IfZ/RSrMXF3qgoRHd3/79unUTvrFO/JoXwkGm+5J/Oe3E/b5GsnG330uUNgRpu1PA==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -3381,8 +3380,8 @@ packages:
       - supports-color
     dev: true
 
-  /jest-cli/27.4.6_@babel+core@7.16.7:
-    resolution: {integrity: sha512-SFfUC7jMHPGwsNSYBnJMNtjoSDrb34T+SEH5psDeGNVuTVov5Zi1RQpfJYwzpK2ex3OmnsNsiqLe3/SCc8S01Q==}
+  /jest-cli/27.4.7:
+    resolution: {integrity: sha512-zREYhvjjqe1KsGV15mdnxjThKNDgza1fhDT+iUsXWLCq3sxe9w5xnvyctcYVT5PcdLSjv7Y5dCwTS3FCF1tiuw==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
@@ -3391,20 +3390,19 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 27.4.6_@babel+core@7.16.7
+      '@jest/core': 27.4.7
       '@jest/test-result': 27.4.6
       '@jest/types': 27.4.2
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.9
       import-local: 3.0.3
-      jest-config: 27.4.6_@babel+core@7.16.7
+      jest-config: 27.4.7
       jest-util: 27.4.2
       jest-validate: 27.4.6
       prompts: 2.4.2
       yargs: 16.2.0
     transitivePeerDependencies:
-      - '@babel/core'
       - bufferutil
       - canvas
       - supports-color
@@ -3412,8 +3410,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /jest-config/27.4.6_@babel+core@7.16.7:
-    resolution: {integrity: sha512-3SGoFbaanQVg7MK5w/z8LnCMF6aZc2I7EQxS4s8fTfZpVYnWNDN34llcaViToIB62DFMhwHWTPX9X2O+4aDL1g==}
+  /jest-config/27.4.7:
+    resolution: {integrity: sha512-xz/o/KJJEedHMrIY9v2ParIoYSrSVY6IVeE4z5Z3i101GoA5XgfbJz+1C8EYPsv7u7f39dS8F9v46BHDhn0vlw==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     peerDependencies:
       ts-node: '>=9.0.0'
@@ -3421,6 +3419,7 @@ packages:
       ts-node:
         optional: true
     dependencies:
+      '@babel/core': 7.16.7
       '@jest/test-sequencer': 27.4.6
       '@jest/types': 27.4.2
       babel-jest: 27.4.6_@babel+core@7.16.7
@@ -3443,7 +3442,6 @@ packages:
       pretty-format: 27.4.6
       slash: 3.0.0
     transitivePeerDependencies:
-      - '@babel/core'
       - bufferutil
       - canvas
       - supports-color
@@ -3790,8 +3788,8 @@ packages:
       supports-color: 8.1.1
     dev: true
 
-  /jest/27.4.6_@babel+core@7.16.7:
-    resolution: {integrity: sha512-BRbYo0MeujnnJIo206WRsfsr3gIMraR+LO9vZJsdG2/298aKYQJbS3wHG0KN3Z7SWIcf6JaSMM4E8X6cIdG9AA==}
+  /jest/27.4.7:
+    resolution: {integrity: sha512-8heYvsx7nV/m8m24Vk26Y87g73Ba6ueUd0MWed/NXMhSZIm62U/llVbS0PJe1SHunbyXjJ/BqG1z9bFjGUIvTg==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     hasBin: true
     peerDependencies:
@@ -3800,11 +3798,10 @@ packages:
       node-notifier:
         optional: true
     dependencies:
-      '@jest/core': 27.4.6_@babel+core@7.16.7
+      '@jest/core': 27.4.7
       import-local: 3.0.3
-      jest-cli: 27.4.6_@babel+core@7.16.7
+      jest-cli: 27.4.7
     transitivePeerDependencies:
-      - '@babel/core'
       - bufferutil
       - canvas
       - supports-color
@@ -4837,7 +4834,7 @@ packages:
   /resolve/1.19.0:
     resolution: {integrity: sha512-rArEXAgsBG4UgRGcynxWIWKFvh/XZCcS8UJdHhwy91zwAvCZIbcs+vAbflgBnNjYMs/i/i+/Ux6IZhML1yPvxg==}
     dependencies:
-      is-core-module: 2.8.0
+      is-core-module: 2.8.1
       path-parse: 1.0.7
     dev: true
 
@@ -4845,7 +4842,7 @@ packages:
     resolution: {integrity: sha512-3wCbTpk5WJlyE4mSOtDLhqQmGFi0/TD9VPwmiolnk8U0wRgMEktqCXd3vy5buTO3tljvalNvKrjHEfrd2WpEKA==}
     hasBin: true
     dependencies:
-      is-core-module: 2.8.0
+      is-core-module: 2.8.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
