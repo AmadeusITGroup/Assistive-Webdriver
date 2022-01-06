@@ -25,11 +25,11 @@
     "dist"
   ],
   "devDependencies": {
-    "@microsoft/api-extractor": "7.19.3",
+    "@microsoft/api-extractor": "7.19.4",
     "@types/node-fetch": "2.5.12",
     "@types/pngjs": "6.0.1",
     "assistive-playwright-server": "workspace:*",
-    "jest": "27.4.6",
+    "jest": "27.4.7",
     "rimraf": "3.0.2",
     "rollup": "2.63.0",
     "tslib": "2.3.1",
