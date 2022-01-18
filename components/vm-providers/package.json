@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@zxing/library": "0.18.6",
+    "@zxing/library": "0.19.1",
     "pngjs": "6.0.0",
     "qrcode": "1.5.0",
     "stream-json": "1.7.3",
@@ -36,11 +36,11 @@
     "@types/pngjs": "6.0.1",
     "@types/qrcode": "1.4.2",
     "@types/stream-json": "1.7.2",
-    "@types/uuid": "8.3.3",
+    "@types/uuid": "8.3.4",
     "jest": "27.4.7",
     "json-schema-to-typescript": "10.1.5",
     "rimraf": "3.0.2",
-    "rollup": "2.63.0",
+    "rollup": "2.64.0",
     "tslib": "2.3.1",
     "typescript": "4.5.4"
   },
