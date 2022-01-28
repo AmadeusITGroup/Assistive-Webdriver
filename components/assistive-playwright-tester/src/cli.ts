@@ -87,7 +87,7 @@ const hasFocus: (element: any) => boolean = element =>
     }
   }).argv;
   configure({
-    level: argv["log-level"],
+    level: argv["log-level"] as any,
     format: format.combine(format.colorize(), format.simple()),
     transports: [new transports.Console()]
   });

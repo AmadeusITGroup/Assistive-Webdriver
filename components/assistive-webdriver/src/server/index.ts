@@ -30,7 +30,8 @@ import { ConfigSchema } from "./config";
 
 const CONFIG_CAPABILITY_NAME = "awd:vm-config";
 
-const defaultSetLogLevel = (level: string) => (defaultLogger.level = level);
+const defaultSetLogLevel = (level: string) =>
+  (defaultLogger.level = level as any);
 
 export const start = async (
   args: string[],

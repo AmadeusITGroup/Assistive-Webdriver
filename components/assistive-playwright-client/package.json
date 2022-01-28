@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "node-fetch": "2.6.1",
-    "playwright-core": "1.18.0",
+    "playwright-core": "1.18.1",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
     "ws": "8.4.2"
