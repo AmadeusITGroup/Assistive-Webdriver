@@ -82,7 +82,7 @@ import { sigintWin32 } from "../server/sigintWin32";
     }
   }).argv;
   configure({
-    level: argv["log-level"],
+    level: argv["log-level"] as any,
     format: format.combine(format.colorize(), format.simple()),
     transports: [new transports.Console()]
   });

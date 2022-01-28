@@ -41,7 +41,7 @@
     "p-queue": "6.6.2",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
-    "winston": "3.4.0",
+    "winston": "3.5.0",
     "ws": "8.4.2",
     "yargs": "17.3.1"
   },
