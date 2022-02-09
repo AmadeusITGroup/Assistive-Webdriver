@@ -1,15 +1,15 @@
 {
   "private": true,
   "devDependencies": {
-    "@babel/core": "7.17.0",
+    "@babel/core": "7.17.2",
     "@babel/plugin-syntax-typescript": "7.16.7",
     "@microsoft/api-documenter": "7.15.1",
-    "@typescript-eslint/eslint-plugin": "5.10.2",
-    "@typescript-eslint/parser": "5.10.2",
+    "@typescript-eslint/eslint-plugin": "5.11.0",
+    "@typescript-eslint/parser": "5.11.0",
     "babel-plugin-istanbul": "6.1.1",
     "eslint": "8.8.0",
     "eslint-config-prettier": "8.3.0",
-    "jest-environment-node": "27.4.6",
+    "jest-environment-node": "27.5.1",
     "nyc": "15.1.0",
     "prettier": "2.5.1",
     "ts-jest": "27.1.3"
