@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@babel/core': 7.17.2
       '@babel/plugin-syntax-typescript': 7.16.7
-      '@microsoft/api-documenter': 7.15.1
+      '@microsoft/api-documenter': 7.15.2
       '@typescript-eslint/eslint-plugin': 5.11.0
       '@typescript-eslint/parser': 5.11.0
       babel-plugin-istanbul: 6.1.1
@@ -19,7 +19,7 @@ importers:
     devDependencies:
       '@babel/core': 7.17.2
       '@babel/plugin-syntax-typescript': 7.16.7_@babel+core@7.17.2
-      '@microsoft/api-documenter': 7.15.1
+      '@microsoft/api-documenter': 7.15.2
       '@typescript-eslint/eslint-plugin': 5.11.0_3b695561767578eec7e4e42a881d8345
       '@typescript-eslint/parser': 5.11.0_eslint@8.8.0
       babel-plugin-istanbul: 6.1.1
@@ -160,7 +160,7 @@ importers:
       '@types/koa-route': 3.2.5
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
-      '@types/selenium-webdriver': 4.0.17
+      '@types/selenium-webdriver': 4.0.18
       '@types/uuid': 8.3.4
       '@types/ws': 8.2.2
       '@types/yargs': 17.0.8
@@ -209,7 +209,7 @@ importers:
       '@types/koa-route': 3.2.5
       '@types/node-fetch': 2.5.12
       '@types/pngjs': 6.0.1
-      '@types/selenium-webdriver': 4.0.17
+      '@types/selenium-webdriver': 4.0.18
       '@types/uuid': 8.3.4
       '@types/ws': 8.2.2
       '@types/yargs': 17.0.8
@@ -301,7 +301,7 @@ packages:
     resolution: {integrity: sha512-d5RysTlJ7hmw5Tw4UxgxcY3lkMe92n8sXCcuLPAyIAHK6j8DefDwtGnVVDgOnv+RnEosulDJ9NPKQL27bDId0g==}
     engines: {node: '>=6.0.0'}
     dependencies:
-      '@jridgewell/trace-mapping': 0.3.2
+      '@jridgewell/trace-mapping': 0.3.4
     dev: true
 
   /@apidevtools/json-schema-ref-parser/9.0.9:
@@ -904,8 +904,8 @@ packages:
     resolution: {integrity: sha512-Ht8wIW5v165atIX1p+JvKR5ONzUyF4Ac8DZIQ5kZs9zrb6M8SJNXpx1zn04rn65VjBMygRoMXcyYwNK0fT7bEg==}
     dev: true
 
-  /@jridgewell/trace-mapping/0.3.2:
-    resolution: {integrity: sha512-9KzzH4kMjA2XmBRHfqG2/Vtl7s92l6uNDd0wW7frDE+EUvQFGqNXhWp0UGJjSkt3v2AYjzOZn1QO9XaTNJIt1Q==}
+  /@jridgewell/trace-mapping/0.3.4:
+    resolution: {integrity: sha512-vFv9ttIedivx0ux3QSjhgtCVjPZd5l46ZOMDSCwnH1yUO2e964gO8LZGyv2QkqcgR6TnBU1v+1IFqmeoG+0UJQ==}
     dependencies:
       '@jridgewell/resolve-uri': 3.0.4
       '@jridgewell/sourcemap-codec': 1.4.10
@@ -915,8 +915,8 @@ packages:
     resolution: {integrity: sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==}
     dev: true
 
-  /@microsoft/api-documenter/7.15.1:
-    resolution: {integrity: sha512-4NBMYriTV6m5RIrXzzQAWr6IjgIcTQ8cSPGBtcFpA30Knyfrjag0i87QjlXZhiPS48NtwRrn9ktzd6q0WthO3A==}
+  /@microsoft/api-documenter/7.15.2:
+    resolution: {integrity: sha512-cU2ieaubVpC/Qgkg0LDBlj7nh96sEQrptNa8qV+InJJyBesqRbB3R+abRdf1lHd1zqKGfCmA0X27hCroVuJx3A==}
     hasBin: true
     dependencies:
       '@microsoft/api-extractor-model': 7.15.3
@@ -1333,8 +1333,8 @@ packages:
       '@types/node': 17.0.16
     dev: true
 
-  /@types/prettier/2.4.3:
-    resolution: {integrity: sha512-QzSuZMBuG5u8HqYz01qtMdg/Jfctlnvj1z/lYnIDXs/golxw0fxtRAHd9KrzjR7Yxz1qVeI00o0kiO3PmVdJ9w==}
+  /@types/prettier/2.4.4:
+    resolution: {integrity: sha512-ReVR2rLTV1kvtlWFyuot+d1pkpG2Fw/XKE3PDAdj57rbM97ttSp9JZ2UsP+2EHTylra9cUf6JA7tGwW1INzUrA==}
     dev: true
 
   /@types/qrcode/1.4.2:
@@ -1351,8 +1351,8 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
 
-  /@types/selenium-webdriver/4.0.17:
-    resolution: {integrity: sha512-GltN2eqVk/sWAObnyywqfMbbV9tuhMx7g4zhX0n+z0Z7Ji5WJua0mVHgj6EuNY1z+wss6gALxaTMUPS4xLYC3w==}
+  /@types/selenium-webdriver/4.0.18:
+    resolution: {integrity: sha512-gkrUo3QldGr8V9im/DjgKkX4UVd1rtflfEBuPG9hPSA1keu7A0rF8h/MQjpTMm2EPVhBCd2K8tn5nlC9Vsd5Xw==}
     dev: true
 
   /@types/serve-static/1.13.10:
@@ -1861,8 +1861,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001309
-      electron-to-chromium: 1.4.67
+      caniuse-lite: 1.0.30001310
+      electron-to-chromium: 1.4.68
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1935,8 +1935,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001309:
-    resolution: {integrity: sha512-Pl8vfigmBXXq+/yUz1jUwULeq9xhMJznzdc/xwl4WclDAuebcTHVefpz8lE/bMI+UN7TOkSSe7B7RnZd6+dzjA==}
+  /caniuse-lite/1.0.30001310:
+    resolution: {integrity: sha512-cb9xTV8k9HTIUA3GnPUJCk0meUnrHL5gy5QePfDjxHyNBcnzPzrHFv5GqfP7ue5b1ZyzZL0RJboD6hQlPXjhjg==}
     dev: true
 
   /caseless/0.12.0:
@@ -2332,8 +2332,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: false
 
-  /electron-to-chromium/1.4.67:
-    resolution: {integrity: sha512-A6a2jEPLueEDfb7kvh7/E94RKKnIb01qL+4I7RFxtajmo+G9F5Ei7HgY5PRbQ4RDrh6DGDW66P0hD5XI2nRAcg==}
+  /electron-to-chromium/1.4.68:
+    resolution: {integrity: sha512-cId+QwWrV8R1UawO6b9BR1hnkJ4EJPCPAr4h315vliHUtVUJDk39Sg1PMNnaWKfj5x+93ssjeJ9LKL6r8LaMiA==}
     dev: true
 
   /emittery/0.8.1:
@@ -3754,7 +3754,7 @@ packages:
       '@jest/transform': 27.5.1
       '@jest/types': 27.5.1
       '@types/babel__traverse': 7.14.2
-      '@types/prettier': 2.4.3
+      '@types/prettier': 2.4.4
       babel-preset-current-node-syntax: 1.0.1_@babel+core@7.17.2
       chalk: 4.1.2
       expect: 27.5.1
@@ -3943,7 +3943,7 @@ packages:
     dependencies:
       '@types/json-schema': 7.0.9
       '@types/lodash': 4.14.178
-      '@types/prettier': 2.4.3
+      '@types/prettier': 2.4.4
       cli-color: 2.0.1
       get-stdin: 8.0.0
       glob: 7.2.0
