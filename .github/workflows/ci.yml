@@ -83,7 +83,7 @@ jobs:
         name: "test assistive-playwright (nvda, chromium)"
         with:
           timeout_minutes: 30
-          max_attempts: 3
+          max_attempts: 5
           command: |
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
@@ -92,7 +92,7 @@ jobs:
         name: "test assistive-playwright (jaws, chromium)"
         with:
           timeout_minutes: 30
-          max_attempts: 3
+          max_attempts: 5
           command: |
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").jaws.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
@@ -105,7 +105,7 @@ jobs:
         name: "test assistive-webdriver (nvda, chromium)"
         with:
           timeout_minutes: 30
-          max_attempts: 3
+          max_attempts: 5
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-awd-tester -- -m nvda -k $NVDA_SKIP_KEYS -l debug
@@ -113,7 +113,7 @@ jobs:
         name: "test assistive-webdriver (jaws, chromium)"
         with:
           timeout_minutes: 30
-          max_attempts: 3
+          max_attempts: 5
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-awd-tester -- -m jaws -k $JAWS_SKIP_KEYS -l debug
