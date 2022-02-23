@@ -9,3 +9,4 @@ node_modules
 /components/assistive-webdriver/config-schema.json
 /components/vm-providers/src/config.ts
 /doc/apidoc-output
+test-reports

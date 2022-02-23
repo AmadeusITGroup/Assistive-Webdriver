@@ -28,7 +28,7 @@ import {
   CalibrationQRCodesConfig,
   MouseButton
 } from "vm-providers";
-import { ElementHandle, Frame, Page } from "playwright-core";
+import type { ElementHandle, Frame, Page } from "playwright-core";
 import { createWriteStream } from "fs";
 import { pipeline } from "stream";
 import { v4 as createUUIDv4 } from "uuid";

@@ -65,6 +65,12 @@ The 3 yellow boxes in this schema are the three components of Assistive-Playwrig
 - [assistive-playwright-server](components/assistive-playwright-server)
 - [text-to-socket-engine](components/text-to-socket-engine)
 
+Another package is provided for integration with the @playwright/test test runner (it uses assistive-playwright-client internally):
+
+- [assistive-playwright-test](components/assistive-playwright-test)
+
 Inside of the assistive-playwright-client component, all calls to create, control, and destroy the virtual machine are made through the following component that can be used independently:
 
 - [vm-providers](components/vm-providers)
+
+**Note that the recommended way to run tests with a screen reader is to use the [assistive-playwright-test](components/assistive-playwright-test) package along with @playwright/test.**
