@@ -94,3 +94,5 @@ const { createVM } = require("assistive-playwright-client");
 ```
 
 The API documentation is available [here](https://amadeusitgroup.github.io/Assistive-Webdriver/assistive-playwright-client)
+
+**Note that in order to run tests with a screen reader, instead of directly depending on this package, it is easier and recommended to use the [assistive-playwright-test](../assistive-playwright-test) package along with @playwright/test.**

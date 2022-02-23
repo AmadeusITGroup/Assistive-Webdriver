@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Amadeus s.a.s.
+ * Copyright 2019 Amadeus s.a.s.
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -16,38 +16,33 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- *
- * This package contains functions to be used with playwright in
- * order to test a web application with a screen reader.
- *
- * @packageDocumentation
- */
+require("../../tools/code-coverage/overrideReadFileSync");
+const pkg = require("./package.json");
+const dependencies = Object.keys(pkg.dependencies).concat(
+  Object.keys(pkg.peerDependencies)
+);
+const typescript = require("@rollup/plugin-typescript");
 
-export { connectRemotePlaywright, RemotePlaywright } from "./remotePlaywright";
-export {
-  ScreenReaderClient,
-  ExpectedText,
-  isMatch
-} from "./screenReaderClient";
-export { VMKeyboard } from "./vm/keyboard";
-export {
-  CalibrateMouseFunction,
-  calibrateMouseFunctionFactory,
-  VMMouse
-} from "./vm/mouse";
-export { createVM, VMConfiguration, VMWithPlaywright } from "./vm/create";
-export {
-  CalibrationError,
-  CalibrationResult,
-  CalibrationOptions,
-  playwrightCalibrate
-} from "./vm/calibrate";
-export {
-  VM,
-  VMSettings,
-  createVM as createRawVM,
-  PortRedirection,
-  MouseButton,
-  Key
-} from "vm-providers";
+export default [
+  {
+    output: [
+      {
+        file: "./dist/index.js",
+        format: "cjs"
+      }
+    ],
+    input: "./src/index.ts",
+    external: dependencies.concat([
+      "events",
+      "util",
+      "child_process",
+      "fs",
+      "os",
+      "path",
+      "net",
+      "stream",
+      "url"
+    ]),
+    plugins: [typescript()]
+  }
+];

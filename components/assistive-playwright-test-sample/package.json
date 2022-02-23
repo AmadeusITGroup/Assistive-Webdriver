@@ -1,0 +1,23 @@
+{
+  "name": "assistive-playwright-test-sample",
+  "version": "0.0.0",
+  "description": "Sample test using assistive-playwright-test.",
+  "private": true,
+  "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-playwright-test-sample",
+  "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmadeusITGroup/Assistive-Webdriver.git",
+    "directory": "components/assistive-playwright-test-sample"
+  },
+  "dependencies": {
+    "@playwright/test": "1.19.2",
+    "assistive-playwright-test": "workspace:*",
+    "sirv-cli": "2.0.2"
+  },
+  "scripts": {
+    "start": "sirv -H 0.0.0.0 public"
+  },
+  "license": "MIT"
+}

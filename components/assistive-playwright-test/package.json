@@ -1,0 +1,49 @@
+{
+  "name": "assistive-playwright-test",
+  "version": "0.0.0",
+  "description": "assistive-playwright-test is a library that extends @playwright/test by providing test fixtures to allow end-to-end testing of web applications with a screen reader.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "author": "David-Emmanuel Divernois <david-emmanuel.divernois@amadeus.com>",
+  "homepage": "https://github.com/AmadeusITGroup/Assistive-Webdriver/tree/master/components/assistive-playwright-test",
+  "bugs": "https://github.com/AmadeusITGroup/Assistive-Webdriver/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmadeusITGroup/Assistive-Webdriver.git",
+    "directory": "components/assistive-playwright-test"
+  },
+  "keywords": [
+    "automation",
+    "testing",
+    "playwright",
+    "screen readers",
+    "a11y",
+    "accessibility"
+  ],
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@microsoft/api-extractor": "7.19.4",
+    "@playwright/test": "1.19.2",
+    "rollup": "2.69.0",
+    "tslib": "2.3.1",
+    "typescript": "4.6.2"
+  },
+  "dependencies": {
+    "assistive-playwright-client": "workspace:*",
+    "uuid": "8.3.2"
+  },
+  "peerDependencies": {
+    "@playwright/test": "^1.19.2"
+  },
+  "scripts": {
+    "prepare": "pnpm build",
+    "build": "node ../../tools/clean && pnpm build:rollup && pnpm build:dts && pnpm build:api",
+    "build:rollup": "rollup --failAfterWarnings -c",
+    "build:dts": "tsc -p tsconfig.d.json",
+    "build:api": "api-extractor run --config ./api-extractor.json --verbose && node fixApi"
+  },
+  "license": "MIT"
+}

@@ -23,7 +23,8 @@
     "nyc-report": "nyc report --reporter=lcov",
     "nyc-awd-server": "nyc node components/assistive-webdriver/dist/server/bin.js",
     "nyc-awd-tester": "nyc node components/assistive-webdriver/dist/tester.js",
-    "nyc-apw-tester": "nyc node components/assistive-playwright-tester/dist/index.js"
+    "nyc-apw-tester": "nyc node components/assistive-playwright-tester/dist/index.js",
+    "nyc-apw-test": "nyc node components/assistive-playwright-test-sample/node_modules/@playwright/test/cli.js test -c components/assistive-playwright-test-sample"
   },
   "nyc": {
     "instrument": false,

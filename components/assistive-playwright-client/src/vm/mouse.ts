@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { ElementHandle, Frame, Mouse, Page } from "playwright-core";
+import type { ElementHandle, Frame, Mouse, Page } from "playwright-core";
 import { MouseButton, SimplePosition, VM, wait } from "vm-providers";
 import {
   CalibrationOptions,

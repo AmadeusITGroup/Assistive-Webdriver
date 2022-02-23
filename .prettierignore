@@ -8,3 +8,4 @@ coverage
 /components/assistive-playwright-server/src/validation.js
 /doc/apidoc-input
 /doc/apidoc-output
+test-reports

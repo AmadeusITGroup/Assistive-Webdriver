@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Keyboard } from "playwright-core";
+import type { Keyboard } from "playwright-core";
 import { isShiftedKey, Key, VM, wait } from "vm-providers";
 
 // For the split function:
