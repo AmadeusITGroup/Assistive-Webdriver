@@ -1,6 +1,6 @@
 {
   "name": "assistive-playwright-server",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "assistive-playwright-server is the server part of the assistive-playwright tool that allows end-to-end testing of web applications with a screen reader. It is designed to run inside the virtual machine started by the assistive-playwright-client package and to give it access to the playwright API and screen-reader messages, over the network between the host and the guest virtual machine.",
   "bin": "assistive-playwright-server",
   "main": "dist/index.js",

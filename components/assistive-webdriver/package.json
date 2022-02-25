@@ -1,6 +1,6 @@
 {
   "name": "assistive-webdriver",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Assistive-Webdriver is a tool to automate end-to-end web application tests with a screen reader.",
   "bin": "assistive-webdriver",
   "main": "dist/client/index.js",
