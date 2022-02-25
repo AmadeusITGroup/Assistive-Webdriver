@@ -36,4 +36,5 @@ export declare class VMMouse implements Mouse
 |  [down(options)](./assistive-playwright-client.vmmouse.down.md) |  | Sends a low-level mousedown event to the virtual machine. |
 |  [move(x, y, options)](./assistive-playwright-client.vmmouse.move.md) |  | Moves the mouse to the specified position, expressed either as coordinates in the viewport (relative to the top-left corner), or coordinates relative to the center of the DOM element passed as <code>origin</code> in the <code>options</code>. |
 |  [up(options)](./assistive-playwright-client.vmmouse.up.md) |  | Sends a low-level mouseup event to the virtual machine. |
+|  [wheel(deltaX, deltaY)](./assistive-playwright-client.vmmouse.wheel.md) |  |  |
 

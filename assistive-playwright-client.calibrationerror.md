@@ -16,17 +16,12 @@ export declare class CalibrationError
 
 |  Constructor | Modifiers | Description |
 |  --- | --- | --- |
-|  [(constructor)(screenshot, color, expectedWidth, expectedHeight, colorTolerance)](./assistive-playwright-client.calibrationerror._constructor_.md) |  | Creates an instance of [CalibrationError](./assistive-playwright-client.calibrationerror.md)<!-- -->, containing information about why the calibration failed. This is thrown by [playwrightCalibrate()](./assistive-playwright-client.playwrightcalibrate.md) to give details allowing to understand why the calibration failed. |
+|  [(constructor)(screenshot)](./assistive-playwright-client.calibrationerror._constructor_.md) |  | Creates an instance of [CalibrationError](./assistive-playwright-client.calibrationerror.md)<!-- -->, containing information about why the calibration failed. This is thrown by [playwrightCalibrate()](./assistive-playwright-client.playwrightcalibrate.md) to give details allowing to understand why the calibration failed. |
 
 ## Properties
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [color](./assistive-playwright-client.calibrationerror.color.md) |  | [Color](./assistive-playwright-client.color.md) | Color of the rectangle displayed in the viewport. |
-|  [colorTolerance](./assistive-playwright-client.calibrationerror.colortolerance.md) |  | number | Tolerance on the color that was used (as configured in [CalibrationOptions.colorTolerance](./assistive-playwright-client.calibrationoptions.colortolerance.md)<!-- -->). |
-|  [expectedHeight](./assistive-playwright-client.calibrationerror.expectedheight.md) |  | number | Expected height (in pixels) of the rectangle that was looked for in the screenshot. |
-|  [expectedWidth](./assistive-playwright-client.calibrationerror.expectedwidth.md) |  | number | Expected width (in pixels) of the rectangle that was looked for in the screenshot. |
-|  [message](./assistive-playwright-client.calibrationerror.message.md) |  | string | Error message. |
 |  [screenshot](./assistive-playwright-client.calibrationerror.screenshot.md) |  | PNG | Screenshot of the virtual machine, in which the browser viewport could not be found. |
 
 ## Methods

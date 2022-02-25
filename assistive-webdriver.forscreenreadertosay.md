@@ -28,6 +28,5 @@ Condition&lt;string\[\] \| false&gt;
 
 ```ts
 await driver.wait(forScreenReaderToSay("Date of departure"), 5000);
-
 ```
 

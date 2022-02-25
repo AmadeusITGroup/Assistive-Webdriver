@@ -40,6 +40,5 @@ This package contains functions to be used with playwright in order to test a we
 |  Type Alias | Description |
 |  --- | --- |
 |  [CalibrateMouseFunction](./assistive-playwright-client.calibratemousefunction.md) | A mouse calibration function. This is returned by [createVM()](./assistive-playwright-client.createvm.md) in the [VMWithPlaywright](./assistive-playwright-client.vmwithplaywright.md) object. The [calibration process](./assistive-playwright-client.playwrightcalibrate.md) finds where the browser viewport is located on the screen, allowing to use coordinates relative to the viewport or to a DOM element instead of using screen coordinates. This function returns a [VMMouse](./assistive-playwright-client.vmmouse.md) object that allows to easily send low-level mouse events to the virtual machine. |
-|  [Color](./assistive-playwright-client.color.md) | Color, expressed as an array of three numbers between 0 and 255, representing the red, green and blue parts |
 |  [ExpectedText](./assistive-playwright-client.expectedtext.md) | Type of an expectation from a message coming from the screen reader. |
 

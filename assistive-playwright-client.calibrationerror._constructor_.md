@@ -10,11 +10,7 @@ Creates an instance of [CalibrationError](./assistive-playwright-client.calibrat
 
 ```typescript
 constructor(
-    screenshot: PNG, 
-    color: Color, 
-    expectedWidth: number, 
-    expectedHeight: number, 
-    colorTolerance: number);
+    screenshot: PNG);
 ```
 
 ## Parameters
@@ -22,8 +18,4 @@ constructor(
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  screenshot | PNG | Cf [screenshot](./assistive-playwright-client.calibrationerror.screenshot.md) |
-|  color | [Color](./assistive-playwright-client.color.md) | Cf [color](./assistive-playwright-client.calibrationerror.color.md) |
-|  expectedWidth | number | Cf [expectedWidth](./assistive-playwright-client.calibrationerror.expectedwidth.md) |
-|  expectedHeight | number | Cf [expectedHeight](./assistive-playwright-client.calibrationerror.expectedheight.md) |
-|  colorTolerance | number | Cf [colorTolerance](./assistive-playwright-client.calibrationerror.colortolerance.md) |
 

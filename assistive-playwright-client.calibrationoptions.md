@@ -9,17 +9,13 @@ Options for the calibration, passed to [playwrightCalibrate()](./assistive-playw
 <b>Signature:</b>
 
 ```typescript
-export interface CalibrationOptions 
+export interface CalibrationOptions extends CalibrationQRCodesConfig 
 ```
+<b>Extends:</b> [CalibrationQRCodesConfig](./vm-providers.calibrationqrcodesconfig.md)
 
 ## Properties
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [borderColor?](./assistive-playwright-client.calibrationoptions.bordercolor.md) | [Color](./assistive-playwright-client.color.md) | <i>(Optional)</i> Color of the border of the rectangle to be displayed in the viewport. Defaults to <code>[100, 100, 100]</code> |
-|  [borderWidth?](./assistive-playwright-client.calibrationoptions.borderwidth.md) | number | <i>(Optional)</i> Width (in pixels) of the border of the rectangle to be displayed in the viewport. Defaults to <code>30</code>. |
-|  [calibrationColor?](./assistive-playwright-client.calibrationoptions.calibrationcolor.md) | [Color](./assistive-playwright-client.color.md) | <i>(Optional)</i> Color of the rectangle to display in the viewport. Defaults to <code>[255, 0, 0]</code> (red) |
-|  [colorTolerance?](./assistive-playwright-client.calibrationoptions.colortolerance.md) | number | <i>(Optional)</i> Allowed difference between the color in the screenshot and [calibrationColor](./assistive-playwright-client.calibrationoptions.calibrationcolor.md)<!-- -->, 0 meaning no difference. The difference is computed as the sum of the absolute value of the difference for each red, green and blue parts. Defaults to <code>[255, 0, 0]</code>. |
-|  [estimatedXMargin?](./assistive-playwright-client.calibrationoptions.estimatedxmargin.md) | number | <i>(Optional)</i> Extra horizontal space to add at the right of the colored rectangle. Defaults to <code>0</code>. |
-|  [estimatedYMargin?](./assistive-playwright-client.calibrationoptions.estimatedymargin.md) | number | <i>(Optional)</i> Extra vertical space to add at the bottom of the colored rectangle. Defaults to <code>0</code>. |
+|  [skipClick?](./assistive-playwright-client.calibrationoptions.skipclick.md) | boolean | <i>(Optional)</i> Whether to skip the click done during calibration. |
 
