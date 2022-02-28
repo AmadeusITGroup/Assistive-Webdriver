@@ -18,14 +18,14 @@ jobs:
       - run: pnpm update -r --latest -E
       - run: |
           ( cd ./components/assistive-webdriver && pnpm install p-queue@6.6.2 )
-          ( cd ./components/assistive-webdriver && pnpm install node-fetch@2.6.1 )
-          ( cd ./components/assistive-webdriver && pnpm install -D @types/node-fetch@2.5.12 )
-          ( cd ./components/assistive-playwright-client && pnpm install node-fetch@2.6.1 )
-          ( cd ./components/assistive-playwright-client && pnpm install -D @types/node-fetch@2.5.12 )
-          ( cd ./components/assistive-playwright-server && pnpm install -D node-fetch@2.6.1 )
-          ( cd ./components/assistive-playwright-server && pnpm install -D @types/node-fetch@2.5.12 )
-          ( cd ./components/assistive-playwright-tester && pnpm install node-fetch@2.6.1 )
-          ( cd ./components/assistive-playwright-tester && pnpm install -D @types/node-fetch@2.5.12 )
+          ( cd ./components/assistive-webdriver && pnpm install node-fetch@2.6.7 )
+          ( cd ./components/assistive-webdriver && pnpm install -D @types/node-fetch@2.6.1 )
+          ( cd ./components/assistive-playwright-client && pnpm install node-fetch@2.6.7 )
+          ( cd ./components/assistive-playwright-client && pnpm install -D @types/node-fetch@2.6.1 )
+          ( cd ./components/assistive-playwright-server && pnpm install -D node-fetch@2.6.7 )
+          ( cd ./components/assistive-playwright-server && pnpm install -D @types/node-fetch@2.6.1 )
+          ( cd ./components/assistive-playwright-tester && pnpm install node-fetch@2.6.7 )
+          ( cd ./components/assistive-playwright-tester && pnpm install -D @types/node-fetch@2.6.1 )
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3.8.0
         with:
