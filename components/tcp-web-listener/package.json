@@ -29,7 +29,7 @@
   "dependencies": {
     "express": "4.17.3",
     "sockjs": "0.3.24",
-    "sockjs-client": "1.5.2",
+    "sockjs-client": "1.6.0",
     "yargs": "17.3.1"
   },
   "devDependencies": {

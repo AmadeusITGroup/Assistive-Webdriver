@@ -19,14 +19,14 @@
   ],
   "dependencies": {
     "assistive-playwright-client": "workspace:*",
-    "node-fetch": "2.6.1",
+    "node-fetch": "2.6.7",
     "uuid": "8.3.2",
     "vm-providers": "workspace:*",
     "winston": "3.6.0",
     "yargs": "17.3.1"
   },
   "devDependencies": {
-    "@types/node-fetch": "2.5.12",
+    "@types/node-fetch": "2.6.1",
     "@types/yargs": "17.0.8",
     "playwright-core": "1.19.2",
     "rimraf": "3.0.2",
