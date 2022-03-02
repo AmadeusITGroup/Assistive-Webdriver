@@ -167,9 +167,8 @@ export interface CalibrationOptions extends CalibrationQRCodesConfig {
 
 /**
  * Finds the coordinates of the viewport in the browser window.
- * There is no playwright API for this, so it is done by
- * displaying a rectangle of a specific color in the viewport and
- * finding it in the screen capture.
+ * There is no playwright API for this, so it is done by displaying QR codes
+ * in the viewport and finding them in the screen capture.
  * @public
  * @param vm - Virtual machine, as returned by {@link vm-providers#createVM}
  * @param frame - Playwright page or frame
