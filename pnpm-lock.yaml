@@ -11,7 +11,7 @@ importers:
       '@typescript-eslint/parser': 5.13.0
       babel-plugin-istanbul: 6.1.1
       eslint: 8.10.0
-      eslint-config-prettier: 8.4.0
+      eslint-config-prettier: 8.5.0
       jest-environment-node: 27.5.1
       nyc: 15.1.0
       prettier: 2.5.1
@@ -24,7 +24,7 @@ importers:
       '@typescript-eslint/parser': 5.13.0_eslint@8.10.0
       babel-plugin-istanbul: 6.1.1
       eslint: 8.10.0
-      eslint-config-prettier: 8.4.0_eslint@8.10.0
+      eslint-config-prettier: 8.5.0_eslint@8.10.0
       jest-environment-node: 27.5.1
       nyc: 15.1.0
       prettier: 2.5.1
@@ -39,7 +39,7 @@ importers:
       jest: 27.5.1
       node-fetch: 2.6.7
       playwright-core: 1.19.2
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       uuid: 8.3.2
@@ -58,7 +58,7 @@ importers:
       '@types/pngjs': 6.0.1
       assistive-playwright-server: link:../assistive-playwright-server
       jest: 27.5.1
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       wait-port: 0.2.9
@@ -72,14 +72,14 @@ importers:
       '@types/http-proxy': 1.17.8
       '@types/node-fetch': 2.6.1
       '@types/ws': 8.5.2
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       ajv: 8.10.0
       co-body: 6.1.0
       http-proxy: 1.18.1
       jest: 27.5.1
       node-fetch: 2.6.7
       playwright: 1.19.2
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       typescript-json-schema: 0.53.0
@@ -94,17 +94,17 @@ importers:
       ws: 8.5.0
       yargs: 17.3.1
     devDependencies:
-      '@rollup/plugin-commonjs': 21.0.2_rollup@2.68.0
-      '@rollup/plugin-replace': 4.0.0_rollup@2.68.0
-      '@rollup/plugin-typescript': 8.3.1_a95165e8381252b82a64dc91df9f8c73
+      '@rollup/plugin-commonjs': 21.0.2_rollup@2.69.0
+      '@rollup/plugin-replace': 4.0.0_rollup@2.69.0
+      '@rollup/plugin-typescript': 8.3.1_3fc96cb58c53f339ee334fa5a70c4c71
       '@types/co-body': 6.1.0
       '@types/http-proxy': 1.17.8
       '@types/node-fetch': 2.6.1
       '@types/ws': 8.5.2
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       jest: 27.5.1
       node-fetch: 2.6.7
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       typescript-json-schema: 0.53.0
@@ -113,11 +113,11 @@ importers:
   components/assistive-playwright-tester:
     specifiers:
       '@types/node-fetch': 2.6.1
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       assistive-playwright-client: workspace:*
       node-fetch: 2.6.7
       playwright-core: 1.19.2
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       uuid: 8.3.2
@@ -134,9 +134,9 @@ importers:
       yargs: 17.3.1
     devDependencies:
       '@types/node-fetch': 2.6.1
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       playwright-core: 1.19.2
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
       wait-port: 0.2.9
@@ -157,7 +157,7 @@ importers:
       '@types/selenium-webdriver': 4.0.18
       '@types/uuid': 8.3.4
       '@types/ws': 8.5.2
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       co-body: 6.1.0
       colors: 1.4.0
       http-proxy: 1.18.1
@@ -168,7 +168,7 @@ importers:
       node-fetch: 2.6.7
       p-queue: 6.6.2
       pngjs: 6.0.0
-      rollup: 2.68.0
+      rollup: 2.69.0
       selenium-webdriver: 4.1.1
       tslib: 2.3.1
       typescript: 4.6.2
@@ -192,7 +192,7 @@ importers:
       yargs: 17.3.1
     devDependencies:
       '@microsoft/api-extractor': 7.19.4
-      '@rollup/plugin-typescript': 8.3.1_a95165e8381252b82a64dc91df9f8c73
+      '@rollup/plugin-typescript': 8.3.1_3fc96cb58c53f339ee334fa5a70c4c71
       '@sinonjs/fake-timers': 9.1.0
       '@types/co-body': 6.1.0
       '@types/http-proxy': 1.17.8
@@ -205,11 +205,11 @@ importers:
       '@types/selenium-webdriver': 4.0.18
       '@types/uuid': 8.3.4
       '@types/ws': 8.5.2
-      '@types/yargs': 17.0.8
+      '@types/yargs': 17.0.9
       jest: 27.5.1
       json-schema-to-typescript: 10.1.5
       pngjs: 6.0.0
-      rollup: 2.68.0
+      rollup: 2.69.0
       selenium-webdriver: 4.1.1
       tslib: 2.3.1
       typescript: 4.6.2
@@ -249,7 +249,7 @@ importers:
       json-schema-to-typescript: 10.1.5
       pngjs: 6.0.0
       qrcode: 1.5.0
-      rollup: 2.68.0
+      rollup: 2.69.0
       stream-json: 1.7.4
       tslib: 2.3.1
       typescript: 4.6.2
@@ -264,14 +264,14 @@ importers:
       virtualbox-soap: 4.0.0
     devDependencies:
       '@microsoft/api-extractor': 7.19.4
-      '@rollup/plugin-typescript': 8.3.1_a95165e8381252b82a64dc91df9f8c73
+      '@rollup/plugin-typescript': 8.3.1_3fc96cb58c53f339ee334fa5a70c4c71
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.2
       '@types/stream-json': 1.7.2
       '@types/uuid': 8.3.4
       jest: 27.5.1
       json-schema-to-typescript: 10.1.5
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
 
@@ -983,33 +983,33 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@rollup/plugin-commonjs/21.0.2_rollup@2.68.0:
+  /@rollup/plugin-commonjs/21.0.2_rollup@2.69.0:
     resolution: {integrity: sha512-d/OmjaLVO4j/aQX69bwpWPpbvI3TJkQuxoAk7BH8ew1PyoMBLTOuvJTjzG8oEoW7drIIqB0KCJtfFLu/2GClWg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
       rollup: ^2.38.3
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.68.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.69.0
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 7.2.0
       is-reference: 1.2.1
-      magic-string: 0.25.7
+      magic-string: 0.25.8
       resolve: 1.22.0
-      rollup: 2.68.0
+      rollup: 2.69.0
     dev: true
 
-  /@rollup/plugin-replace/4.0.0_rollup@2.68.0:
+  /@rollup/plugin-replace/4.0.0_rollup@2.69.0:
     resolution: {integrity: sha512-+rumQFiaNac9y64OHtkHGmdjm7us9bo1PlbgQfdihQtuNxzjpaB064HbRnewUOggLQxVCCyINfStkgmBeQpv1g==}
     peerDependencies:
       rollup: ^1.20.0 || ^2.0.0
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.68.0
-      magic-string: 0.25.7
-      rollup: 2.68.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.69.0
+      magic-string: 0.25.8
+      rollup: 2.69.0
     dev: true
 
-  /@rollup/plugin-typescript/8.3.1_a95165e8381252b82a64dc91df9f8c73:
+  /@rollup/plugin-typescript/8.3.1_3fc96cb58c53f339ee334fa5a70c4c71:
     resolution: {integrity: sha512-84rExe3ICUBXzqNX48WZV2Jp3OddjTMX97O2Py6D1KJaGSwWp0mDHXj+bCGNJqWHIEKDIT2U0sDjhP4czKi6cA==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
@@ -1017,14 +1017,14 @@ packages:
       tslib: '*'
       typescript: '>=3.7.0'
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.68.0
+      '@rollup/pluginutils': 3.1.0_rollup@2.69.0
       resolve: 1.22.0
-      rollup: 2.68.0
+      rollup: 2.69.0
       tslib: 2.3.1
       typescript: 4.6.2
     dev: true
 
-  /@rollup/pluginutils/3.1.0_rollup@2.68.0:
+  /@rollup/pluginutils/3.1.0_rollup@2.69.0:
     resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
     engines: {node: '>= 8.0.0'}
     peerDependencies:
@@ -1033,7 +1033,7 @@ packages:
       '@types/estree': 0.0.39
       estree-walker: 1.0.1
       picomatch: 2.3.1
-      rollup: 2.68.0
+      rollup: 2.69.0
     dev: true
 
   /@rushstack/node-core-library/3.45.0:
@@ -1384,20 +1384,20 @@ packages:
       '@types/node': 17.0.21
     dev: true
 
-  /@types/yargs-parser/20.2.1:
-    resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==}
+  /@types/yargs-parser/21.0.0:
+    resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: true
 
   /@types/yargs/16.0.4:
     resolution: {integrity: sha512-T8Yc9wt/5LbJyCaLiHPReJa0kApcIgJ7Bn735GjItUfh08Z1pJvu8QZqb9s+mMvKV6WUQRV7K2R46YbjMXTTJw==}
     dependencies:
-      '@types/yargs-parser': 20.2.1
+      '@types/yargs-parser': 21.0.0
     dev: true
 
-  /@types/yargs/17.0.8:
-    resolution: {integrity: sha512-wDeUwiUmem9FzsyysEwRukaEdDNcwbROvQ9QGRKaLI6t+IltNzbn4/i4asmB10auvZGQCzSQ6t0GSczEThlUXw==}
+  /@types/yargs/17.0.9:
+    resolution: {integrity: sha512-Ci8+4/DOtkHRylcisKmVMtmVO5g7weUVCKcsu1sJvF1bn0wExTmbHmhFKj7AnEm0de800iovGhdSKzYnzbaHpg==}
     dependencies:
-      '@types/yargs-parser': 20.2.1
+      '@types/yargs-parser': 21.0.0
     dev: true
 
   /@types/yauzl/2.9.2:
@@ -2434,8 +2434,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-prettier/8.4.0_eslint@8.10.0:
-    resolution: {integrity: sha512-CFotdUcMY18nGRo5KGsnNxpznzhkopOcOo0InID+sgQssPrzjvsyKZPvOgymTFeHrFuC3Tzdf2YndhXtULK9Iw==}
+  /eslint-config-prettier/8.5.0_eslint@8.10.0:
+    resolution: {integrity: sha512-obmWKLUNCnhtQRKc+tmnYuQl0pFU1ibYJQ5BGhTVB08bHe9wC8qUeG7c08dj9XX+AuPj1YSGSQIHl1pnDHZR0Q==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -4167,8 +4167,8 @@ packages:
       es5-ext: 0.10.53
     dev: true
 
-  /magic-string/0.25.7:
-    resolution: {integrity: sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==}
+  /magic-string/0.25.8:
+    resolution: {integrity: sha512-n9NlSgfkB2rPYjSd/EZDoQcsXzwYAv4CIB/vi3ZSvZ2Tjax5W5Ie1NMy4HG3PVdcL4bBMMR20Ng4UcISMzqRLw==}
     dependencies:
       sourcemap-codec: 1.4.8
     dev: true
@@ -4937,8 +4937,8 @@ packages:
     dependencies:
       glob: 7.2.0
 
-  /rollup/2.68.0:
-    resolution: {integrity: sha512-XrMKOYK7oQcTio4wyTz466mucnd8LzkiZLozZ4Rz0zQD+HeX4nUK4B8GrTX/2EvN2/vBF/i2WnaXboPxo0JylA==}
+  /rollup/2.69.0:
+    resolution: {integrity: sha512-kjER91tHyek8gAkuz7+558vSnTQ+pITEok1P0aNOS45ZXyngaqPsXJmSel4QPQnJo7EJMjXUU1/GErWkWiKORg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
