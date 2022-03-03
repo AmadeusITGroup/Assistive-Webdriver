@@ -9,7 +9,7 @@ Connects to a remote assistive-playwright-server running at the given URL and re
 <b>Signature:</b>
 
 ```typescript
-export declare function connectRemotePlaywright(url: string | URL): RemotePlaywright;
+export declare function connectRemotePlaywright<T extends RemotePlaywright>(url: string | URL, localPlaywright?: T): T;
 ```
 
 ## Parameters
@@ -17,10 +17,11 @@ export declare function connectRemotePlaywright(url: string | URL): RemotePlaywr
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  url | string \| URL | URL at which assistive-playwright-server is running. |
+|  localPlaywright | T | reference to the playwright, playwright-core or @<!-- -->playwright/test local package. |
 
 <b>Returns:</b>
 
-[RemotePlaywright](./assistive-playwright-client.remoteplaywright.md)
+T
 
 ## Remarks
 

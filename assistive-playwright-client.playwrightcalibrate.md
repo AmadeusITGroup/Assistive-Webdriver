@@ -4,7 +4,7 @@
 
 ## playwrightCalibrate() function
 
-Finds the coordinates of the viewport in the browser window. There is no playwright API for this, so it is done by displaying a rectangle of a specific color in the viewport and finding it in the screen capture.
+Finds the coordinates of the viewport in the browser window. There is no playwright API for this, so it is done by displaying QR codes in the viewport and finding them in the screen capture.
 
 <b>Signature:</b>
 

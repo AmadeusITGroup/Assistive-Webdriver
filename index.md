@@ -9,6 +9,7 @@
 |  Package | Description |
 |  --- | --- |
 |  [assistive-playwright-client](./assistive-playwright-client.md) | This package contains functions to be used with playwright in order to test a web application with a screen reader. |
+|  [assistive-playwright-test](./assistive-playwright-test.md) | This package contains Playwright Test fixtures allowing to easily use Playwright Test to test a web application with a screen reader. |
 |  [assistive-webdriver](./assistive-webdriver.md) | This package contains functions to be used with selenium-webdriver in order to test a web application with a screen reader. |
 |  [vm-providers](./vm-providers.md) | This package contains functions to clone and start a virtual machine with one of the available providers (virtualbox or qemu), to send it keyboard and mouse events and finally to destroy it. It also contains some utilities commonly used with applications that need to control a virtual machine. |
 

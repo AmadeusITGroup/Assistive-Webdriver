@@ -21,10 +21,10 @@ This package contains functions to be used with playwright in order to test a we
 |  Function | Description |
 |  --- | --- |
 |  [calibrateMouseFunctionFactory(vm)](./assistive-playwright-client.calibratemousefunctionfactory.md) | Creates a mouse calibration function for the specified virtual machine. |
-|  [connectRemotePlaywright(url)](./assistive-playwright-client.connectremoteplaywright.md) | Connects to a remote assistive-playwright-server running at the given URL and returns the chromium, firefox and webkit playwright browser type objects allowing to start and control those browsers remotely. |
+|  [connectRemotePlaywright(url, localPlaywright)](./assistive-playwright-client.connectremoteplaywright.md) | Connects to a remote assistive-playwright-server running at the given URL and returns the chromium, firefox and webkit playwright browser type objects allowing to start and control those browsers remotely. |
 |  [createVM(vmconfig)](./assistive-playwright-client.createvm.md) | Clones and starts a virtual machine that contains assistive-playwright-server, and returns an object allowing to control playwright inside the virtual machine, send low-level keyboard and mouse events and receive messages from the screen reader. This is the main entry point of the assistive-playwright-client API. |
 |  [isMatch(screenReaderText, expectedText)](./assistive-playwright-client.ismatch.md) | Returns whether the text coming from the screen reader passed as the first parameter matches the expected text specified as the second parameter. |
-|  [playwrightCalibrate(vm, frame, options)](./assistive-playwright-client.playwrightcalibrate.md) | Finds the coordinates of the viewport in the browser window. There is no playwright API for this, so it is done by displaying a rectangle of a specific color in the viewport and finding it in the screen capture. |
+|  [playwrightCalibrate(vm, frame, options)](./assistive-playwright-client.playwrightcalibrate.md) | Finds the coordinates of the viewport in the browser window. There is no playwright API for this, so it is done by displaying QR codes in the viewport and finding them in the screen capture. |
 
 ## Interfaces
 
