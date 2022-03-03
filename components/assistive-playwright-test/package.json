@@ -1,6 +1,6 @@
 {
   "name": "assistive-playwright-test",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "description": "assistive-playwright-test is a library that extends @playwright/test by providing test fixtures to allow end-to-end testing of web applications with a screen reader.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
