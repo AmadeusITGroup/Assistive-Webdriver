@@ -8,7 +8,7 @@
     "@typescript-eslint/parser": "5.13.0",
     "babel-plugin-istanbul": "6.1.1",
     "eslint": "8.10.0",
-    "eslint-config-prettier": "8.4.0",
+    "eslint-config-prettier": "8.5.0",
     "jest-environment-node": "27.5.1",
     "nyc": "15.1.0",
     "prettier": "2.5.1",

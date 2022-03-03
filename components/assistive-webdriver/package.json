@@ -60,11 +60,11 @@
     "@types/selenium-webdriver": "4.0.18",
     "@types/uuid": "8.3.4",
     "@types/ws": "8.5.2",
-    "@types/yargs": "17.0.8",
+    "@types/yargs": "17.0.9",
     "jest": "27.5.1",
     "json-schema-to-typescript": "10.1.5",
     "pngjs": "6.0.0",
-    "rollup": "2.68.0",
+    "rollup": "2.69.0",
     "selenium-webdriver": "4.1.1",
     "tslib": "2.3.1",
     "typescript": "4.6.2"
