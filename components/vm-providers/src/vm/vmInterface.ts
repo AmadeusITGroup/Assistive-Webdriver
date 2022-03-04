@@ -92,7 +92,7 @@ export type VMFactory<T> = (config: VMConfig<T>) => Promise<VM>;
  * {@link VM.sendMouseDownEvent} and {@link VM.sendMouseUpEvent}.
  * @public
  */
-export const enum MouseButton {
+export enum MouseButton {
   LEFT = "0",
   MIDDLE = "1",
   RIGHT = "2"
