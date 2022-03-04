@@ -5,20 +5,6 @@ import {
 import os from "os";
 import path from "path";
 
-function findPublicIP() {
-  const interfaces = os.networkInterfaces();
-  const interfaceNames = Object.keys(interfaces);
-  const ips: os.NetworkInterfaceInfo[] = [];
-  interfaceNames.forEach(interfaceName => {
-    ips.push(
-      ...interfaces[interfaceName]!.filter(
-        address => !address.internal && address.family === "IPv4"
-      )
-    );
-  });
-  return ips.length > 0 ? ips[0].address : undefined;
-}
-
 let vmSettings: VMSettings = {
   type: "virtualbox",
   vm: "win10-chromium-nvda",
@@ -27,7 +13,7 @@ let vmSettings: VMSettings = {
 if (process.env.VM_SETTINGS) {
   vmSettings = JSON.parse(process.env.VM_SETTINGS);
 }
-const baseURL = `http://${findPublicIP()}:8080/`;
+const baseURL = `http://${os.hostname()}:8080/`;
 
 console.error("VM settings: ", vmSettings);
 console.error("Base URL: ", baseURL);

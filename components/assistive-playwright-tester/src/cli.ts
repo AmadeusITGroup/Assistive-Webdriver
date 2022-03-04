@@ -26,7 +26,7 @@ import type {
 import { createVM, Key } from "assistive-playwright-client";
 import { warn, error, info, configure, format, transports, log } from "winston";
 import { TesterSession } from "./testerSession";
-import { findPublicIP } from "./findPublicIP";
+import { hostname } from "os";
 import { AddressInfo } from "net";
 
 import { collectCoverage } from "./collectCoverage";
@@ -38,7 +38,6 @@ const hasFocus: (element: any) => boolean = element =>
   document.activeElement === element;
 
 (async function () {
-  const defaultPublicIp = findPublicIP();
   const argv = await yargs.options({
     browser: {
       array: true,
@@ -54,10 +53,11 @@ const hasFocus: (element: any) => boolean = element =>
     "public-host": {
       type: "string",
       alias: "h",
-      default: defaultPublicIp
+      default: hostname()
     },
     "listen-host": {
-      type: "string"
+      type: "string",
+      default: "0.0.0.0"
     },
     "public-port": {
       type: "number",
