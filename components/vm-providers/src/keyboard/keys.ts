@@ -23,7 +23,7 @@
  * {@link VM.sendKeyDownEvent} and {@link VM.sendKeyUpEvent}.
  * @public
  */
-export const enum Key {
+export enum Key {
   Backquote = "Backquote",
   Backslash = "Backslash",
   Backspace = "Backspace",
