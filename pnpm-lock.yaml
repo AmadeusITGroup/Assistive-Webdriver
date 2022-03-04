@@ -1400,7 +1400,7 @@ packages:
       estree-walker: 2.0.2
       glob: 7.2.0
       is-reference: 1.2.1
-      magic-string: 0.25.8
+      magic-string: 0.25.9
       resolve: 1.22.0
       rollup: 2.69.0
     dev: true
@@ -1411,7 +1411,7 @@ packages:
       rollup: ^1.20.0 || ^2.0.0
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.69.0
-      magic-string: 0.25.8
+      magic-string: 0.25.9
       rollup: 2.69.0
     dev: true
 
@@ -3042,7 +3042,7 @@ packages:
       '@jest/types': 27.5.1
       ansi-styles: 5.2.0
       jest-get-type: 27.5.1
-      jest-matcher-utils: 27.5.1
+      jest-matcher-utils: 27.2.5
       jest-message-util: 27.5.1
       jest-regex-util: 27.5.1
 
@@ -4064,6 +4064,7 @@ packages:
       jest-diff: 27.5.1
       jest-get-type: 27.5.1
       pretty-format: 27.5.1
+    dev: true
 
   /jest-message-util/27.5.1:
     resolution: {integrity: sha512-rMyFe1+jnyAAf+NHwTclDz0eAaLkVDdKVHHBFWsBWHnnh5YeJMNWWsv7AbFYXfK3oTqvL7VTWkhNLu1jX24D+g==}
@@ -4637,8 +4638,8 @@ packages:
       es5-ext: 0.10.53
     dev: true
 
-  /magic-string/0.25.8:
-    resolution: {integrity: sha512-n9NlSgfkB2rPYjSd/EZDoQcsXzwYAv4CIB/vi3ZSvZ2Tjax5W5Ie1NMy4HG3PVdcL4bBMMR20Ng4UcISMzqRLw==}
+  /magic-string/0.25.9:
+    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
       sourcemap-codec: 1.4.8
     dev: true
