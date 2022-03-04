@@ -19,7 +19,7 @@
 import yargs from "yargs";
 import { warn, error, info, configure, format, transports } from "winston";
 import { Builder, By, Browser, until, Key } from "selenium-webdriver";
-import { findPublicIP } from "./findPublicIP";
+import { hostname } from "os";
 import { AddressInfo } from "net";
 import { untilElementHasFocus } from "./untilElementHasFocus";
 import { TesterSession } from "./testerSession";
@@ -34,7 +34,6 @@ import {
 import { sigintWin32 } from "../server/sigintWin32";
 
 (async function () {
-  const defaultPublicIp = findPublicIP();
   const argv = await yargs.options({
     server: {
       type: "string",
@@ -58,10 +57,11 @@ import { sigintWin32 } from "../server/sigintWin32";
     "public-host": {
       type: "string",
       alias: "h",
-      default: defaultPublicIp
+      default: hostname()
     },
     "listen-host": {
-      type: "string"
+      type: "string",
+      default: "0.0.0.0"
     },
     "public-port": {
       type: "number",
