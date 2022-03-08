@@ -9,7 +9,7 @@ Mouse buttons that can be sent to a virtual machine through [VM.sendMouseDownEve
 <b>Signature:</b>
 
 ```typescript
-export declare const enum MouseButton 
+export declare enum MouseButton 
 ```
 
 ## Enumeration Members
