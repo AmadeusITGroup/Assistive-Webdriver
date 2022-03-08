@@ -97,14 +97,8 @@ jobs:
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").jaws.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-apw-tester -- -l debug -k $JAWS_SKIP_KEYS --vm-settings '$VM_SETTINGS'
-      - run: |
-          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
-          pnpm nyc-apw-test
-        name: "test assistive-playwright-test (nvda, chromium)"
-      - run: |
-          export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").jaws.vmSettings))')" &&
-          pnpm nyc-apw-test
-        name: "test assistive-playwright-test (jaws, chromium)"
+      - run: pnpm nyc-apw-test
+        name: "test assistive-playwright-test"
       - run: |
           pnpm nyc-awd-server -- -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done

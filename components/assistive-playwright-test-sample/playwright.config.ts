@@ -1,26 +1,20 @@
 import {
   AssistivePlaywrightTestConfig,
+  ReporterDescription,
   VMSettings
 } from "assistive-playwright-test";
 import os from "os";
 import path from "path";
+import vmConfig from "../../vagrant/win10-chromium-nvda/vm-config.json";
 
-let vmSettings: VMSettings = {
-  type: "virtualbox",
-  vm: "win10-chromium-nvda",
-  snapshot: "nvda"
-};
-if (process.env.VM_SETTINGS) {
-  vmSettings = JSON.parse(process.env.VM_SETTINGS);
-}
 const baseURL = `http://${os.hostname()}:8080/`;
 
-console.error("VM settings: ", vmSettings);
 console.error("Base URL: ", baseURL);
 
 const config: AssistivePlaywrightTestConfig = {
   reporter: [
-    [process.env.CI ? "github" : "list"],
+    ...(process.env.CI ? [["github"] as ReporterDescription] : []),
+    ["list"],
     ["html", { outputFolder: path.join(__dirname, "test-reports", "report") }]
   ],
   testDir: "test",
@@ -36,13 +30,42 @@ const config: AssistivePlaywrightTestConfig = {
   },
   use: {
     baseURL,
-    vmSettings,
     trace: "on",
     viewport: null,
     launchOptions: {
       args: ["--start-maximized"]
     }
-  }
+  },
+  projects: [
+    {
+      name: "chromium-jaws",
+      use: {
+        browserName: "chromium",
+        vmSettings: vmConfig.jaws.vmSettings as VMSettings
+      }
+    },
+    {
+      name: "firefox-jaws",
+      use: {
+        browserName: "firefox",
+        vmSettings: vmConfig.jaws.vmSettings as VMSettings
+      }
+    },
+    {
+      name: "chromium-nvda",
+      use: {
+        browserName: "chromium",
+        vmSettings: vmConfig.nvda.vmSettings as VMSettings
+      }
+    },
+    {
+      name: "firefox-nvda",
+      use: {
+        browserName: "firefox",
+        vmSettings: vmConfig.nvda.vmSettings as VMSettings
+      }
+    }
+  ]
 };
 
 export default config;
