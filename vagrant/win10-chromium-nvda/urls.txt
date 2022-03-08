@@ -1,31 +1,28 @@
 https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip
   out=MSEdge.Win10.Vagrant.zip
   checksum=sha-512=10620d68a5a14129da0bc7f856e0e3cabbfcec9cb8e6464553c03d2f638978f9b98866cf405baf737073ebb72eee904e8cb15d835ff5f12c99b0b49d668b531a
-https://www.nvaccess.org/files/nvda/releases/2020.3/nvda_2020.3.exe
+https://www.nvaccess.org/files/nvda/releases/2021.3.3/nvda_2021.3.3.exe
   out=nvda.exe
-  checksum=sha-512=8719507492269db398ef70f44e95f0132144223e76faf2e9b2123743ab68fcaf3793717a60ba2f522ae604a4ec820c95cedf396a645c0240fcde7f35cc40f729
-https://jaws2021.vfo.digital/2021.2107.12.400/CCCC3B93-1C9A-4AD9-B616-923E91ED7651/J2021.2107.12.400-any.exe
+  checksum=sha-512=e0985c3f0bf8b7b86c36256f4023bb09b4b264ee90be02efef48b2af81cadb66a9d18353482cfe36cf8cae9bf67736e5bb499c02be4048816b5e6e71154e79e1
+https://jaws2022.vfo.digital/2022.2202.38.400/64B90A11-AE0E-45FB-B94B-EFE626B7C9EC/J2022.2202.38.400-any.exe
   out=jaws.exe
-  checksum=sha-512=592aafeb612c87645842f9e9c505df23b2dce0664b063a368d0bdb34aa51dc5328a0a6086b1674aa57f00e41037189cea4a9cddb14c0d29c29d08934a47da584
-https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_windows-x64_bin.zip
+  checksum=sha-512=bf85c059a875b482478c6624ec9b61286b6a35937af06fcf26fa167c5a29ae0b2115d9528acbb2563f63cbcfd89fb74595a566fa0540e5c10b71858fbec033f3
+https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_windows-x64_bin.zip
   out=openjdk.zip
-  checksum=sha-512=e16fea3e77e1d07be54d7fa2f44f28f352ba21a97f7c105e5bd357b12a2819b91e88169c15f334444358ce643d427323c0d7f0ebb7c53d72617a88c08f5f5714
+  checksum=sha-512=e30b563c0b242904dfe07cf782862ef4ba7c60c3d8b96deace9682d278a37e93f7ee7180898f6104b847b38669e063173f5d9ed48c22228812b25f4795d15e8b
 https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
   out=selenium-server.jar
   checksum=sha-512=29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
-https://nodejs.org/dist/v14.17.6/node-v14.17.6-x64.msi
+https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi
   out=node.msi
-  checksum=sha-512=1d4dee8dd22add4575a7544ea26294556278f326873a5f07456a3cb9cbca20d999265a69a8e8c8bc345419f6ceb4e6bc80e63cd9db488acb9a9bf351627e9abe
+  checksum=sha-512=c05c96b72b73039719a0a727518f6997742012ec8aa1dedad48bf5e2ec9d28d5259efb48fc19c86a238d9dc73106f6cd930774ca3112f739c332486068e022ee
 # cf https://www.chromium.org/getting-involved/download-chromium
-https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchrome-win.zip?generation=1593136034368251&alt=media
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F961656%2Fchrome-win.zip?generation=1642724549952286&alt=media
   out=chrome.zip
-  checksum=sha-512=39c1965233b995828235cfbcb0d1b4df757a6c94cf0df43cb58de8dc75006a5752f107ebe4ad4d2a7ac16f7bc000e8e4dcf2cb7c645e9697d6838f512814ddda
-https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F782792%2Fchromedriver_win32.zip?generation=1593136040882187&alt=media
+  checksum=sha-512=8b53a6da20afb7c0ba96003d1f9f491b6a3148e812ada3860d41990b6803d0cdd4d42706d5315d77adaa537051a0b1b7d1435837e9feb087433cc35d1d95cc23
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F961656%2Fchromedriver_win32.zip?generation=1642724736241337&alt=media
   out=chromedriver.zip
-  checksum=sha-512=a23c1e33ea5c9e02cb9c813d44a2e05e441eb7c88a8c8db0ec7b1c5fb4029ddd37d80683bc53c1de61f0559d30594dcba3dffd0dcebe0ee817314f7854d0c319
-# VC_redist is needed for Firefox (vcruntime140_1.dll dependency)
-https://aka.ms/vs/16/release/VC_redist.x64.exe
-  out=VC_redist.x64.exe
+  checksum=sha-512=c82750cfa15d970b97696eace2be38d67de19756ce8e27562958835efffe339d9849a07f3e566e7fa735469bb04c052869a1673259584391cb88df20d17ad59b
 https://github.com/SeleniumHQ/selenium/releases/download/selenium-3.150.0/IEDriverServer_Win32_3.150.2.zip
   out=iedriver.zip
   checksum=sha-512=b10a5eab032dd8e9be7cb4b36b81d8e20d8f01b6ee28f9b147fe254f9813b3dec2d1095a843db97098169a92ebcef82261e34acb3c8ff92be46955f31d0984b9

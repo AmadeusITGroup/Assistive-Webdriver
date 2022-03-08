@@ -83,11 +83,6 @@ namespace Win32Api
       \$p = Start-Process reg.exe -ArgumentList "import","c:\\vagrant\\bestPerf.reg" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
 
-      echo "Installing VC_redist..."
-      Copy-Item "C:\\vagrant\\software\\VC_redist.x64.exe" -Destination "C:\\"
-      \$p = Start-Process -FilePath C:\\VC_redist.x64.exe -ArgumentList "/install","/quiet","/norestart" -Wait -NoNewWindow -PassThru
-      if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
-
       echo "Installing node.js..."
       \$p = Start-Process msiexec.exe -ArgumentList "/I","c:\\vagrant\\software\\node.msi","/quiet" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
@@ -131,8 +126,8 @@ namespace Win32Api
       echo "Installing jaws..."
       \$p = Start-Process -FilePath "C:\\vagrant\\software\\jaws.exe" -ArgumentList "/Type","Silent" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
-      New-Item -Path "C:\\Users\\IEUser\\AppData\\Roaming\\Freedom Scientific\\JAWS\\2021\\Settings\\enu" -ItemType "directory" -Force | Out-Null
-      Copy-Item -Path "C:\\vagrant\\Jaws\\*" -Destination "C:\\Users\\IEUser\\AppData\\Roaming\\Freedom Scientific\\JAWS\\2021\\Settings\\enu\\"
+      New-Item -Path "C:\\Users\\IEUser\\AppData\\Roaming\\Freedom Scientific\\JAWS\\2022\\Settings\\enu" -ItemType "directory" -Force | Out-Null
+      Copy-Item -Path "C:\\vagrant\\Jaws\\*" -Destination "C:\\Users\\IEUser\\AppData\\Roaming\\Freedom Scientific\\JAWS\\2022\\Settings\\enu\\"
 
       echo "Setup finished successfully!"
   SHELL
