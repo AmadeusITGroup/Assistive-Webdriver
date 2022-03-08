@@ -2,25 +2,34 @@
 
 set -e
 
-function buildTgz() {
+COMPONENTS_FOLDER="$(cd ../../components && pwd)"
+COMPONENTS_TO_INCLUDE="assistive-playwright-server text-to-socket-engine tcp-web-listener"
+
+function checkDLL() {
   local DLL=0
-  for i in node_modules/text-to-socket-engine/TextToSocketEngine*.dll ; do if [ -f "$i" ]; then DLL=$((DLL+1)); fi; done
+  for i in "$COMPONENTS_FOLDER"/text-to-socket-engine/TextToSocketEngine*.dll ; do if [ -f "$i" ]; then DLL=$((DLL+1)); fi; done
   if [ "$DLL" == "0" ] ; then
     echo 'Missing TextToSocketEngine*.dll in node_modules/text-to-socket-engine'
     echo 'Please make sure you have built text-to-socket-engine and have run "pnpm install"'
     return 1
   fi
-  pnpm pack
 }
 
-if ! [ -f win10-chromium-nvda-vm-0.0.0.tgz ] && ! buildTgz ; then
-  echo "KO: win10-chromium-nvda-vm-0.0.0.tgz"
-  exit 1
-else
-  echo "OK: win10-chromium-nvda-vm-0.0.0.tgz"
-fi
-
 cd software
+
+for component in $COMPONENTS_TO_INCLUDE ; do
+  if ! [ -f "$component.tgz" ] ; then
+    echo "Creating $component.tgz..."
+    if [ "$component" == "text-to-socket-engine" ]; then
+      checkDLL
+    fi
+    ( cd "$COMPONENTS_FOLDER/$component" && pnpm pack )
+    mv "$COMPONENTS_FOLDER/$component/$component"-*.tgz "$component.tgz"
+  else
+    echo "OK: $component.tgz"
+  fi
+done
+
 aria2c -V --auto-file-renaming false -x 5 -i ../urls.txt
 
 if ! [ -f "MSEdge - Win10.box" ]; then
