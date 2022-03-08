@@ -57,7 +57,7 @@ import { sigintWin32 } from "../server/sigintWin32";
     "public-host": {
       type: "string",
       alias: "h",
-      default: hostname()
+      default: `${hostname()}.`
     },
     "listen-host": {
       type: "string",
