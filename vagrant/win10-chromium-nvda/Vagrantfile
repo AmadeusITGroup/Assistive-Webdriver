@@ -87,13 +87,18 @@ namespace Win32Api
       \$p = Start-Process msiexec.exe -ArgumentList "/I","c:\\vagrant\\software\\node.msi","/quiet" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
       netsh advfirewall firewall add rule name="Allow nodejs" dir=in action=allow program="c:\\Program Files\\nodejs\\node.exe" enable=yes
+      \$Env:PATH += ";c:\\Program Files\\nodejs"
 
-      echo "Installing assistive-playwright-server, tcp-web-listener and text-to-socket-engine..."
-      \$p = Start-Process -FilePath "c:\\Program Files\\nodejs\\npm.cmd" -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\win10-chromium-nvda-vm-0.0.0.tgz" -Wait -NoNewWindow -PassThru
+      echo "Installing assistive-playwright-server..."
+      \$p = Start-Process -FilePath "c:\\Program Files\\nodejs\\npm.cmd" -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\software\\assistive-playwright-server.tgz" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
-      \$curPath = Get-ItemPropertyValue -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH
-      Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Type ExpandString -Value "\$curPath;c:\\Users\\IEUser\\AppData\\Roaming\\npm\\node_modules\\win10-chromium-nvda-vm\\node_modules\\.bin"
-      \$p = Start-Process -FilePath "c:\\Users\\IEUser\\AppData\\Roaming\\npm\\node_modules\\win10-chromium-nvda-vm\\node_modules\\.bin\\text-to-socket-engine-register.cmd" -Wait -NoNewWindow -PassThru
+      echo "Installing tcp-web-listener..."
+      \$p = Start-Process -FilePath "c:\\Program Files\\nodejs\\npm.cmd" -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\software\\tcp-web-listener.tgz" -Wait -NoNewWindow -PassThru
+      if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
+      echo "Installing text-to-socket-engine..."
+      \$p = Start-Process -FilePath "c:\\Program Files\\nodejs\\npm.cmd" -ArgumentList "install","--scripts-prepend-node-path=true","-g","c:\\vagrant\\software\\text-to-socket-engine.tgz" -Wait -NoNewWindow -PassThru
+      if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
+      \$p = Start-Process -FilePath "c:\\Users\\IEUser\\AppData\\Roaming\\npm\\text-to-socket-engine-register.cmd" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
 
       echo "Installing java..."
