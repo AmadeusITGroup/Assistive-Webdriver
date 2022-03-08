@@ -7,7 +7,7 @@ import os from "os";
 import path from "path";
 import vmConfig from "../../vagrant/win10-chromium-nvda/vm-config.json";
 
-const baseURL = `http://${os.hostname()}:8080/`;
+const baseURL = `http://${os.hostname()}.:8080/`;
 
 console.error("Base URL: ", baseURL);
 

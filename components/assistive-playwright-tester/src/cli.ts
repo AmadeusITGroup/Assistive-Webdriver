@@ -53,7 +53,7 @@ const hasFocus: (element: any) => boolean = element =>
     "public-host": {
       type: "string",
       alias: "h",
-      default: hostname()
+      default: `${hostname()}.`
     },
     "listen-host": {
       type: "string",
