@@ -30,7 +30,7 @@
     "@types/pngjs": "6.0.1",
     "assistive-playwright-server": "workspace:*",
     "jest": "27.5.1",
-    "rollup": "2.69.0",
+    "rollup": "2.70.0",
     "tslib": "2.3.1",
     "typescript": "4.6.2",
     "wait-port": "0.2.9"
