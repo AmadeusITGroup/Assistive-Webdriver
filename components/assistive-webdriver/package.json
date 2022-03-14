@@ -59,7 +59,7 @@
     "@types/pngjs": "6.0.1",
     "@types/selenium-webdriver": "4.0.18",
     "@types/uuid": "8.3.4",
-    "@types/ws": "8.5.2",
+    "@types/ws": "8.5.3",
     "@types/yargs": "17.0.9",
     "jest": "27.5.1",
     "json-schema-to-typescript": "10.1.5",
