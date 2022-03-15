@@ -64,7 +64,7 @@
     "jest": "27.5.1",
     "json-schema-to-typescript": "10.1.5",
     "pngjs": "6.0.0",
-    "rollup": "2.70.0",
+    "rollup": "2.70.1",
     "selenium-webdriver": "4.1.1",
     "tslib": "2.3.1",
     "typescript": "4.6.2"
