@@ -1,9 +1,9 @@
 {
   "private": true,
   "devDependencies": {
-    "@babel/core": "7.17.7",
+    "@babel/core": "7.17.8",
     "@babel/plugin-syntax-typescript": "7.16.7",
-    "@microsoft/api-documenter": "7.15.4",
+    "@microsoft/api-documenter": "7.16.0",
     "@typescript-eslint/eslint-plugin": "5.15.0",
     "@typescript-eslint/parser": "5.15.0",
     "babel-plugin-istanbul": "6.1.1",
