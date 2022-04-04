@@ -170,3 +170,28 @@ jobs:
           vagrant cloud provider upload "$BOX_NAME" virtualbox "$BOX_VERSION" package.box --no-direct --debug
           vagrant cloud version release "$BOX_NAME" "$BOX_VERSION" --force
         working-directory: ./vagrant/win10-chromium-nvda
+  publish-qemu:
+    runs-on: ubuntu-latest
+    needs:
+      - build-js
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release/')
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Install qemu-utils and vagrant packages"
+        run: |
+          sudo apt-get update
+          sudo apt-get install qemu-utils vagrant
+      - name: "Download, convert and upload VM"
+        run: |
+          export BOX_NAME="assistive-webdriver/win10-chromium-nvda"
+          export BOX_VERSION="$(basename ${{ github.ref }})"
+          export BOX_DIR="$HOME/.vagrant.d/boxes/assistive-webdriver-VAGRANTSLASH-win10-chromium-nvda/$BOX_VERSION"
+          vagrant box add "$BOX_NAME" --provider virtualbox --box-version "$BOX_VERSION"
+          mkdir "$BOX_DIR/libvirt"
+          echo '{"provider":"libvirt","format":"qcow2","virtual_size":40}' > "$BOX_DIR/libvirt/metadata.json"
+          qemu-img convert -p -c -f vmdk -O qcow2 "$BOX_DIR/virtualbox/box-disk001.vmdk" "$BOX_DIR/libvirt/box.img"
+          cp vagrant/win10-chromium-nvda/Vagrantbasefile "$BOX_DIR/libvirt/Vagrantfile"
+          vagrant box remove "$BOX_NAME" --provider virtualbox --box-version "$BOX_VERSION"
+          vagrant box repackage "$BOX_NAME" libvirt "$BOX_VERSION"
+          vagrant cloud auth login --token "${{ secrets.VAGRANT_TOKEN }}"
+          vagrant cloud provider upload "$BOX_NAME" libvirt "$BOX_VERSION" package.box --no-direct --debug
