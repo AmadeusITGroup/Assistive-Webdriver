@@ -3,9 +3,9 @@
   "devDependencies": {
     "@babel/core": "7.17.8",
     "@babel/plugin-syntax-typescript": "7.16.7",
-    "@microsoft/api-documenter": "7.17.0",
-    "@typescript-eslint/eslint-plugin": "5.17.0",
-    "@typescript-eslint/parser": "5.17.0",
+    "@microsoft/api-documenter": "7.17.1",
+    "@typescript-eslint/eslint-plugin": "5.18.0",
+    "@typescript-eslint/parser": "5.18.0",
     "babel-plugin-istanbul": "6.1.1",
     "eslint": "8.12.0",
     "eslint-config-prettier": "8.5.0",
