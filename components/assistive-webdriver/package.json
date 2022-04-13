@@ -43,10 +43,10 @@
     "vm-providers": "workspace:*",
     "winston": "3.7.2",
     "ws": "8.5.0",
-    "yargs": "17.4.0"
+    "yargs": "17.4.1"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.20.0",
+    "@microsoft/api-extractor": "7.22.0",
     "@rollup/plugin-typescript": "8.3.1",
     "@sinonjs/fake-timers": "9.1.1",
     "@types/co-body": "6.1.0",
