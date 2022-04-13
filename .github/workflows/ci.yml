@@ -12,9 +12,9 @@ jobs:
       matrix:
         arch: [x86, amd64]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set Node.js version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "14.x"
       - run: node setVersion.js
@@ -27,7 +27,7 @@ jobs:
         shell: cmd
         working-directory: .\components\text-to-socket-engine
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: text-to-socket-engine-${{ matrix.arch }}
           path: components/text-to-socket-engine/TextToSocketEngine-${{ matrix.arch }}.dll
@@ -44,20 +44,20 @@ jobs:
     steps:
       - name: "GitHub variables"
         run: echo "github.event_name = ${{ github.event_name }}, github.ref = ${{ github.ref }}"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set Node.js version
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "14.x"
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: text-to-socket-engine-x86
           path: components/text-to-socket-engine
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: text-to-socket-engine-amd64
           path: components/text-to-socket-engine
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: "~/.pnpm-store"
           key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
@@ -73,14 +73,14 @@ jobs:
       - run: pnpm test -r
       - name: "Download software"
         run: cd ./vagrant/win10-chromium-nvda && ./download.sh
-      - uses: nick-invision/retry@v2
+      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "Create VM"
         with:
           timeout_minutes: 45
           max_attempts: 3
           command: cd ./vagrant/win10-chromium-nvda && ./createVM.sh
       - run: vboxwebsrv -v -A null --logfile vboxwebsrv.log &
-      - uses: nick-invision/retry@v2
+      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-playwright (nvda, chromium)"
         with:
           timeout_minutes: 30
@@ -89,7 +89,7 @@ jobs:
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-apw-tester -- -l debug -k $NVDA_SKIP_KEYS --vm-settings '$VM_SETTINGS'
-      - uses: nick-invision/retry@v2
+      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-playwright (jaws, chromium)"
         with:
           timeout_minutes: 30
@@ -104,7 +104,7 @@ jobs:
           pnpm nyc-awd-server -- -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
-      - uses: nick-invision/retry@v2
+      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-webdriver (nvda, chromium)"
         with:
           timeout_minutes: 30
@@ -112,7 +112,7 @@ jobs:
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-awd-tester -- -m nvda -k $NVDA_SKIP_KEYS -l debug
-      - uses: nick-invision/retry@v2
+      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-webdriver (jaws, chromium)"
         with:
           timeout_minutes: 30
@@ -134,7 +134,7 @@ jobs:
         if: ${{ always() }}
       - run: pnpm nyc-report
         if: matrix.ENABLE_COVERAGE == '1'
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@e3c560433a6cc60aec8812599b7844a7b4fa0d71 #v3.0.0
         with:
           file: ./coverage/lcov.info
         if: matrix.ENABLE_COVERAGE == '1'
@@ -144,7 +144,7 @@ jobs:
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
           pnpm publish -r --no-git-checks
       - if: matrix.ENABLE_COVERAGE == '0' && github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release/')
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
           path: gh-pages
@@ -176,7 +176,7 @@ jobs:
       - build-js
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/release/')
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: "Install qemu-utils and vagrant packages"
         run: |
           sudo apt-get update
