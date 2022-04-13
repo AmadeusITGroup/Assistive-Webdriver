@@ -48,7 +48,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "7.22.0",
     "@rollup/plugin-typescript": "8.3.1",
-    "@sinonjs/fake-timers": "9.1.1",
+    "@sinonjs/fake-timers": "9.1.2",
     "@types/co-body": "6.1.0",
     "@types/http-proxy": "1.17.8",
     "@types/jest": "27.4.1",
