@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/node-fetch": "2.6.1",
+    "@types/uuid": "8.3.4",
     "@types/yargs": "17.0.10",
     "playwright-core": "1.21.1",
     "rollup": "2.71.1",

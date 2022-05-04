@@ -33,8 +33,11 @@ importers:
   components/assistive-playwright-client:
     specifiers:
       '@microsoft/api-extractor': 7.23.0
+      '@types/jest': 27.5.0
       '@types/node-fetch': 2.6.1
       '@types/pngjs': 6.0.1
+      '@types/uuid': 8.3.4
+      '@types/ws': 8.5.3
       assistive-playwright-server: workspace:*
       jest: 28.0.3
       node-fetch: 2.6.7
@@ -54,8 +57,11 @@ importers:
       ws: 8.6.0
     devDependencies:
       '@microsoft/api-extractor': 7.23.0
+      '@types/jest': 27.5.0
       '@types/node-fetch': 2.6.1
       '@types/pngjs': 6.0.1
+      '@types/uuid': 8.3.4
+      '@types/ws': 8.5.3
       assistive-playwright-server: link:../assistive-playwright-server
       jest: 28.0.3
       rollup: 2.71.1
@@ -70,6 +76,7 @@ importers:
       '@rollup/plugin-typescript': 8.3.2
       '@types/co-body': 6.1.0
       '@types/http-proxy': 1.17.9
+      '@types/jest': 27.5.0
       '@types/node-fetch': 2.6.1
       '@types/ws': 8.5.3
       '@types/yargs': 17.0.10
@@ -99,6 +106,7 @@ importers:
       '@rollup/plugin-typescript': 8.3.2_oifg56kzb2ztieqdvelxuk46eu
       '@types/co-body': 6.1.0
       '@types/http-proxy': 1.17.9
+      '@types/jest': 27.5.0
       '@types/node-fetch': 2.6.1
       '@types/ws': 8.5.3
       '@types/yargs': 17.0.10
@@ -114,6 +122,7 @@ importers:
     specifiers:
       '@microsoft/api-extractor': 7.23.0
       '@playwright/test': 1.21.1
+      '@types/uuid': 8.3.4
       assistive-playwright-client: workspace:*
       rollup: 2.71.1
       tslib: 2.4.0
@@ -125,6 +134,7 @@ importers:
     devDependencies:
       '@microsoft/api-extractor': 7.23.0
       '@playwright/test': 1.21.1
+      '@types/uuid': 8.3.4
       rollup: 2.71.1
       tslib: 2.4.0
       typescript: 4.6.4
@@ -142,6 +152,7 @@ importers:
   components/assistive-playwright-tester:
     specifiers:
       '@types/node-fetch': 2.6.1
+      '@types/uuid': 8.3.4
       '@types/yargs': 17.0.10
       assistive-playwright-client: workspace:*
       node-fetch: 2.6.7
@@ -163,6 +174,7 @@ importers:
       yargs: 17.4.1
     devDependencies:
       '@types/node-fetch': 2.6.1
+      '@types/uuid': 8.3.4
       '@types/yargs': 17.0.10
       playwright-core: 1.21.1
       rollup: 2.71.1
@@ -269,6 +281,7 @@ importers:
     specifiers:
       '@microsoft/api-extractor': 7.23.0
       '@rollup/plugin-typescript': 8.3.2
+      '@types/jest': 27.5.0
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.2
       '@types/stream-json': 1.7.2
@@ -294,6 +307,7 @@ importers:
     devDependencies:
       '@microsoft/api-extractor': 7.23.0
       '@rollup/plugin-typescript': 8.3.2_oifg56kzb2ztieqdvelxuk46eu
+      '@types/jest': 27.5.0
       '@types/pngjs': 6.0.1
       '@types/qrcode': 1.4.2
       '@types/stream-json': 1.7.2
@@ -3115,16 +3129,6 @@ packages:
     resolution: {integrity: sha512-GRnmB5gPyJpAhTQdSZTSp9uaPSvl09KoYcMQtsB9rQoOmzs9dH6ffeccH+Z+cv6P68Hu5bC6JjRh4Ah/mHSNRw==}
     dev: false
 
-  /follow-redirects/1.15.0:
-    resolution: {integrity: sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==}
-    engines: {node: '>=4.0'}
-    peerDependencies:
-      debug: '*'
-    peerDependenciesMeta:
-      debug:
-        optional: true
-    dev: false
-
   /follow-redirects/1.15.0_debug@4.3.4:
     resolution: {integrity: sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==}
     engines: {node: '>=4.0'}
@@ -3381,7 +3385,7 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.0
+      follow-redirects: 1.15.0_debug@4.3.4
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
