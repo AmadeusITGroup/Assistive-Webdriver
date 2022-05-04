@@ -88,7 +88,7 @@ jobs:
           command: |
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
-            pnpm nyc-apw-tester -- -l debug -k $NVDA_SKIP_KEYS --vm-settings '$VM_SETTINGS'
+            pnpm nyc-apw-tester -l debug -k $NVDA_SKIP_KEYS --vm-settings '$VM_SETTINGS'
       - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-playwright (jaws, chromium)"
         with:
@@ -97,11 +97,11 @@ jobs:
           command: |
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").jaws.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
-            pnpm nyc-apw-tester -- -l debug -k $JAWS_SKIP_KEYS --vm-settings '$VM_SETTINGS'
+            pnpm nyc-apw-tester -l debug -k $JAWS_SKIP_KEYS --vm-settings '$VM_SETTINGS'
       - run: pnpm nyc-apw-test
         name: "test assistive-playwright-test"
       - run: |
-          pnpm nyc-awd-server -- -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
+          pnpm nyc-awd-server -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
       - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
@@ -111,7 +111,7 @@ jobs:
           max_attempts: 5
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
-            pnpm nyc-awd-tester -- -m nvda -k $NVDA_SKIP_KEYS -l debug
+            pnpm nyc-awd-tester -m nvda -k $NVDA_SKIP_KEYS -l debug
       - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
         name: "test assistive-webdriver (jaws, chromium)"
         with:
@@ -119,7 +119,7 @@ jobs:
           max_attempts: 5
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
-            pnpm nyc-awd-tester -- -m jaws -k $JAWS_SKIP_KEYS -l debug
+            pnpm nyc-awd-tester -m jaws -k $JAWS_SKIP_KEYS -l debug
       - run: |
           ASSISTIVE_WEBDRIVER_PID=$(cat ./assistive-webdriver.pid)
           echo "Sending SIGINT to $ASSISTIVE_WEBDRIVER_PID"
