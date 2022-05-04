@@ -26,8 +26,11 @@
   ],
   "devDependencies": {
     "@microsoft/api-extractor": "7.23.0",
+    "@types/jest": "27.5.0",
     "@types/node-fetch": "2.6.1",
     "@types/pngjs": "6.0.1",
+    "@types/uuid": "8.3.4",
+    "@types/ws": "8.5.3",
     "assistive-playwright-server": "workspace:*",
     "jest": "28.0.3",
     "rollup": "2.71.1",
