@@ -28,10 +28,10 @@
   "devDependencies": {
     "@types/node-fetch": "2.6.1",
     "@types/yargs": "17.0.10",
-    "playwright-core": "1.21.0",
-    "rollup": "2.70.1",
-    "tslib": "2.3.1",
-    "typescript": "4.6.3",
+    "playwright-core": "1.21.1",
+    "rollup": "2.71.1",
+    "tslib": "2.4.0",
+    "typescript": "4.6.4",
     "wait-port": "0.2.9"
   },
   "scripts": {
