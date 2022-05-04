@@ -129,7 +129,8 @@ class PointerInputSource extends NullInputSource {
 const inputSources: { [type: string]: typeof NullInputSource } = {
   none: NullInputSource,
   key: KeyboardInputSource,
-  pointer: PointerInputSource
+  pointer: PointerInputSource,
+  wheel: NullInputSource
 };
 
 export async function executeNativeEvents(
