@@ -16,7 +16,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-const NodeJestEnvironment = require("jest-environment-node");
+const NodeJestEnvironment = require("jest-environment-node").default;
 
 class NycNodeJestEnv extends NodeJestEnvironment {
   async setup() {
