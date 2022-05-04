@@ -31,17 +31,17 @@
     "virtualbox-soap": "4.1.0"
   },
   "devDependencies": {
-    "@microsoft/api-extractor": "7.22.0",
-    "@rollup/plugin-typescript": "8.3.1",
+    "@microsoft/api-extractor": "7.23.0",
+    "@rollup/plugin-typescript": "8.3.2",
     "@types/pngjs": "6.0.1",
     "@types/qrcode": "1.4.2",
     "@types/stream-json": "1.7.2",
     "@types/uuid": "8.3.4",
-    "jest": "27.5.1",
+    "jest": "28.0.3",
     "json-schema-to-typescript": "10.1.5",
-    "rollup": "2.70.1",
-    "tslib": "2.3.1",
-    "typescript": "4.6.3"
+    "rollup": "2.71.1",
+    "tslib": "2.4.0",
+    "typescript": "4.6.4"
   },
   "scripts": {
     "prepare": "pnpm build",

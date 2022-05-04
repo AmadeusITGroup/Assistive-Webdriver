@@ -25,11 +25,11 @@
     "dist"
   ],
   "devDependencies": {
-    "@microsoft/api-extractor": "7.22.0",
-    "@playwright/test": "1.21.0",
-    "rollup": "2.70.1",
-    "tslib": "2.3.1",
-    "typescript": "4.6.3"
+    "@microsoft/api-extractor": "7.23.0",
+    "@playwright/test": "1.21.1",
+    "rollup": "2.71.1",
+    "tslib": "2.4.0",
+    "typescript": "4.6.4"
   },
   "dependencies": {
     "assistive-playwright-client": "workspace:*",
