@@ -59,12 +59,15 @@ jobs:
           path: components/text-to-socket-engine
       - uses: actions/cache@v3
         with:
-          path: "~/.pnpm-store"
+          path: |
+            ~/.pnpm-store
+            ~/.ms-playwright
           key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             pnpm-
       - run: |
           npm i -g pnpm
+          echo "PLAYWRIGHT_BROWSERS_PATH=$HOME/.ms-playwright" >> $GITHUB_ENV
           pnpm config set store-dir ~/.pnpm-store
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
