@@ -29,12 +29,12 @@
   "dependencies": {
     "express": "4.18.1",
     "sockjs": "0.3.24",
-    "sockjs-client": "1.6.0",
-    "yargs": "17.4.1"
+    "sockjs-client": "1.6.1",
+    "yargs": "17.5.1"
   },
   "devDependencies": {
     "jest": "28.1.0",
     "wait-port": "0.2.9",
-    "ws": "8.6.0"
+    "ws": "8.7.0"
   }
 }
