@@ -19,14 +19,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { shouldInstrument, process: instrument } = require("./instrument");
 const { createTransformer } = require("ts-jest").default;
+const { normalize } = require("path");
 
 exports.createTransformer = () => {
   const tsJestTransformer = createTransformer();
 
   return {
     process(content, filename, jestConfig, transformOptions) {
-      if (shouldInstrument(filename)) {
-        content = instrument(content, filename);
+      const normalizedFileName = normalize(filename);
+      if (shouldInstrument(normalizedFileName)) {
+        content = instrument(content, normalizedFileName);
       }
       content = tsJestTransformer.process(
         content,
