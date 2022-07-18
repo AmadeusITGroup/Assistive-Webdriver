@@ -36,6 +36,9 @@ class RemotePlaywrightBrowserServer implements BrowserServer {
   once(event: "close", listener: () => void): this {
     return this;
   }
+  prependListener(event: "close", listener: () => void): this {
+    return this;
+  }
   addListener(event: "close", listener: () => void): this {
     return this;
   }
