@@ -12,7 +12,7 @@
     "directory": "components/assistive-playwright-test-sample"
   },
   "dependencies": {
-    "@playwright/test": "1.26.0",
+    "@playwright/test": "1.27.0",
     "assistive-playwright-test": "workspace:*",
     "sirv-cli": "2.0.2"
   },

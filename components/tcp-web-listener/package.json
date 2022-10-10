@@ -27,13 +27,13 @@
     "test": "jest"
   },
   "dependencies": {
-    "express": "4.18.1",
+    "express": "4.18.2",
     "sockjs": "0.3.24",
     "sockjs-client": "1.6.1",
-    "yargs": "17.5.1"
+    "yargs": "17.6.0"
   },
   "devDependencies": {
-    "jest": "29.0.3",
+    "jest": "29.1.2",
     "wait-port": "1.0.1",
     "ws": "8.9.0"
   }
