@@ -18,14 +18,12 @@
 
 module.exports = {
   transform: {
-    "^.+\\.ts$": "../../tools/code-coverage/jestTransform"
+    "^.+\\.ts$": [
+      "../../tools/code-coverage/jestTransform",
+      { tsconfig: "tsconfig.test.json" }
+    ]
   },
   testEnvironment: "../../tools/code-coverage/jestEnv",
   testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  testPathIgnorePatterns: ["<rootDir>/test/e2e/"],
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.test.json"
-    }
-  }
+  testPathIgnorePatterns: ["<rootDir>/test/e2e/"]
 };

@@ -18,13 +18,11 @@
 
 module.exports = {
   transform: {
-    "^.+\\.ts$": "../../tools/code-coverage/jestTransform"
+    "^.+\\.ts$": [
+      "../../tools/code-coverage/jestTransform",
+      { tsconfig: "tsconfig.test.json" }
+    ]
   },
   testEnvironment: "../../tools/code-coverage/jestEnv",
-  testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.test.json"
-    }
-  }
+  testMatch: ["<rootDir>/test/**/*.spec.ts"]
 };
