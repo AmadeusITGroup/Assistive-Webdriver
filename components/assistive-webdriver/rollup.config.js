@@ -39,7 +39,7 @@ const externalDependencies = dependencies.concat([
 const typescript = require("@rollup/plugin-typescript");
 const plugins = [typescript()];
 
-export default [
+module.exports = [
   {
     output: [
       {

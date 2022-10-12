@@ -21,7 +21,7 @@ const pkg = require("./package.json");
 const dependencies = Object.keys(pkg.dependencies);
 const typescript = require("@rollup/plugin-typescript");
 
-export default [
+module.exports = [
   {
     output: [
       {

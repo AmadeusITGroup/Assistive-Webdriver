@@ -25,7 +25,7 @@ const typescript = require("@rollup/plugin-typescript");
 const commonjs = require("@rollup/plugin-commonjs");
 const replace = require("@rollup/plugin-replace");
 
-export default {
+module.exports = {
   output: [
     {
       file: "./dist/index.js",
