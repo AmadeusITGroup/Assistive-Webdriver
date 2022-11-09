@@ -10,7 +10,7 @@ function checkDLL() {
   for i in "$COMPONENTS_FOLDER"/text-to-socket-engine/TextToSocketEngine*.dll ; do if [ -f "$i" ]; then DLL=$((DLL+1)); fi; done
   if [ "$DLL" == "0" ] ; then
     echo 'Missing TextToSocketEngine*.dll in node_modules/text-to-socket-engine'
-    echo 'Please make sure you have built text-to-socket-engine and have run "pnpm install"'
+    echo 'Please make sure you have built text-to-socket-engine and have run "yarn install"'
     return 1
   fi
 }
@@ -23,8 +23,8 @@ for component in $COMPONENTS_TO_INCLUDE ; do
     if [ "$component" == "text-to-socket-engine" ]; then
       checkDLL
     fi
-    ( cd "$COMPONENTS_FOLDER/$component" && pnpm pack )
-    mv "$COMPONENTS_FOLDER/$component/$component"-*.tgz "$component.tgz"
+    ( cd "$COMPONENTS_FOLDER/$component" && yarn pack )
+    mv "$COMPONENTS_FOLDER/$component/package.tgz" "$component.tgz"
   else
     echo "OK: $component.tgz"
   fi

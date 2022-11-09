@@ -30,15 +30,15 @@
     "@rollup/plugin-typescript": "10.0.1",
     "@types/uuid": "9.0.0",
     "@types/yargs": "17.0.15",
-    "playwright-core": "1.28.1",
     "node-fetch": "3.3.0",
+    "playwright-core": "1.28.1",
     "rollup": "3.5.1",
     "tslib": "2.4.1",
     "typescript": "4.9.3",
     "wait-port": "1.0.4"
   },
   "scripts": {
-    "prepare": "pnpm build",
+    "prepack": "yarn build",
     "build": "node ../../tools/clean && rollup --failAfterWarnings -c"
   },
   "license": "MIT"

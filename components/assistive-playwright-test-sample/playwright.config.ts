@@ -23,7 +23,7 @@ const config: AssistivePlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 5 : 0,
   webServer: {
-    command: "npm start",
+    command: "yarn start",
     cwd: __dirname,
     url: baseURL,
     reuseExistingServer: !process.env.CI

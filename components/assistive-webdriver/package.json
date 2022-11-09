@@ -63,6 +63,7 @@
     "jest": "29.3.1",
     "json-schema-to-typescript": "11.0.2",
     "node-fetch": "3.3.0",
+    "nyc": "15.1.0",
     "p-queue": "7.3.0",
     "pngjs": "6.0.0",
     "rollup": "3.5.1",
@@ -74,8 +75,8 @@
     "selenium-webdriver": "*"
   },
   "scripts": {
-    "prepare": "pnpm build",
-    "build": "node ../../tools/clean && pnpm build:schema && pnpm build:rollup && pnpm build:dts && pnpm build:api",
+    "prepack": "yarn build",
+    "build": "node ../../tools/clean && yarn build:schema && yarn build:rollup && yarn build:dts && yarn build:api",
     "build:schema": "node build-config-schema.js && json2ts -i config-schema.json -o src/server/config.ts",
     "build:rollup": "rollup --failAfterWarnings -c",
     "build:dts": "tsc -p tsconfig.d.json",
