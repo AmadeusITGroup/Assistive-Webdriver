@@ -76,14 +76,14 @@ jobs:
       - run: pnpm test -r
       - name: "Download software"
         run: cd ./vagrant/win10-chromium-nvda && ./download.sh
-      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
+      - uses: nick-fields/retry@3e91a01664abd3c5cd539100d10d33b9c5b68482 # v2.8.2
         name: "Create VM"
         with:
           timeout_minutes: 45
           max_attempts: 3
           command: cd ./vagrant/win10-chromium-nvda && ./createVM.sh
       - run: vboxwebsrv -v -A null --logfile vboxwebsrv.log &
-      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
+      - uses: nick-fields/retry@3e91a01664abd3c5cd539100d10d33b9c5b68482 # v2.8.2
         name: "test assistive-playwright (nvda, chromium)"
         with:
           timeout_minutes: 30
@@ -92,7 +92,7 @@ jobs:
             export VM_SETTINGS="$(node -e 'console.log(JSON.stringify(require("./vagrant/win10-chromium-nvda/vm-config.json").nvda.vmSettings))')" &&
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-apw-tester -l debug -k $NVDA_SKIP_KEYS --vm-settings '$VM_SETTINGS'
-      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
+      - uses: nick-fields/retry@3e91a01664abd3c5cd539100d10d33b9c5b68482 # v2.8.2
         name: "test assistive-playwright (jaws, chromium)"
         with:
           timeout_minutes: 30
@@ -107,7 +107,7 @@ jobs:
           pnpm nyc-awd-server -l debug -c ./vagrant/win10-chromium-nvda/vm-config.json --pid-file assistive-webdriver.pid &> assistive-webdriver.log &
           while ! nc -z 127.0.0.1 3000; do sleep 1; done
         name: "Start assistive-webdriver server"
-      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
+      - uses: nick-fields/retry@3e91a01664abd3c5cd539100d10d33b9c5b68482 # v2.8.2
         name: "test assistive-webdriver (nvda, chromium)"
         with:
           timeout_minutes: 30
@@ -115,7 +115,7 @@ jobs:
           command: |
             . ./vagrant/win10-chromium-nvda/vm-skip-keys.sh &&
             pnpm nyc-awd-tester -m nvda -k $NVDA_SKIP_KEYS -l debug
-      - uses: nick-fields/retry@7f8f3d9f0f62fe5925341be21c2e8314fd4f7c7c # v2.6.0
+      - uses: nick-fields/retry@3e91a01664abd3c5cd539100d10d33b9c5b68482 # v2.8.2
         name: "test assistive-webdriver (jaws, chromium)"
         with:
           timeout_minutes: 30
@@ -137,7 +137,7 @@ jobs:
         if: ${{ always() }}
       - run: pnpm nyc-report
         if: matrix.ENABLE_COVERAGE == '1'
-      - uses: codecov/codecov-action@e3c560433a6cc60aec8812599b7844a7b4fa0d71 #v3.0.0
+      - uses: codecov/codecov-action@d9f34f8cd5cb3b3eb79b3e4b5dae3a16df499a70 #v3.1.1
         with:
           file: ./coverage/lcov.info
         if: matrix.ENABLE_COVERAGE == '1'
