@@ -243,7 +243,8 @@ describe("server", () => {
       const requestBody = await jsonBody(ctx.req);
       expect(requestBody).toEqual({
         capabilities: {
-          alwaysMatch: { browserName: "chrome", "xxx:something": "fghijk" }
+          alwaysMatch: { browserName: "chrome", "xxx:something": "fghijk" },
+          firstMatch: [{}]
         }
       });
       return {
@@ -305,7 +306,8 @@ describe("server", () => {
       const requestBody = await jsonBody(ctx.req);
       expect(requestBody).toEqual({
         capabilities: {
-          alwaysMatch: { browserName: "chrome" }
+          alwaysMatch: { browserName: "chrome" },
+          firstMatch: [{}]
         }
       });
       return {
@@ -376,7 +378,8 @@ describe("server", () => {
       const requestBody = await jsonBody(ctx.req);
       expect(requestBody).toEqual({
         capabilities: {
-          alwaysMatch: { browserName: "chrome" }
+          alwaysMatch: { browserName: "chrome" },
+          firstMatch: [{}]
         }
       });
       return {

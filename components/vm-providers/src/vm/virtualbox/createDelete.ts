@@ -38,7 +38,16 @@ export async function cloneMachine(
     const snapshotObject = await originalMachine.findSnapshot(originalSnapshot);
     originalMachine = await snapshotObject.getMachine();
   }
-  const machine = await virtualbox.createMachine("", name, [], "", "");
+  const machine = await virtualbox.createMachine(
+    "",
+    name,
+    [],
+    "",
+    "",
+    "",
+    "",
+    ""
+  );
   try {
     const cloneProgress = await originalMachine.cloneTo(
       machine,
