@@ -190,7 +190,7 @@ export function connectRemotePlaywright<T extends RemotePlaywright>(
       ) {
         let replacement = storedObjects.get(res);
         if (!replacement) {
-          replacement = remotePlaywrightBrowserType(parsedURL, res);
+          replacement = remotePlaywrightBrowserType(parsedURL, res as any);
           storedObjects.set(res, replacement);
         }
         return replacement;
