@@ -21,21 +21,16 @@ const { shouldInstrument, process: instrument } = require("./instrument");
 const { createTransformer } = require("ts-jest").default;
 const { normalize } = require("path");
 
-exports.createTransformer = () => {
-  const tsJestTransformer = createTransformer();
+exports.createTransformer = (...args) => {
+  const tsJestTransformer = createTransformer(...args);
 
   return {
-    process(content, filename, jestConfig, transformOptions) {
+    process(content, filename, ...otherArgs) {
       const normalizedFileName = normalize(filename);
       if (shouldInstrument(normalizedFileName)) {
         content = instrument(content, normalizedFileName);
       }
-      content = tsJestTransformer.process(
-        content,
-        filename,
-        jestConfig,
-        transformOptions
-      );
+      content = tsJestTransformer.process(content, filename, ...otherArgs);
       return content;
     }
   };
