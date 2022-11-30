@@ -103,10 +103,10 @@ namespace Win32Api
 
       echo "Installing java..."
       Expand-Archive -Path C:\\vagrant\\software\\openjdk.zip -DestinationPath C:\\
+      netsh advfirewall firewall add rule name="Allow java" dir=in action=allow program="c:\\jdk-17.0.2\\bin\\java.exe" enable=yes
 
       echo "Installing selenium-server..."
       Copy-Item "C:\\vagrant\\software\\selenium-server.jar" -Destination C:\\
-      netsh advfirewall firewall add rule name="Allow selenium" localport=4444 protocol=tcp dir=in action=allow
       New-Item -Path 'C:\\webdrivers' -ItemType "directory" -Force | Out-Null
       \$curPath = Get-ItemPropertyValue -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH
       Set-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment' -Name PATH -Type ExpandString -Value "\$curPath;c:\\webdrivers"
