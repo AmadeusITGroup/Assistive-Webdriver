@@ -36,8 +36,14 @@ const externalDependencies = dependencies.concat([
   "url",
   "../../config-schema.json"
 ]);
+const commonjs = require("@rollup/plugin-commonjs");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const typescript = require("@rollup/plugin-typescript");
-const plugins = [typescript()];
+const plugins = [
+  commonjs({ preferBuiltins: true }),
+  nodeResolve(),
+  typescript()
+];
 
 module.exports = [
   {
