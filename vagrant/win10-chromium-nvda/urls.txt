@@ -10,9 +10,9 @@ https://jaws2022.vfo.digital/2022.2202.38.400/64B90A11-AE0E-45FB-B94B-EFE626B7C9
 https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_windows-x64_bin.zip
   out=openjdk.zip
   checksum=sha-512=e30b563c0b242904dfe07cf782862ef4ba7c60c3d8b96deace9682d278a37e93f7ee7180898f6104b847b38669e063173f5d9ed48c22228812b25f4795d15e8b
-https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.6.0/selenium-server-4.6.0.jar
   out=selenium-server.jar
-  checksum=sha-512=29ae1e11e51744478e55ba12f6d0dbc06ce7850886701e84d97bb44a675af5f0d8c5bb7b8278365718657e9cec34a69b390cc7568dc2fe710c3256a1effed2ac
+  checksum=sha-512=8d81dd4cfd76de1f72ce999999f615d79bccb9307cad79f20be64a97d3efba5875d7518764d80fb7039f7cebafb59eb17ef6ac4b9639e85c68ae935da0d556f1
 https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi
   out=node.msi
   checksum=sha-512=c05c96b72b73039719a0a727518f6997742012ec8aa1dedad48bf5e2ec9d28d5259efb48fc19c86a238d9dc73106f6cd930774ca3112f739c332486068e022ee
