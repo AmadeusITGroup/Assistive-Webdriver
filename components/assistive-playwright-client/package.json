@@ -25,25 +25,25 @@
     "dist"
   ],
   "devDependencies": {
-    "@microsoft/api-extractor": "7.32.0",
-    "@types/jest": "29.1.2",
+    "@microsoft/api-extractor": "7.33.6",
+    "@types/jest": "29.2.3",
     "@types/node-fetch": "2.6.1",
     "@types/pngjs": "6.0.1",
-    "@types/uuid": "8.3.4",
+    "@types/uuid": "9.0.0",
     "@types/ws": "8.5.3",
     "assistive-playwright-server": "workspace:*",
-    "jest": "29.1.2",
-    "rollup": "2.79.1",
-    "tslib": "2.4.0",
-    "typescript": "4.8.4",
-    "wait-port": "1.0.1"
+    "jest": "29.3.1",
+    "rollup": "3.5.0",
+    "tslib": "2.4.1",
+    "typescript": "4.9.3",
+    "wait-port": "1.0.4"
   },
   "dependencies": {
     "node-fetch": "2.6.7",
-    "playwright-core": "1.27.0",
+    "playwright-core": "1.28.1",
     "uuid": "9.0.0",
     "vm-providers": "workspace:*",
-    "ws": "8.9.0"
+    "ws": "8.11.0"
   },
   "scripts": {
     "prepare": "pnpm build",
