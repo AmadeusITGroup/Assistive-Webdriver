@@ -16,34 +16,16 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-require("../../tools/code-coverage/overrideReadFileSync");
-const pkg = require("./package.json");
-const dependencies = Object.keys(pkg.dependencies);
-const commonjs = require("@rollup/plugin-commonjs");
-const { nodeResolve } = require("@rollup/plugin-node-resolve");
-const typescript = require("@rollup/plugin-typescript");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const babel = require("@babel/core");
 
-module.exports = [
-  {
-    output: [
-      {
-        file: "./dist/index.js",
-        format: "cjs",
-        inlineDynamicImports: true
-      }
-    ],
-    input: "./src/index.ts",
-    external: dependencies.concat([
-      "events",
-      "util",
-      "child_process",
-      "fs",
-      "os",
-      "path",
-      "net",
-      "stream",
-      "url"
-    ]),
-    plugins: [commonjs({ preferBuiltins: true }), nodeResolve(), typescript()]
+module.exports = {
+  process(src) {
+    return {
+      code: babel.transform(src, {
+        compact: false,
+        plugins: [require.resolve("@babel/plugin-transform-modules-commonjs")]
+      }).code
+    };
   }
-];
+};

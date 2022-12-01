@@ -65,16 +65,24 @@ module.exports = [
     output: [
       {
         file: "./dist/server/index.js",
-        format: "cjs"
+        format: "cjs",
+        inlineDynamicImports: true
       },
       {
         file: "./dist/server/index.mjs",
-        format: "esm"
+        format: "esm",
+        inlineDynamicImports: true
       }
     ],
     input: "./src/server/index.ts",
     external: externalDependencies,
-    plugins
+    plugins,
+    onwarn(warning, warn) {
+      if (warning.code === "THIS_IS_UNDEFINED") {
+        return; // ignore this warning
+      }
+      warn(warning);
+    }
   },
   {
     output: [

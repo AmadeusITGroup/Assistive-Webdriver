@@ -21,8 +21,9 @@ const {
 } = require("../../tools/code-coverage/overrideReadFileSync");
 const pkg = require("./package.json");
 const dependencies = Object.keys(pkg.dependencies);
-const typescript = require("@rollup/plugin-typescript");
 const commonjs = require("@rollup/plugin-commonjs");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const typescript = require("@rollup/plugin-typescript");
 const replace = require("@rollup/plugin-replace");
 
 module.exports = {
@@ -49,7 +50,8 @@ module.exports = {
       },
       preventAssignment: true
     }),
-    commonjs(),
+    commonjs({ preferBuiltins: true }),
+    nodeResolve(),
     typescript()
   ]
 };

@@ -17,7 +17,9 @@
  */
 
 module.exports = {
+  transformIgnorePatterns: [],
   transform: {
+    "\\.m?js$": "../../tools/jestEsmTransform",
     "^.+\\.ts$": [
       "../../tools/code-coverage/jestTransform",
       { tsconfig: "tsconfig.test.json" }
