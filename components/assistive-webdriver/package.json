@@ -66,8 +66,8 @@
     "json-schema-to-typescript": "11.0.2",
     "p-queue": "6.6.2",
     "pngjs": "6.0.0",
-    "rollup": "3.5.0",
-    "selenium-webdriver": "4.6.1",
+    "rollup": "3.5.1",
+    "selenium-webdriver": "4.7.0",
     "tslib": "2.4.1",
     "typescript": "4.9.3"
   },
