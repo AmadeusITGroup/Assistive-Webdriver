@@ -5,7 +5,7 @@ const { Builder, By, Key, Browser, until } = require("selenium-webdriver");
 (async function () {
   const driver = await new Builder()
     .forBrowser(Browser.CHROME)
-    .usingServer("http://localhost:3000/")
+    .usingServer("http://127.0.0.1:3000/")
     .build();
   try {
     await driver.get("https://www.google.com");
