@@ -44,14 +44,14 @@ describe("with server and no vm", () => {
   });
 
   it("should create a page in chromium", async () => {
-    const { chromium } = connectRemotePlaywright("http://localhost:8885");
+    const { chromium } = connectRemotePlaywright("http://127.0.0.1:8885");
     const instance = await chromium.launch();
     try {
       const context = await instance.newContext();
       try {
         const page = await context.newPage();
         try {
-          const response = await page.goto("http://localhost:8885");
+          const response = await page.goto("http://127.0.0.1:8885");
           const json = await response!.json();
           expect(json).toEqual({ server: "assistive-playwright-server" });
         } finally {
@@ -67,7 +67,7 @@ describe("with server and no vm", () => {
 
   it("should receive messages from the screen reader", async () => {
     const screenReader = await ScreenReaderClient.create(
-      "ws://localhost:8885/screen-reader"
+      "ws://127.0.0.1:8885/screen-reader"
     );
     expect(screenReader.connected).toBe(true);
     const socketTCP = createConnection(8886, "127.0.0.1");

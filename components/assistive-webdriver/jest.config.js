@@ -27,5 +27,5 @@ module.exports = {
   },
   testEnvironment: "../../tools/code-coverage/jestEnv",
   testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  testTimeout: 10000
+  testTimeout: 30000
 };
