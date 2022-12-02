@@ -38,7 +38,7 @@ import { sigintWin32 } from "../server/sigintWin32";
     server: {
       type: "string",
       alias: "s",
-      default: "http://localhost:3000"
+      default: "http://127.0.0.1:3000"
     },
     browser: {
       type: "string",

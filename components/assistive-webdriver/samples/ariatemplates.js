@@ -12,7 +12,7 @@ const {
       "awd:vm-config": "jaws"
     })
     .forBrowser(Browser.INTERNET_EXPLORER)
-    .usingServer("http://localhost:3000/")
+    .usingServer("http://127.0.0.1:3000/")
     .build();
   try {
     addScreenReaderTextListener(driver, message =>
