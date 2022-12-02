@@ -13,9 +13,9 @@ https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/G
 https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.6.0/selenium-server-4.6.0.jar
   out=selenium-server.jar
   checksum=sha-512=8d81dd4cfd76de1f72ce999999f615d79bccb9307cad79f20be64a97d3efba5875d7518764d80fb7039f7cebafb59eb17ef6ac4b9639e85c68ae935da0d556f1
-https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi
+https://nodejs.org/dist/v18.12.1/node-v18.12.1-x64.msi
   out=node.msi
-  checksum=sha-512=c05c96b72b73039719a0a727518f6997742012ec8aa1dedad48bf5e2ec9d28d5259efb48fc19c86a238d9dc73106f6cd930774ca3112f739c332486068e022ee
+  checksum=sha-512=38b1819384b7e9da45bcf50a90c3f175de07e6f624c89d3614beec90376dc69b39d102bef4774a5d83db7829acdddce07fabe7bab726f6662c22d7341e970e7e
 # cf https://www.chromium.org/getting-involved/download-chromium
 https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F961656%2Fchrome-win.zip?generation=1642724549952286&alt=media
   out=chrome.zip
