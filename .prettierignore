@@ -3,7 +3,7 @@ dist
 build
 node_modules
 coverage
-/pnpm-lock.yaml
+/.yarn
 /components/assistive-webdriver/config-schema.json
 /components/assistive-playwright-server/src/validation.js
 /doc/apidoc-input

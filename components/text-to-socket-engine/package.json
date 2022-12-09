@@ -19,9 +19,9 @@
     "removeVoice.cmd"
   ],
   "bin": {
-    "text-to-socket-engine-register": "register.cmd",
-    "text-to-socket-engine-unregister": "unregister.cmd",
     "text-to-socket-engine-add-voice": "addVoice.cmd",
-    "text-to-socket-engine-remove-voice": "removeVoice.cmd"
+    "text-to-socket-engine-register": "register.cmd",
+    "text-to-socket-engine-remove-voice": "removeVoice.cmd",
+    "text-to-socket-engine-unregister": "unregister.cmd"
   }
 }

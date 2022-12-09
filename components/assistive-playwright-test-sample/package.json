@@ -17,7 +17,7 @@
     "sirv-cli": "2.0.2"
   },
   "scripts": {
-    "start": "sirv -H 0.0.0.0 public"
+    "start": "sirv -H :: public"
   },
   "license": "MIT"
 }

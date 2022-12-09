@@ -1,28 +1,28 @@
 https://az792536.vo.msecnd.net/vms/VMBuild_20190311/Vagrant/MSEdge/MSEdge.Win10.Vagrant.zip
   out=MSEdge.Win10.Vagrant.zip
   checksum=sha-512=10620d68a5a14129da0bc7f856e0e3cabbfcec9cb8e6464553c03d2f638978f9b98866cf405baf737073ebb72eee904e8cb15d835ff5f12c99b0b49d668b531a
-https://www.nvaccess.org/files/nvda/releases/2021.3.3/nvda_2021.3.3.exe
+https://www.nvaccess.org/files/nvda/releases/2022.3.2/nvda_2022.3.2.exe
   out=nvda.exe
-  checksum=sha-512=e0985c3f0bf8b7b86c36256f4023bb09b4b264ee90be02efef48b2af81cadb66a9d18353482cfe36cf8cae9bf67736e5bb499c02be4048816b5e6e71154e79e1
+  checksum=sha-512=c6caeab9c33b40f7d46ce43b62f43fea242c31c47aed471bc698b3ff28b5470a3b86dd7bdffd55c013a4a4df83bc07e7ccd0ded4da00f44c501ec1f20d9752ad
 https://jaws2022.vfo.digital/2022.2202.38.400/64B90A11-AE0E-45FB-B94B-EFE626B7C9EC/J2022.2202.38.400-any.exe
   out=jaws.exe
   checksum=sha-512=bf85c059a875b482478c6624ec9b61286b6a35937af06fcf26fa167c5a29ae0b2115d9528acbb2563f63cbcfd89fb74595a566fa0540e5c10b71858fbec033f3
 https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_windows-x64_bin.zip
   out=openjdk.zip
   checksum=sha-512=e30b563c0b242904dfe07cf782862ef4ba7c60c3d8b96deace9682d278a37e93f7ee7180898f6104b847b38669e063173f5d9ed48c22228812b25f4795d15e8b
-https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.6.0/selenium-server-4.6.0.jar
+https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.7.0/selenium-server-4.7.1.jar
   out=selenium-server.jar
-  checksum=sha-512=8d81dd4cfd76de1f72ce999999f615d79bccb9307cad79f20be64a97d3efba5875d7518764d80fb7039f7cebafb59eb17ef6ac4b9639e85c68ae935da0d556f1
-https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi
+  checksum=sha-512=8edfbab69959743ccb29215e44aea9abde44ad484d49f29ed188b6d1f1544ecf891fe4124114b55e1671daaceac970dfd233efc71537d40f408935559d741410
+https://nodejs.org/dist/v18.12.1/node-v18.12.1-x64.msi
   out=node.msi
-  checksum=sha-512=c05c96b72b73039719a0a727518f6997742012ec8aa1dedad48bf5e2ec9d28d5259efb48fc19c86a238d9dc73106f6cd930774ca3112f739c332486068e022ee
+  checksum=sha-512=38b1819384b7e9da45bcf50a90c3f175de07e6f624c89d3614beec90376dc69b39d102bef4774a5d83db7829acdddce07fabe7bab726f6662c22d7341e970e7e
 # cf https://www.chromium.org/getting-involved/download-chromium
-https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F961656%2Fchrome-win.zip?generation=1642724549952286&alt=media
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F1058902%2Fchrome-win.zip?generation=1665699165743830&alt=media
   out=chrome.zip
-  checksum=sha-512=8b53a6da20afb7c0ba96003d1f9f491b6a3148e812ada3860d41990b6803d0cdd4d42706d5315d77adaa537051a0b1b7d1435837e9feb087433cc35d1d95cc23
-https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F961656%2Fchromedriver_win32.zip?generation=1642724736241337&alt=media
+  checksum=sha-512=8f8ea24b9c3fde7f023f51cf52d312a569b04088b08262e98ff5e92178fadb36a1e104d44cabeb45394fcd7d531a88f67eb86ac57977319af5caed0745667f4b
+https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Win%2F1058902%2Fchromedriver_win32.zip?generation=1665699350942076&alt=media
   out=chromedriver.zip
-  checksum=sha-512=c82750cfa15d970b97696eace2be38d67de19756ce8e27562958835efffe339d9849a07f3e566e7fa735469bb04c052869a1673259584391cb88df20d17ad59b
-https://github.com/SeleniumHQ/selenium/releases/download/selenium-3.150.0/IEDriverServer_Win32_3.150.2.zip
+  checksum=sha-512=08f135e188f4f41ab2e82b03052ade24f8dc1e50484a81445878e8c5bd05509e59bfc038fd1ba89ddeb001c93ef12434483f142b2e407307b19aaa319c621ffe
+https://github.com/SeleniumHQ/selenium/releases/download/selenium-4.7.0/IEDriverServer_Win32_4.7.0.zip
   out=iedriver.zip
-  checksum=sha-512=b10a5eab032dd8e9be7cb4b36b81d8e20d8f01b6ee28f9b147fe254f9813b3dec2d1095a843db97098169a92ebcef82261e34acb3c8ff92be46955f31d0984b9
+  checksum=sha-512=84c2e655c2702be9e0da8e022097e7279e68dc638a1ed380d4864ed760104f7d0a9cb82580e5c2874472ed4e09145b176b9bf185681b193294d5e3558b4732cf

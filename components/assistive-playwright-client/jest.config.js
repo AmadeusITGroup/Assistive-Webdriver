@@ -17,7 +17,9 @@
  */
 
 module.exports = {
+  transformIgnorePatterns: [],
   transform: {
+    "\\.m?js$": "../../tools/jestEsmTransform",
     "^.+\\.ts$": [
       "../../tools/code-coverage/jestTransform",
       { tsconfig: "tsconfig.test.json" }
@@ -25,5 +27,6 @@ module.exports = {
   },
   testEnvironment: "../../tools/code-coverage/jestEnv",
   testMatch: ["<rootDir>/test/**/*.spec.ts"],
-  testPathIgnorePatterns: ["<rootDir>/test/e2e/"]
+  testPathIgnorePatterns: ["<rootDir>/test/e2e/"],
+  testTimeout: 30000
 };
