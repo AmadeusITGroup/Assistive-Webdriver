@@ -8,6 +8,8 @@ Vagrant.configure("2") do |config|
     v.linked_clone = true
     v.name = "win10-chromium-nvda"
     v.customize ["modifyvm", :id, "--vram", "64"]
+    v.customize ["modifyvm", :id, "--vrde", "off"]
+    v.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
     v.customize ["setextradata", :id, "GUI/MaxGuestResolution", "any"]
     v.customize ["modifyvm", :id, "--audio", "null", "--audioout", "on", "--audiocontroller", "hda"]
     # https://www.virtualbox.org/manual/ch09.html#nat_host_resolver_proxy :
