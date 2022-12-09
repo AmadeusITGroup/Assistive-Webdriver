@@ -18,7 +18,10 @@ Vagrant.configure("2") do |config|
     type: "shell",
     inline: <<-SHELL
       \$ErrorActionPreference = "Stop"
-      netsh advfirewall firewall add rule name="Allow WinRM" localport=5985 protocol=tcp dir=in action=allow
+      echo "Windows Firewall rules..."
+      New-NetFirewallRule -Enabled True -Action Allow -Direction Inbound -DisplayName "Allow WinRM"  -Protocol TCP -LocalPort 5985 | Out-Null
+      New-NetFirewallRule -Enabled True -Action Allow -Direction Inbound -DisplayName "Allow nodejs" -Program "c:\\Program Files\\nodejs\\node.exe" | Out-Null
+      New-NetFirewallRule -Enabled True -Action Allow -Direction Inbound -DisplayName "Allow java"   -Program "c:\\jdk-17.0.2\\bin\\java.exe" | Out-Null
 
       echo "Configuring auto-login..."
       Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon' -Name DefaultUserName -Type String -Value IEUser
@@ -86,7 +89,6 @@ namespace Win32Api
       echo "Installing node.js..."
       \$p = Start-Process msiexec.exe -ArgumentList "/I","c:\\vagrant\\software\\node.msi","/quiet" -Wait -NoNewWindow -PassThru
       if ( \$p.ExitCode -ne 0 ) { exit \$p.ExitCode }
-      netsh advfirewall firewall add rule name="Allow nodejs" dir=in action=allow program="c:\\Program Files\\nodejs\\node.exe" enable=yes
       \$Env:PATH += ";c:\\Program Files\\nodejs"
 
       echo "Installing assistive-playwright-server..."
@@ -103,7 +105,6 @@ namespace Win32Api
 
       echo "Installing java..."
       Expand-Archive -Path C:\\vagrant\\software\\openjdk.zip -DestinationPath C:\\
-      netsh advfirewall firewall add rule name="Allow java" dir=in action=allow program="c:\\jdk-17.0.2\\bin\\java.exe" enable=yes
 
       echo "Installing selenium-server..."
       Copy-Item "C:\\vagrant\\software\\selenium-server.jar" -Destination C:\\
