@@ -209,6 +209,17 @@ export class VirtualboxVM implements VM {
     await this.vboxMouse!.putMouseEvent(0, 0, 0, 0, this.vboxMouseButtonState);
   }
 
+  async sendMouseWheelEvent(deltaX: number, deltaY: number): Promise<void> {
+    // TODO: check if it works correctly
+    await this.vboxMouse!.putMouseEvent(
+      0,
+      0,
+      deltaY,
+      deltaX,
+      this.vboxMouseButtonState
+    );
+  }
+
   async takePNGScreenshot(): Promise<PNG> {
     const resolution = await this.vboxDisplay!.getScreenResolution(0);
     const screenshot = await this.vboxDisplay!.takeScreenShotToArray(
